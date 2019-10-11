@@ -3,3 +3,6 @@
 ___
 
 ---
+[About](http://dev.nodeca.com)
+[Tài liệu](http://dev.nodeca.com)
+[Hỗ trợ - Social Media](http://dev.nodeca.com)
