@@ -6,5 +6,5 @@ ___
 + [About](http://dev.nodeca.com)
 + [Tài liệu](http://dev.nodeca.com)
 + [Hỗ trợ - Social Media](http://dev.nodeca.com)
-+ [Tính năng]
-+ [Log - Quá trình làm ]
++ [Tính năng](http://dev.nodeca.com)
++ [Log - Quá trình làm ](http://dev.nodeca.com)
