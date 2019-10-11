@@ -1,0 +1,234 @@
+@import "../../styles/variables";
+@import "../../styles/hamburgerButton";
+
+.main-nav {
+  .bounce {
+    animation-duration: 3s;
+    animation-delay: 1s;
+  }
+
+  .fadeInLeft {
+    animation-duration: 3s;
+    animation-delay: 2s;
+  }
+
+  /* STYLES FOR ALL ICONS IN NAVIGATION */
+
+  // main-nav-top-section
+  &-top-section,
+  // main-nav-toggle-button
+  &-toggle-button,
+  // main-nav-bottom-section
+  &-bottom-section {
+    position: fixed;
+    z-index: 20;
+
+    // main-nav-bottom-section__button
+    &__button {
+      background: none;
+      border: none;
+      cursor: pointer;
+
+      svg {
+        fill: $primary-font-color;
+        height: 30px;
+      }
+    }
+  }
+
+  /* BACKGROUND AND SIZE OF NAVIGATION SECTIONS */
+
+  // main-nav-top-section
+  &-top-section,
+  // main-nav-bottom-section
+  &-bottom-section {
+    background-color: $tertiary-color;
+    height: 73px;
+    width: 100%;
+  }
+
+  /* .main-nav-top-section */
+  &-top-section {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 90px 1fr 90px;
+    grid-template-rows: 80px;
+    justify-items: center;
+    top: 0;
+    transition: top 0.5s;
+
+    // main-nav-top-section--hide
+    // &--hide {
+    //   top: -100px;
+    // }
+
+    // main-nav-top-section__image
+    &__image {
+      cursor: pointer;
+      height: auto;
+      margin-left: 52px;
+      width: 124px;
+    }
+
+    .main-nav-search-form {
+      position: relative;
+
+      // main-nav-search-form__input
+      &__input {
+        border: none;
+        border-radius: 20px;
+        //padding: 10px;
+        outline: none;
+        overflow: hidden;
+      }
+
+      // main-nav-search-form__button
+      &__button {
+        background: $secondary-color;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        height: 35px;
+        left: 125px;
+        outline: none;
+        position: absolute;
+        top: 0;
+        width: 60px;
+
+        svg {
+          fill: $primary-font-color;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  /* .main-nav-toggle-button */
+  &-toggle-button {
+    right: 0;
+    outline: none;
+    top: 12px;
+
+    .hamburger-inner,
+    .hamburger-inner:before,
+    .hamburger-inner:after {
+      background-color: $primary-font-color;
+    }
+  }
+
+  /* .main-nav-bottom-section */
+  &-bottom-section {
+    align-items: center;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 68px;
+    justify-items: center;
+    transition: bottom 0.5s;
+
+    &__button {
+      svg {
+        height: 35px;
+      }
+    }
+
+    // &--hide {
+    //   bottom: -100px;
+    // }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .main-nav {
+    &-top-section {
+      .main-nav-search-form {
+        &__input {
+          width: 240px;
+        }
+
+        &__button {
+          left: 202px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+
+    // main-nav-top-section style manh cua sass
+    &-top-section {
+      grid-template-columns: 100px 1fr;
+      padding-left: 1rem;
+      position: static;
+
+      .main-nav-search-form {
+        // main-nav-search-form__input
+        &__input {
+          margin-top: -10px;
+          padding: 12px;
+          width: 300px;
+        }
+
+        // main-nav-search-form__button
+        &__button {
+          height: 40px;
+          left: 270px;
+          top: -7px;
+          width: 80px;
+        }
+      }
+    }
+
+    // main-nav-toggle-button
+    &-toggle-button {
+      display: none;
+      justify-content: center;
+      width: 100%;
+    }
+
+    // main-nav-bottom-section
+    &-bottom-section {
+      grid-gap: 1rem;
+      grid-template-columns: repeat(3, 50px);
+      height: 100%;
+      justify-content: flex-end;
+      position: static;
+
+      // main-nav-bottom-section__button
+      &__button {
+        margin-right: 4rem;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .main-nav {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+
+    &-top-section {
+      grid-template-columns: 100px 1fr;
+      padding-left: 1rem;
+
+      .main-nav-search-form {
+        &__input {
+          padding: 12px;
+          width: 380px;
+        }
+
+        &__button {
+            height: 41px;
+            left: 324px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-fill-mode: forwards;
+    animation-name: fadeIn;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInLeft {
+    animation-fill-mode: forwards;
+    animation-name: fadeInLeft;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInDown {
+    animation-fill-mode: forwards;
+    animation-name: fadeInDown;
+    opacity: 0;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    animation-fill-mode: forwards;
+    animation-name: fadeInUp;
+    opacity: 0;
+  }
+  
+  @keyframes rubberBand {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+  
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+  
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+  
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .rubberBand {
+    animation-name: rubberBand;
+  }
+  
+  @keyframes swing {
+    20% {
+      transform: rotate3d(0, 0, 1, 15deg);
+    }
+  
+    40% {
+      transform: rotate3d(0, 0, 1, -10deg);
+    }
+  
+    60% {
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    80% {
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    to {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }
+  
+  .swing {
+    transform-origin: top center;
+    animation-name: swing;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+  
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+  
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  
+  .pulse {
+    animation-name: pulse;
+  }
+  
+  @keyframes bounce {
+    from,
+    20%,
+    53%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: translate3d(0, 0, 0);
+    }
+  
+    40%,
+    43% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  
+      transform: translate3d(0, -30px, 0);
+    }
+  
+    70% {
+      animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+      transform: translate3d(0, -15px, 0);
+    }
+  
+    90% {
+      transform: translate3d(0, -4px, 0);
+    }
+  }
+  
+  .bounce {
+    animation-name: bounce;
+    transform-origin: center bottom;
+  }
+  
