@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import "../MainNav/MainNav.scss";
+import Icofont from 'react-icofont';
+import "../MainNav/Ticket.scss";
+import TicketModal from './TicketModal';
 export default class Mainnav extends Component{
     
     render(){
@@ -41,6 +44,8 @@ export default class Mainnav extends Component{
               </span>
             </button>
             <div className="main-nav-bottom-section main-nav-bottom-section--hide">
+            <a href ="#"><button className="theme-btn fadeInLeft" data-toggle="modal" data-target="#modalTicket" href="#"><i className="icofont icofont-ticket"></i>Tickets</button></a>
+              <TicketModal/>
               <a href="/">
                 <button className="main-nav-bottom-section__button fadeInLeft">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

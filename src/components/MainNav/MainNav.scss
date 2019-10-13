@@ -136,6 +136,7 @@
     //   bottom: -100px;
     // }
   }
+  
 }
 
 @media only screen and (min-width: 500px) {
@@ -195,8 +196,8 @@
 
     // main-nav-bottom-section
     &-bottom-section {
-      grid-gap: 1rem;
-      grid-template-columns: repeat(3, 50px);
+      grid-gap: 6rem;
+      grid-template-columns: repeat(4, 50px);
       height: 100%;
       justify-content: flex-end;
       position: static;
@@ -220,12 +221,12 @@
 
       .main-nav-search-form {
         &__input {
-          padding: 12px;
-          width: 380px;
+          padding: 7px;
+          width: 404px;
         }
 
         &__button {
-            height: 41px;
+            height: 38px;
             left: 324px;
         }
       }

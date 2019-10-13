@@ -1,0 +1,133 @@
+@import '../../styles/variables';
+
+.user-log-in {
+  font-family: $tertiary-font;
+  height: 100vh;
+
+  // user-log-in-container
+  &-container {
+
+    // user-log-in-container-header
+    &-header {
+      background: $primary-color;
+      color: $primary-font-color;
+      letter-spacing: .2rem;
+      font-size: 1.3rem;
+      padding: 2rem;
+      text-align: center;
+
+      // user-log-in-container-header__logo
+      &__logo {
+        height: auto;
+        margin-bottom: 2rem;
+        width: 120px;
+      }
+
+      // user-log-in-container-header__title
+      &__title {
+        margin: 0;
+      }
+
+      // user-log-in-container-header__name
+      &__name {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: .7rem;
+        margin: .5rem 0 0;
+        text-transform: uppercase;
+      }
+    }
+
+    // user-log-in-container-content
+    &-content {
+
+      // user-log-in-container-content__button
+      &__button {
+        background-color: $secondary-color;
+        border: 3px solid $secondary-color;
+        border-radius: 50px;
+        color: $primary-font-color;
+        cursor: pointer;
+        display: block;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 5rem auto;
+        outline: none;
+        padding: 1rem;
+        transition: background-color .2s, color .2s, border-color .2s;
+        width: 220px;
+
+        // user-log-in-container-content__button:hover
+        &:hover {
+          background-color: $primary-font-color;
+          color: #000;
+          border-color: $secondary-color;
+          transition: background-color .2s, color .2s, border-color .2s;
+        }
+      }
+
+      // user-log-in-container-content-warning
+      &__warning {
+        color: rgba(0,0,0,.7);
+        margin-top: -2rem;
+        text-align: center;
+      }
+
+      a,
+      a:active,
+      a:hover,
+      a:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+
+  // user-log-in-container-side-image
+  &-side-image {
+    background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)) no-repeat center center
+                ,$secondary-color url('images/side-image.jpeg') no-repeat center center;
+    background-size: cover;
+    border-left: 10px solid $secondary-color;
+    display: none;
+
+    // user-log-in-container-side-image__title
+    &__title {
+      color: $primary-font-color;
+      font: bold 52px $tertiary-font;
+      margin: 37vh auto 0;
+      text-align: center;
+      text-shadow: 1px 1px $secondary-color,
+      2px 2px $secondary-color,
+      3px 3px $secondary-color;
+      transition: all 0.12s ease-out;
+      width: 80%;
+      text-transform: uppercase;
+
+      // user-log-in-container-side-image__title:hover
+      &:hover {
+        left: 0px;
+        position: relative;
+        text-shadow: 1px 1px $secondary-color,
+                      2px 2px $secondary-color,
+                      3px 3px $secondary-color,
+                      4px 4px $secondary-color,
+                      5px 5px $secondary-color,
+                      6px 6px $secondary-color;
+        top: 0px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .user-log-in {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    &-side-image {
+      display: block;
+      height: 100vh;
+      width: auto;
+    }
+  }
+}

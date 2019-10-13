@@ -1,0 +1,116 @@
+.buy-ticket {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+	display: none;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+    color: #171717;
+}
+
+.buy-ticket-area {
+    margin-top: 140px;
+    background: #f5f5f5;
+	box-shadow: 0 0 5px #222;
+    position: relative;
+    padding: 100px 120px 120px;
+}
+.buy-ticket-area > a {
+    color: #171717;
+    font-size: 50px;
+    top: 20px;
+    right: 25px;
+    position: absolute;
+}
+
+.buy-ticket-box h4 {
+    color: #eb315a;
+    margin-bottom: 50px;
+}
+
+.buy-ticket-box h5 {
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.buy-ticket-box h6 {
+    color: #060606;
+    text-align: center;
+    border-bottom: 5px solid #eb315a;
+    padding-bottom: 8px;
+}
+
+.ticket-box-table {
+    display: flex;
+	padding-top: 35px;
+	justify-content: space-between;
+}
+
+.ticket-table-seat td.active,
+.ticket-table-seat td:hover {
+	background: #eb315a;
+	border-color: #eb315a;
+	color: #fff;
+}
+.ticket-table-seat td {
+    width: 19px;
+    height: 19px;
+    border: 1px solid #aaa;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 15px;
+    border-collapse: collapse;
+    margin: 3px;
+	font-size: 10px;
+    display: inline-block;
+}
+
+.ticket-box-table table:not(.ticket-table-seat) td {
+    line-height: 24px;
+}
+
+.ticket-box-available span {
+	display: inline-block;
+	margin-right: 30px;
+}
+.ticket-box-available input {
+	margin-right: 5px;
+	position: relative;
+	top: 2px;
+}
+.ticket-box-available {
+    margin: 50px 0;
+}
+.buy-ticket-box ul li p {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.buy-ticket-box ul li {
+    margin-bottom: 25px;
+}
+
+.buy-ticket-box ul li:last-child {
+    margin-bottom: 0;
+}
+
+.buy-ticket-box ul {
+    position: relative;
+}
+
+.buy-ticket-box ul::before {
+    left: -50px;
+    top: 30px;
+    bottom: 50px;
+    width: 2px;
+    background: #aaa;
+    content: "";
+    position: absolute;
+}
+
+.buy-ticket-box > a.theme-btn {
+    margin-right: 5px;
+}

@@ -1,0 +1,25 @@
+.theme-btn {
+	background: #EB4E7A;
+    border: 1px solid #EB4E7A;
+    color: #fff;
+	border-radius: 35px;
+    padding: 5px 25px;
+    display: inline-block;
+    font-size: 16px;
+	cursor: pointer;
+	font-weight: 500;
+}
+.theme-btn:hover {
+    border: 1px solid #EB4E7A;
+	background: transparent;
+    color: #EB4E7A;
+}
+.theme-btn2:hover,
+.theme-btn2 {
+    color: #fff;
+	background: #963dad; /* Old browsers */
+	background: -moz-linear-gradient(top, #963dad 0%, #9c3db1 34%, #ba3fc4 65%, #c340ca 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #963dad 0%,#9c3db1 34%,#ba3fc4 65%,#c340ca 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #963dad 0%,#9c3db1 34%,#ba3fc4 65%,#c340ca 100%); 
+	border: none;
+}
