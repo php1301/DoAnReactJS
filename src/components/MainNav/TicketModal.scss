@@ -6,7 +6,7 @@
     height: 100%;
 	display: none;
     background: rgba(0,0,0,0.4);
-    z-index: 99;
+    z-index: -1;
     color: #171717;
 }
 
@@ -15,6 +15,7 @@
     background: #f5f5f5;
 	box-shadow: 0 0 5px #222;
     position: relative;
+    z-index: 10000;
     padding: 100px 120px 120px;
 }
 .buy-ticket-area > a {
