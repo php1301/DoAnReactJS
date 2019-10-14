@@ -5,7 +5,7 @@ export default class ItemController extends Component {
         return (
             <div className="item-controller-content">
                 <button
-                    className="item-controller__switch wow fadeInDown"
+                    className="item-controller-content__switch wow fadeInDown"
                     data-wow-delay=".5s"
                     data-wow-duration="1s"
                     style={{
@@ -15,7 +15,7 @@ export default class ItemController extends Component {
                         animationName: "fadeInDown"
                     }}>Movies</button>
                 <button
-                    className="item-controller__switch wow fadeInDown"
+                    className="item-controller-content__switch wow fadeInDown"
                     data-wow-delay=".5s"
                     data-wow-duration="1s"
                     style={{

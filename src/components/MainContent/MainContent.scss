@@ -1,4 +1,28 @@
-.react-multi-carousel-list.container.main-content-gallery {
-  margin-left: 200px;
+@import "../../styles/animations";
+.main-content-container {
+  &__title {
+    color: #fff;
+    font-family: "Alegreya Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.4rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    margin-left: -55px;
+  }
+  .container-fluid {
+    width: 115%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: -70px;
+    .item {
+      margin-right: 30px;
+      img {
+        border-radius: 5px;
+      }
+    }
+  }
+  margin-left: 290px;
   margin-top: 160px;
 }
