@@ -3,14 +3,14 @@
 ___
 
 ---
-+ [About](http://dev.nodeca.com)
++ [About](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/About.md)
 + [Tài liệu - Extensions](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/docs.md)
 + [Hỗ trợ - Social Media](http://dev.nodeca.com)
 + [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/SpecialFeatures.md)
 + [Log - Quá trình làm ](http://dev.nodeca.com)
 + [Thư Viện - Packages - API](http://dev.nodeca.com)
 ---
-## [About](https://github.com/php1301/DoAnReactJS)
+## [About](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/About.md)
 
 Đồ án ReactJS là một trong 2 đồ án lớn tốt nghiệp khóa học FE28 Cybersoft đối với dự án ReactJS. Nó là đồ án về việc Đặt vé xem phim. Nó cung cấp các chức năng và giao diện **cơ bản** của một một dự án thông thường như:
 ## Client-side (Trang đặt vé)
