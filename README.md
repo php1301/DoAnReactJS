@@ -7,7 +7,7 @@ ___
 + [Tài liệu - Extensions](https://github.com/php1301/DoAnReactJS/blob/master/Developer/docs.md)
 + [Hỗ trợ - Social Media](https://www.facebook.com/dioxittdn.phucprobb)
 + [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/Developer/SpecialFeatures.md)
-+ [Log - Quá trình làm ](http://dev.nodeca.com)
++ [Log - Quá trình làm ](https://github.com/php1301/DoAnReactJS/tree/master/Developer/PROGRESS)
 + [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/Developer/Packages.md)
 + [Từ Tác Giả](https://github.com/php1301/DoAnReactJS/edit/master/Developer/Info.md)
 ---
