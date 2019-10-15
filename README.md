@@ -66,6 +66,10 @@ ___
 + Live support
 + Scroll to top
 ***
+## [Log - Quá trình làm ](https://github.com/php1301/DoAnReactJS/tree/master/Developer/PROGRESS)
+### Theo dõi quá trình làm ĐỒ ÁN REACTJS - MOVIE TICKET BOOKING WEBSITE của mình tại đây
+#### Phase 1
++ [1.1](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase-1.md)
 ## [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/Developer/Packages.md)
 + ReactJS
 + Facebook API Login
