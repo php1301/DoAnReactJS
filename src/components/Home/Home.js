@@ -5,6 +5,7 @@ import MainNav from '../MainNav/MainNav';
 import HomeHeader from '../HomeHeader/HomeHeader';
 import ItemController from '../ItemController/ItemController';
 import MainContent from '../MainContent/MainContent';
+import MainFooter from '../MainFooter/MainFooter';
 export default class Home extends Component{
     render(){
         return(
@@ -15,6 +16,7 @@ export default class Home extends Component{
                 <HomeHeader/>
                 <ItemController/>
                 <MainContent/>
+                <MainFooter/>
             </div>
             </div>
         );

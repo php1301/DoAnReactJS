@@ -1,0 +1,146 @@
+@import "../../styles/variables";
+
+.main-footer {
+  background: #131517;
+  color: $primary-font-color;
+  font-family: $primary-font;
+  font-size: 0.9rem;
+  padding: 2rem;
+
+  &-top {
+    &-header {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+
+      &__title {
+        font-family: $tertiary-font;
+        letter-spacing: 0.4rem;
+        text-transform: uppercase;
+      }
+
+      &-nav {
+        margin-left: 85px;
+        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(3, 70px);
+      }
+    }
+
+    &-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      &__title {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        font-weight: normal;
+      }
+    }
+
+    &-copyright {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.5rem;
+      margin-top: 2rem;
+    }
+  }
+
+  &-bottom {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    margin-top: 1rem;
+
+    &-section-1 {
+      height: auto;
+      width: 110px;
+    }
+
+    &-section-2 {
+      text-align: right;
+      margin-right: 20px;
+
+      &__icon {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        height: auto;
+        margin: 0 10px;
+        padding: 5px;
+        transition: background-color 0.4s;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 1);
+          transition: background-color 0.4s;
+        }
+      }
+    }
+  }
+
+  a,
+  a:active,
+  a:hover,
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .main-footer {
+    padding: 4rem;
+
+    &-top {
+      &-header {
+        display: grid;
+        grid-template-columns: 200px 200px;
+        &-nav {
+          margin-left: -200px;
+          margin-top: 60px;
+        }
+      }
+    }
+
+    &-bottom {
+      &-section-2 {
+        &__icon {
+          padding: 8px;
+          width: 25px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .main-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4rem;
+    padding: 7rem;
+    &-top-header-nav {
+      margin-left: 85px;
+      margin-top: auto;
+    }
+    &-bottom {
+      grid-template-columns: 1fr;
+      justify-items: right;
+
+      &-section-1 {
+        align-self: flex-start;
+        width: 190px;
+      }
+
+      &-section-2 {
+        align-self: flex-start;
+        &__icon {
+          width: 41px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .main-footer {
+    padding: 10rem 12rem;
+  }
+}
