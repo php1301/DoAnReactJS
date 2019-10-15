@@ -44,6 +44,11 @@ ___
 + [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
 + (Đang phát triển)
 ***
+## [Hỗ trợ - Social Media](http://dev.nodeca.com)
++ [Facebook](https://www.facebook.com/dioxittdn.phucprobb)
++ [Gmail- UIT](19520854@gm.uit.edu.vn)
++ [Slack](https://join.slack.com/t/reactjsgroupe/shared_invite/enQtNzk4MzkxMjc2MDIyLWIzZTNlNzVlZmM4YjExYWYyMzhkMmZlYzg2YjJhNWRiMzQ5YmE5ZDMyNmYyNzVlN2VhYTNhYWEwNDhlODA4MWM)
+***
 ## [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/SpecialFeatures.md)
 + Phiên bản ReactJS mới nhất tính đến 12/10/2019 (GMT+7) - ver 16.10.2
 + Thuật toán Search Bar đột phá
