@@ -46,7 +46,7 @@ ___
 ***
 ## [Hỗ trợ - Social Media](http://dev.nodeca.com)
 + [Facebook](https://www.facebook.com/dioxittdn.phucprobb)
-+ [Gmail- UIT](19520854@gm.uit.edu.vn)
++ [Gmail - UIT](19520854@gm.uit.edu.vn)
 + [Slack](https://join.slack.com/t/reactjsgroupe/shared_invite/enQtNzk4MzkxMjc2MDIyLWIzZTNlNzVlZmM4YjExYWYyMzhkMmZlYzg2YjJhNWRiMzQ5YmE5ZDMyNmYyNzVlN2VhYTNhYWEwNDhlODA4MWM)
 ***
 ## [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/SpecialFeatures.md)
@@ -61,3 +61,14 @@ ___
 + Tích hợp API Facebook dễ dàng đăng nhập và thanh toán MOMO
 + Update thường xuyên
 + Cải tiến và tối ưu hết mức để tăng SEO
+***
+## [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/Packages.md)
++ ReactJS
++ Facebook API Login
++ Facebook API Comments
++ Facebook API Likes
++ Redux
++ React - Redux
++ OMDB
++ The Movies Database
++ (Đang phát triển)
