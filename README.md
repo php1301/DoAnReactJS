@@ -8,7 +8,8 @@ ___
 + [Hỗ trợ - Social Media](http://dev.nodeca.com)
 + [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/SpecialFeatures.md)
 + [Log - Quá trình làm ](http://dev.nodeca.com)
-+ [Thư Viện - Packages - API](http://dev.nodeca.com)
++ [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/Packages.md)
++ [Từ Tác Giả](https://github.com/php1301/DoAnReactJS/edit/master/PROGRESS/Info.md)
 ---
 ## [About](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/About.md)
 
@@ -72,3 +73,7 @@ ___
 + OMDB
 + The Movies Database
 + (Đang phát triển)
+## [Từ tác giả](https://github.com/php1301/DoAnReactJS/edit/master/PROGRESS/Info.md)
+Vì là dự án solo làm từ đầu đến cuối và nhiều assignments vào giai đoạn làm và cả đi quốc phòng nên khá là mệt nhưng cũng rất tâm huyết cho nó vì nhất định mình phải chạm tới được thứ mình nhắm tới
+***
+Everything will be fulfilled
