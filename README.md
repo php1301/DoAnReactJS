@@ -6,7 +6,7 @@ ___
 + [About](http://dev.nodeca.com)
 + [Tài liệu](http://dev.nodeca.com)
 + [Hỗ trợ - Social Media](http://dev.nodeca.com)
-+ [Tính năng nổi bật](http://dev.nodeca.com)
++ [Tính năng nổi bật](https://github.com/php1301/DoAnReactJS/blob/master/PROGRESS/SpecialFeatures.md)
 + [Log - Quá trình làm ](http://dev.nodeca.com)
 + [Thư Viện - Packages - API](http://dev.nodeca.com)
 ---
@@ -34,6 +34,19 @@ ___
 + Và nhiều  [Tính năng nổi bật](http://dev.nodeca.com) khác
 ...
 ***
-ĐỒ ÁN REACTJS - MOVIE TICKET BOOKING WEBSITE sử dụng trên nền tảng ReactJS 16.10.2 (Phiên bản mới nhất tính đến thời điểm ngày 12/10/2019) để thực hiện đồ án, dự kiến sử dụng thêm giao diện metronic material và material-ui để styling. Đặc biệt Đồ án có thao tác với form vô cùng đơn giản rõ ràng đề cao UI/UX. Các view được tổ chức dưới dạng components tận dụng life-cycle có thể sử dụng lại được nhiều. Ngoài ra Đồ án còn tận dụng cơ chế hook, filter, widget và dự kiến tích hợp API Facebook và MOMO giống wordpress (Tuy chưa được mạnh mẽ như wordpress) hứa hẹn một ngày nào đó sẽ đem lại cảm giác thú vị cho cả người sử dụng và người phát triển.
+ĐỒ ÁN REACTJS - MOVIE TICKET BOOKING WEBSITE sử dụng trên nền tảng ReactJS 16.10.2 (Phiên bản mới nhất tính đến thời điểm ngày 12/10/2019 GMT+7) để thực hiện đồ án, dự kiến sử dụng thêm giao diện metronic material và material-ui để styling. Đặc biệt Đồ án có thao tác với form vô cùng đơn giản rõ ràng đề cao UI/UX. Các view được tổ chức dưới dạng components tận dụng life-cycle có thể sử dụng lại được nhiều. Ngoài ra Đồ án còn tận dụng cơ chế hook, filter, widget và dự kiến tích hợp API Facebook và MOMO giống wordpress (Tuy chưa được mạnh mẽ như wordpress) hứa hẹn một ngày nào đó sẽ đem lại cảm giác thú vị cho cả người sử dụng và người phát triển.
 
 Đồ án được tổ chức dưới dạng các Components, mỗi Components là một chức năng, nếu bạn thấy dự án của mình không cần thiết với chức năng nào mà Đô án cung cấp sẵn thì bạn hoàn toàn có thể gỡ module đó ra mà không làm ảnh hưởng đến sự vận hành của mã nguồn.
+***
+## [Tính năng nổi bật](http://dev.nodeca.com)
++ Phiên bản ReactJS mới nhất tính đến 12/10/2019 (GMT+7) - ver 16.10.2
++ Thuật toán Search Bar đột phá
++ Chia folders SASS và sử dụng SASS
++ Thiết kế tận dụng material-ui
++ Validation
++ Sử dụng API với data chất lượng - độc - lạ từ IMDB
++ API chạy được và trả về nhiều states
++ Chi tiết đặt vé - thông tin phòng vé được thiết kế bắt mắt
++ Tích hợp API Facebook dễ dàng đăng nhập và thanh toán MOMO
++ Update thường xuyên
++ Cải tiến và tối ưu hết mức để tăng SEO
