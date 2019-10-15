@@ -5,4 +5,6 @@
 + Facebook API Likes
 + Redux
 + React - Redux
++ OMDB
++ The Movies Database
 + (Đang phát triển)
