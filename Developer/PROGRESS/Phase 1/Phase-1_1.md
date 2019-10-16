@@ -20,3 +20,9 @@
 + Lên ý tưởng xử lý logic thuật toán cho các modules
 + Lên ý tưởng ProfilePage
 + Cơ bản đã hoàn chỉnh Responsive tất cả Components
+### 16/10/2019
++ Research kĩ hơn về các short emmet
++ Trau chuốt nốt responsive
++ Học kĩ thêm về các thuật toán 
++ Redux nâng cao
++ Ôn lại 1 số thứ về destructuring, spread operator
