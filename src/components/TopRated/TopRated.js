@@ -26,25 +26,25 @@ export default class TopRated extends Component {
                         desktop: {
                             breakpoint: {
                                 max: 3000,
-                                min: 1024
+                                min: 1255
                             },
                             items: 7,
                             partialVisibilityGutter: 40
                         },
                         mobile: {
                             breakpoint: {
-                                max: 464,
+                                max: 705,
                                 min: 0
                             },
-                            items: 1,
+                            items: 2,
                             partialVisibilityGutter: 30
                         },
                         tablet: {
                             breakpoint: {
-                                max: 1024,
-                                min: 464
+                                max: 1255,
+                                min: 705
                             },
-                            items: 2,
+                            items: 4,
                             partialVisibilityGutter: 30
                         }
                     }}
