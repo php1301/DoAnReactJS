@@ -11,7 +11,7 @@
   button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
     position: absolute;
     top: 30%;
-    right: 1%;
+    right: 0%;
     outline: none;
     background: no-repeat;
   }
@@ -80,7 +80,7 @@
   margin-left: 290px;
   margin-top: 160px;
   @media only screen and (min-width: 500px) {
-    margin-left: 130px;
+    margin-left: 135px;
   }
   @media only screen and (max-width: 1255px) {
     button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
