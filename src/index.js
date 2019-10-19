@@ -8,7 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import rootReducer from "./reducers/rootReducers";
 require('../node_modules/bootstrap/dist/css/bootstrap.min.css');
 require('./styles/_reset.scss');
-const store = createStore((rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+const store = createStore(rootReducer, (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 ReactDOM.render(
     <Provider store={store}>
         <App />

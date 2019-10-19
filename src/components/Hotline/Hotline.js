@@ -445,7 +445,7 @@ export default class Hotline extends Component {
                         </div>
                         <div className="arcontactus-prompt-inner">
                             Please visit our best and
-                  <br /> greates web site!
+                  <br /> greatest web site!
                 </div>
                     </div>
                     {/*/noindex*/}

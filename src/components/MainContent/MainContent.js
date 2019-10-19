@@ -34,14 +34,14 @@ export default class MainContent extends Component {
     render() {
         return (
             <div>
-            <Upcoming />
-            <HrLine/>
-            <Popular/>
-            <HrLine/>
-            <NowPlaying/>
-            <HrLine/>
-            <TopRated/>
-            <HrLine/>
+                <Upcoming />
+                <HrLine />
+                <Popular />
+                <HrLine />
+                <NowPlaying />
+                <HrLine />
+                <TopRated />
+                <HrLine />
             </div>
         )
     }

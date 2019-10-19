@@ -44,7 +44,9 @@
     justify-items: center;
     top: 0;
     transition: top 0.5s;
-
+    &--hide {
+      top: -100px;
+    }
     &__image {
       cursor: pointer;
       height: auto;
@@ -102,11 +104,16 @@
     height: 68px;
     justify-items: center;
     transition: bottom 0.5s;
-
+    .ticket-none{
+      display: none;
+    }
     &__button {
       svg {
         height: 35px;
       }
+    }
+    &--hide {
+      bottom: -100px;
     }
   }
 }
@@ -166,7 +173,7 @@
     }
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1120px) {
   .main-nav {
     .main-nav-search-form {
       &__input {
@@ -194,7 +201,7 @@
     }
   }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1120px) {
   .main-nav {
     .main-nav-search-form {
       &__input {

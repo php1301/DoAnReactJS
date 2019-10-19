@@ -1,6 +1,9 @@
 $theme: red;
 $font: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
 .arcontactus-widget{
+    .messangers-block.arcuAnimated.sm.has-header.show-messageners-block {
+        bottom: 80px;
+    }
     opacity: 0;
     transition: 0.2s opacity;
     line-height: 1;
@@ -243,6 +246,7 @@ $font: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans
                 }
             }
             .arcontactus-prompt{
+                bottom: 50px;
                 right: 60px;
                 &.arcu-prompt-top{
                     right: 0;
@@ -293,6 +297,7 @@ $font: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans
         position:absolute;
         height:70px;
         right: 0;
+        bottom: 50px;
         background-color: $theme;
         border-radius:50px;
         -webkit-box-sizing:border-box;

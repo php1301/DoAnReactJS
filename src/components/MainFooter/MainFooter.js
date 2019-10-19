@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom'
 import './MainFooter.scss';
+import * as svg from '../MainFooter/const';
 import TMDBLogo from './images/TMDBLogo.svg'
 export default class MainFooter extends Component {
     render() {
         return (
 
             <footer className="main-footer">
-
                 <section className="main-footer-top">
 
                     <header className="main-footer-top-header">
-                        <img className="main-footer-top-header__title wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="1.2s" src="http://www.demo.gloriathemes.com/wp/themovie/wp-content/themes/themovie/assets/img/logo-alternative.png"/>
+                        <img className="main-footer-top-header__title wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="1.2s" src="http://www.demo.gloriathemes.com/wp/themovie/wp-content/themes/themovie/assets/img/logo-alternative.png" />
                         <nav className="main-footer-top-header-nav">
                             <a className="wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1.2s" to="/">Home</a>
                             <a className="wow fadeInLeft" data-wow-delay=".9s" data-wow-duration="1.2s" to="/log-in">Profile</a>
@@ -23,18 +24,104 @@ export default class MainFooter extends Component {
 
                     <div className="main-footer-top-item">
                         <h3 className="main-footer-top-item__title">Sponsored By:</h3>
-                        <p><a href="cybersoft.edu.vn" target="_blank" rel="noopener noreferrer">cybersoft.edu.vn</a></p>
+                        <p><a href="cybersoft.edu.vn" target="_blank" rel="noopener noreferrer">{svg.plane} cybersoft.edu.vn</a></p>
                     </div>
 
                     <div className="main-footer-top-item">
                         <h3 className="main-footer-top-item__title">Phone Number:</h3>
-                        <p>985-551-3866</p>
+                        <p> {svg.phone} 985-551-3866</p>
                     </div>
 
-                    <p className="main-footer-top-copyright">Copyright &copy;2019<br /> Coded and designed by <a href="https://www.facebook.com/dioxittdn.phucprobb" target="_blank" rel="noopener noreferrer">Phúc Hoàng Phạm</a></p>
+                    <p className="main-footer-top-copyright">Copyright &copy;2019<br /> Coded and designed by  <a href="https://www.facebook.com/dioxittdn.phucprobb" target="_blank" rel="noopener noreferrer"> {svg.hacker}  Phúc Hoàng Phạm</a></p>
 
                 </section>
-
+                <section className="main-footer-middle">
+                    <div className="row wow fadeInLeft" data-wow-delay="0.5s" data-wow-duration="1.2s">
+                        <div className="col-sm-4 col-xs-12 hideOnMobile">
+                            <p className="title">{svg.globe} Partner</p>
+                            <div className="row col-sm-12 col-xs-12 linePartner">
+                                <a target="_blank" href="http://bhdstar.vn" title="BHD">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png" />
+                                </a>
+                                <a target="_blank" href="http://galaxycine.vn" title="Galaxy">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/galaxycine.png" />
+                                </a>
+                                <a target="_blank" href="http://cinestar.com.vn" title="Cinestar">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png" />
+                                </a>
+                                <a target="_blank" href="http://lottecinemavn.com" title="Lotte Cinema">
+                                    <img
+                                        className="iconConnect"
+                                        ng-src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+                                        src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png"
+                                    />
+                                </a>
+                                <a target="_blank" href="https://www.megagscinemas.vn" title="MegaGS">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/megags.png" />
+                                </a>
+                            </div>
+                            <div className="row col-sm-12 col-xs-12 linePartner">
+                                <a target="_blank" href="https://www.betacineplex.vn/" title="Beta">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bt.jpg" />
+                                </a>
+                                <a target="_blank" href="https://touchcinema.com/" title="Touch Cinema">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/dongdacinema.png" />
+                                </a>
+                                <a target="_blank" href="https://cinemaxvn.com/" title="Cinemax">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/TOUCH.png" />
+                                </a>
+                                <a target="_blank" href="http://starlight.vn/" title="Starlight">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cnx.jpg" />
+                                </a>
+                                <a target="_blank" href="http://ddcinema.vn" title="DDC">
+                                    <img
+                                        className="iconConnect"
+                                        src="https://123phim.vn/app/assets/img/icons/STARLIGHT.png"
+                                    />
+                                </a>
+                            </div>
+                            <div className="row col-sm-12 col-xs-12 linePartner">
+                                <a target="_blank" href="https://momo.vn" title="MoMo">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/momo.png" />
+                                </a>
+                                <a target="_blank" href="https://zalopay.vn/" title="ZaloPay">
+                                    <img
+                                        className="iconConnect"
+                                        src="https://123phim.vn/app/assets/img/icons/zalopay_icon.png"
+                                    />
+                                </a>
+                                <a target="_blank" href="https://www.payoo.vn/" title="Payoo">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/payoo.jpg" />
+                                </a>
+                                <a
+                                    target="_blank"
+                                    href="https://www.vietcombank.com.vn/"
+                                    title="Vietcombank"
+                                >
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/VCB.png" />
+                                </a>
+                                <a target="_blank" href="http://www.agribank.com.vn/" title="Agribank">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/AGRIBANK.png" />
+                                </a>
+                            </div>
+                            <div className="row col-sm-12 col-xs-12 linePartner">
+                                <a target="_blank" href="https://www.vietinbank.vn/" title="Vietinbank">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/VIETTINBANK.png" />
+                                </a>
+                                <a target="_blank" href="https://www.indovinabank.com.vn/" title="IVB">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/IVB.png" />
+                                </a>
+                                <a target="_blank" href="http://123go.vn" title="123Go">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/123go.png" />
+                                </a>
+                                <a target="_blank" href="http://laban.vn" title="La Bàn">
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/laban.png" />
+                                </a>
+                            </div>
+                            <div className="row col-sm-12 col-xs-12"></div>
+                        </div>
+                    </div>
+                </section>
                 <section className="main-footer-bottom">
 
                     <img className="main-footer-bottom-section-1 wow fadeInUp" data-wow-delay=".5s" data-wow-duration="1.2s" src={TMDBLogo} alt="TMDB Logo" />

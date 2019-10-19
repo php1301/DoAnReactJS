@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from "react-multi-carousel";
 import "../../../node_modules/react-multi-carousel/lib/styles.css";
+const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
 export default class Upcoming extends Component {
     render() {
         return (
@@ -62,47 +63,95 @@ export default class Upcoming extends Component {
                         animationName: "fadeInDown"
                     }}
                 >
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
-                    <div className="item">
+                    <div className="main-content-container-item">
                         <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
+                    </div>
+                    <div className="main-content-container-item">
+                        <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "127px", height: "190px" }} />
+                        <h3 className="main-content-container-item__item-title">Dilwale Dulhania Le Jayenge</h3>
+                        <p className="main-content-container-item__genres">Comedy / Drama</p>
+                        <p className="main-content-container-item__rating">{star} 8.9 </p>
                     </div>
                 </Carousel>
             </div>

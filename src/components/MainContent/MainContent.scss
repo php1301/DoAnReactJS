@@ -1,5 +1,20 @@
 @import "../../styles/animations";
+@import "../../styles/variables";
 .main-content-container {
+  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
+    position: absolute;
+    top: 30%;
+    left: -1%;
+    outline: none;
+    background: no-repeat;
+  }
+  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+    position: absolute;
+    top: 30%;
+    right: 1%;
+    outline: none;
+    background: no-repeat;
+  }
   &__title {
     color: #fff;
     font-family: "Alegreya Sans", sans-serif;
@@ -16,16 +31,88 @@
     padding-left: 15px;
     margin-right: auto;
     margin-left: -70px;
-    .item {
-      margin-right: 30px;
-      img {
-        border-radius: 5px;
+  }
+  &-item {
+    opacity: 0.8;
+    transition: transform 0.2s;
+    margin-right: 30px;
+    img {
+      border-radius: 5px;
+    }
+    &__item-title {
+      color: $secondary-font-color;
+      font-family: $primary-font;
+      font-size: 0.9rem;
+      margin: 5px 0 0;
+      width: 135px;
+    }
+    &__genres {
+      color: rgba(255, 255, 255, 0.7);
+      font-family: $primary-font;
+      font-size: 0.8rem;
+      margin: 5px 0 0;
+      width: 135px;
+    }
+    &__rating {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      font-size: 0.78rem;
+      margin: 0;
+      padding: 3px;
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      width: 51px;
+      height: 25px;
+      svg {
+        fill: $primary-font-color;
+        height: auto;
+        margin: 0 0 4px -2px;
+        width: 18px;
       }
+    }
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+      transition: transform 0.2s;
     }
   }
   margin-left: 290px;
   margin-top: 160px;
-  @media only screen  and (min-width: 500px){
+  @media only screen and (min-width: 500px) {
     margin-left: 130px;
+  }
+  @media only screen and (max-width: 1255px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      
+      right: 10%;
+    }
+  }
+  @media only screen and (max-width: 1120px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      
+      right: 5%;
+    }
+  }
+  @media only screen and (max-width: 877px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      
+      right: 2%;
+    }
+  }
+  @media only screen and (max-width: 704px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      right: 20%;
+    }
+  }
+  @media only screen and (max-width: 620px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      right: 15%;
+    }
+  }
+  @media only screen and (max-width: 550px) {
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+      right: 5%;
+    }
   }
 }
