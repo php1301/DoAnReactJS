@@ -1,7 +1,7 @@
 //thuat toan
 import { TOGGLE_NAV } from "../actions/types";
 const initState = {
-    navStatus: false
+    navStatus: true
 }
 
 const toggleNav = (state = initState, action) => {

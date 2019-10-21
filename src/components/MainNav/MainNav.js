@@ -44,7 +44,7 @@ class MainNav extends Component{
               </form>
             </div>
             <button
-              className={`main-nav-toggle-button hamburger hamburger--elastic${this.props.navStatus ? ' is-active' : ''}`}
+              className={`main-nav-toggle-button hamburger hamburger--elastic${this.props.navStatus ? '' : ' is-active'}`}
               type="button"
               onClick ={this.handleToggleNav}
             >
@@ -52,7 +52,7 @@ class MainNav extends Component{
                 <span className="hamburger-inner" />
               </span>
             </button>
-            <div className={`main-nav-bottom-section ${!this.props.navStatus ? "main-nav-bottom-section--hide" : ""}`} >
+            <div className={`main-nav-bottom-section ${!this.props.navStatus ? "" : "main-nav-bottom-section--hide"}`} >
             <a href ="#"><button className={`theme-btn fadeInLeft ${this.props.navStatus ? 'ticket-none': ''}`} data-toggle="modal" data-target="#modalTicket" href="#"><i className="icofont icofont-ticket"></i>Tickets</button></a>
               <TicketModal/>
               <a href="/">
