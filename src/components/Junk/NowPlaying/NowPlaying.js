@@ -9,14 +9,16 @@ class NowPlaying extends Component {
         this.props.onSavelistMovie()
     }
     renderHTML = () => {
-        return this.props.listMovies.map((item, index) => {
+        console.log(this.props.listMovies)
+        return this.props.listMovies && this.props.listMovies.map((item, index) => {
             return <Movies key={index} movie={item} />
         })
     }
     render() {
         return (
             <div>
-                {this.renderHTML()}
+                {/* {this.renderHTML()} */}
+                <Movies listMovies={this.props.listMovies}/>
             </div>
         )
     }

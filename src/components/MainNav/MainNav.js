@@ -54,8 +54,6 @@ class MainNav extends Component{
               </span>
             </button>
             <div className={`main-nav-bottom-section ${!this.props.navStatus ? "" : "main-nav-bottom-section--hide"}`} >
-            <Link to ="#"><button className={`theme-btn fadeInLeft ${this.props.navStatus ? 'ticket-none': ''}`} data-toggle="modal" data-target="#modalTicket" href="#"><i className="icofont icofont-ticket"></i>Tickets</button></Link>
-              <TicketModal/>
               <Link to="/">
                 <button className="main-nav-bottom-section__button fadeInLeft">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

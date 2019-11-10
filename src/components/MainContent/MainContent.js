@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import "../MainContent/MainContent.scss"
-import Upcoming from '../Upcoming/Upcoming';
-import Popular from '../Popular/Popular';
-import NowPlaying from '../NowPlaying/NowPlaying';
-import TopRated from '../TopRated/TopRated';
+// import Upcoming from '../Upcoming/Upcoming';
+// import Popular from '../Popular/Popular';
+// import NowPlaying from '../NowPlaying/NowPlaying';
+// import TopRated from '../TopRated/TopRated';
+import Carousel from '../Carousel/Carousel';
+import Title from '../Title/Title';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1255 },
@@ -30,18 +32,43 @@ const HrLine = () => (
     }}
     />
 )
+
+/**Em có thể tìm hieu thu viện styled component nha, nó sẽ hỗ trợ viết các inlinestyle như thế này + đọc prop */
+// const Title = () => (
+//     <h2 style={{
+//         color: "#fff",
+//         fontFamily: "Alegreya Sans, sans-serif",
+//         fontSize: "1.2rem",
+//         fontWeight: "bold",
+//         letterSpacing: "0.4rem",
+//         marginBottom: "2rem",
+//         textTransform: "uppercase",
+//         marginLeft: "-55px"
+//     }}
+//     > </h2>
+// )
 export default class MainContent extends Component {
     render() {
         return (
-            <div>
-                <Upcoming />
+            <div className="main-content-container">
+                <Title title={"Upcoming"}/>
+                <Carousel />
                 <HrLine />
-                <Popular />
+                <Title title={"Popular"}/>
+                <Carousel />
+                <HrLine/>
+                <Title title={"Now Playing"}/>
+                <Carousel />
+                <HrLine/>
+                <Title title={"Top rated"}/>
+                <Carousel />
+                <HrLine/>
+                {/* <Popular />
                 <HrLine />
-                <NowPlaying />
+                <NowPlaying/>
                 <HrLine />
                 <TopRated />
-                <HrLine />
+                <HrLine /> */}
             </div>
         )
     }

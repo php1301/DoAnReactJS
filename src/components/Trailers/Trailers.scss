@@ -1,0 +1,15 @@
+.trailer-container {
+  overflow: hidden;
+  iframe {
+    border: none;
+    height: 200px;
+    width: 280px;
+  }
+  .container-fluid {
+    width: 100%;
+    padding-right: 0px;
+    padding-left: 1px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}

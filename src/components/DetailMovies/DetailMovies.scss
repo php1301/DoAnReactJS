@@ -1,0 +1,426 @@
+@import "../../styles/variables";
+
+.item-details {
+  background: $primary-color;
+  color: $primary-font-color;
+
+  // item-details-header-info
+  &-header-info {
+    background-size: cover !important; // Used important to overide api styles
+    height: 350px;
+    width: 100%;
+    // item-details-header-info-nav
+    &-nav {
+      display: grid;
+      grid-template-columns: 30px 30px;
+      justify-content: space-between;
+      padding: 2rem 1rem 90px;
+
+      // item-details-header-info-nav__icon
+      &__icon {
+        cursor: pointer;
+        fill: $primary-font-color;
+        height: auto;
+        width: 30px;
+      }
+    }
+
+    // item-details-header-info-share-buttons
+    &-share-buttons {
+      display: grid;
+      grid-template-columns: 40px;
+      grid-template-rows: repeat(40px, 6);
+      height: 282px;
+      overflow: hidden;
+      position: absolute;
+      right: 12px;
+      top: 4.5rem;
+      transition: height 0.5s;
+
+      a {
+        img {
+          height: auto;
+          width: 40px;
+        }
+      }
+    }
+
+    // item-details-header-info-share-buttons__hide
+    &-share-buttons__hide {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s;
+    }
+
+    // item-details-header-info-container
+    &-container {
+      align-items: center;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 100px 1fr;
+      position: relative;
+
+      // item-details-header-info-container-image
+      &-image {
+        border-radius: 4px;
+      }
+
+      // item-details-header-info-container-content
+      &-content {
+        font-size: 0.9rem;
+        height: 140px;
+        line-height: normal;
+        padding: 20px;
+
+        // item-details-header-info-container-content__title
+        &__title {
+          margin: 0;
+          max-height: 70px;
+          overflow: hidden;
+        }
+
+        // item-details-header-info-container-content-rating
+        &-rating {
+          align-items: center;
+          display: grid;
+          grid-column-gap: 10px;
+          grid-template-columns: 25px 75px;
+          grid-template-rows: 25px;
+        }
+
+        // item-details-header-info-container-content__detail
+        &__detail {
+          color: rgba(255, 255, 255, 0.7);
+          text-transform: uppercase;
+        }
+
+        // item-details-header-info-container-content__genre
+        &__genre {
+          color: rgba(255, 255, 255, 0.4);
+        }
+
+        // item-details-header-info-container-content__favorite
+        &__favorite {
+          border-radius: 50%;
+          cursor: pointer;
+          fill: $primary-font-color;
+          height: auto;
+          padding: 10px;
+          position: absolute;
+          right: 1rem;
+          top: 5rem;
+          width: 30px;
+
+          // item-details-header-info-container-content__favorite--active
+          &--active {
+            background: linear-gradient(157deg, rgba(235, 78, 122, 0.847926267281106) 0%, rgba(37, 20, 49, 1) 79%);
+          }
+        }
+      }
+
+      // item-details-header-info-container-account-warning
+      &-account-warning {
+        background-color: rgba(246, 0, 0, 0.5);
+        padding: 0.5rem;
+        text-align: center;
+
+        // item-details-header-info-container-account-warning--hide
+        &--hide {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // item-details-main
+  &-main {
+    padding: 1rem;
+
+    // item-details-main-summary
+    &-summary {
+      font-family: $tertiary-font;
+      padding-top: 100px;
+
+      // item-details-main-summary__title
+      &__title {
+        font-weight: normal;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+        padding-bottom: 30px;
+      }
+
+      // item-details-main-summary__content
+      &__content {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.15rem;
+      }
+    }
+
+    // item-details-main-cast
+    &-cast {
+      // item-details-main-cast__title
+      &__title {
+        font-family: $tertiary-font;
+        font-weight: normal;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+      }
+    }
+
+    // item-details-main-trailers
+    &-trailers {
+      // item-details-main-trailers__title
+      &__title {
+        font-family: $tertiary-font;
+        font-weight: normal;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+      }
+
+      // item-details-main-trailers__error
+      &__error {
+        text-align: center;
+      }
+    }
+
+    // item-details-main-reviews
+    &-reviews {
+      // item-details-main-reviews__title
+      &__title {
+        font-family: $tertiary-font;
+        font-weight: normal;
+        letter-spacing: 0.3rem;
+        text-transform: uppercase;
+      }
+
+      // item-details-main-reviews-container
+      &-container {
+        background: $tertiary-color;
+        font-family: $tertiary-font;
+        font-size: 1.1rem;
+        margin-bottom: 4rem;
+        padding: 1rem 2rem;
+
+        // item-details-main-reviews-container__content
+        &__content {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        // item-details-main-reviews-container__link
+        &__link {
+          align-items: center;
+          display: flex;
+
+          p {
+            color: rgba(255, 255, 255, 0.5);
+            margin-right: 5px;
+            transition: margin-right 1s;
+          }
+
+          p:hover {
+            margin-right: 10px;
+            transition: margin-right 1s;
+          }
+
+          svg {
+            fill: rgba(255, 255, 255, 0.7);
+            height: auto;
+            width: 15px;
+          }
+        }
+
+        a,
+        a:active,
+        a:hover,
+        a:visited {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        // item-details-main-reviews-container__error
+        &__error {
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+
+      // item-details-main-reviews-container:nth-child(even)
+      &-container:nth-child(even) {
+        border-left: 5px solid $primary-font-color;
+      }
+
+      // item-details-main-reviews-container:nth-child(odd)
+      &-container:nth-child(odd) {
+        border-right: 5px solid $primary-font-color;
+      }
+    }
+
+    // item-details-main-popular-roles
+    &-popular-roles {
+      // item-details-main-popular-roles-container
+      &-container {
+        background: $tertiary-color;
+        margin-bottom: 4rem;
+        padding: 1rem 2rem;
+
+        // item-details-main-popular-roles-container-header
+        &-header {
+          display: grid;
+          grid-template-columns: 95px 1fr;
+          grid-column-gap: 1rem;
+          line-height: normal;
+
+          // item-details-main-popular-roles-container-header-info
+          &-info {
+            margin: auto 0;
+
+            // item-details-main-popular-roles-container-header-info__title
+            &__title {
+              font-size: 1.1rem;
+            }
+
+            // item-details-main-popular-roles-container-header-info__character
+            &__character {
+              margin: 0rem 0;
+            }
+          }
+        }
+
+        // item-details-main-popular-roles-container__content
+        &__content {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        // item-details-main-popular-roles-container__error
+        &__error {
+          font-weight: bold;
+          text-align: center;
+        }
+
+        a,
+        a:active,
+        a:visited,
+        a:hover {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+
+      // item-details-main-popular-roles-container:nth-child(even)
+      &-container:nth-child(even) {
+        border-left: 5px solid $primary-font-color;
+      }
+
+      // item-details-main-popular-roles-container:nth-child(odd)
+      &-container:nth-child(odd) {
+        border-right: 5px solid $primary-font-color;
+      }
+    }
+  }
+}
+
+@import "../../styles/variables";
+
+.star-rating-container {
+  display: grid;
+  grid-template-columns: repeat(5, 15px);
+  grid-template-rows: 15px;
+  position: relative;
+  width: 15px * 5;
+
+  &__item {
+    cursor: pointer;
+    fill: white;
+    height: 15px;
+    width: 15px;
+
+    &--active {
+      fill: $secondary-color;
+    }
+  }
+
+  &-warning {
+    background-color: rgba(255, 0, 0, 0.7);
+    color: $primary-font-color;
+    font-weight: bold;
+    left: -2rem;
+    padding: 0.5rem;
+    position: absolute;
+    top: 1.5rem;
+    width: 200px;
+
+    &--hide {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .item-details {
+    &-main {
+      padding: 2rem 4rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .item-details {
+    &-header-info {
+      padding: 2rem 2rem;
+      width: auto;
+    }
+
+    &-main {
+      padding: 4rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .item-details {
+    &-header-info {
+      height: 94vh;
+      padding: 3% 10%;
+
+      &-nav {
+        &__icon {
+          width: 40px;
+        }
+      }
+
+      &-container {
+        margin-top: 450px;
+        grid-column-gap: 3rem;
+
+        &-image {
+          width: 110px;
+        }
+
+        &-content {
+          font-size: 1.1rem;
+
+          &__favorite {
+            width: 40px;
+          }
+        }
+      }
+    }
+
+    &-main {
+      margin: 0 auto;
+      max-width: 70%;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .item-details {
+    &-header-info {
+      height: 92vh;
+
+      &-container {
+        margin-top: 390px;
+      }
+    }
+  }
+}

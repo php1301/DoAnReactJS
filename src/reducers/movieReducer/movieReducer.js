@@ -1,4 +1,4 @@
-import {SAVE_LIST, DETAIL_MOVIES} from "../actions/types"
+import {SAVE_LIST, DETAIL_MOVIES} from "../../actions/types"
 const initState = {
     listMovies: []
 }
