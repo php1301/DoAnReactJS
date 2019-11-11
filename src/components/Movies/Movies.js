@@ -11,20 +11,39 @@ class Movies extends Component {
     }
     renderItem = () => {
         return this.props.upcoming && this.props.upcoming.map((item, index) => {
+            console.log(item)
             return (
                 <div className="main-content-container-item">
                     <Link to={`/details/movie/${item.id}`}><img src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style={{ width: "127px", height: "190px" }} /> </Link>
                     <h3 className="main-content-container-item__item-title">{item.original_title}</h3>
-                    <p className="main-content-container-item__genres">{item.genres} / {item.genre_ids}</p>
+                    <p className="main-content-container-item__genres">{this.handleGenres(item.genre_ids)}</p>
                     <p className="main-content-container-item__rating">{star} {item.vote_average} </p>
                 </div>
             )
         })
     }
-    handleGenres = (id) => {
+    handleGenres = ids => {
+        // Ids nhận vào là 1 mảng có nhiều id
+        let genres = { ...this.props.genres }
+        let arrGenres = Object.values(genres);
+        let arrOutput = [];
+        ids.map((id) => {
+            let found = arrGenres.filter(x => x.id === id)
+            found.forEach(element => {
+                arrOutput.push(element)
+            });
+        })
+        
+        return arrOutput.map((category, i) => {
+            return (
+                <div key={i}>
+                    {category.name}
+                </div>
+            )
+        })
+        
     }
     render() {
-        console.log(this.props.genres)
         // let {listMovies} = this.props
         return (
             <div>
@@ -85,6 +104,7 @@ class Movies extends Component {
                     }}
                 >
                     {this.renderItem()}
+                    {/* {this.handleGenres()} */}
                 </Carousel>
             </div>
         )
