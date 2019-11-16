@@ -70,6 +70,11 @@ ___
 ### Theo dõi quá trình làm ĐỒ ÁN REACTJS - MOVIE TICKET BOOKING WEBSITE của mình tại đây
 #### Phase 1
 + [1.1](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase%201/Phase-1_1.md)
++ [1.2](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase%201/Phase-1_2.md)
++ [1.3](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase%201/Phase-1_3.md)
+#### Phase 2
++ [2.1](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase%202/Phase-2_1.md)
++ [2.2](https://github.com/php1301/DoAnReactJS/blob/master/Developer/PROGRESS/Phase%202/Phase-2_2.md)
 ## [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/Developer/Packages.md)
 + ReactJS
 + Facebook API Login
