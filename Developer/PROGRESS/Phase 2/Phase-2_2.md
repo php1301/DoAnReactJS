@@ -24,6 +24,6 @@
 + Tham khảo 1 project xài firebase
 + Merge code và config lại
 + Fix các bugs
-+ Vẫn kẹt vụ kết nói database lúc này
++ Vẫn kẹt vụ kết nói database lúc này -> dự tính đổi hướng làm 1 server nodejs xin passport token và quay lại sudo react
 + Nghiên cứu payment MOMO
 + Hoàn thành CV cho Career Day
