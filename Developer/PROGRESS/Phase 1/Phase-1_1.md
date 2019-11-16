@@ -1,4 +1,4 @@
-# Phase 1
+# Phase 1-1
 ### 12/10/2019
 + Bắt đầu dựng layout tham khảo các Components layout từ các nguồn 123phim.com , w3layout envato tham khảo material design một số trang etc,...
 + Lên ý tưởng vẽ các Component
