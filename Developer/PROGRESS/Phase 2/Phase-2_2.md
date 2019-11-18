@@ -27,3 +27,7 @@
 + Vẫn kẹt vụ kết nói database lúc này -> dự tính đổi hướng làm 1 server nodejs xin passport token và quay lại sudo react
 + Nghiên cứu payment MOMO
 + Hoàn thành CV cho Career Day
+### 17/11/2019
++ Setup auth và get thử tokens thành công
++ 200 Ok
++ Bỏ plan Login bằng Facebook vì vấn đề cấp quyền
