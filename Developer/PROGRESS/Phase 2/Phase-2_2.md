@@ -31,3 +31,12 @@
 + Setup auth và get thử tokens thành công
 + 200 Ok
 + Bỏ plan Login bằng Facebook vì vấn đề cấp quyền
+### 18/11/2019
++ Chủ yếu là test thử các thuật toán về token
++ Authen loginStatus và session để xử lý phân quyền
+### 19/11/2019
++ Tập sử dụng fetch api
++ Hoàn thành movieAuthen 
++ Hoàn thành movieAuthen Reducers
++ Check phân quyền UserLogin và UserProfile
++ Check phân quyền ngay tại trang chủ
