@@ -3,7 +3,28 @@ import MainNav from '../MainNav/MainNav'
 import Loader from '../Loader/Loader'
 import "../UserProfile/UserProfile.scss";
 
-export default class UserProfile extends Component {
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+
+
+import getSession from '../../actions/authenticationActions/getSession';
+import deleteSession from '../../actions/authenticationActions/deleteSession';
+import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
+import getUserDetails from '../../actions/authenticationActions/getUserDetails';
+
+ class UserProfile extends Component {
+    componentDidMount() {
+        if (this.props.match.params.status === 'approved' && !this.props.logInStatus) {
+            this.props.getSession("https://api.themoviedb.org/3/authentication/session/new?api_key=f4718f386ee605decefebc673ce3bc9c", this.parseRequestToken(this.props.location.search));
+            this.props.toggleLogInStatus({ status: 'APPROVED' });
+        }
+    }
+    parseRequestToken = token => token.split('?request_token=')[1].split('&')[0];
+
+    handleDeleteSession = sessionId => {
+        this.props.deleteSession("https://api.themoviedb.org/3/authentication/session?api_key=f4718f386ee605decefebc673ce3bc9c", sessionId);
+        this.props.toggleLogInStatus({ status: false });
+    }
     render() {
         return (
 
@@ -143,3 +164,19 @@ export default class UserProfile extends Component {
         )
     }
 }
+const mapStateToProps = state => ({
+    session: state.getSession,
+    requestToken: state.getRequestToken,
+    logInStatus: state.toggleLogInStatus.status,
+    userDetails: state.getUserDetails,
+  });
+  
+  const mapDispatchToProps = dispatch => ({
+    getSession: (url, token) => dispatch(getSession(url, token)),
+    deleteSession: (url, sessionId) => dispatch(deleteSession(url, sessionId)),
+    toggleLogInStatus: status => dispatch(toggleLogInStatus(status)),
+    getUserDetails: url => dispatch(getUserDetails(url)),
+  });
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+  

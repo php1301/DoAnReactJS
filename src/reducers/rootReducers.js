@@ -9,6 +9,13 @@ import getTopRated from "../reducers/movieReducer/getTopRated";
 import getDetails from "../reducers/movieReducer/getDetails";
 import getReviews from "../reducers/movieReducer/getReviews";
 import getGenres from "../reducers/movieReducer/getGenres";
+
+import getRequestToken from "./authenticationReducers/getRequestToken";
+import getSession from "./authenticationReducers/getSession";
+import deleteSession from "./authenticationReducers/deleteSession";
+import getGuestSession from "./authenticationReducers/getGuestSession";
+import toggleLogInStatus from "./authenticationReducers/toggleLogInStatus";
+import getUserDetails from "./authenticationReducers/getUserDetails";
 const rootReducer = combineReducers({
     toggleNav,
     movieReducer,
@@ -18,6 +25,13 @@ const rootReducer = combineReducers({
     getTopRated,
     getDetails,
     getReviews,
-    getGenres
+    getGenres,
+
+    getUserDetails,
+    getRequestToken,
+    getSession,
+    deleteSession,
+    getGuestSession,
+    toggleLogInStatus,
 })
 export default rootReducer

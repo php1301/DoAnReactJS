@@ -8,3 +8,10 @@ export const GET_TOP_RATED = "GET_TOP_RATED";
 export const GET_DETAILS = "GET_DETAILS";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const GET_GENRES ="GET_GENRES";
+
+export const GET_REQUEST_TOKEN = 'GET_REQUEST_TOKEN';
+export const GET_SESSION = 'GET_SESSION';
+export const DELETE_SESSION = 'DELETE_SESSION';
+export const GET_GUEST_SESSION = 'GET_GUEST_SESSION';
+export const TOGGLE_LOG_IN_STATUS = 'TOGGLE_LOG_IN_STATUS';
+export const GET_USER_DETAILS = 'GET_USER_DETAILS';
