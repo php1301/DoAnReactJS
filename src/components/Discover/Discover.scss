@@ -1,0 +1,283 @@
+@import '../../styles/variables';
+
+.discover {
+  color: $primary-font-color;
+  background-color: #111617;
+  min-height: 100vh;
+  padding-top: 4rem;
+  text-align: center;
+
+  // discover-header
+  &-header {
+
+    // discover-header__separator
+    &__separator {
+      margin: 0 auto 1.5rem;
+      width: 80px;
+    }
+
+    // discover-header__title
+    &__title {
+      font-family: $tertiary-font;
+      letter-spacing: .5rem;
+      text-transform: uppercase;
+    }
+
+    // discover-header-form
+    &-form {
+
+      // discover-header-form-container
+      &-container {
+        border: none;
+        display: grid;
+        grid-template-columns: 155px 155px;
+        justify-content: center;
+        margin: 0 auto;
+        padding: 0;
+
+        // discover-header-form-container-select
+        &-select {
+          background-color: $secondary-color;
+          border: none;
+          border-radius: 5px;
+          color: $primary-font-color;
+          margin: 1rem;
+          padding: 1rem;
+
+          // discover-header-form-container-select__option
+          &__option {
+            background-color: white;
+            color: rgba(0, 0, 0, 0.89);
+
+            // discover-header-form-container-select__option:hover
+            &:hover {
+              background-color: $secondary-color;
+            }
+          }
+        }
+
+        // discover-header-form-container-input
+        &-input {
+          background-color: $secondary-color;
+          border: none;
+          border-radius: 5px;
+          color: $primary-font-color;
+          margin: 1rem;
+          outline: none;
+          padding: 1rem;
+
+          // discover-header-form-container-input::placeholder
+          &::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+      }
+
+      // discover-header-form-container__button
+      &__button {
+        background: none;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        color: $primary-font-color;
+        cursor: pointer;
+        font-family: $tertiary-font;
+        font-size: 1.1rem;
+        letter-spacing: .1rem;
+        margin: 2rem auto 4rem;
+        outline: none;
+        padding: .7rem;
+        transition: background .5s;
+        width: 180px;
+
+        // discover-header-form-container__button:hover
+        &:hover {
+          background: rgba(255, 255, 255, .1);
+          transition: background .5s;
+        }
+      }
+    }
+  }
+
+  // discover-main
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+
+    // discover-item
+    &-item {
+      opacity: .9;
+      transform: scale(1.1);
+
+      // discover-item__image
+      &__image {
+        border-radius: 5px;
+      }
+
+      // discover-item__title
+      &__title {
+        font-family: $tertiary-font;
+        font-size: 1.1rem;
+        margin: 0 auto;
+        width: 100px;
+      }
+
+      // discover-item-rating
+      &-rating {
+        margin-top: 0;
+
+        // discover-item-rating__icon
+        &__icon {
+          fill: $secondary-color;
+          height: auto;
+          margin: 0 5px -4px 0;
+          width: 20px;
+        }
+      }
+
+      // discover-item:hover
+      &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+        transition: transform 0.5s;
+      }
+    }
+
+    a,
+    a:active,
+    a:hover,
+    a:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  // discover-pagination
+  &-pagination {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    padding-bottom: 5rem;
+
+    // discover-pagination__button
+    &__button {
+      background-color: $secondary-color;
+      border: none;
+      color: $primary-font-color;
+      cursor: pointer;
+      display: flex;
+      font-family: $tertiary-font;
+      justify-content: center;
+      letter-spacing: .2rem;
+      padding: 1rem;
+      text-transform: uppercase;
+      transition: background-color .5s, color .5s;
+      width: 130px;
+
+      // discover-pagination__button:nth-child(1)
+      &:nth-child(1) {
+        grid-template-columns: 50% 50%;
+        justify-self: flex-end;
+      }
+
+      // discover-pagination__button:hover
+      &:hover {
+        background-color: $primary-font-color;
+        color: #000;
+        transition: background-color .5s, color .5s;
+
+        svg {
+          fill: #000;
+          transition: fill .5s;
+        }
+      }
+
+      svg {
+        fill: $primary-font-color;
+        margin-top: -2px;
+        transition: fill .5s;
+        width: 20px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .discover {
+
+    &-header {
+
+      &-form {
+
+        &-container {
+          grid-template-columns: 155px 155px 155px;
+        }
+      }
+    }
+
+
+    &-main {
+      grid-gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 2rem;
+
+      &-item {
+
+        &__title {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .discover {
+    padding: 0;
+
+    &-header {
+      padding-top: 8rem;
+
+      &-form {
+
+        &-container {
+          grid-template-columns: repeat(6, 150px);
+        }
+
+        &__button {
+          width: 250px;
+        }
+      }
+    }
+
+    &-main {
+      grid-template-columns: repeat(5, 1fr);
+      margin: 0 auto;
+      max-width: 80%;
+
+      &-item {
+        opacity: .7;
+        transition: transform 0.5s;
+      }
+    }
+
+    &__pagination {
+      padding-top: 7rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .discover {
+
+    &-header {
+
+      &-form {
+
+        &-container {
+          grid-template-columns: repeat(6, 160px);
+        }
+      }
+    }
+  }
+}

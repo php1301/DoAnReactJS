@@ -16,6 +16,16 @@ import deleteSession from "./authenticationReducers/deleteSession";
 import getGuestSession from "./authenticationReducers/getGuestSession";
 import toggleLogInStatus from "./authenticationReducers/toggleLogInStatus";
 import getUserDetails from "./authenticationReducers/getUserDetails";
+
+import getDiscover from "./getDiscover";
+import setItemType from "./setItemType";
+import searchData from "./searchData";
+import postSearchResults from "./postSearchResults";
+import postMoviesNowPlaying from "../reducers/movieReducer/postMoviesNowPlaying"
+import postMoviesPopular from "../reducers/movieReducer/postMoviesPopular";
+import postMoviesTopRated from "../reducers/movieReducer/postMoviesTopRated";
+import postMoviesUpcoming from "../reducers/movieReducer/postMoviesUpcoming";
+import postMovieGenres from '../reducers/movieReducer/postMovieGenres';
 const rootReducer = combineReducers({
     toggleNav,
     movieReducer,
@@ -33,5 +43,16 @@ const rootReducer = combineReducers({
     deleteSession,
     getGuestSession,
     toggleLogInStatus,
+
+    postMoviesNowPlaying,
+    postMoviesPopular,
+    postMoviesTopRated,
+    postMoviesUpcoming,
+    postMovieGenres,
+
+    getDiscover,
+    setItemType,
+    searchData,
+    postSearchResults,
 })
 export default rootReducer
