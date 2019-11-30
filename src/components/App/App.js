@@ -6,7 +6,7 @@ import UserProfile from '../UserProfile/UserProfile';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { routesHome } from "../../routes";
 import { connect } from 'react-redux';
-function App() {
+function App(props) {
   const showItem = (routes) => {
     if (routes && routes.length > 0) {
       return routes.map((item, index) => {
@@ -21,8 +21,8 @@ function App() {
       <BrowserRouter>
         <Switch>
           {showItem(routesHome)}
-          {/* {!this.props.logInStatus || this.props.session.failure ? <Redirect from='/profile' to="/log-in" /> : <Redirect from='/profile' to='/profile/approved' />}
-          {!this.props.logInStatus || this.props.session.failure ? <Redirect from='/profile/approved' to="/log-in" /> : <Redirect from='/log-in' to='/profile/approved' />} */}
+          {!props.logInStatus || props.session.failure ? <Redirect from='/profile' to="/login" /> : <Redirect from='/profile' to='/profile/approved' />}
+          {!props.logInStatus || props.session.failure ? <Redirect from='/profile/approved' to="/login" /> : <Redirect from='/login' to='/profile/approved' />}
         </Switch>
       </BrowserRouter>
       {/* <Home/> */}
