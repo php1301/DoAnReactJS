@@ -40,3 +40,49 @@
 + Hoàn thành movieAuthen Reducers
 + Check phân quyền UserLogin và UserProfile
 + Check phân quyền ngay tại trang chủ
+### 20/11/2019
++ handleGenres
++ Research admin
++ Research xây dụng baseUrl
+### 21/11/2019
++ Research mục story các popstar
++ Tham khảo bên Instagram
++ Những ngày này chủ yếu là Researching
+### 22/11/2019
++ Xây dựng xong lib animation và hamburgerbutton
++ Check scss
++ Dựng content HomeHeader
++ Ôn thuật toán truyền props
+### 23/11/2019
++ Check map index > 3 && index < 7 để render ra số lượng item mong muốn
++ Xây dựng thành công mục discovery
+
++ Nghiên cứu các method POST có sẵn của TMDB
+### 24/11/2019
++ Xây dựng thành công các method POST cơ bản của movieActions và movieReducer
++ Dự định phase 2-3 sẽ tập pull request và merge
++ Ôn tập fetch bằng dựng method POST
++ Tham khảo mentor fix bugs routes và check loginStatus
+### 25/11/2019
++ Tích hợp các method POST vào code
+### 26/11/2019
++ Bắt đầu xây dựng component Discovery
++ Research api search của TMDB
++ Ôn tập lifecycle UNSAFE_componentWillReceiveProps - nextProps
+### 27/11/2019
++ Dựng xong Discovery.js bắt đầu dựng scss
+### 28/11/2019
++ Nghiên cứu nơi tích hợp code component Discovery vô
++ Tích hợp handleGenre
++ Routing /discovery
+### 29/11/2019
++ Hoàn chỉnh component Discovery
++ Bắt đầu xây dựng component Search
++ Viết code cho action Search
+### 30/11/2019
++ Postman thành công action search
++ Dựng scss cho component Search
+### 1/12/2019
++ Hoàn thành component Searc, gặp 1 chút bugs nhưng đã fix thành công
++ Hiểu rõ hơn về match.params.id
++ Fix thành công check localStorage json strilify cho direct dựa trên loginStatus
