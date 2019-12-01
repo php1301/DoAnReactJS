@@ -4,6 +4,11 @@ import "../MainContent/MainContent.scss"
 // import Popular from '../Popular/Popular';
 // import NowPlaying from '../NowPlaying/NowPlaying';
 // import TopRated from '../TopRated/TopRated';
+import { connect } from 'react-redux';
+import * as action2 from "../../actions/movieActions/getUpcoming";
+import * as action3 from "../../actions/movieActions/getPopular";
+import * as action4 from "../../actions/movieActions/getNowPlaying";
+import * as action5 from "../../actions/movieActions/getTopRated";
 import Carousel from '../Carousel/Carousel';
 import Title from '../Title/Title';
 const responsive = {
@@ -47,29 +52,54 @@ const HrLine = () => (
 //     }}
 //     > </h2>
 // )
-export default class MainContent extends Component {
+ class MainContent extends Component {
+    componentDidMount() {
+        this.props.onSaveNowPlaying()
+        this.props.onSavePopular()
+        this.props.onSaveUpcoming() //prop này lay o dau vay em 
+        this.props.onSaveTopRated()
+    }
     render() {
         return (
             <div className="main-content-container">
-                <Title title={"Upcoming"}/>
-                <Carousel />
+                <Title title={"Upcoming"} />
+                <Carousel items={this.props.upcoming} />
                 <HrLine />
-                <Title title={"Popular"}/>
-                <Carousel />
-                <HrLine/>
-                <Title title={"Now Playing"}/>
-                <Carousel />
-                <HrLine/>
-                <Title title={"Top rated"}/>
-                <Carousel />
-                <HrLine/>
-                {/* <Popular />
+                <Title title={"Popular"} />
+                <Carousel items={this.props.popular} />
                 <HrLine />
-                <NowPlaying/>
+                <Title title={"Now Playing"} />
+                <Carousel items={this.props.nowPlaying} />
                 <HrLine />
-                <TopRated />
-                <HrLine /> */}
+                <Title title={"Top rated"} />
+                <Carousel items={this.props.topRated} />
+                <HrLine />
             </div>
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        nowPlaying: state.getNowPlaying.result.results,
+        popular: state.getPopular.result.results,
+        upcoming: state.getUpcoming.result.results,
+        topRated: state.getTopRated.result.results
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onSaveUpcoming: () => {
+            dispatch(action2.getUpcoming())
+        },
+        onSavePopular: () => {
+            dispatch(action3.getPopular())
+        },
+        onSaveNowPlaying: () => {
+            dispatch(action4.getNowPlaying())
+        },
+        onSaveTopRated: () => {
+            dispatch(action5.getTopRated())
+        },
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(MainContent)

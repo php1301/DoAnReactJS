@@ -10,7 +10,7 @@ class Movies extends Component {
         this.props.onSaveGenres()
     }
     renderItem = () => {
-        return this.props.upcoming && this.props.upcoming.map((item, index) => {
+        return this.props.items && this.props.items.map((item, index) => {
             console.log(item)
             return (
                 <div className="main-content-container-item">

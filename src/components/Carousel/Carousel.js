@@ -9,17 +9,10 @@ import * as action4 from "../../actions/movieActions/getNowPlaying";
 import * as action5 from "../../actions/movieActions/getTopRated";
 class Carousel extends Component {
     componentDidMount() {
-        this.props.onSavelistMovie()
         this.props.onSaveNowPlaying()
         this.props.onSavePopular()
         this.props.onSaveUpcoming() //prop này lay o dau vay em 
         this.props.onSaveTopRated()
-    }
-    renderHTML = () => {
-        console.log(this.props.listMovies)
-        return this.props.upcoming && this.props.upcoming.map((item, index) => {
-            return <Movies key={index} movie={item} />
-        })
     }
     render() {
         let { nowPlaying, popular, upcoming, topRated } = this.props
@@ -30,7 +23,7 @@ class Carousel extends Component {
                     this.props &&
                     <Movies
                         
-                            nowPlaying={nowPlaying} popular={popular} upcoming={popular} topRated={topRated}
+                            items ={this.props.items}
                         
                     // upcoming={this.props.upcoming}
                     />
@@ -41,7 +34,6 @@ class Carousel extends Component {
 }
 const mapStateToProps = state => {
     return {
-        listMovies: state.movieReducer.listMovies, //can duyet mang listmovies
         nowPlaying: state.getNowPlaying.result.results,
         popular: state.getPopular.result.results,
         upcoming: state.getUpcoming.result.results,
@@ -50,9 +42,6 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onSavelistMovie: () => {
-            dispatch(action.actOnSaveListMoviesAPI())
-        },
         onSaveUpcoming: () => {
             dispatch(action2.getUpcoming())
         },
