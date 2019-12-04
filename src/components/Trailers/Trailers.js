@@ -10,17 +10,14 @@ import { Modal } from 'react-bootstrap'
 import Example from '../Modal/Modal';
 const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
 export default class Trailers extends Component {
-    // renderTrailers = () => {
-    //     return this.props.trailers && this.props.trailers.map((item, index) => {
+    renderTrailers = () => {
+        return this.props.trailers && this.props.trailers.map((item, index) => {
 
-    //         return (
-    //             <div className="trailer-item">
-    //                 <iframe width="420" height="315" src={`https://www.youtube.com/embed/${item.key}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    //             </div>
-    //             // <Example items={this.props.trailers} />
-    //         )
-    //     })
-    // }
+            return (
+                    <Example items={this.props.trailers} />
+            )
+        })
+    }
     // renderItems = () => {
     //     return this.props.trailers && this.props.trailers.map((item,i) => (
     //         <div className="trailer-item">
@@ -45,7 +42,7 @@ export default class Trailers extends Component {
                     arrows
                     autoPlaySpeed={3000}
                     centerMode={false}
-                    className="people-gallery wow fadeInDown"
+                    className="people-gallery none wow fadeInDown"
                     containerClass="container-fluid"
                     dotListClass=""
                     draggable
@@ -96,8 +93,8 @@ export default class Trailers extends Component {
                     }}
                 >
                    
-                    <Example items={this.props.trailers} />
-                  {/* {this.renderTrailers()} */}
+                    {/* <Example items={this.props.trailers} /> */}
+                  {this.renderTrailers()}
                 </Carousel>
             </div>
         )

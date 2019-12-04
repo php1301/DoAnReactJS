@@ -9,12 +9,14 @@ export default function Example(props) {
     const handleShow = () => setShow(true);
 
     const renderTrailers = () => {
+        {console.log(props.items)}
         return props.items && props.items.map((item, index) => {
+            if (index > 1 && index < 3)
             return (
                 <Button onClick={handleShow}>
                     <div>
-                        <iframe width={560} height={315} src="https://www.youtube.com/embed/Rc0R2VYsfD4" frameBorder={0} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                        <div className="overlay" src="https://www.youtube.com/embed/Rc0R2VYsfD4" data-target="#videoModal" data-toggle="modal" />
+                        <iframe width={560} height={315} src={`https://www.youtube.com/embed/${item.key}`}  frameBorder={0} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                        <div className="overlay" src={`https://www.youtube.com/embed/${item.key}`}  data-target="#videoModal" data-toggle="modal" />
                     </div>
                 </Button>
             )
@@ -31,9 +33,9 @@ export default function Example(props) {
                     <div className="overlay trigger" src="https://www.youtube.com/embed/VF1Yz05iQM0" data-target="#videoModal" data-toggle="modal" />
                 </div>
             </Button> */}
-            <Button className="trailer-item" onClick={handleShow}>
+            {/* <Button className="trailer-item" onClick={handleShow}>
                 <iframe width="420" height="315" src="https://www.youtube.com/embed/Rc0R2VYsfD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </Button>
+            </Button> */}
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Body><div className="trailer-item">
