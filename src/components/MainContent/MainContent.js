@@ -11,6 +11,7 @@ import * as action4 from "../../actions/movieActions/getNowPlaying";
 import * as action5 from "../../actions/movieActions/getTopRated";
 import Carousel from '../Carousel/Carousel';
 import Title from '../Title/Title';
+import News from '../News/News';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1255 },
@@ -56,7 +57,7 @@ const HrLine = () => (
     componentDidMount() {
         this.props.onSaveNowPlaying()
         this.props.onSavePopular()
-        this.props.onSaveUpcoming() //prop này lay o dau vay em 
+        this.props.onSaveUpcoming() 
         this.props.onSaveTopRated()
     }
     render() {
@@ -73,6 +74,8 @@ const HrLine = () => (
                 <HrLine />
                 <Title title={"Top rated"} />
                 <Carousel items={this.props.topRated} />
+                <HrLine />
+                <News items={this.props.popular} boxItems={this.props.nowPlaying}/>
                 <HrLine />
             </div>
         )

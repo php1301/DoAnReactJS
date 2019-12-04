@@ -23,7 +23,7 @@ export default class ItemController extends Component {
                         animationDuration: "1s",
                         animationDelay: "0.5s",
                         animationName: "fadeInDown"
-                    }}>TV Shows</button>
+                    }}>Showing Nearby</button>
             </div>
         );
     }

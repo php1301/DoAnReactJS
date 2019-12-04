@@ -1,3 +1,6 @@
+a{
+  text-decoration: none;
+}
 .modal-backdrop {
     // &.show{
     //     opacity: 0;
@@ -11,13 +14,22 @@
     height: 100vh;
     background-color: #000;
 }
-.carousel-control-next-icon, .carousel-control-prev-icon {
-    display: none;
-    width: 20px;
-    height: 20px;
-    background: no-repeat 50%/100% 100%;
+.modal-backdrop {
+  z-index: 1040 !important;
 }
-
+.modal-dialog {
+  margin: 2px auto;
+  z-index: 1100 !important;
+}
+// .carousel-control-next-icon, .carousel-control-prev-icon {
+//     display: none;
+//     width: 20px;
+//     height: 20px;
+//     background: no-repeat 50%/100% 100%;
+// }
+ul.react-multi-carousel-track {
+    transform: none;
+}
 .carousel-indicators li {
     box-sizing: content-box;
     flex: 0 1 auto;
@@ -51,6 +63,9 @@
     opacity: .5;
     transition: opacity .6s ease;
    
+}
+.carousel-indicators:nth-child(3){
+  display: none;
 }
 .main-content-content .carousel-indicators{
     display: none;

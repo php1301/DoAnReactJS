@@ -6,7 +6,9 @@ import PeopleCarousel from '../PeopleCarousel/PeopleCarousel';
 import Trailers from '../Trailers/Trailers';
 import * as action from "../../actions/movieActions/getDetails"
 import * as action2 from "../../actions/movieActions/getReviews";
+import * as action3 from "../../actions/movieActions/getTrailers";
 import { connect } from 'react-redux'
+import StarRating from '../StarRating/StarRating';
 class DetailMovies extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +16,16 @@ class DetailMovies extends Component {
             toggle: true
         }
     }
+    setRating = rating => {
+
+        rating = Math.round(rating / 2);
+
+        document.querySelectorAll('.star-rating-container__item').forEach((node, i) => {
+            if (i < rating) {
+                node.classList.add("star-rating-container__item--active");
+            }
+        });
+    };
     shortText = (str) => {
         // const strArr = str.split(' ');
         return str.split(' ').length < 50 ? str : str.split(".").splice(0, 5).join("...")  // dua chuoi thanh mang
@@ -66,6 +78,7 @@ class DetailMovies extends Component {
         // id == undefined 
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
+        this.props.onSaveTrailers(id)
         console.log(this.props.details)
     }
     render() {
@@ -136,45 +149,9 @@ class DetailMovies extends Component {
                             </h1>
                             <div className="item-details-header-info-container-content-rating">
                                 <p className="item-details-header-info-container-content-rating__digit">
-                                    6.6
+                                    {this.props.details.vote_average}
                     </p>
-                                <div className="star-rating-container">
-                                    <svg
-                                        className="star-rating-container__item star-rating-container__item--active"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z" />
-                                    </svg>
-                                    <svg
-                                        className="star-rating-container__item star-rating-container__item--active"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z" />
-                                    </svg>
-                                    <svg
-                                        className="star-rating-container__item star-rating-container__item--active"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z" />
-                                    </svg>
-                                    <svg
-                                        className="star-rating-container__item"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z" />
-                                    </svg>
-                                    <svg
-                                        className="star-rating-container__item"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 512 512"
-                                    >
-                                        <path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z" />
-                                    </svg>
-                                </div>
+                                <StarRating star={this.props.details.vote_average}/>
                             </div>
                             <p className="item-details-header-info-container-content__detail">
                                 {details.status} | {details.original_language}
@@ -224,7 +201,7 @@ class DetailMovies extends Component {
                         </p>
                     </div>
                     <PeopleCarousel People={this.props.details} />
-                    <Trailers Trailers={this.props.details} />
+                    <Trailers trailers={this.props.trailers} />
                     <div className="item-details-main-reviews">
                         <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Popular Reviews</h2>
                         {/* check null de duyet reviews */}
@@ -253,11 +230,12 @@ const mapStateToProps = state => {
     return {
         details: state.getDetails.result,
         reviews: state.getReviews.result,
-      
+        trailers: state.getTrailers.result.results,
+
         userDetails: state.getUserDetails,
         session: state.getSession,
         logInStatus: state.toggleLogInStatus.status,
-      
+
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -267,6 +245,9 @@ const mapDispatchToProps = dispatch => {
         },
         onSaveReviews: id => {
             dispatch(action2.getReviewsAPI(id))
+        },
+        onSaveTrailers: id => {
+            dispatch(action3.getTrailersAPI(id))
         }
     }
 }

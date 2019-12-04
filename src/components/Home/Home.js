@@ -7,6 +7,7 @@ import ItemController from '../ItemController/ItemController';
 import MainContent from '../MainContent/MainContent';
 import MainFooter from '../MainFooter/MainFooter';
 import Hotline from '../Hotline/Hotline';
+import News from '../News/News';
 export default class Home extends Component{
     render(){
         return(

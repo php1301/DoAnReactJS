@@ -9,6 +9,7 @@ import getTopRated from "../reducers/movieReducer/getTopRated";
 import getDetails from "../reducers/movieReducer/getDetails";
 import getReviews from "../reducers/movieReducer/getReviews";
 import getGenres from "../reducers/movieReducer/getGenres";
+import getTrailers from "../reducers/movieReducer/getTrailers";
 
 import getRequestToken from "./authenticationReducers/getRequestToken";
 import getSession from "./authenticationReducers/getSession";
@@ -36,6 +37,7 @@ const rootReducer = combineReducers({
     getDetails,
     getReviews,
     getGenres,
+    getTrailers,
 
     getUserDetails,
     getRequestToken,

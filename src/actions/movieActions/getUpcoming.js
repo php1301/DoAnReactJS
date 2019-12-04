@@ -20,4 +20,4 @@ const saveUpcoming = (upcoming) => {
         type: GET_UPCOMING
     }
 }
-export { saveUpcoming, getUpcoming }
+export { getUpcoming }

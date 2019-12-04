@@ -12,4 +12,8 @@
     margin-right: auto;
     margin-left: auto;
   }
+  position: relative;
+  ul.react-multi-carousel-track {
+    transform: translate3d(0px, 0px, 0px);
+}
 }

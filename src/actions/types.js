@@ -8,6 +8,7 @@ export const GET_TOP_RATED = "GET_TOP_RATED";
 export const GET_DETAILS = "GET_DETAILS";
 export const GET_REVIEWS = "GET_REVIEWS";
 export const GET_GENRES = "GET_GENRES";
+export const GET_TRAILERS = "GET_TRAILERS";
 
 export const GET_REQUEST_TOKEN = 'GET_REQUEST_TOKEN';
 export const GET_SESSION = 'GET_SESSION';

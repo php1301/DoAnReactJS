@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.star-rating-container {
+  display: grid;
+  grid-template-columns: repeat(5, 15px);
+  grid-template-rows: 15px;
+  position: relative;
+  width: 15px * 5;
+
+  &__item {
+    cursor: pointer;
+    fill: white;
+    height: 15px;
+    width: 15px;
+
+    &--active {
+      fill: $secondary-color;
+    }
+  }
+
+  &-warning {
+    background-color: rgba(255, 0 ,0, .7);
+    color: $primary-font-color;
+    font-weight: bold;
+    left: -2rem;
+    padding: .5rem;
+    position: absolute;
+    top: 1.5rem;
+    width: 200px;
+
+    &--hide {
+      display: none;
+    }
+  }
+}
