@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class BoxOffice extends Component {
     render() {
         return (
-            <div>
+            <div className="wow fadeIn" data-wow-duration="3s">
                 <div className="row">
                     <div className="col-xs-12 col-sm-6">
                         <div className="omb-box-office">

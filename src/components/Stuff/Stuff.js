@@ -3,6 +3,9 @@ import './css/style.min.css'
 import './css/responsive.min.css'
 import '../Stuff/Stuff.scss'
 import BoxOffice from '../BoxOffice/BoxOffice'
+import Schedule from '../Schedule/Schedule'
+import '../../../node_modules/font-awesome/css/font-awesome.min.css'
+import '../../../node_modules/font-awesome/scss/font-awesome.scss'
 export default class Stuff extends Component {
     render() {
         return (
@@ -99,6 +102,7 @@ export default class Stuff extends Component {
                     </div>
                 </div>
                 <BoxOffice />
+                <Schedule />
             </div>
         )
     }

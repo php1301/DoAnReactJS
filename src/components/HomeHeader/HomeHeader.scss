@@ -8,22 +8,25 @@
   top: 0px;
   left: 0px;
 }
-.carousel-h3 {
-  position: absolute;
-  top: -1000%;
-  left: -10%;
-}
-.carousel-p {
-  position: absolute;
-  top: -850%;
-  left: -10%;
-  font-size: 22px;
-
-}
-.carousel-category {
-  position: absolute;
-  font-size: 24px;
-  top: -1115%;
-  left: -10%;
-  color: rgba(255, 255, 255, 0.9);
+.carousel-caption {
+  .carousel-h3 {
+    position: absolute;
+    top: -1000%;
+    left: -10%;
+    color: white;
+  }
+  .carousel-p {
+    position: absolute;
+    top: -850%;
+    left: -10%;
+    color: whitesmoke;
+    font-size: 22px;
+  }
+  .carousel-category {
+    position: absolute;
+    font-size: 24px;
+    top: -1115%;
+    left: -10%;
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
