@@ -1,0 +1,164 @@
+/* 
+ * IconBox
+ */
+
+.w-iconbox {
+	position: relative;
+	}
+	.w-iconbox-link {
+		display: block; /* fix focus state in Chrome */
+		-webkit-flex-shrink: 0; /* fix for older Safari */
+		flex-shrink: 0;
+		color: inherit;
+		transition: none;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		.w-iconbox-icon {
+			-webkit-flex-shrink: 0; /* fix for older Safari */
+			flex-shrink: 0;
+			font-size: 36px; /* default value */
+			text-align: center;
+			max-width: 100%;
+			position: relative;
+			z-index: 1;
+			transition: background 0.3s, color 0.3s, box-shadow 0.1s;
+			}
+		.w-iconbox:not(.icontype_img) .w-iconbox-icon {
+			line-height: 1;
+			}
+			.w-iconbox-icon i {
+				vertical-align: top;
+				line-height: inherit;
+				}
+			.w-iconbox-icon img {
+				vertical-align: top;
+				position: relative;
+				width: 1em;
+				}
+		.w-iconbox .w-iconbox-title {
+			padding: 0.5em 0;
+			margin-bottom: 0;
+			transition: color 0.3s;
+			}
+		.no-touch .w-iconbox-link:hover .w-iconbox-title {
+			color: inherit;
+			}
+		.w-iconbox-text p:not(:last-child) {
+			margin-bottom: 0.75rem;
+			}
+
+/* Alignment of the whole IconBox */
+.w-iconbox.align_center {
+	justify-content: center;
+	}
+.w-iconbox.align_right {
+	justify-content: flex-end;
+	}
+
+/* ICONPOS top */
+.w-iconbox.iconpos_top {
+	margin: 0 auto;
+	max-width: 25rem;
+	}
+	.w-iconbox.iconpos_top .w-iconbox-icon {
+		display: inline-block;
+		vertical-align: top;
+		}
+
+/* ICONPOS left & right */
+.w-iconbox.iconpos_left,
+.w-iconbox.iconpos_right {
+	display: -webkit-flex; /* fix for older Safari */
+	display: flex;
+	}
+.w-iconbox.iconpos_left.no_text,
+.w-iconbox.iconpos_left.no_title,
+.w-iconbox.iconpos_right.no_text,
+.w-iconbox.iconpos_right.no_title {
+	align-items: center;
+	}
+	.w-iconbox.iconpos_left .w-iconbox-icon {
+		margin-right: 1.5rem;
+		margin-right: calc(15px + 0.2em);
+		}
+	.w-iconbox.iconpos_right .w-iconbox-icon {
+		margin-left: 1.5rem;
+		margin-left: calc(15px + 0.2em);
+		}
+		.w-iconbox.iconpos_left .w-iconbox-title,
+		.w-iconbox.iconpos_right .w-iconbox-title {
+			padding-top: 0;
+			margin-top: -0.2em;
+			}
+		.w-iconbox.iconpos_left.no_text .w-iconbox-title,
+		.w-iconbox.iconpos_right.no_text .w-iconbox-title {
+			padding-bottom: 0;
+			margin-top: 0;
+			}
+.w-iconbox.iconpos_left.no_title.no_text,
+.w-iconbox.iconpos_right.no_title.no_text {
+	display: inline-block;
+	vertical-align: top;
+	}
+	.w-iconbox.iconpos_left.no_title.no_text .w-iconbox-icon,
+	.w-iconbox.iconpos_right.no_title.no_text .w-iconbox-icon {
+		margin: 0.3rem;
+		}
+	
+/* STYLE: default */
+.w-iconbox.style_default .w-iconbox-icon {
+	width: 1.1em; /* fix to align icons at the left correctly */
+	background: none !important;
+	box-shadow: none !important;
+	color: inherit;
+	}
+
+/* STYLE: circle & outlined */
+.w-iconbox.style_circle .w-iconbox-icon,
+.w-iconbox.style_outlined .w-iconbox-icon {
+	line-height: 2.5em;
+	height: 2.5em;
+	width: 2.5em;
+	overflow: hidden;
+	border-radius: 50%;
+	}
+.w-iconbox.style_outlined .w-iconbox-icon {
+	background: none !important;
+	}
+.w-iconbox.color_primary.style_circle .w-iconbox-icon,
+.w-iconbox.color_secondary.style_circle .w-iconbox-icon,
+.no-touch .w-iconbox.style_circle .w-iconbox-link:hover .w-iconbox-icon,
+.no-touch .l-section.color_primary .w-iconbox-link:hover .w-iconbox-title {
+	color: #fff !important;
+	}
+.no-touch .w-iconbox.style_outlined .w-iconbox-link:hover .w-iconbox-icon {
+	color: #fff !important;
+	box-shadow: 0 0 0 2px transparent inset;
+	transition: color 0.3s, box-shadow 0.1s 0.3s;
+	}
+	.no-touch .w-iconbox.style_circle .w-iconbox-icon:before,
+	.no-touch .w-iconbox.style_outlined .w-iconbox-icon:before {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 0;
+		width: 100%;
+		transform: translateZ(0); /* fix for Chrome */
+		transition: height 0.3s;
+		}
+	.no-touch .w-iconbox.style_circle .w-iconbox-link:hover .w-iconbox-icon:before,
+	.no-touch .w-iconbox.style_outlined .w-iconbox-link:hover .w-iconbox-icon:before {
+		height: 100%;
+		}
+	.w-iconbox.style_circle .w-iconbox-icon i,
+	.w-iconbox.style_outlined .w-iconbox-icon i {
+		position: relative;
+		}
+	.w-iconbox.style_circle .w-iconbox-icon img,
+	.w-iconbox.style_outlined .w-iconbox-icon img {
+		top: 50%;
+		transform: translateY(-50%);
+		}
+		

@@ -1,0 +1,330 @@
+/* 
+ * Sharing
+ */
+
+.w-sharing.align_center {
+	justify-content: center;
+	}
+.w-sharing.align_right {
+	justify-content: flex-end;
+	}
+.w-sharing-list {
+	display: inline-flex;
+	flex-wrap: wrap;
+	}
+	.w-sharing-item {
+		flex-shrink: 0;
+		display: flex;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		line-height: 2;
+		padding: 0 0.8em;
+		min-width: 3em;
+		}
+	.w-sharing a.w-sharing-item,
+	.no-touch a.w-sharing-item:hover {
+		color: inherit;
+		}
+		.w-sharing-icon {
+			position: relative;
+			min-width: 1em;
+			}
+			.w-sharing-icon:before {
+				font-family: 'Font Awesome 5 Brands';
+				vertical-align: top;
+				line-height: inherit;
+				}
+		.w-sharing-count {
+			position: relative;
+			font-size: 0.7em;
+			margin-left: 0.3em;
+			}
+			
+/* TYPE simple */
+.w-sharing.type_simple .w-sharing-item {
+	margin: 0.1em 0;
+	border-width: 0 1px 0 0; /* fixed value */
+	border-style: solid;
+	transition: none;
+	}
+.w-sharing.type_simple .w-sharing-item:first-child {
+	padding-left: 0;
+	}
+.w-sharing.type_simple .w-sharing-item:last-child {
+	padding-right: 0;
+	border: none;
+	}
+	.w-sharing.type_simple .w-sharing-icon {
+		transition: opacity 0.3s, color 0.3s;
+		opacity: 0.5;
+		}
+	.no-touch .w-sharing.type_simple .w-sharing-item:hover .w-sharing-icon {
+		opacity: 1;
+		}
+		
+/* TYPE solid & outlined */
+.w-sharing.type_solid .w-sharing-list,
+.w-sharing.type_outlined .w-sharing-list {
+	margin: 0 -0.1em;
+	}
+.w-sharing.type_solid .w-sharing-item,
+.w-sharing.type_outlined .w-sharing-item {
+	margin: 0.1em;
+	border-radius: 0.3em;
+	overflow: hidden;
+	}
+	.no-touch .w-sharing.type_solid .w-sharing-item:before,
+	.no-touch .w-sharing.type_outlined .w-sharing-item:before,
+	.no-touch .w-sharing.type_fixed .w-sharing-item:before {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 0;
+		background: rgba(0,0,0,0.1);
+		transition: height 0.3s;
+		}
+	.no-touch .w-sharing.type_solid .w-sharing-item:hover:before,
+	.no-touch .w-sharing.type_outlined .w-sharing-item:hover:before,
+	.no-touch .w-sharing.type_fixed .w-sharing-item:hover:before {
+		height: 100%;
+		}
+.w-sharing.type_solid .w-sharing-item,
+.no-touch .w-sharing.type_outlined .w-sharing-item:hover {
+	color: #fff !important;
+	}
+
+/* TYPE fixed */
+.w-sharing.type_fixed {
+	position: fixed;
+	z-index: 97;
+	}
+.w-sharing.type_fixed.align_left {
+	display: block;
+	top: 50%;
+	left: 0;
+	transform: translate3d(0,-50%,0);
+	}
+.w-sharing.type_fixed.align_right {
+	top: 50%;
+	right: 0;
+	transform: translate3d(0,-50%,0);
+	}
+	.w-sharing.type_fixed.align_left .w-sharing-list,
+	.w-sharing.type_fixed.align_right .w-sharing-list {
+		display: block;
+		}
+.w-sharing.type_fixed.align_center {
+	left: 50%;
+	bottom: 0;
+	transform: translate3d(-50%,0,0);
+	}
+	.w-sharing.type_fixed .w-sharing-item {
+		display: block;
+		padding: 0;
+		min-width: 0;
+		line-height: 2.2;
+		width: 2.2em;
+		color: #fff !important;
+		}
+		.w-sharing.type_fixed .w-sharing-count {
+			display: block;
+			font-size: 0.6em;
+			line-height: 1;
+			margin: 0;
+			padding-bottom: 0.7em;
+			}
+
+/* Email */
+.w-sharing.type_solid .w-sharing-item.email,
+.w-sharing.type_fixed .w-sharing-item.email,
+.w-sharing.type_outlined .w-sharing-item.email:before {
+	background: #96a2a8;
+	}
+.w-sharing.type_outlined .w-sharing-item.email,
+.no-touch .w-sharing.type_simple .w-sharing-item.email:hover .w-sharing-icon {
+	color: #96a2a8;
+	}
+.w-sharing.type_outlined .w-sharing-item.email {
+	box-shadow: 0 0 0 2px #96a2a8 inset;
+	}
+.w-sharing-item.email .w-sharing-icon:before {
+	content: '\f0e0';
+	font-family: fontawesome;
+	font-weight: 900;
+	}
+
+/* Facebook */
+.w-sharing.type_solid .w-sharing-item.facebook,
+.w-sharing.type_fixed .w-sharing-item.facebook,
+.w-sharing.type_outlined .w-sharing-item.facebook:before {
+	background: #42599e;
+	}
+.w-sharing.type_outlined .w-sharing-item.facebook {
+	box-shadow: 0 0 0 2px #42599e inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.facebook,
+.no-touch .w-sharing.type_simple .w-sharing-item.facebook:hover .w-sharing-icon {
+	color: #42599e;
+	}
+.w-sharing-item.facebook .w-sharing-icon:before {
+	content: '\f39e';
+	}
+	
+/* Twitter */
+.w-sharing.type_solid .w-sharing-item.twitter,
+.w-sharing.type_fixed .w-sharing-item.twitter,
+.w-sharing.type_outlined .w-sharing-item.twitter:before {
+	background: #55acee;
+	}
+.w-sharing.type_outlined .w-sharing-item.twitter {
+	box-shadow: 0 0 0 2px #55acee inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.twitter,
+.no-touch .w-sharing.type_simple .w-sharing-item.twitter:hover .w-sharing-icon {
+	color: #55acee;
+	}
+.w-sharing-item.twitter .w-sharing-icon:before {
+	content: '\f099';
+	}
+
+/* LinkedIn */
+.w-sharing.type_solid .w-sharing-item.linkedin,
+.w-sharing.type_fixed .w-sharing-item.linkedin,
+.w-sharing.type_outlined .w-sharing-item.linkedin:before {
+	background: #0077b5;
+	}
+.w-sharing.type_outlined .w-sharing-item.linkedin {
+	box-shadow: 0 0 0 2px #0077b5 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.linkedin,
+.no-touch .w-sharing.type_simple .w-sharing-item.linkedin:hover .w-sharing-icon {
+	color: #0077b5;
+	}
+.w-sharing-item.linkedin .w-sharing-icon:before {
+	content: '\f0e1';
+	}
+
+/* Pinterest */
+.w-sharing.type_solid .w-sharing-item.pinterest,
+.w-sharing.type_fixed .w-sharing-item.pinterest,
+.w-sharing.type_outlined .w-sharing-item.pinterest:before {
+	background: #cb2027;
+	}
+.w-sharing.type_outlined .w-sharing-item.pinterest {
+	box-shadow: 0 0 0 2px #cb2027 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.pinterest,
+.no-touch .w-sharing.type_simple .w-sharing-item.pinterest:hover .w-sharing-icon {
+	color: #cb2027;
+	}
+.w-sharing-item.pinterest .w-sharing-icon:before {
+	content: '\f0d2';
+	}
+
+/* Vkontakte */
+.w-sharing.type_solid .w-sharing-item.vk,
+.w-sharing.type_fixed .w-sharing-item.vk,
+.w-sharing.type_outlined .w-sharing-item.vk:before {
+	background: #4c75a3;
+	}
+.w-sharing.type_outlined .w-sharing-item.vk {
+	box-shadow: 0 0 0 2px #4c75a3 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.vk,
+.no-touch .w-sharing.type_simple .w-sharing-item.vk:hover .w-sharing-icon {
+	color: #4c75a3;
+	}
+.w-sharing-item.vk .w-sharing-icon:before {
+	content: '\f189';
+	}
+	
+
+/* Whatsapp */
+.w-sharing.type_solid .w-sharing-item.whatsapp,
+.w-sharing.type_fixed .w-sharing-item.whatsapp,
+.w-sharing.type_outlined .w-sharing-item.whatsapp:before {
+	background: #25d366;
+	}
+.w-sharing.type_outlined .w-sharing-item.whatsapp {
+	box-shadow: 0 0 0 2px #25d366 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.whatsapp,
+.no-touch .w-sharing.type_simple .w-sharing-item.whatsapp:hover .w-sharing-icon {
+	color: #25d366;
+	}
+.w-sharing-item.whatsapp .w-sharing-icon:before {
+	content: '\f232';
+	}
+
+/* XING */
+.w-sharing.type_solid .w-sharing-item.xing,
+.w-sharing.type_fixed .w-sharing-item.xing,
+.w-sharing.type_outlined .w-sharing-item.xing:before {
+	background: #126567;
+	}
+.w-sharing.type_outlined .w-sharing-item.xing {
+	box-shadow: 0 0 0 2px #126567 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.xing,
+.no-touch .w-sharing.type_simple .w-sharing-item.xing:hover .w-sharing-icon {
+	color: #126567;
+	}
+.w-sharing-item.xing .w-sharing-icon:before {
+	content: '\f168';
+	}
+
+/* Reddit */
+.w-sharing.type_solid .w-sharing-item.reddit,
+.w-sharing.type_fixed .w-sharing-item.reddit,
+.w-sharing.type_outlined .w-sharing-item.reddit:before {
+	background: #FF4301;
+	}
+.w-sharing.type_outlined .w-sharing-item.reddit {
+	box-shadow: 0 0 0 2px #FF4301 inset;
+	}
+.w-sharing.type_outlined .w-sharing-item.reddit,
+.no-touch .w-sharing.type_simple .w-sharing-item.reddit:hover .w-sharing-icon {
+	color: #FF4301;
+	}
+.w-sharing-item.reddit .w-sharing-icon:before {
+	content: '\f1a1';
+	}
+
+/* Copy to clipboard */
+.w-sharing-item.copy2clipboard .w-sharing-icon:before {
+	content: '\f0c5';
+	font-family: fontawesome;
+	font-weight: 900;
+	}
+
+/* Tooltip of text selection */
+.w-sharing-tooltip {
+	position: absolute;
+	z-index: 999;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	}
+	.w-sharing-tooltip .w-sharing-item {
+		font-size: 1rem;
+		line-height: 2.2;
+		min-width: 2.2em;
+		padding: 0;
+		transition: none;
+		background: #222;
+		color: #fff !important;
+		}
+		.w-sharing-tooltip .w-sharing-count,
+		.w-sharing-tooltip .w-sharing-item:before {
+			display: none !important;
+			}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .w-sharing-item {
+	border-radius: 0 !important;
+	}

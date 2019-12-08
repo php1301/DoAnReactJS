@@ -1,0 +1,135 @@
+/*
+ * TablePress
+ */
+
+.dataTables_processing {
+	display: none;
+	}
+.dataTables_scroll {
+	clear: both;
+	}
+.dataTables_scrollBody {
+	-webkit-overflow-scrolling: touch;
+	}
+.tablepress-table-description {
+	display: block;
+	margin-bottom: 1.5rem;
+	}
+.dataTables_wrapper {
+	clear: both;
+	margin-bottom: 1.5rem;
+	}
+	.dataTables_wrapper:after {
+		content: '';
+		display: block;
+		clear: both;
+		}
+	.dataTables_wrapper .tablepress {
+		clear: both;
+		margin: 0;
+		width: 100% !important;
+		}
+	.tablepress tbody td {
+		vertical-align: top;
+		}
+	.tablepress thead th {
+		font-weight: bold;
+		padding-top: 0;
+		}
+	.tablepress tfoot th {
+		font-weight: bold;
+		border: 0;
+		}
+	.tablepress .odd td {
+		background: rgba(0,0,0,0.03);
+		}
+	.tablepress img {
+		max-width: none;
+		}
+.dataTables_length {
+	float: left;
+	white-space: nowrap;
+	margin-bottom: 0.7rem;
+	}
+.dataTables_filter {
+	float: right;
+	white-space: nowrap;
+	margin-bottom: 0.7rem;
+	}
+	.dataTables_wrapper label input {
+		vertical-align: middle;
+		width: auto;
+		margin-left: 0.7rem;
+		}
+	.dataTables_wrapper label select {
+		vertical-align: middle;
+		width: auto;
+		margin: 0 0.3rem;
+		}
+.dataTables_info {
+	font-size: 0.9rem;
+	clear: both;
+	float: left;
+	margin-top: 0.7rem;
+	}
+.dataTables_paginate {
+	font-size: 0.9rem;
+	float: right;
+	margin-top: 0.7rem;
+	}
+	.dataTables_paginate a {
+		display: inline-block;
+		vertical-align: top;
+		cursor: pointer;
+		margin-left: 0.7rem;
+		}
+	.paginate_button.disabled {
+		color: inherit !important;
+		cursor: default;
+		opacity: 0.5;
+		}
+	.paginate_button.current {
+		font-weight: bold;
+		cursor: default;
+		}
+		.paging_simple .paginate_button.previous:before {
+			display: inline-block;
+			vertical-align: top;
+			content: '\f104';
+			font-family: fontawesome;
+			font-weight: 400;
+			margin-right: 0.4rem;
+			}
+		.paging_simple .paginate_button.next:after {
+			display: inline-block;
+			vertical-align: top;
+			content: '\f105';
+			font-family: fontawesome;
+			font-weight: 400;
+			margin-left: 0.4rem;
+			}
+
+/* Sorting */
+.tablepress .sorting,
+.tablepress .sorting_asc,
+.tablepress .sorting_desc {
+	cursor: pointer;
+	}
+	.tablepress .sorting_asc:after,
+	.tablepress .sorting_desc:after {
+		display: inline-block;
+		vertical-align: top;
+		content: '\f0d7';
+		font-family: fontawesome;
+		font-weight: 900;
+		font-size: 1.2rem;
+		margin-left: 0.4rem;
+		margin-right: -1.2rem;
+		width: 0.8rem;
+		}
+	.tablepress .sorting_asc:after {
+		transform: rotate(180deg);
+		}
+	.dataTables_scrollBody .tablepress thead th:after {
+		display: none;
+		}

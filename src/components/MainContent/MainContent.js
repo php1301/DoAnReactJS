@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import "../MainContent/MainContent.scss"
 // import Upcoming from '../Upcoming/Upcoming';
 // import Popular from '../Popular/Popular';
@@ -12,6 +12,7 @@ import * as action5 from "../../actions/movieActions/getTopRated";
 import Carousel from '../Carousel/Carousel';
 import Title from '../Title/Title';
 import News from '../News/News';
+import Stuff from '../Stuff/Stuff';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1255 },
@@ -53,30 +54,41 @@ const HrLine = () => (
 //     }}
 //     > </h2>
 // )
- class MainContent extends Component {
+class MainContent extends Component {
     componentDidMount() {
         this.props.onSaveNowPlaying()
         this.props.onSavePopular()
-        this.props.onSaveUpcoming() 
+        this.props.onSaveUpcoming()
         this.props.onSaveTopRated()
+    }
+    renderItem = () => {
+
     }
     render() {
         return (
             <div className="main-content-container">
-                <Title title={"Upcoming"} />
-                <Carousel items={this.props.upcoming} />
-                <HrLine />
-                <Title title={"Popular"} />
-                <Carousel items={this.props.popular} />
-                <HrLine />
-                <Title title={"Now Playing"} />
-                <Carousel items={this.props.nowPlaying} />
-                <HrLine />
-                <Title title={"Top rated"} />
-                <Carousel items={this.props.topRated} />
-                <HrLine />
-                <News items={this.props.popular} boxItems={this.props.nowPlaying}/>
-                <HrLine />
+                {this.props.renderItem === true ? (
+                    <Fragment>
+                        <Title title={"Upcoming"} />
+                        <Carousel items={this.props.upcoming} />
+                        <HrLine />
+                        <Title title={"Popular"} />
+                        <Carousel items={this.props.popular} />
+                        <HrLine />
+                        <Title title={"Now Playing"} />
+                        <Carousel items={this.props.nowPlaying} />
+                        <HrLine />
+                        <Title title={"Top rated"} />
+                        <Carousel items={this.props.topRated} />
+                        <HrLine />
+                        <News items={this.props.popular} boxItems={this.props.nowPlaying} />
+                        <HrLine />
+                    </Fragment>) : (
+                        <div className="wow fadeIn" data-wow-duration="3s">
+                            <Stuff />
+                        </div>
+                    )
+                }
             </div>
         )
     }

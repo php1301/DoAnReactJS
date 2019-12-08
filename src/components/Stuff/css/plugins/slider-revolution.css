@@ -1,0 +1,85 @@
+/*
+ * Slider Revolution
+ */
+
+/* Arrows */
+.tp-leftarrow.tparrows.custom,
+.tp-rightarrow.tparrows.custom {
+	font-size: 1.8rem;
+	text-align: center;
+	line-height: 3.5rem;
+	height: 3.5rem;
+	width: 3.5rem;
+	border-radius: 50%;
+	overflow: hidden;
+	background: none !important;
+	transition: opacity 0.3s, box-shadow 0.3s;
+	box-shadow: 0 0 0 2px #fff inset;
+	color: #fff;
+	}
+	.no-touch .tp-leftarrow.tparrows.custom:hover,
+	.no-touch .tp-rightarrow.tparrows.custom:hover {
+		box-shadow: 0 0 0 2px transparent inset;
+		}
+	.tp-leftarrow.tparrows.custom:before,
+	.tp-rightarrow.tparrows.custom:before {
+		display: none;
+		}
+	.no-touch .tp-leftarrow.tparrows.custom:before,
+	.no-touch .tp-rightarrow.tparrows.custom:before {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 0;
+		width: 100%;
+		transition: height 0.3s;
+		}
+	.no-touch .tp-leftarrow.tparrows.custom:hover:before,
+	.no-touch .tp-rightarrow.tparrows.custom:hover:before {
+		height: 100%;
+		}
+	.tp-rightarrow.tparrows.custom:after {
+		content: '\f105';
+		font-family: fontawesome;
+		font-weight: 400;
+		vertical-align: top;
+		padding-left: 0.2rem;
+		position: relative;
+		}
+	.tp-leftarrow.tparrows.custom:after {
+		content: '\f104';
+		font-family: fontawesome;
+		font-weight: 400;
+		vertical-align: top;
+		padding-right: 0.2rem;
+		position: relative;
+		}
+		
+/* Bullets */
+.tp-bullets.custom .tp-bullet {
+	width: auto;
+	height: auto;
+	background: none;
+	}
+	.tp-bullets.custom .tp-bullet:after {
+		content: '';
+		display: block;
+		border-radius: 50%;
+		border-width: 0;
+		border-style: solid;
+		border-color: inherit;
+		background-color: rgba(0,0,0,0.2);
+		box-sizing: border-box;
+		width: 8px; /* fixed value */
+		height: 8px; /* fixed value */
+		margin: 6px; /* fixed value */
+		}
+	.tp-bullets.custom .tp-bullet.selected:after {
+		background-color: rgba(0,0,0,0) !important;
+		border-width: 1px;
+		width: 10px; /* fixed value */
+		height: 10px; /* fixed value */
+		margin: 5px; /* fixed value */
+		}

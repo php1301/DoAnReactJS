@@ -1,0 +1,17 @@
+/* 
+ * Counter
+ */
+
+.w-counter-value {
+	line-height: 1;
+	}
+.l-section.color_primary .w-counter.color_heading .w-counter-value,
+.l-section.color_secondary .w-counter.color_heading .w-counter-value,
+.l-section.color_custom .w-counter.color_heading .w-counter-value {
+	color: inherit;
+	}
+.w-counter-title {
+	line-height: 1.4;
+	padding: 0.6rem 0;
+	margin: 0;
+	}

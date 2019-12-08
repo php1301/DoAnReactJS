@@ -1,0 +1,312 @@
+/* required styles */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.leaflet-container {
+	overflow: hidden;
+}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+}
+/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+}
+/* hack that prevents hw layers "stretching" when loading new tiles */
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+}
+.leaflet-container .leaflet-overlay-pane svg,
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	touch-action: pan-x pan-y;
+}
+.leaflet-container.leaflet-touch-drag {
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+}
+.leaflet-tile-loaded {
+	visibility: inherit;
+}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+}
+.leaflet-map-pane canvas { z-index: 10; }
+.leaflet-map-pane svg { z-index: 20; }
+.leaflet-tile-pane { z-index: 20; }
+.leaflet-overlay-pane { z-index: 40; }
+.leaflet-shadow-pane { z-index: 50; }
+.leaflet-marker-pane { z-index: 60; }
+.leaflet-tooltip-pane { z-index: 65; }
+.leaflet-popup-pane { z-index: 70; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+}
+
+
+/* control positioning */
+.leaflet-control {
+	position: relative;
+	pointer-events: auto;
+}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+}
+.leaflet-top {
+	top: 0;
+}
+.leaflet-right {
+	right: 0;
+}
+.leaflet-bottom {
+	bottom: 0;
+}
+.leaflet-left {
+	left: 0;
+}
+.leaflet-control {
+	float: left;
+	clear: both;
+}
+.leaflet-right .leaflet-control {
+	float: right;
+}
+.leaflet-top .leaflet-control {
+	margin-top: 0.6rem;
+}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 0.6rem;
+}
+.leaflet-left .leaflet-control {
+	margin-left: 0.6rem;
+}
+.leaflet-right .leaflet-control {
+	margin-right: 0.6rem;
+}
+
+
+/* zoom and fade animations */
+.leaflet-fade-anim .leaflet-tile {
+	will-change: opacity;
+}
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	transition: opacity 0.2s linear;
+}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+}
+.leaflet-zoom-animated {
+	transform-origin: 0 0;
+}
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	will-change: transform;
+}
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	transition: transform 0.25s cubic-bezier(0,0,0.25,1);
+}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	transition: none;
+}
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+}
+
+/* cursors */
+.leaflet-interactive {
+	cursor: pointer;
+}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+
+/* visual tweaks */
+.leaflet-container {
+	background: rgba(0,0,0,0.2);
+}
+.leaflet-zoom-box {
+	background: rgba(255,255,255,0.5);
+}
+
+
+/* general toolbar styles */
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 0.2rem;
+}
+.leaflet-bar a,
+.leaflet-bar a:hover {
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+	width: 2.5rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	display: block;
+	text-align: center;
+	color: #000 !important;
+}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+}
+.leaflet-bar a:hover {
+	background-color: #f2f2f2;
+}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 0.2rem;
+	border-top-right-radius: 0.2rem;
+}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 0.2rem;
+	border-bottom-right-radius: 0.2rem;
+	border-bottom: none;
+}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f2f2f2;
+	color: #bbb;
+}
+
+
+/* zoom control */
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 1.5rem Tahoma, Verdana, sans-serif;
+}
+
+/* attribution and scale controls */
+.leaflet-control-attribution {
+	display: none !important;
+}
+
+
+/* popup */
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+}
+.leaflet-popup-content-wrapper {
+	padding: 0.6rem 2rem 0.6rem 1rem;
+	text-align: left;
+}
+.leaflet-popup-content {
+	font-size: 13px;
+	line-height: 1.4;
+}
+.leaflet-popup-content > * {
+	margin: 0.6rem 0 !important;
+}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+	margin: -10px auto 0;
+	transform: rotate(45deg);
+}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0;
+	border: none;
+	text-align: center;
+	width: 2rem;
+	height: 2rem;
+	font: bold 1.2rem/2rem Tahoma, Verdana, sans-serif;
+	color: inherit !important;
+	opacity: 0.33;
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+	opacity: 1;
+}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+}
+
+.rounded_none .leaflet-bar,
+.rounded_none .leaflet-bar a {
+	border-radius: 0 !important;
+}

@@ -1,0 +1,212 @@
+/* Trigger */
+.w-popup-trigger img {
+	vertical-align: top;
+	transition: opacity 0.3s;
+	}
+.no-touch .w-popup-trigger:hover img {
+	opacity: 0.75;
+	}
+
+/* Popup */
+.w-popup-overlay {
+	display: none;
+	z-index: 10001;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: opacity 0.3s;
+	opacity: 0;
+	}
+.w-popup-overlay.active {
+	opacity: 1;
+	}
+.w-popup-wrap {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 10002;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100vh;
+	cursor: pointer;
+	}
+.w-popup-overlay.pos_absolute,
+.w-popup-wrap.pos_absolute {
+	position: absolute;
+	}
+.w-popup-overlay.pos_fixed,
+.w-popup-wrap.pos_fixed {
+	position: fixed;
+	}
+.w-popup-wrap.pos_fixed {
+	overflow-y: auto;
+	}
+	.w-popup-closer {
+		position: fixed;
+		top: 0;
+		right: 0;
+		text-align: center;
+		font-size: 2rem;
+		line-height: 5rem;
+		width: 5rem;
+		cursor: pointer;
+		color: #fff;
+		opacity: 0;
+		}
+		.w-popup-closer:before {
+			content: '\f00d';
+			font-family: fontawesome;
+			font-weight: 400;
+			vertical-align: top;
+			}
+	.w-popup-box.active + .w-popup-closer {
+		opacity: 1;
+		transition: opacity 0.3s ease 0.2s;
+		}
+
+.w-popup-box {
+	max-height: 100vh;
+	cursor: default;
+	}
+	.w-popup-box-h {
+		margin: 1.5rem 0;
+		overflow: hidden;
+		border-radius: inherit;
+		}
+		.w-popup-box-title {
+			font-size: 2rem;
+			line-height: 1.5;
+			padding: 1rem 1.5rem;
+			}
+		.w-popup-box-content {
+			overflow: hidden;
+			height: 100%;
+			}
+			.w-popup-box-content img,
+			.w-popup-box-content iframe {
+				vertical-align: top;
+				}
+			.w-popup-box-content h1,
+			.w-popup-box-content h2,
+			.w-popup-box-content h3,
+			.w-popup-box-content h4,
+			.w-popup-box-content h5,
+			.w-popup-box-content h6 {
+				color: inherit;
+				}
+
+/* For the Fullwidth popup */
+.w-popup-box[style*="100%"] .w-popup-box-h {
+	margin: 0;
+	}
+	.w-popup-box[style*="100%"] .w-popup-box-title {
+		padding-right: 5rem;
+		}
+	.w-popup-box[style*="100%"].without_title .w-popup-box-content {
+		padding-top: 5rem !important;
+		}
+
+/* For the closer */
+@media (min-width: 601px) {
+.w-popup-box:not([style*="100%"]) + .w-popup-closer {
+	background: none !important;
+	color: #fff !important;
+	}
+}
+
+@media (max-width: 600px) {
+.w-popup-box {
+	width: 100% !important;
+	}
+	.w-popup-box-h {
+		margin: 0;
+		}
+	.w-popup-box-title {
+		padding-right: 50px !important;
+		}
+	.w-popup-box-content[style*="padding"] {
+		padding: 50px 1.5rem 1.5rem !important;
+		}
+.w-popup-closer {
+	line-height: 50px;
+	height: 50px;
+	width: 50px;
+	}
+}
+
+/* Animations */
+.w-popup-box.animation_fadeIn .w-popup-box-h {
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+.w-popup-box.animation_fadeIn.active .w-popup-box-h {
+	opacity: 1;
+}
+.w-popup-box.animation_scaleUp .w-popup-box-h {
+	transform: scale(0.7);
+	opacity: 0;
+	transition: all 0.3s;
+}
+.w-popup-box.animation_scaleUp.active .w-popup-box-h {
+	transform: scale(1);
+	opacity: 1;
+}
+.w-popup-box.animation_scaleDown .w-popup-box-h {
+	transform: scale(1.5);
+	opacity: 0;
+	transition: all 0.3s;
+}
+.w-popup-box.animation_scaleDown.active .w-popup-box-h {
+	transform: scale(1);
+	opacity: 1;
+}
+.w-popup-box.animation_slideTop .w-popup-box-h {
+	transform: translateY(-20%);
+	opacity: 0;
+	transition: all 0.3s cubic-bezier(0.25,0.5,0.5,0.9);
+}
+.w-popup-box.animation_slideTop.active .w-popup-box-h {
+	transform: translateX(0);
+	opacity: 1;
+}
+.w-popup-box.animation_slideBottom .w-popup-box-h {
+	transform: translateY(20%);
+	opacity: 0;
+	transition: all 0.3s cubic-bezier(0.25,0.5,0.5,0.9);
+}
+.w-popup-box.animation_slideBottom.active .w-popup-box-h {
+	transform: translateY(0);
+	opacity: 1;
+}
+.w-popup-box.animation_flipHor {
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+}
+.w-popup-box.animation_flipHor .w-popup-box-h {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	transform: rotateY(-70deg);
+	transition: all 0.3s;
+	opacity: 0;
+}
+.w-popup-box.animation_flipHor.active .w-popup-box-h {
+	transform: rotateY(0deg);
+	opacity: 1;
+}
+.w-popup-box.animation_flipVer {
+	-webkit-perspective: 1300px;
+	perspective: 1300px;
+}
+.w-popup-box.animation_flipVer .w-popup-box-h {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	transform: rotateX(-70deg);
+	transition: all 0.3s;
+	opacity: 0;
+}
+.w-popup-box.animation_flipVer.active .w-popup-box-h {
+	transform: rotateX(0deg);
+	opacity: 1;
+}

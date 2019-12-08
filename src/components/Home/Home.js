@@ -8,19 +8,32 @@ import MainContent from '../MainContent/MainContent';
 import MainFooter from '../MainFooter/MainFooter';
 import Hotline from '../Hotline/Hotline';
 import News from '../News/News';
-export default class Home extends Component{
-    render(){
-        return(
+
+export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            renderItem: true
+        }
+    }
+    handleRender = (booleanVal) => {
+        console.log('parent', booleanVal);
+        this.setState({
+            renderItem: booleanVal
+        });
+    }
+    render() {
+        return (
             <div>
-                <Loader/>
-            <div className="home-container">
-                <MainNav/>
-                <HomeHeader/>
-                <ItemController/>
-                <MainContent/>
-                <MainFooter/>
-                <Hotline/>
-            </div>
+                <Loader />
+                <div className="home-container">
+                    <MainNav />
+                    <HomeHeader />
+                    <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender}/>
+                    <MainContent renderItem={this.state.renderItem} />
+                    <MainFooter />
+                    <Hotline />
+                </div>
             </div>
         );
     }

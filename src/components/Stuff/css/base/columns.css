@@ -1,0 +1,76 @@
+/* 
+ * VC Columns
+ */
+
+.g-cols {
+	display: flex;
+	flex-wrap: wrap;
+	}
+	.vc_column_container {
+		display: flex;
+		flex-direction: column;
+		}
+		.vc_column-inner {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			flex-shrink: 0; /* fix for vertical alignment in IE11 */
+			}
+
+/* Type: Default */
+.g-cols.type_default {
+	margin: 0 -1.5rem;
+	}
+	.g-cols.type_default > div > .vc_column-inner {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		}
+	.g-cols.type_default > div.has-fill > .vc_column-inner {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		}
+
+/* Type: Boxes */
+.g-cols.type_boxes {
+	margin: 0; /* fix when VC applies own styles */
+	}
+	.g-cols.type_boxes > div > .vc_column-inner {
+		background-position: center center !important;
+		background-size: cover !important;
+		padding: 4rem;
+		}
+
+/* Valign */
+.g-cols.valign_middle > div > .vc_column-inner {
+	justify-content: center;
+	}
+.g-cols.valign_bottom > div > .vc_column-inner {
+	justify-content: flex-end;
+	}
+
+/* Helper class - reset margins */
+.g-cols.reset-margins,
+.l-section.reset-margins > .l-section-h > .g-cols {
+	margin: 0;
+	}
+
+/* Column Link */
+.vc_column_container.has-link {
+	position: relative;
+	}
+.vc_column-link {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	}
+
+/* Fix for IE11 when image in flexbox is not resized correctly */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+.vc_column-inner,
+.wpb_wrapper {
+	min-height: 1px;
+	}
+}

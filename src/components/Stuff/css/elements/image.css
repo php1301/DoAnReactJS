@@ -1,0 +1,206 @@
+/* 
+ * Image
+ */
+  
+.l-header .w-image {
+	flex-shrink: 0;
+	transition: height 0.3s;
+	}
+.l-header .w-image.no_image {
+	width: 100%;
+	}
+.l-main .w-image {
+	max-width: 100%;
+	}
+.l-main .w-image.align_left {
+	float: left;
+	margin-right: 2.5rem;
+	}
+.l-main .w-image.align_right {
+	float: right;
+	margin-left: 2.5rem;
+	}
+	.w-image-h {
+		display: block;
+		border-radius: inherit;
+		border-color: inherit !important;
+		color: inherit !important;
+		}
+	.l-header .w-image-h {
+		height: inherit;
+		}
+		.w-image img {
+			vertical-align: top;
+			}
+		.l-header .w-image img {
+			display: block;
+			height: inherit;
+			width: auto;
+			}
+	.w-image a[ref="magnificPopup"] {
+		cursor: zoom-in;
+		}
+	.w-image-meta {
+		line-height: 1.6;
+		}
+		.w-image-description {
+			font-size: 0.9rem;
+			margin: 0.2rem 0;
+			opacity: 0.5;
+			}
+			
+/* Placeholder */
+.g-placeholder {
+	padding-bottom: 100%;
+	}
+.l-header .g-placeholder {
+	height: inherit;
+	padding-bottom: 0;
+	}
+
+/* For transparent image in header */
+.w-image.with_transparent img:last-child,
+.l-header.bg_transparent:not(.sticky) .w-image.with_transparent img:first-child {
+	display: none;
+	}
+.l-header.bg_transparent:not(.sticky) .w-image.with_transparent img:last-child {
+	display: block;
+	}
+
+/* STYLE: circle */
+.w-image.style_circle img {
+	border-radius: 50%;
+	}
+
+/* STYLE: outlined */
+.w-image.style_outlined img {
+	border-width: 5px;
+	border-style: solid;
+	border-color: inherit;
+	}
+.l-section.color_primary .w-image,
+.l-section.color_secondary .w-image,
+.l-section.color_custom .w-image {
+	border-color: rgba(255,255,255,0.33);
+	}
+
+/* STYLE: shadow-1 */
+.w-image.style_shadow-1 img {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 3px 10px rgba(0,0,0,0.15);
+	}
+	
+/* STYLE: shadow-2 */
+.w-image.style_shadow-2 .w-image-h {
+	position: relative;
+	}
+	.w-image-shadow {
+		position: absolute;
+		top: 15%;
+		left: 5%;
+		right: 5%;
+		height: 90%;
+		background-size: 200% 80%;
+		background-position: center bottom;
+		background-repeat: no-repeat;
+		border-radius: inherit;
+		-webkit-filter: blur(25px);
+		filter: blur(25px);
+		}
+	.w-image.meta_simple .w-image-shadow {
+		margin-top: -2.8rem;
+		}
+	/* Fix for IE11 which doesn't support CSS blur */
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		.w-image-shadow { display: none; }
+		}
+	.w-image.style_shadow-2 img {
+		position: relative;
+		width: 100%;
+		}
+	.w-image.style_shadow-2.meta_simple .w-image-meta {
+		position: relative;
+		}
+		
+/* META: simple */
+.w-image.meta_simple .w-image-meta {
+    padding-top: 0.6rem;
+	}
+	.w-image.meta_simple .w-image-description {
+		margin-top: 0;
+		}
+.w-image.meta_simple[class*="style_phone6"] .w-image-meta {
+	padding-top: 32%;
+	}
+
+/* META: modern */
+.w-image.meta_modern {
+	position: relative;
+	}
+.w-image.meta_modern .w-image-meta {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	max-height: 100%;
+	padding: 3rem 1rem 0.6rem;
+	overflow: hidden;
+	border-bottom-left-radius: inherit;
+	border-bottom-right-radius: inherit;
+	background: linear-gradient(transparent, rgba(30,30,30,0.8)) repeat-x;
+	color: #fff;
+	}
+.w-image.meta_modern[class*="style_phone6"] .w-image-meta {
+	left: 12.5%;
+	right: 12.5%;
+	bottom: 13.5%;
+	}
+.w-image.meta_modern.style_outlined .w-image-meta {
+	left: 5px;
+	right: 5px;
+	bottom: 5px;
+	}
+	
+/* WordPress captions & images */
+img.alignleft {
+	float: left;
+	margin: 0 2.5rem 2.5rem 0;
+	}
+img.alignright {
+	float: right;
+	margin: 0 0 2.5rem 2.5rem;
+	}
+img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+.wp-caption {
+	line-height: 0;
+	margin: 0 0 1.5rem;
+	max-width: 100%;
+	position: relative;
+	}
+	.wp-caption-text {
+		display: block;
+		font-size: 14px;
+		line-height: 1.6;
+		margin: 0.5rem 0 0;
+		}
+.wp-caption.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+	}
+.wp-caption.alignleft {
+	float: left;
+	margin-right: 2rem;
+	}
+.wp-caption.alignright {
+	float: right;
+	margin-left: 2.5rem;
+	margin-right: -10px; /* fixed value */
+	}
+	.wp-caption.alignleft .wp-caption-text,
+	.wp-caption.alignright .wp-caption-text {
+		width: calc(100% - 10px);
+		}

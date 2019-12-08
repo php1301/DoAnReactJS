@@ -1,0 +1,77 @@
+/* 
+ * Contacts
+ */
+
+.w-contacts-item.for_address:before {
+	content: '\f041';
+	font-family: fontawesome;
+	}
+.w-contacts-item.for_phone:before {
+	content: '\f095';
+	font-family: fontawesome;
+	}
+.w-contacts-item.for_email:before {
+	content: '\f0e0';
+	font-family: fontawesome;
+	}
+.w-contacts-item.for_fax:before {
+	content: '\f02f';
+	font-family: fontawesome;
+	}
+
+/* Main content */
+.l-main .w-contacts-list {
+	margin: 0 -1.3rem -1.3rem;
+	}
+	.l-main .w-contacts-item {
+		display: inline-flex;
+		align-items: center;
+		padding: 0 1.3rem 1.3rem;
+		}
+		.l-main .w-contacts-item:before {
+			flex-shrink: 0;
+			text-align: center;
+			font-size: 1.4rem;
+			line-height: 3.5rem;
+			width: 3.5rem;
+			margin-right: 1rem;
+			border-radius: 50%;
+			}
+		.l-section.color_primary .w-contacts-item:before,
+		.l-section.color_secondary .w-contacts-item:before {
+			box-shadow: 0 0 0 2px #fff inset;
+			color: #fff;
+			}
+			
+/* Header & Footer */
+.l-header .w-contacts-item,
+.l-footer .w-contacts-item {
+	position: relative;
+	margin-bottom: 0.8rem;
+	}
+.l-header .w-contacts-item:last-child,
+.l-footer .w-contacts-item:last-child {
+	margin-bottom: 0;
+	}
+	.l-header .w-contacts-item:before,
+	.l-footer .w-contacts-item:before {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
+		font-size: 1.2rem;
+		line-height: 1.3rem;
+		width: 1.3rem;
+		}
+	.l-header .w-contacts-item-value,
+	.l-footer .w-contacts-item-value {
+		display: block;
+		margin-left: 2rem;
+		}
+		
+/* Links Hover Underline 
+   ========================================================================== */
+.no-touch .links_underline .w-contacts a:hover {
+	border-bottom: 1px solid;
+	}

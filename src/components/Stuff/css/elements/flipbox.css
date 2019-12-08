@@ -1,0 +1,479 @@
+.w-flipbox {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	}
+/* Reset styles from WPB design options */
+.wpb_column .wpb_wrapper .w-flipbox {
+	border: 0 !important;
+	padding: 0 !important;
+	}
+	.w-flipbox-h {
+		-webkit-perspective: 1000px;
+		perspective: 1000px;
+		transform: translateZ(0);
+		transition-property: none;
+		}
+		.w-flipbox-hh,
+		.w-flipbox-hhh {
+			position: relative;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			}
+		.w-flipbox-hh,
+		.w-flipbox-hhh,
+		.w-flipbox-front,
+		.w-flipbox-back,
+		.w-flipbox-xflank,
+		.w-flipbox-yflank {
+			display: block;
+			width: 100%;
+			height: 100%;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			transition-property: transform;
+			transition-duration: inherit;
+			}
+		.w-flipbox-back,
+		.w-flipbox-xflank,
+		.w-flipbox-yflank {
+			position: absolute;
+			z-index: -1;
+			left: 0;
+			top: 0;
+			}
+.w-flipbox-front,
+.w-flipbox-back {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 15%;
+	text-align: center;
+	background-size: cover !important;
+	background-position: center center !important;
+	}
+.w-flipbox-front {
+	position: relative;
+	z-index: 1;
+	}
+	.w-flipbox-front-title,
+	.w-flipbox-back-title {
+		padding: 0;
+		margin: 0;
+		}
+	.w-flipbox-front-desc,
+	.w-flipbox-back-desc {
+		margin-top: 0.5rem;
+		}
+	/* Front Icon */
+	.w-flipbox-front-icon {
+		display: inline-block;
+		vertical-align: top;
+		line-height: 1;
+		}
+	.w-flipbox-front-icon:empty {
+		display: none;
+		}
+	.w-flipbox-front-icon.style_circle {
+		line-height: 2.5em;
+		height: 2.5em;
+		width: 2.5em;
+		border-radius: 50%;
+		background: rgba(0,0,0,0.2);
+		}
+		.w-flipbox-front-icon i {
+			vertical-align: top;
+			line-height: inherit;
+			}
+	.w-flipbox .w-btn,
+	.w-flipbox * + .w-flipbox-front-title,
+	.w-flipbox * + .w-flipbox-back-title,
+	.w-flipbox * + .w-flipbox-front-icon {
+		margin-top: 1rem;
+		}
+
+/* Animations */
+.easing_easeInOutExpo .w-flipbox-hh,
+.easing_easeInOutExpo .w-flipbox-hhh,
+.easing_easeInOutExpo .w-flipbox-front,
+.easing_easeInOutExpo .w-flipbox-back,
+.easing_easeInOutExpo .w-flipbox-xflank,
+.easing_easeInOutExpo .w-flipbox-yflank {
+	transition-timing-function: cubic-bezier(1, 0, 0, 1);
+	}
+.easing_easeInOutCirc .w-flipbox-hh,
+.easing_easeInOutCirc .w-flipbox-hhh,
+.easing_easeInOutCirc .w-flipbox-front,
+.easing_easeInOutCirc .w-flipbox-back,
+.easing_easeInOutCirc .w-flipbox-xflank,
+.easing_easeInOutCirc .w-flipbox-yflank {
+	transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+	}
+
+/* Card Flip */
+.w-flipbox.animation_cardflip.hover .w-flipbox-front {
+	z-index: -1;
+	}
+.w-flipbox.animation_cardflip.hover .w-flipbox-back {
+	z-index: 1;
+	}
+.w-flipbox.animation_cardflip.direction_n .w-flipbox-front {
+	transform: rotateX(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_n .w-flipbox-back {
+	transform: rotateX(-180deg);
+	}
+.w-flipbox.animation_cardflip.direction_n.hover .w-flipbox-front {
+	transform: rotateX(180deg);
+	}
+.w-flipbox.animation_cardflip.direction_n.hover .w-flipbox-back {
+	transform: rotateX(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_ne .w-flipbox-hh {
+	transform: rotate3d(1, 1, 0, 0deg);
+	}
+.w-flipbox.animation_cardflip.direction_ne .w-flipbox-back {
+	transform: rotate3d(1, 1, 0, -180deg);
+	}
+.w-flipbox.animation_cardflip.direction_ne.hover .w-flipbox-hh {
+	transform: rotate3d(1, 1, 0, 180deg);
+	}
+.w-flipbox.animation_cardflip.direction_e .w-flipbox-front {
+	transform: rotateY(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_e .w-flipbox-back {
+	transform: rotateY(-180deg);
+	}
+.w-flipbox.animation_cardflip.direction_e.hover .w-flipbox-front {
+	transform: rotateY(180deg);
+	}
+.w-flipbox.animation_cardflip.direction_e.hover .w-flipbox-back {
+	transform: rotateY(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_se .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_se .w-flipbox-front {
+	transform: rotate3d(-1, 1, 0, 0deg);
+	}
+.w-flipbox.animation_cardflip.direction_se .w-flipbox-back {
+	transform: rotate3d(-1, 1, 0, -180deg);
+	}
+.w-flipbox.animation_cardflip.direction_se.hover .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_se.hover .w-flipbox-front {
+	transform: rotate3d(-1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cardflip.direction_se.hover .w-flipbox-back {
+	transform: rotate3d(-1, 1, 0, -90deg);
+	}
+.w-flipbox.animation_cardflip.direction_s .w-flipbox-front {
+	transform: rotateX(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_s .w-flipbox-back {
+	transform: rotateX(180deg);
+	}
+.w-flipbox.animation_cardflip.direction_s.hover .w-flipbox-front {
+	transform: rotateX(-180deg);
+	}
+.w-flipbox.animation_cardflip.direction_s.hover .w-flipbox-back {
+	transform: rotateX(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_sw .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_sw .w-flipbox-front {
+	transform: rotate3d(1, 1, 0, 0deg);
+	}
+.w-flipbox.animation_cardflip.direction_sw .w-flipbox-back {
+	transform: rotate3d(1, 1, 0, 180deg);
+	}
+.w-flipbox.animation_cardflip.direction_sw.hover .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_sw.hover .w-flipbox-front {
+	transform: rotate3d(1, 1, 0, -90deg);
+	}
+.w-flipbox.animation_cardflip.direction_sw.hover .w-flipbox-back {
+	transform: rotate3d(1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cardflip.direction_w .w-flipbox-front {
+	transform: rotateY(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_w .w-flipbox-back {
+	transform: rotateY(180deg);
+	}
+.w-flipbox.animation_cardflip.direction_w.hover .w-flipbox-front {
+	transform: rotateY(-180deg);
+	}
+.w-flipbox.animation_cardflip.direction_w.hover .w-flipbox-back {
+	transform: rotateY(0deg);
+	}
+.w-flipbox.animation_cardflip.direction_nw .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_nw .w-flipbox-front {
+	transform: rotate3d(-1, 1, 0, 0deg);
+	}
+.w-flipbox.animation_cardflip.direction_nw .w-flipbox-back {
+	transform: rotate3d(-1, 1, 0, 180deg);
+	}
+.w-flipbox.animation_cardflip.direction_nw.hover .w-flipbox-hh,
+.w-flipbox.animation_cardflip.direction_nw.hover .w-flipbox-front {
+	transform: rotate3d(-1, 1, 0, -90deg);
+	}
+.w-flipbox.animation_cardflip.direction_nw.hover .w-flipbox-back {
+	transform: rotate3d(-1, 1, 0, 90deg);
+	}
+
+/* Cube Tilt */
+.w-flipbox.animation_cubetilt.hover .w-flipbox-front {
+	z-index: -1;
+	}
+.w-flipbox.animation_cubetilt.hover .w-flipbox-back {
+	z-index: 1;
+	}
+.w-flipbox.animation_cubetilt.direction_n .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_n .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_n .w-flipbox-back {
+	transform: translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_n.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%);
+	}
+.w-flipbox.animation_cubetilt.direction_e .w-flipbox-hh {
+	transform: rotateY(90deg) translateX(50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_e .w-flipbox-front {
+	transform: rotateY(90deg) translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_e .w-flipbox-back {
+	transform: translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_e.hover .w-flipbox-hh {
+	transform: rotateY(90deg) translateX(50%);
+	}
+.w-flipbox.animation_cubetilt.direction_s .w-flipbox-hh {
+	transform: rotateX(-90deg) translateY(50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_s .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_s .w-flipbox-back {
+	transform: translateY(-50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_s.hover .w-flipbox-hh {
+	transform: rotateX(-90deg) translateY(50%);
+	}
+.w-flipbox.animation_cubetilt.direction_w .w-flipbox-hh {
+	transform: rotateY(-90deg) translateX(-50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_w .w-flipbox-front {
+	transform: rotateY(90deg) translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_w .w-flipbox-back {
+	transform: translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubetilt.direction_w.hover .w-flipbox-hh {
+	transform: rotateY(-90deg) translateX(-50%);
+	}
+
+/* Cube Flip */
+.w-flipbox.animation_cubeflip.hover .w-flipbox-front {
+	z-index: -1;
+	}
+.w-flipbox.animation_cubeflip.hover .w-flipbox-back {
+	z-index: 1;
+	}
+.w-flipbox.animation_cubeflip.direction_n .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_n .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_n .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_n .w-flipbox-xflank {
+	transform: translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_n.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg) rotateZ(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne .w-flipbox-xflank {
+	transform: translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne .w-flipbox-yflank {
+	transform: translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) rotate3d(1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_ne.hover .w-flipbox-hhh {
+	transform: rotate3d(1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_e .w-flipbox-hh {
+	transform: rotateY(90deg) translateX(50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_e .w-flipbox-front {
+	transform: rotateY(90deg) translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_e .w-flipbox-back {
+	transform: rotateY(90deg) translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_e .w-flipbox-yflank {
+	transform: translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_e.hover .w-flipbox-hh {
+	transform: rotateY(90deg) translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg) rotateZ(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se .w-flipbox-xflank {
+	transform: translateY(-50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se .w-flipbox-yflank {
+	transform: translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) rotate3d(-1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_se.hover .w-flipbox-hhh {
+	transform: rotate3d(-1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s .w-flipbox-hh {
+	transform: rotateX(-90deg) translateY(50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s .w-flipbox-xflank {
+	transform: translateY(-50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s .w-flipbox-yflank {
+	transform: translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_s.hover .w-flipbox-hh {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg) rotateZ(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw .w-flipbox-xflank {
+	transform: translateY(-50%) rotateX(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw .w-flipbox-yflank {
+	transform: translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) rotate3d(-1, -1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_sw.hover .w-flipbox-hhh {
+	transform: rotate3d(-1, -1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_w .w-flipbox-hh {
+	transform: rotateY(-90deg) translateX(-50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_w .w-flipbox-front {
+	transform: rotateY(90deg) translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_w .w-flipbox-back {
+	transform: rotateY(90deg) translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_w .w-flipbox-yflank {
+	transform: translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_w.hover .w-flipbox-hh {
+	transform: rotateY(-90deg) translateX(-50%) rotateY(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw .w-flipbox-front {
+	transform: rotateX(90deg) translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw .w-flipbox-back {
+	transform: rotateX(-90deg) translateY(50%) rotateX(-90deg) rotateZ(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw .w-flipbox-xflank {
+	transform: translateY(50%) rotateX(-90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw .w-flipbox-yflank {
+	transform: translateX(50%) rotateY(90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw.hover .w-flipbox-hh {
+	transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) rotate3d(1, -1, 0, 90deg);
+	}
+.w-flipbox.animation_cubeflip.direction_nw.hover .w-flipbox-hhh {
+	transform: rotate3d(1, -1, 0, 90deg);
+	}
+
+/* Cover Open */
+.w-flipbox.animation_coveropen.direction_n .w-flipbox-front {
+	transform-origin: 50% 0%;
+	}
+.w-flipbox.animation_coveropen.direction_n.hover .w-flipbox-front {
+	transform: rotateX(90deg);
+	}
+.w-flipbox.animation_coveropen.direction_ne .w-flipbox-front {
+	transform-origin: 100% 0%;
+	}
+.w-flipbox.animation_coveropen.direction_ne.hover .w-flipbox-front {
+	transform: rotate3d(1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_coveropen.direction_e .w-flipbox-front {
+	transform-origin: 100% 50%;
+	}
+.w-flipbox.animation_coveropen.direction_e.hover .w-flipbox-front {
+	transform: rotateY(90deg);
+	}
+.w-flipbox.animation_coveropen.direction_se .w-flipbox-front {
+	transform-origin: 100% 100%;
+	}
+.w-flipbox.animation_coveropen.direction_se.hover .w-flipbox-front {
+	transform: rotate3d(-1, 1, 0, 90deg);
+	}
+.w-flipbox.animation_coveropen.direction_s .w-flipbox-front {
+	transform-origin: 50% 100%;
+	}
+.w-flipbox.animation_coveropen.direction_s.hover .w-flipbox-front {
+	transform: rotateX(-90deg);
+	}
+.w-flipbox.animation_coveropen.direction_sw .w-flipbox-front {
+	transform-origin: 0% 100%;
+	}
+.w-flipbox.animation_coveropen.direction_sw.hover .w-flipbox-front {
+	transform: rotate3d(-1, -1, 0, 90deg);
+	}
+.w-flipbox.animation_coveropen.direction_w .w-flipbox-front {
+	transform-origin: 0% 50%;
+	}
+.w-flipbox.animation_coveropen.direction_w.hover .w-flipbox-front {
+	transform: rotateY(-90deg);
+	}
+.w-flipbox.animation_coveropen.direction_nw .w-flipbox-front {
+	transform-origin: 0% 0%;
+	}
+.w-flipbox.animation_coveropen.direction_nw.hover .w-flipbox-front {
+	transform: rotate3d(1, -1, 0, 90deg);
+	}

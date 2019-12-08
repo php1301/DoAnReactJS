@@ -1,0 +1,42 @@
+/* 
+ * Charts
+ */
+
+.vc_chart ul.vc_chart-legend {
+	font-size: inherit;
+	margin: 0;
+	padding: 0;
+	}
+.vc_chart ul.vc_chart-legend li {
+	list-style: none;
+	padding: 0;
+	line-height: 1.4rem;
+	}
+.vc_chart .vc_chart-legend span {
+	display: inline-block;
+	vertical-align: top;
+	height: 1rem;
+	width: 1rem;
+	margin: 0.15rem 0.3rem 0.15rem 0;
+	}
+@media (min-width: 768px) {
+.vc_chart .vc_chart-with-legend {
+	display: inline-block;
+	vertical-align: middle;
+	width: 60%;
+	}
+.vc_chart .vc_chart-legend {
+	display: inline-block;
+	vertical-align: middle;
+	width: 40%;
+	}
+.vc_chart ul.vc_chart-legend li {
+	margin-left: 2rem;
+	}
+.vc_line-chart .vc_chart-with-legend {
+	width: 75%;
+	}
+.vc_line-chart .vc_chart-legend {
+	width: 25%;
+	}
+}

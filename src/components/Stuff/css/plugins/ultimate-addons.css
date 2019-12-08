@@ -1,0 +1,100 @@
+/*
+ * Ultimate Addons for WPBakery Page Builder
+ */
+
+.l-section.height_full > .upb_row_bg {
+	min-height: inherit;
+	}
+.g-cols > .upb_row_bg,
+.g-cols > .upb_video-wrapper {
+	display: none !important;
+	}
+
+ul.slick-dots {
+	margin: 0 !important;
+	}
+.aio-icon.circle {
+	line-height: 2.5em;
+	height: 2.5em;
+	width: 2.5em;
+	}
+.aio-icon.circle i,
+.aio-icon.square i,
+.icon_list_icon i,
+.info-circle-icons i {
+	line-height: inherit !important;
+	vertical-align: top;
+	}
+
+/* Timeline */
+.smile-icon-timeline-wrap > a,
+.smile-icon-timeline-wrap .timeline-wrapper > a {
+	color: inherit !important;
+	}
+.smile-icon-timeline-wrap .timeline-separator-text .sep-text {
+	font-size: 0.9rem;
+	line-height: 2;
+	padding: 0 0.6rem;
+	}
+.smile-icon-timeline-wrap .timeline-wrapper .timeline-dot,
+.smile-icon-timeline-wrap .timeline-feature-item .timeline-dot {
+	padding: 4px; /* fixed value */
+	}
+.feat-item .timeline-dot {
+	left: -0.5rem !important;
+	}
+.smile-icon-timeline-wrap .timeline-wrapper .timeline-block,
+.smile-icon-timeline-wrap .timeline-feature-item.feat-item {
+	border-radius: 0.3rem;
+	border: none;
+	}
+	.timeline-wrapper .timeline-post-left .ult-timeline-arrow l,
+	.timeline-wrapper .timeline-post-right .ult-timeline-arrow l {
+		border-top-color: transparent !important;
+		border-bottom-color: transparent !important;
+		}
+	.timeline-feature-item.feat-item .ult-timeline-arrow l {
+		border-left-color: transparent !important;
+		border-right-color: transparent !important;
+		}
+	.timeline-wrapper .ult-timeline-arrow s,
+	.feat-item .ult-timeline-arrow s {
+		border-color: transparent !important;
+		}
+
+/* Info Box */
+a.aio-icon-box-link {
+	color: inherit !important;
+	}
+.aio-icon-box {
+	border-radius: 0.3rem;
+	}
+.aio-icon-box.square_box-icon .aio-icon-description {
+	padding-bottom: 5%;
+	}
+
+/* Info List */
+.ulimate-info-list-link {
+	border: none !important;
+	}
+
+/* Info Table & Price Box */
+.ult_pricing_table_wrap .ult_pricing_table .ult_price_features,
+.ult_pricing_table_wrap.ult_design_1 .ult_pricing_table .ult_price_link {
+	padding: 1rem;
+	}
+	
+/* Modal Box */
+.ult-overlay {
+	z-index: 501 !important;
+	}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .ultimate-call-to-action,
+.rounded_none .flip-box-wrap .flip-box .ifb-face,
+.rounded_none .smile-icon-timeline-wrap .timeline-wrapper .timeline-block,
+.rounded_none .smile-icon-timeline-wrap .timeline-feature-item.feat-item,
+.rounded_none .aio-icon-box {
+	border-radius: 0 !important;
+	}

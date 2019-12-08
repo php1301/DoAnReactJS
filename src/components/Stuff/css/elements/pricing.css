@@ -1,0 +1,97 @@
+/* 
+ * Pricing Table
+ */
+
+.w-pricing {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	padding: 1rem 0;
+	}
+.w-pricing-item {
+	flex: 1 1 10px;
+	text-align: center;
+	}
+.w-pricing-item:not(:first-child) {
+	margin-left: -1px;
+	}
+	.w-pricing-item-h {
+		overflow: hidden;
+		border: 1px solid;
+		}
+	.w-pricing-item:first-child .w-pricing-item-h {
+		border-radius: 0.6rem 0 0 0.6rem;
+		}
+	.w-pricing-item:last-child .w-pricing-item-h {
+		border-radius: 0 0.6rem 0.6rem 0;
+		}
+		.w-pricing-item-header {
+			padding: 2rem 1.5rem;
+			}
+			.w-pricing-item-title {
+				font-size: 1.2rem;
+				font-weight: 600;
+				line-height: 1;
+				margin-bottom: 1rem;
+				}
+			.w-pricing-item-price {
+				font-size: 3.5rem;
+				line-height: 1;
+				font-weight: 300;
+				}
+				.w-pricing-item-price small {
+					display: block;
+					font-size: 0.9rem;
+					line-height: 1.5rem;
+					font-weight: normal;
+					margin-top: 0.4rem;
+					}
+		.w-pricing-item .w-pricing-item-features {
+			list-style-type: none;
+			padding: 1.5rem;
+			margin: 0;
+			}
+			.w-pricing-item .w-pricing-item-features li {
+				padding: 0.5rem 0;
+				margin: 0;
+				}
+		.w-pricing-item-footer {
+			padding-bottom: 2.6rem;
+			}			
+	.l-section.color_primary .w-pricing-item-h,
+	.l-section.color_secondary .w-pricing-item-h,
+	.l-section.color_custom .w-pricing-item-h {
+		border-color: rgba(255,255,255,0.33);
+		}
+		.l-section.color_primary .w-pricing-item-header,
+		.l-section.color_secondary .w-pricing-item-header,
+		.l-section.color_custom .w-pricing-item-header {
+			background: rgba(255,255,255,0.15);
+			}
+			
+/* TYPE featured */
+.w-pricing-item.type_featured {
+	position: relative;
+	}
+	.w-pricing-item.type_featured .w-pricing-item-h {
+		margin: -1rem 0;
+		border-width: 0;
+		border-radius: 0.6rem;
+		box-shadow: 0 1px 10px rgba(0,0,0,0.15);
+		}
+		.w-pricing-item.type_featured .w-pricing-item-header {
+			padding-top: 3rem;
+			color: #fff;
+			}
+			.w-pricing-item.type_featured .w-pricing-item-header h5 {
+				color: inherit;
+				}
+		.w-pricing-item.type_featured .w-pricing-item-footer {
+			padding-bottom: 3.6rem;
+			}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .w-pricing-item-h {
+	border-radius: 0 !important;
+	}

@@ -1,0 +1,77 @@
+/* 
+ * ActionBox
+ */
+
+.w-actionbox {
+	text-align: center;
+	position: relative;
+	padding: 2.5rem 3rem;
+	border-radius: 0.3rem;
+	}
+	.w-actionbox-text > *:first-child {
+		margin: 0 !important;
+		}
+	.w-actionbox-text p {
+		margin: 0.8rem 0 0;
+		}
+	.w-actionbox .w-btn {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+		}
+	.w-actionbox.controls_bottom .w-actionbox-controls {
+		padding-top: 1.5rem;
+		}
+		.w-actionbox.controls_bottom .w-btn {
+			margin-left: 0.5rem;
+			margin-right: 0.5rem;
+			}
+
+/* CONTROLS right */
+.w-actionbox.controls_right {
+	display: table;
+	text-align: left;
+	width: 100%;
+	}
+	.w-actionbox.controls_right .w-actionbox-text {
+		display: table-cell;
+		vertical-align: middle;
+		}
+	.w-actionbox.controls_right .w-actionbox-controls {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: right;
+		white-space: nowrap;
+		padding-left: 2rem;
+		}
+		.w-actionbox.controls_right .w-btn {
+			margin-left: 1rem;
+			}
+
+/* COLORS */
+.w-actionbox.color_primary,
+.w-actionbox.color_secondary,
+.no-touch .w-actionbox.color_primary .w-actionbox-text a:hover,
+.no-touch .w-actionbox.color_secondary .w-actionbox-text a:hover {
+	color: #fff;
+	}
+.w-actionbox.color_primary .w-actionbox-text > *,
+.w-actionbox.color_secondary .w-actionbox-text > *,
+.w-actionbox.color_custom .w-actionbox-text > * {
+	color: inherit;
+	}
+.w-actionbox.color_primary .w-actionbox-text a,
+.w-actionbox.color_secondary .w-actionbox-text a {
+	color: #111;
+	}
+.l-section.color_custom .w-actionbox.color_custom,
+.l-section.color_primary .w-actionbox.color_primary,
+.l-section.color_alternate .w-actionbox.color_light,
+.l-section.color_secondary .w-actionbox.color_secondary {
+	padding: 0;
+	background: none;
+	}
+
+/* Rounded Corners */
+.rounded_none .w-actionbox {
+	border-radius: 0 !important;
+	}

@@ -1,0 +1,204 @@
+/* 
+ * Progress Bar
+ */
+
+.w-progbar-bar-h {
+	height: 10px; /* default value */
+	border-radius: inherit;
+	transition: width 0.8s cubic-bezier(.6,.3,.3,.6);
+	}
+.w-progbar.initial .w-progbar-bar-h {
+	width: 0 !important;
+	}
+.w-progbar.hide_count .w-progbar-title-count,
+.w-progbar.hide_count .w-progbar-bar-count {
+	display: none !important;
+	}
+
+/* STYLE 1 */
+.w-progbar.style_1 {
+	padding: 0.6rem 0 1rem;
+	}
+	.w-progbar.style_1 .w-progbar-title {
+		display: table;
+		width: 100%;
+		margin-bottom: 0.6rem !important;
+		}
+		.w-progbar.style_1 .w-progbar-title-text {
+			display: table-cell;
+			vertical-align: top;
+			}
+		.w-progbar.style_1 .w-progbar-title-count {
+			display: table-cell;
+			vertical-align: top;
+			text-align: right;
+			font-weight: bold;
+			}
+	.w-progbar.style_1 .w-progbar-bar {
+		width: 100%;
+		border-radius: 2rem;
+		box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+		}
+		.w-progbar.style_1 .w-progbar-bar-count {
+			display: none;
+			}
+		
+/* STYLE 2 */
+.w-progbar.style_2 {
+	padding: 0.4rem 0;
+	position: relative;
+	}
+	.w-progbar.style_2 .w-progbar-title {
+		position: absolute;
+		top: 50%;
+		left: 0;
+		right: 0;
+		margin: 0;
+		text-align: center;
+		font-size: 0.9rem;
+		transform: translateY(-50%);
+		color: #fff !important;
+		}
+		.w-progbar.style_2 .w-progbar-title-text {
+			margin-right: 0.2rem;
+			}
+		.w-progbar.style_2 .w-progbar-title-count {
+			font-weight: bold;
+			}
+	.w-progbar.style_2 .w-progbar-bar {
+		width: 100%;
+		border-radius: 0.3rem;
+		overflow: hidden;
+		background: rgba(0,0,0,0.25);
+		}
+		.w-progbar.style_2 .w-progbar-bar-h {
+			border-radius: 0;
+			}
+			.w-progbar.style_2 .w-progbar-bar-count {
+				display: none;
+				}
+		
+/* STYLE 3 */
+.w-progbar.style_3 {
+	display: flex;
+	align-items: center;
+	padding: 1rem 0;
+	}
+	.w-progbar.style_3 .w-progbar-title {
+		font-size: 1rem;
+		padding-right: 1.5rem;
+		margin-bottom: 0;
+		width: 33%;
+		}
+		.w-progbar.style_3 .w-progbar-title-count {
+			display: none;
+			}
+	.w-progbar.style_3 .w-progbar-bar {
+		width: 67%;
+		border-radius: 2rem;
+		position: relative;
+		background: none;
+		}
+		.w-progbar.style_3 .w-progbar-bar:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			content: '';
+			border-radius: inherit;
+			box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+			}
+		.w-progbar.style_3 .w-progbar-bar-h {
+			position: relative;
+			}
+			.w-progbar.style_3 .w-progbar-bar-count {
+				display: block;
+				position: absolute;
+				top: 50%;
+				right: -1.75rem;
+				text-align: center;
+				line-height: 3.5rem;
+				height: 3.5rem;
+				width: 3.5rem;
+				margin-top: -1.75rem;
+				border-radius: 50%;
+				box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+				}
+
+/* STYLE 4 */
+.w-progbar.style_4 {
+	padding: 1rem 0;
+	}
+	.w-progbar.style_4 .w-progbar-title {
+		font-size: 1rem;
+		margin-bottom: 0.6rem !important;
+		}
+		.w-progbar.style_4 .w-progbar-title-count {
+			display: none;
+			}
+		.w-progbar.style_4 .w-progbar-bar-h {
+			position: relative;
+			}
+			.w-progbar.style_4 .w-progbar-bar-count {
+				display: block;
+				position: absolute;
+				right: -1.5rem;
+				bottom: 100%;
+				font-size: 0.9rem;
+				text-align: center;
+				line-height: 2rem;
+				height: 2rem;
+				width: 3rem;
+				margin-bottom: 0.5rem;
+				border-radius: 0.3rem;
+				background: rgba(0,0,0,0.8);
+				color: #fff;
+				opacity: 1;
+				transition: opacity 0.8s cubic-bezier(.6,.3,.3,.6);
+				}
+				.w-progbar.style_4 .w-progbar-bar-count:after {
+					content: '';
+					position: absolute;
+					left: 1.1rem;
+					bottom: -0.3rem;
+					height: 0;
+					width: 0;
+					border-left: 0.4rem solid transparent;
+					border-right: 0.4rem solid transparent;
+					border-top: 0.4rem solid rgba(0,0,0,0.8);
+					}
+			.w-progbar.style_4.initial .w-progbar-bar-count {
+				opacity: 0;
+				}
+			
+/* STYLE 5 */
+.w-progbar.style_5 {
+	padding: 0.6rem 0 1rem;
+	}
+	.w-progbar.style_5 .w-progbar-title {
+		display: flex;
+		align-items: flex-end;
+		width: 100%;
+		margin-bottom: 1rem !important;
+		}
+		.w-progbar.style_5 .w-progbar-title-text {
+			flex-grow: 1;
+			padding-right: 1.5rem;
+			}
+		.w-progbar.style_5 .w-progbar-title-count {
+			font-size: 3em;
+			font-weight: 300;
+			line-height: 1;
+			opacity: 0.33;
+			}
+		.w-progbar.style_5 .w-progbar-bar-count {
+			display: none;
+			}
+			
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .w-progbar-bar,
+.rounded_none .w-progbar-bar-count {
+	border-radius: 0 !important;
+	}

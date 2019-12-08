@@ -1,0 +1,95 @@
+/* 
+ * Filters
+ */
+
+.g-filters {
+	position: relative;
+	z-index: 11; /* needed to overlay grid layouts */
+	}
+	.g-filters-list {
+		display: flex;
+		flex-wrap: wrap;
+		}
+	.g-filters.align_center .g-filters-list {
+		justify-content: center;
+		}
+	.g-filters.align_right .g-filters-list {
+		justify-content: flex-end;
+		}
+		.g-filters-item {
+			flex-shrink: 0;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			line-height: 2.8rem;
+			padding: 0 1.2rem;
+			transition-duration: 0.2s;
+			}
+		.g-filters-item.active {
+			cursor: default;
+			pointer-events: none;
+			}
+			.g-filters-item-amount {
+				display: none;
+				margin-left: 0.5rem;
+				}
+
+/* STYLE: 1 */
+.l-section.color_primary .g-filters.style_1,
+.l-section.color_secondary .g-filters.style_1,
+.l-section.color_custom .g-filters.style_1 {
+	background: none;
+	}
+	.g-filters.style_1 .g-filters-item {
+		line-height: 3.5rem;
+		color: inherit;
+		}
+	.no-touch .g-filters.style_1 .g-filters-item:hover {
+		color: #fff;
+		}
+	
+/* STYLE: 2 */
+.g-filters.style_2 {
+	margin-bottom: 1.5rem;
+	}
+	.g-filters.style_2 .g-filters-item {
+		border-radius: 0.2rem;
+		}
+	.g-filters.style_2 .g-filters-item.active {
+		color: inherit;
+		}
+	.no-touch .g-filters.style_2 .g-filters-item:hover {
+		color: #fff;
+		}
+	.l-section.color_primary .g-filters.style_2 .g-filters-item.active,
+	.l-section.color_secondary .g-filters.style_2 .g-filters-item.active,
+	.l-section.color_custom .g-filters.style_2 .g-filters-item.active {
+		background: rgba(255,255,255,0.15);
+		}
+		
+/* STYLE: 3 */
+.g-filters.style_3 .g-filters-item {
+	line-height: 3.2rem;
+	border-bottom: 3px solid;
+	opacity: 0.66;
+	color: inherit;
+	}
+.g-filters.style_3 .g-filters-item:not(.active) {
+	border-color: transparent;
+	}
+.g-filters.style_3 .g-filters-item.active {
+	opacity: 1;
+	}
+.no-touch .g-filters.style_3 .g-filters-item:hover {
+	opacity: 1;
+	color: inherit;
+	}
+.l-section.color_primary .g-filters.style_3 .g-filters-item.active,
+.l-section.color_secondary .g-filters.style_3 .g-filters-item.active {
+	color: #fff;
+	}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .g-filters-item {
+	border-radius: 0 !important;
+	}

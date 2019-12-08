@@ -1,0 +1,80 @@
+/*
+ * WPML
+ */
+
+img.iclflag,
+img.wpml-ls-flag {
+	position: relative;
+	top: 1px;
+	margin-right: 0.4rem;
+	}
+
+/* Languages Switcher Horizontal List */
+.wpml-ls-legacy-list-horizontal ul {
+	margin: 0 -0.6rem;
+	list-style: none;
+	}
+	.wpml-ls-legacy-list-horizontal ul li {
+		display: inline-block;
+		white-space: nowrap;
+		margin: 0 0.6rem;
+		}
+
+/* Languages Switcher Dropdown */
+.wpml-ls-legacy-dropdown li,
+.wpml-ls-legacy-dropdown-click li {
+	margin: 0;
+	position: relative;
+	}
+	.wpml-ls-legacy-dropdown a,
+	.wpml-ls-legacy-dropdown-click a {
+		display: block;
+		font-size: 0.9rem;
+		line-height: 2.8rem;
+		padding: 0 2.8rem 0 0.8rem;
+		border: none !important;
+		color: inherit !important;
+		box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08) inset;
+		}
+	.wpml-ls-item-toggle {
+		border-radius: 0.3rem;
+		}
+		.wpml-ls-item-toggle:before {
+			content: '\f0d7';
+			position: absolute;
+			top: 0;
+			right: 0.8rem;
+			font-size: 1.2rem;
+			font-weight: 900;
+			font-family: fontawesome;
+			cursor: pointer;
+			}
+	.wpml-ls-sub-menu {
+		visibility: hidden;
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		z-index: 11;
+		margin: 0;
+		box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+		}
+	.wpml-ls-legacy-dropdown li:hover .wpml-ls-sub-menu {
+		visibility: visible;
+		}
+		.wpml-ls-sub-menu a {
+			box-shadow: none;
+			}
+
+/* Languages in Footer */
+.wpml-ls-statics-footer {
+	clear: both;
+	text-align: center;
+	font-size: 0.8rem;
+	padding: 0.6rem;
+	}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .wpml-ls-item-toggle {
+	border-radius: 0 !important;
+	}

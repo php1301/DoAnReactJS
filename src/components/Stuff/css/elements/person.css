@@ -1,0 +1,263 @@
+/* 
+ * Person
+ */
+
+.w-person {
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
+	max-width: 350px; /* fixed value as 'us_350_350_crop' image size */
+	}
+	.w-person-link {
+		display: block;
+		transition: none;
+		}
+	.w-person-image {
+		position: relative;
+		}
+		.w-person-image img {
+			display: block;
+			width: 100%;
+			}
+		.w-person-image .img_hover {
+			position: absolute;
+			top: -1px;
+			left: 0;
+			right: 0;
+			bottom: -1px;
+			opacity: 0;
+			transition: opacity 0.2s;
+			transform: translateZ(0); /* render fix for webkit browsers */
+			background-size: cover;
+			}
+		.w-person:hover .w-person-image .img_hover {
+			opacity: 1;
+			}
+	.w-person-content {
+		padding: 1rem 0;
+		}
+		.w-person-name {
+			margin: 0;
+			}
+		.w-person-link > .w-person-name {
+			color: inherit;
+			transition: color 0.3s;
+			}
+		.w-person-role {
+			font-size: 0.9em;
+			opacity: 0.5;
+			}
+		.w-person-description {
+			margin-top: 0.6rem;
+			}
+			.w-person-description p {
+				margin: 0;
+				}
+		.w-person-links-list {
+			display: flex;
+			justify-content: center;
+			margin-top: 0.6rem;
+			}
+			.w-person-links-item {
+				font-size: 1.2rem;
+				line-height: 3rem;
+				width: 3rem;
+				margin: 0.15rem;
+				border-radius: 50%;
+				overflow: hidden;
+				position: relative;
+				z-index: 1;
+				color: inherit;
+				}
+				.w-person-links-item i {
+					position: relative;
+					vertical-align: top;
+					line-height: inherit;
+					}
+				.w-person-links-item.type_email i:before {
+					content: '\f0e0';
+					font-family: fontawesome;
+					font-weight: 900;
+					font-style: normal;
+					}
+			.no-touch .w-person-links-item:hover {
+				color: #fff !important;
+				}
+				.no-touch .w-person-links-item:before {
+					display: block;
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					height: 100%;
+					transition: transform 0.3s;
+					transform: translate3d(0,-100%,0);
+					}
+				.no-touch .w-person-links-item:hover:before {
+					transform: translate3d(0,0,0);
+					}
+
+/* Photo Effects */
+.w-person.effect_bw img,
+.w-person.effect_bw .img_hover {
+	-webkit-filter: brightness(1.1) grayscale(1);
+	filter: brightness(1.1) grayscale(1);
+	}
+.w-person.effect_sepia img,
+.w-person.effect_sepia .img_hover {
+	-webkit-filter: contrast(0.8) grayscale(0.5) sepia(0.65);
+	filter: contrast(0.8) grayscale(0.5) sepia(0.65);
+	}
+.w-person.effect_faded img,
+.w-person.effect_faded .img_hover {
+	-webkit-filter: brightness(1.2) contrast(0.8) grayscale(0.75);
+	filter: brightness(1.2) contrast(0.8) grayscale(0.75);
+	}
+.w-person.effect_colored img,
+.w-person.effect_colored .img_hover {
+	-webkit-filter: brightness(1.1) contrast(0.85) saturate(3) grayscale(0.5) sepia(0.1);
+	filter: brightness(1.1) contrast(0.85) saturate(3) grayscale(0.5) sepia(0.1);
+	}
+
+/* LAYOUT: modern */
+.w-person.layout_modern {
+	overflow: hidden;
+	}
+	.w-person.layout_modern .w-person-content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		padding: 2rem;
+		transition: transform 0.3s;
+		transform: translate3d(0,-100%,0);
+		background: rgba(30,30,30,0.8);
+		color: #fff;
+		}
+	.w-person.layout_modern:hover .w-person-content {
+		transform: translate3d(0,0,0);
+		}
+		.w-person.layout_modern .w-person-name {
+			color: inherit;
+			}
+			
+/* LAYOUT: trendy */
+.w-person.layout_trendy {
+	overflow: hidden;
+	}
+	.w-person.layout_trendy .w-person-content {
+		position: absolute;
+		z-index: 2;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 3rem 2rem 1rem;
+		transition: bottom 0.3s;
+		background: linear-gradient(transparent, rgba(30,30,30,0.8)) repeat-x;
+		color: #fff;
+		}
+	.w-person.layout_trendy.with_desc:hover .w-person-content,
+	.w-person.layout_trendy.with_socials:hover .w-person-content {
+		bottom: 100%;
+		}
+		.w-person.layout_trendy .w-person-name {
+			color: #fff;
+			}
+	.w-person.layout_trendy .w-person-content-alt {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		z-index: 2;
+		top: 100%;
+		left: 0;
+		right: 0;
+		height: 101%;
+		padding: 2rem;
+		transition: top 0.3s;
+		transform: translate3d(0,0,0);
+		background: rgba(30,30,30,0.8);
+		color: #fff;
+		}
+	.w-person.layout_trendy:hover .w-person-content-alt {
+		top: 0;
+		}
+		.w-person.layout_trendy .w-person-content-alt .w-person-link {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			}
+	
+/* LAYOUT: simple_circle */
+.w-person.layout_simple_circle .w-person-image {
+	border-radius: 50%;
+	overflow: hidden;
+	z-index: 1;
+	}
+.w-person.layout_simple_circle .w-person-image img {
+	border-radius: 50%;
+	}
+	
+/* LAYOUT: square & circle */
+.w-person.layout_square .w-person-image,
+.w-person.layout_circle .w-person-image {
+	overflow: hidden;
+	z-index: 1;
+	}
+.w-person.layout_circle .w-person-image,
+.w-person.layout_circle .w-person-image img {
+	border-radius: 50%;
+	}
+.w-person.layout_square .w-person-links,
+.w-person.layout_circle .w-person-links {
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	margin: 0;
+	transition: transform 0.3s;
+	transform: translate3d(0,-100%,0);
+	background: rgba(30,30,30,0.8);
+	color: #fff;
+	}
+.w-person.layout_square:hover .w-person-links,
+.w-person.layout_circle:hover .w-person-links {
+	transform: translate3d(0,0,0);
+	}
+	.w-person.layout_square .w-person-links-list,
+	.w-person.layout_circle .w-person-links-list {
+		position: relative;
+		top: 50%;
+		padding: 1rem;
+		transform: translateY(-50%);
+		}
+		.w-person.layout_modern .w-person-links-item,
+		.w-person.layout_trendy .w-person-links-item,
+		.w-person.layout_square .w-person-links-item,
+		.w-person.layout_circle .w-person-links-item {
+			box-shadow: 0 0 0 2px #fff inset;
+			color: #fff;
+			}
+		.no-touch .w-person.layout_modern .w-person-links-item:hover,
+		.no-touch .w-person.layout_trendy .w-person-links-item:hover,
+		.no-touch .w-person.layout_square .w-person-links-item:hover,
+		.no-touch .w-person.layout_circle .w-person-links-item:hover {
+			box-shadow: 0 0 0 2px transparent inset;
+			}
+			
+/* Links Hover Underline 
+   ========================================================================== */
+.no-touch .links_underline .w-person-link:hover .w-person-name span {
+	border-bottom: 1px solid;
+	}

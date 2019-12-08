@@ -1,0 +1,316 @@
+/* 
+ * Forms
+ */
+
+.w-form {
+	line-height: 1.5;
+	}
+.w-form-row {
+	margin-bottom: 1rem;
+	}
+	.w-form-row-label {
+		margin-bottom: 0.3rem;
+		}
+		.w-form-row.for_captcha .w-form-row-label span {
+			display: inline-block;
+			direction: ltr;
+			}
+	.w-form-row-description {
+		font-size: 0.9rem;
+		margin-top: 0.3rem;
+		}
+	.w-form-row-field {
+		position: relative;
+		}
+		.w-form-row-field > i + input[type="text"],
+		.w-form-row-field > i + input[type="password"],
+		.w-form-row-field > i + input[type="email"],
+		.w-form-row-field > i + textarea,
+		.w-form-row-field > i + * + textarea, /* Fix for browser add-ons */
+		.w-form-row-field > i + select {
+			padding-left: 2.8rem;
+			}
+		.w-form-row-field > i {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			line-height: 2.8rem;
+			width: 2.8rem;
+			text-align: center;
+			font-size: 1.2rem;
+			opacity: 0.33;
+			pointer-events: none;
+			transition: opacity 0.3s, color 0.3s;
+			}
+		.w-form-row.focused .w-form-row-field > i {
+			opacity: 1;
+			}
+		.color_footer-top .w-form-row-field > i,
+		.color_footer-bottom .w-form-row-field > i {
+			color: inherit;
+			}
+		.w-form-row-field-bar {
+			display: none;
+			}
+	.w-form-row.for_select select {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		padding-right: 2rem;
+		}
+		.w-form-row.for_select .w-form-row-field:after {
+			content: '\f0d7';
+			position: absolute;
+			top: 0;
+			right: 0;
+			font: 900 1.2rem/2.8rem fontawesome;
+			padding: 0 0.8rem;
+			pointer-events: none;
+			}
+	.w-form-row.for_agreement label,
+	.w-form-row.for_checkboxes label,
+	.w-form-row.for_radio label {
+		display: block;
+		position: relative;
+		padding: 0.2rem 0 0.2rem 2rem;
+		}
+		.w-form-checkbox,
+		.w-form-radio {
+			position: absolute;
+			top: 0.2rem;
+			left: 0;
+			line-height: 1.5rem;
+			width: 1.5rem;
+			box-shadow: 0 1px 0 rgba(0,0,0,0.08) inset;
+			color: transparent;
+			}
+		.w-form-row input:checked + .w-form-checkbox,
+		.w-form-row input:checked + .w-form-radio {
+			color: #fff;
+			}
+		.w-form-checkbox {
+			font-size: 0.8rem;
+			text-align: center;
+			border-radius: 0.2rem;
+			}
+			.w-form-checkbox:before {
+				content: '\f00c';
+				font-family: fontawesome;
+				font-weight: 900;
+				vertical-align: top;
+				}
+		.w-form-radio {
+			height: 1.5rem;
+			border-radius: 50%;
+			}
+			.w-form-radio:before {
+				content: '';
+				display: block;
+				height: 32%;
+				width: 32%;
+				margin: 34%;
+				border-radius: 50%;
+				background: currentColor;
+				}
+
+/* Submit Button */
+.w-form-row.for_submit {
+	margin-bottom: 0;
+	}
+.w-form-row.width_full .w-btn {
+	width: 100%;
+	}
+	.w-form .w-btn i,
+	.w-form .w-btn-label {
+		display: inline-block;
+		transition: opacity 0.15s;
+		}
+	.w-form .w-btn.loading i,
+	.w-form .w-btn.loading .w-btn-label {
+		opacity: 0;
+		}
+	.w-form .w-btn .g-preloader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-size: 1.8em;
+		opacity: 0;
+		transform: translate(-50%,-50%);
+		transition: opacity 0.3s;
+		color: inherit;
+		}
+	.w-form .w-btn.loading .g-preloader {
+		opacity: 1;
+		}
+
+/* States & Messages */
+.w-form-row-state {
+	font-size: 0.9rem;
+	height: 0;
+	opacity: 0;
+	transition-property: height, padding, opacity;
+	transition-duration: 0.3s;
+	}
+.w-form-row.check_wrong .w-form-row-state {
+	height: auto;
+	padding-top: 0.3rem;
+	opacity: 1;
+	color: red;
+	}
+.w-form-row.check_wrong input,
+.w-form-row.check_wrong textarea,
+.w-form-row.check_wrong select {
+	box-shadow: 0 0 0 2px red;
+	}
+.w-form-message {
+	font-size: 1.2rem;
+	opacity: 0;
+	transition-property: padding, opacity;
+	transition-duration: 0.3s;
+	}
+.w-form-message.type_success {
+	padding: 0.6rem 0;
+	opacity: 1;
+	color: #4c0;
+	}
+.w-form-message.type_error {
+	padding: 0.6rem 0;
+	opacity: 1;
+	color: red;
+	}
+
+/* FOR comments */
+.w-form.for_comments .form-submit input {
+	margin: 0;
+	}
+
+/* FOR protected post */
+.post-password-form {
+	margin: 1.5rem auto;
+	}
+.l-section.width_full .post-password-form {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	}
+.post-password-form p {
+	margin-bottom: 0.5rem;
+	}
+.post-password-form p label {
+	font-size: 0;
+	line-height: 0;
+	}
+.post-password-form p input[type="password"] {
+	font-size: 1rem;
+	max-width: 300px;
+	margin-bottom: 0.5rem;
+	}
+
+/* FOR login */
+.w-form-row.for_links {
+	margin: 0;
+	padding-top: 0.6rem;
+	}
+	.w-form-row-link {
+		font-size: 0.9rem;
+		margin-right: 0.8rem;
+		}
+
+/* Login Widget
+   ========================================================================== */
+.widget_us_login > .g-preloader {
+	display: block;
+	margin: 1rem auto;
+	}
+.widget_us_login > .w-form {
+	margin: 2px;
+	}
+.w-profile {
+	padding: 1.5rem;
+	border-radius: 0.3rem;
+	border-style: solid;
+	border-width: 2px; /* fixed value */
+	min-height: calc(68px + 3rem);
+	}
+.l-header .w-profile {
+	padding: 0;
+	border: none;
+	min-height: 64px; /* fixed value */
+	}
+	.w-profile-link.for_user {
+		display: block;
+		position: relative;
+		}
+		.w-profile-avatar {
+			position: absolute;
+			}
+			.w-profile-avatar img {
+				display: block;
+				max-width: 6rem;
+				border-radius: 50%;
+				}
+		.w-profile-name {
+			display: block;
+			font-size: 1.2rem;
+			line-height: 1.3;
+			margin-left: 76px;
+			}
+	.w-profile-link.for_logout {
+		font-size: 0.9rem;
+		line-height: 1.3;
+		margin-left: 76px;
+		}
+
+/* Contact Form 7
+   ========================================================================== */
+span.wpcf7-form-control-wrap {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	}
+	.wpcf7-form input[type="text"],
+	.wpcf7-form input[type="password"],
+	.wpcf7-form input[type="email"],
+	.wpcf7-form input[type="url"],
+	.wpcf7-form input[type="tel"],
+	.wpcf7-form input[type="number"],
+	.wpcf7-form input[type="date"],
+	.wpcf7-form textarea,
+	.wpcf7-form select {
+		margin-top: 0.4rem;
+		}
+	.wpcf7-form-control.wpcf7-radio,
+	.wpcf7-form-control.wpcf7-checkbox {
+		display: inline-block;
+		vertical-align: top;
+		padding: 0.6rem 0;
+		}
+	span.wpcf7-list-item {
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 1.5rem 0 0;
+		}
+div.wpcf7 img.ajax-loader {
+	margin-left: 1rem;
+	}
+div.wpcf7-response-output {
+	text-align: center;
+	margin: 0;
+	padding: 0.6rem 1rem;
+	border-radius: 0.3rem;
+	}
+span.wpcf7-not-valid-tip {
+	font-size: 0.9rem;
+	}
+
+/* Rounded Corners
+   ========================================================================== */
+.rounded_none .w-form-checkbox,
+.rounded_none .wpcf7-response-output {
+	border-radius: 0 !important;
+	}
+
+/* Links Hover Underline
+   ========================================================================== */
+.no-touch .links_underline .w-form-row-link:hover,
+.no-touch .links_underline .w-profile-link.for_logout:hover {
+	border-bottom: 1px solid;
+	}

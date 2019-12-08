@@ -1,0 +1,40 @@
+/* 
+ * Video
+ */
+   
+.w-video {
+	background: #111;
+	}
+	.w-video-h {
+		position: relative;
+		height: 0;
+		overflow: hidden;
+		padding-bottom: 56.25%;
+		}
+		.w-video-h iframe,
+		.w-video-h object,
+		.w-video-h embed {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			}
+.w-video.align_center {
+	margin: 0 auto;
+	}
+.w-video.align_right {
+	margin-left: auto;
+	}
+.w-video.ratio_21x9 .w-video-h {
+	padding-bottom: 42.1875%;
+	}
+.w-video.ratio_3x2 .w-video-h {
+	padding-bottom: 66.667%;
+	}
+.w-video.ratio_4x3 .w-video-h {
+	padding-bottom: 75%;
+	}
+.w-video.ratio_1x1 .w-video-h {
+	padding-bottom: 100%;
+	}

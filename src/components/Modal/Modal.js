@@ -33,9 +33,6 @@ export default function Example(props) {
                     <div className="overlay trigger" src="https://www.youtube.com/embed/VF1Yz05iQM0" data-target="#videoModal" data-toggle="modal" />
                 </div>
             </Button> */}
-            {/* <Button className="trailer-item" onClick={handleShow}>
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/Rc0R2VYsfD4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </Button> */}
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Body><div className="trailer-item">

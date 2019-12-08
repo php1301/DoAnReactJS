@@ -1,0 +1,120 @@
+/* 
+ * Comments
+ */
+
+.w-comments-title {
+	margin-bottom: 1rem;
+	}
+	.w-comments-title > span {
+		display: inline-block;
+		vertical-align: top;
+		}
+	.w-comments-title a {
+		border-bottom: 1px dotted;
+		}
+.w-comments-list {
+	margin-bottom: 1rem;
+	}
+	.w-comments-item {
+		padding: 1rem 0;
+		}
+		.w-comments .children {
+			margin: 0;
+			padding-left: 2rem;
+			border-left: 1px dashed;
+			}
+		.w-comments-item-meta {
+			position: relative;
+			line-height: 25px; /* don't change to 'rem' units */
+			margin-bottom: 0.6rem;
+			}
+			.w-comments-item-icon {
+				position: absolute;
+				line-height: 0;
+				width: 50px; /* don't change to 'rem' units */
+				border-radius: 50%;
+				overflow: hidden;
+				}
+			.w-comments-item-author {
+				font-weight: bold;
+				margin-left: 60px;
+				}
+			.w-comments-item.bypostauthor .w-comments-item-author span {
+				padding: 0 0.3rem;
+				background: #feebef;
+				}
+			.w-comments .w-comments-item-date {
+				vertical-align: top;
+				font-size: 0.8rem;
+				margin-left: 60px;
+				color: inherit;
+				opacity: 0.5;
+				}
+			.no-touch .w-comments-item-date:hover {
+				opacity: 1;
+				}
+		.w-comments-item-text {
+			margin-bottom: 0.6rem;
+			}
+			.w-comments-item-text > *:last-child {
+				margin-bottom: 0;
+				}
+			.w-comments-item-text > .w-message {
+				padding: 0.6rem 1rem;
+				margin-bottom: 1rem;
+				}
+		.w-comments .comment-reply-link {
+			vertical-align: top;
+			font-size: 0.8rem;
+			color: inherit;
+			opacity: 0.5;
+			}
+		.no-touch .w-comments .comment-reply-link:hover {
+			opacity: 1;
+			}
+.w-comments-pagination {
+	font-size: 0.9rem;
+	text-align: center;
+	}
+	.w-comments-pagination a {
+		margin: 0 0.6rem;
+		}
+.comment-reply-title small {
+	display: inline-block;
+	font-size: 0.8rem;
+	font-weight: normal;
+	margin-left: 0.3rem;
+	}
+.w-comments-list .comment-respond {
+	margin-bottom: 1.5rem;
+	}
+.w-comments .comment-reply-title,
+.w-comments .comment-notes {
+	margin-bottom: 1rem;
+	}
+
+.w-comments .form-submit {
+	margin-bottom: 0;
+	}
+	
+/* WordPress Widget
+   ========================================================================== */
+.widget_recent_comments ul li {
+	position: relative;
+	line-height: 1.4rem;
+	padding-left: 1rem;
+	}
+	.widget_recent_comments ul li:before {
+		position: absolute;
+		left: 0;
+		content: '\f105';
+		font-family: fontawesome;
+		font-weight: 400;
+		opacity: 0.5;
+		}
+
+/* Links Hover Underline 
+   ========================================================================== */
+.no-touch .links_underline .w-comments a:hover {
+	border-bottom: 1px solid;
+	}

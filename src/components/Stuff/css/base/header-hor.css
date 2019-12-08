@@ -1,0 +1,98 @@
+/*
+ * HORIZONTAL Header
+ */
+
+.l-header {
+	position: relative;
+	z-index: 111;
+	width: 100%;
+	}
+	.l-subheader {
+		margin: 0 auto;
+		}
+	.l-subheader.width_full {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		}
+		.l-subheader-h {
+			display: flex;
+			align-items: center;
+			position: relative;
+			margin: 0 auto;
+			height: inherit;
+			}
+.w-header-show {
+	display: none;
+	}
+
+/* Sticky header */
+.l-header.pos_fixed {
+	position: fixed;
+	left: 0;
+	}
+.l-header.pos_fixed:not(.notransition) .l-subheader {
+	transition-property: transform, background, box-shadow, line-height, height;
+	transition-duration: 0.3s;
+	transition-timing-function: cubic-bezier(.78,.13,.15,.86);
+	}
+	
+/* Transparent header */
+.l-header.bg_transparent:not(.sticky) .l-subheader {
+	box-shadow: none !important;
+	background: none;
+	}
+.l-header.bg_transparent ~ .l-main .l-section.width_full.height_auto:first-child {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	}
+
+/* Not-sticky & Transparent header */
+.l-header.pos_static.bg_transparent {
+	position: absolute;
+	left: 0;
+	}
+	
+/* Fullwidth header area */
+.l-subheader.width_full .l-subheader-h {
+	max-width: none !important;
+	}
+
+/* Initial header position ABOVE */
+.headerinpos_above .l-header.pos_fixed {
+	overflow: hidden;
+	transition: transform 0.3s;
+	transform: translate3d(0,-100%,0);
+	}
+.headerinpos_above .l-header.pos_fixed.sticky {
+	overflow: visible;
+	transform: none;
+	}
+.headerinpos_above .l-header.pos_fixed ~ .l-section,
+.headerinpos_above .l-header.pos_fixed ~ .l-main,
+.headerinpos_above .l-header.pos_fixed ~ .l-main .l-section:first-child {
+	padding-top: 0 !important;
+	}
+
+/* Header Shadow */
+.l-header.shadow_thin .l-subheader.at_middle,
+.l-header.shadow_thin .l-subheader.at_bottom,
+.l-header.shadow_none.sticky .l-subheader.at_middle,
+.l-header.shadow_none.sticky .l-subheader.at_bottom {
+	box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+	}
+.l-header.shadow_wide .l-subheader.at_middle,
+.l-header.shadow_wide .l-subheader.at_bottom {
+	box-shadow: 0 3px 5px -1px rgba(0,0,0,0.1), 0 2px 1px -1px rgba(0,0,0,0.05);
+	}
+
+/* Header elements */
+.headerinpos_bottom .l-header.pos_fixed:not(.sticky) .w-dropdown-list {
+	top: auto;
+	bottom: -0.4em;
+	padding-top: 0.4em;
+	padding-bottom: 2.4em;
+	}
+.header_hor .l-subheader-cell > .w-cart {
+	margin-left: 0;
+	margin-right: 0;
+	}

@@ -1,0 +1,61 @@
+/* 
+ * Gallery
+ */
+
+.w-gallery:not(:last-child) {
+	margin-bottom: 1.5rem;
+	}
+.w-gallery-item {
+	display: inline-block;
+	vertical-align: top;
+	outline: none !important;
+	color: inherit !important;
+	width: 100%;
+	}
+.w-gallery.link_file .w-gallery-item {
+	cursor: zoom-in;
+	}
+	.w-gallery-item-img {
+		position: relative;
+		}
+		.w-gallery-item-img img {
+			display: block;
+			margin: 0 auto;
+			}
+		.w-gallery[class*="cols_"] img {
+			width: 100%;
+			}
+		.no-touch a.w-gallery-item .w-gallery-item-img:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			transition: opacity 0.3s;
+			background: #fff;
+			}
+		.no-touch a.w-gallery-item:focus .w-gallery-item-img:after,
+		.no-touch a.w-gallery-item:hover .w-gallery-item-img:after {
+			opacity: 0.5;
+			}
+	.gallery-caption, /* required by Theme Checker */
+	.w-gallery-item-meta {
+		line-height: 1.6;
+		text-align: center;
+		padding: 0.3rem 1rem 0.7rem;
+		}
+		.w-gallery-item-description {
+			font-size: 0.9rem;
+			margin: 0.2rem 0;
+			opacity: 0.5;
+			}
+
+/* With indents (don't change to 'rem' units) */
+.w-gallery.with_indents .w-gallery-list {
+	margin: -4px;
+	}
+	.w-gallery.with_indents .w-gallery-item {
+		padding: 4px;
+		}
