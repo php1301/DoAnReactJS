@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import TicketItem from '../TicketItem/TicketItem'
+import TicketBoxHeader from '../PaymentHeader/PayementHeader'
 import "../TicketBox/TicketBox.scss"
+import { Link } from 'react-router-dom';
 export default class TicketBox extends Component {
+    componentDidMount() {
+        console.log(this.props)
+    }
     render() {
         return (
             <div>
@@ -9,7 +14,7 @@ export default class TicketBox extends Component {
                     <div className="container container_seat">
                         <div className="row">
                             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div className="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left">	<a href="movie_booking.html"><i className="fas fa-long-arrow-alt-left" /> &nbsp;Back</a>
+                                <div className="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left">	<Link to={`/details/movie/${this.props.match.params.id}`}><i className="fas fa-long-arrow-alt-left" /> &nbsp;Back</Link>
                                 </div>
                                 <div className="cc_ps_quantily_info cc_ps_quantily_info_tecket">
                                     <p>Select Ticket</p>
@@ -32,7 +37,7 @@ export default class TicketBox extends Component {
                             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div className="st_bt_top_close_btn st_bt_top_close_btn2 float_left">	<a href="#"><i className="fa fa-times" /></a>
                                 </div>
-                                <div className="st_seatlay_btn float_left">	<a href="booking_type.html">Proceed to Pay</a>
+                                <div className="st_seatlay_btn float_left">	<Link to={`/ticket/${this.props.match.params.id}/payment`}>Proceed to Pay</Link>
                                 </div>
                             </div>
                         </div>

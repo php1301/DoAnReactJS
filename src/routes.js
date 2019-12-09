@@ -5,7 +5,7 @@ import DetailMovies from "./components/DetailMovies/DetailMovies.js";
 import Discover from "./components/Discover/Discover.js";
 import SearchResults from "./components/SearchResult/SearchResult.js";
 import TicketBox from "./components/TicketBox/TicketBox.js";
-
+import PaymentHeader from "./components/PaymentHeader/PayementHeader.js";
 const routesHome = [
     {
         path: "/",
@@ -41,6 +41,11 @@ const routesHome = [
         path: "/ticket/:id",
         exact: true,
         component: TicketBox
+    },
+    {
+        path: "/ticket/:id/payment",
+        exact: true,
+        component: PaymentHeader
     }
 ]
 export { routesHome }
