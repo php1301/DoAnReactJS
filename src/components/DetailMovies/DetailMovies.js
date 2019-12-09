@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import "../DetailMovies/DetailMovies.scss";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Movies from '../Movies/Movies.js';
 import PeopleCarousel from '../PeopleCarousel/PeopleCarousel';
 import Trailers from '../Trailers/Trailers';
@@ -9,6 +9,8 @@ import * as action2 from "../../actions/movieActions/getReviews";
 import * as action3 from "../../actions/movieActions/getTrailers";
 import { connect } from 'react-redux'
 import StarRating from '../StarRating/StarRating';
+import TicketModal from './TicketModal';
+import "../DetailMovies/Ticket.scss"
 class DetailMovies extends Component {
     constructor(props) {
         super(props);
@@ -150,8 +152,8 @@ class DetailMovies extends Component {
                             <div className="item-details-header-info-container-content-rating">
                                 <p className="item-details-header-info-container-content-rating__digit">
                                     {this.props.details.vote_average}
-                    </p>
-                                <StarRating star={this.props.details.vote_average}/>
+                                </p>
+                                <StarRating star={this.props.details.vote_average} />
                             </div>
                             <p className="item-details-header-info-container-content__detail">
                                 {details.status} | {details.original_language}
@@ -175,6 +177,7 @@ class DetailMovies extends Component {
                             >
                                 <path d="M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z" />
                             </svg>
+                            <li><Link class="theme-btn" to={`/ticket/${this.props.match.params.id}`}><i class="icofont icofont-ticket"></i> Tickets</Link></li>
                         </div>
                     </div>
                     <div className="item-details-header-info-container-account-warning item-details-header-info-container-account-warning--hide">

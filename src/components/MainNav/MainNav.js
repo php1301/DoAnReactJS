@@ -3,8 +3,6 @@ import "../MainNav/MainNav.scss";
 import Icofont from 'react-icofont';
 import { connect } from 'react-redux';
 import toggleNav from '../../actions/toggleNav';
-import "../MainNav/Ticket.scss";
-import TicketModal from './TicketModal';
 import { Link, NavLink } from 'react-router-dom';
 class MainNav extends Component {
 

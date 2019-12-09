@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../MainNav/TicketModal.scss";
+import "../DetailMovies/TicketModal.scss";
 export default class TicketModal extends Component {
     render() {
         return (
