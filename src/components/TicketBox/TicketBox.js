@@ -3,11 +3,16 @@ import TicketItem from '../TicketItem/TicketItem'
 import TicketBoxHeader from '../PaymentHeader/PayementHeader'
 import "../TicketBox/TicketBox.scss"
 import { Link } from 'react-router-dom';
-export default class TicketBox extends Component {
+import { connect } from 'react-redux';
+import * as action from "../../actions/ticketActions/getSeats"
+class TicketBox extends Component {
     componentDidMount() {
-        console.log(this.props)
+        let idticket = this.props.match.params.idticket
+        this.props.onSaveSeats(idticket)
     }
     render() {
+        console.log(this.props.seats)
+
         return (
             <div>
                 <div className="st_bt_top_header_wrapper float_left">
@@ -35,7 +40,7 @@ export default class TicketBox extends Component {
                                 </div>
                             </div>
                             <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div className="st_bt_top_close_btn st_bt_top_close_btn2 float_left">	<a href="#"><i className="fa fa-times" /></a>
+                                <div className="st_bt_top_close_btn st_bt_top_close_btn2 float_left">	<Link to={`/details/movie/${this.props.match.params.id}`}><i className="fa fa-times" /></Link>
                                 </div>
                                 <div className="st_seatlay_btn float_left">	<Link to={`/ticket/${this.props.match.params.id}/payment`}>Proceed to Pay</Link>
                                 </div>
@@ -43,8 +48,21 @@ export default class TicketBox extends Component {
                         </div>
                     </div>
                 </div>
-                <TicketItem />
+                <TicketItem idticket={this.props.match.params.idticket} />
             </div>
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        seats: state.getSeats.result.danhSachGhe
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSaveSeats: (id) => {
+            dispatch(action.getSeatsAPI(id))
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TicketBox)

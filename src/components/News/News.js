@@ -29,13 +29,18 @@ class News extends Component {
                             <div className="position-relative">
 
                                 <div className="ratio_left-cover-1 image-wrapper">
-                                    <Link to = {`/details/movie/${item.id}`}>
-                                        <img className="img-fluid w-100" img src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style={{ width: "540px", height: "540px" }} alt="News" />
+                                    <Link to={`/details/movie/${item.id}`}>
+                                        <img className="img-fluid w-100" img src={` http://image.tmdb.org/t/p/w1280//${item.poster_path}`} style={{
+                                            background: `linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)
+              ) center center no-repeat, #fff url(https://image.tmdb.org/t/p/w1280/${item.poster_path}) center top no-repeat`, backgroundSize: 'cover, cover'
+                                        }} />
                                     </Link>
                                 </div>
                                 <div className="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow carousel-things">
 
-                                    <Link to = {`/details/movie/${item.id}`}className="textdec">
+                                    <Link to={`/details/movie/${item.id}`} className="textdec">
                                         <h2 className="h3 post-title text-white my-1">{item.original_title}</h2>
                                     </Link>
 
@@ -53,12 +58,17 @@ class News extends Component {
                         <div className="card border-0 rounded-0 text-light overflow zoom">
                             <div className="position-relative">
                                 <div className="ratio_left-cover-1 image-wrapper">
-                                    <Link to ={`/details/movie/${item.id}`}>
-                                        <img className="img-fluid w-100" src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style={{ width: "540px", height: "540px" }} alt="Bootstrap blog template" />
+                                    <Link to={`/details/movie/${item.id}`}>
+                                        <img className="img-fluid w-100" src={` http://image.tmdb.org/t/p/w1280//${item.poster_path}`} style={{
+                                            background: `linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)
+              ) center center no-repeat, #fff url(https://image.tmdb.org/t/p/w1280/${item.poster_path}) center top no-repeat`, backgroundSize: 'cover, cover'
+                                        }} />
                                     </Link>
                                 </div>
                                 <div className="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                    <Link to ={`/details/movie/${item.id}`}>
+                                    <Link to={`/details/movie/${item.id}`}>
                                         <h2 className="h3 post-title text-white my-1">{item.original_title}</h2>
                                     </Link>
                                     <div className="news-meta">
@@ -81,7 +91,12 @@ class News extends Component {
 
                                 <div className="ratio_right-cover-2 image-wrapper">
                                     <Link to href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                        <img className="img-fluid" src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style ={{width: "300px", height: "268px"}}/>
+                                        <img className="img-fluid" src={` http://image.tmdb.org/t/p/w1280//${item.poster_path}`} style={{
+                                            background: `linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)
+              ) center center no-repeat, #fff url(https://image.tmdb.org/t/p/w1280/${item.poster_path}) center top no-repeat`, backgroundSize: 'cover, cover'
+                                        }} />
                                     </Link>
                                 </div>
                                 <div className="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">

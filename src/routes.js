@@ -38,12 +38,12 @@ const routesHome = [
         component: SearchResults,
     },
     {
-        path: "/ticket/:id",
+        path: "/ticket/:id/:idticket",
         exact: true,
         component: TicketBox
     },
     {
-        path: "/ticket/:id/payment",
+        path: "/ticket/:id/:idticket/payment",
         exact: true,
         component: PaymentHeader
     }

@@ -27,7 +27,12 @@ class HomeHeader extends Component {
                 return (
                     <Carousel.Item >
                         <a>
-                            <div className="carousel-overlay">
+                            <div className="carousel-overlay" style={{
+                                background: `linear-gradient(
+                rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.6)
+              ) center center no-repeat, #fff url(https://image.tmdb.org/t/p/w1280/${item.poster_path}) center top no-repeat`, backgroundSize: 'cover, cover'
+                            }}>
                             </div>
                             <img
                                 className="d-block w-100"
@@ -44,7 +49,7 @@ class HomeHeader extends Component {
                             <h3 className="carousel-h3">{item.original_title}</h3>
                             <p className="carousel-p">{item.vote_average} | {this.handleGetGenre(item.genre_ids)}</p>
                         </Carousel.Caption>
-                    </Carousel.Item>
+                    </Carousel.Item >
                 )
             }
         })

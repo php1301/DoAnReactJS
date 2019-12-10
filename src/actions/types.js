@@ -29,3 +29,5 @@ export const SET_ITEM_TYPE_TV = 'SET_ITEM_TYPE_TV';
 export const GET_DISCOVER = 'GET_DISCOVER';
 export const SEARCH_DATA = 'SEARCH_DATA';
 export const POST_SEARCH_RESULTS = 'POST_SEARCH_RESULTS';
+
+export const GET_SEATS = 'GET_SEATS';

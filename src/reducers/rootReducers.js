@@ -27,6 +27,8 @@ import postMoviesPopular from "../reducers/movieReducer/postMoviesPopular";
 import postMoviesTopRated from "../reducers/movieReducer/postMoviesTopRated";
 import postMoviesUpcoming from "../reducers/movieReducer/postMoviesUpcoming";
 import postMovieGenres from '../reducers/movieReducer/postMovieGenres';
+
+import getSeats from "../reducers/ticketReducers/getSeats";
 const rootReducer = combineReducers({
     toggleNav,
     movieReducer,
@@ -56,5 +58,7 @@ const rootReducer = combineReducers({
     setItemType,
     searchData,
     postSearchResults,
+
+    getSeats
 })
 export default rootReducer
