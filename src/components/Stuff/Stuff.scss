@@ -501,6 +501,7 @@ h1 {
 }
 h1.omb-title {
   font-size: 1.625rem;
+  margin-right: 27px;
 }
 h1.omb-title.cast-title {
   margin-bottom: 1.25rem;
@@ -1788,7 +1789,7 @@ header h3 {
 }
 footer a:hover,
 header a:hover {
-  color: #fee50e ;
+  color: #fee50e;
 }
 footer a:hover i,
 header a:hover i {
@@ -2192,7 +2193,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   margin-bottom: 0rem;
 }
 
- .omb-movies-list .col-lg-5 > *:first-child,
+.omb-movies-list .col-lg-5 > *:first-child,
 .omb-news-list .col-lg-5 > *:first-child,
 .omb-masonry-list .omb-brick > *:first-child,
 .omb-news-block > *:first-child,
@@ -2203,7 +2204,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   display: block;
   position: relative;
 }
- .omb-movies-list .col-lg-5 > *:first-child i,
+.omb-movies-list .col-lg-5 > *:first-child i,
 .omb-news-list .col-lg-5 > *:first-child i,
 .omb-masonry-list .omb-brick > *:first-child i,
 .omb-news-block > *:first-child i,
@@ -2217,7 +2218,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   width: 0;
   height: 0;
 }
- .omb-movies-list .col-lg-5 > *:first-child i:after,
+.omb-movies-list .col-lg-5 > *:first-child i:after,
 .omb-news-list .col-lg-5 > *:first-child i:after,
 .omb-masonry-list .omb-brick > *:first-child i:after,
 .omb-news-block > *:first-child i:after,
@@ -2241,7 +2242,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   font-weight: 300;
   transition: all, 0.2s;
 }
- .omb-movies-list .col-lg-5 > *:first-child img,
+.omb-movies-list .col-lg-5 > *:first-child img,
 .omb-news-list .col-lg-5 > *:first-child img,
 .omb-masonry-list .omb-brick > *:first-child img,
 .omb-news-block > *:first-child img,
@@ -2253,7 +2254,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   max-width: 100%;
   background: #282828;
 }
- .omb-movies-list .col-lg-5 > *:first-child:hover i:after,
+.omb-movies-list .col-lg-5 > *:first-child:hover i:after,
 .omb-news-list .col-lg-5 > *:first-child:hover i:after,
 .omb-masonry-list .omb-brick > *:first-child:hover i:after,
 .omb-news-block > *:first-child:hover i:after,
@@ -2268,7 +2269,7 @@ header .omb-widget.widget_calendar tfoot a:hover {
   background: #fee50e;
   color: #282828;
 }
- .omb-movies-list .col-lg-5 > *:first-child:hover img,
+.omb-movies-list .col-lg-5 > *:first-child:hover img,
 .omb-news-list .col-lg-5 > *:first-child:hover img,
 .omb-masonry-list .omb-brick > *:first-child:hover img,
 .omb-news-block > *:first-child:hover img,
@@ -3782,14 +3783,14 @@ header .omb-widget.omb_genres ul li a {
 //  section {
 //   overflow-x: hidden;
 // }
- .omb-now-playing-list {
+.omb-now-playing-list {
   overflow: hidden;
 }
- .omb-features {
+.omb-features {
   position: relative;
   overflow: visible;
 }
- .omb-features:before {
+.omb-features:before {
   content: "";
   position: absolute;
   left: -9999px;
@@ -3799,13 +3800,13 @@ header .omb-widget.omb_genres ul li a {
   background: #f7f7f7;
   z-index: -1;
 }
- .omb-features .content-wrapper {
+.omb-features .content-wrapper {
   padding: 5.3125rem 0;
 }
- .omb-features .content-wrapper .omb-feature {
+.omb-features .content-wrapper .omb-feature {
   position: relative;
 }
- .omb-features .content-wrapper .omb-feature i {
+.omb-features .content-wrapper .omb-feature i {
   position: absolute;
   left: -5.9375rem;
   top: 0;
@@ -3813,17 +3814,17 @@ header .omb-widget.omb_genres ul li a {
   text-align: right;
   width: 4.6875rem;
 }
- .omb-features .content-wrapper .omb-feature div {
+.omb-features .content-wrapper .omb-feature div {
   position: relative;
   float: left;
   margin-left: 6.25rem;
 }
- .omb-features .content-wrapper .omb-feature div h5 {
+.omb-features .content-wrapper .omb-feature div h5 {
   border-bottom: solid 0.125rem #ddd;
   padding-bottom: 0.625rem;
   margin-bottom: 1.25rem;
 }
- .omb-features .content-wrapper .omb-feature div a {
+.omb-features .content-wrapper .omb-feature div a {
   margin-top: -1.25rem;
   margin-bottom: 1.875rem;
   font-size: 0.75rem;
@@ -3833,7 +3834,7 @@ header .omb-widget.omb_genres ul li a {
   font-style: italic;
   text-transform: uppercase;
 }
- .omb-features .content-wrapper .omb-feature div a:hover {
+.omb-features .content-wrapper .omb-feature div a:hover {
   color: #f71111;
   text-decoration: none;
 }
@@ -4213,6 +4214,7 @@ header .omb-widget.omb_genres ul li a {
 }
 .omb-movies-schedule-page nav.omb-week a {
   margin-bottom: 0.125rem;
+  margin-right: 5px;
 }
 .omb-movies-schedule-page .omb-movies-schedule-list {
   font-size: 0;
@@ -5870,7 +5872,7 @@ body.tax-cast .omb-movie-filters {
   html {
     font-size: 0.75rem;
   }
-  html  .omb-features .content-wrapper .omb-feature div a {
+  html .omb-features .content-wrapper .omb-feature div a {
     margin-top: 1.25rem;
   }
   html .we-sidebar {
@@ -5904,7 +5906,7 @@ body.tax-cast .omb-movie-filters {
   html {
     font-size: 0.875rem;
   }
-  html  .omb-features .content-wrapper .omb-feature div a {
+  html .omb-features .content-wrapper .omb-feature div a {
     margin-top: -1.125rem;
   }
   html .omb-cinema-page #omb-cinema-others .omb-cinemas > *,
@@ -5954,7 +5956,10 @@ figcaption {
   font-weight: 700;
   color: white;
 }
-h5 a{
+h5 a {
   color: white;
+}
+.stuff-container {
+  margin-left: -95px;
 }
 /*** Compile time: 1.1447229385376 */

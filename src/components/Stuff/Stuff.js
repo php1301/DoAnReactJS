@@ -9,7 +9,7 @@ import '../../../node_modules/font-awesome/scss/font-awesome.scss'
 export default class Stuff extends Component {
     render() {
         return (
-            <div>
+            <div className="stuff-container">
                 <div className="row omb-latest">
                     <div className="col-xs-12 col-sm-6">
                         <h5>Latest News

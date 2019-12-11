@@ -11,7 +11,6 @@ class Movies extends Component {
     }
     renderItem = () => {
         return this.props.items && this.props.items.map((item, index) => {
-            console.log(item)
             return (
                 <div className="main-content-container-item">
                     <Link to={`/details/movie/${item.id}`}><img src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style={{ width: "127px", height: "190px" }} /> </Link>
