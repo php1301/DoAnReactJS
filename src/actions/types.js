@@ -31,3 +31,5 @@ export const SEARCH_DATA = 'SEARCH_DATA';
 export const POST_SEARCH_RESULTS = 'POST_SEARCH_RESULTS';
 
 export const GET_SEATS = 'GET_SEATS';
+export const GET_MOVIES = 'GET_MOVIES';
+export const GET_TIMES = 'GET_TIMES';

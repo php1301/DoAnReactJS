@@ -6,8 +6,14 @@ import BoxOffice from '../BoxOffice/BoxOffice'
 import Schedule from '../Schedule/Schedule'
 import '../../../node_modules/font-awesome/css/font-awesome.min.css'
 import '../../../node_modules/font-awesome/scss/font-awesome.scss'
-export default class Stuff extends Component {
+import * as action from "../../actions/ticketActions/getMovies";
+import { connect } from 'react-redux';
+class Stuff extends Component {
+    componentDidMount() {
+        this.props.onSaveMovies()
+    }
     render() {
+        console.log(this.props.movies)
         return (
             <div className="stuff-container">
                 <div className="row omb-latest">
@@ -102,8 +108,21 @@ export default class Stuff extends Component {
                     </div>
                 </div>
                 <BoxOffice />
-                <Schedule />
+                <Schedule item={this.props.movies} />
             </div>
         )
     }
 }
+const mapStateToProps = state => {
+    return {
+        movies: state.getMovies.result
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        onSaveMovies: () => {
+            dispatch(action.getMoviesAPI())
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Stuff)
