@@ -2,27 +2,14 @@ import React, { Component } from 'react';
 import Carousel from "react-multi-carousel";
 import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import "../PeopleCarousel/PeopleCarousel.scss";
-import { NavLink } from 'react-router-dom'
 import "../Trailers/Trailers.scss"
-import $ from 'jquery'
-import { Button } from 'react-bootstrap'
-import { Modal } from 'react-bootstrap'
-import Example from '../Modal/Modal';
 const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
 export default class Trailers extends Component {
-    // renderTrailers = () => {
-    //     return this.props.trailers && this.props.trailers.map((item, index) => {
-
-    //         return (
-    //                 <Example items={this.props.trailers} />
-    //         )
-    //     })
-    // }
     renderItems = () => {
-        return this.props.trailers && this.props.trailers.map((item,i) => (
+        return this.props.trailers && this.props.trailers.map((item, i) => (
             <div className="trailer-item">
-                    <iframe width="420" height="315" src={`https://www.youtube.com/embed/${item.key}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-             </div>
+                <iframe width="420" height="315" src={`https://www.youtube.com/embed/${item.key}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         ))
     }
     render() {
@@ -92,9 +79,8 @@ export default class Trailers extends Component {
                         animationName: "fadeInDown"
                     }}
                 >
-                   
-                    {/* <Example items={this.props.trailers} /> */}
-                  {this.renderItems()}
+
+                    {this.renderItems()}
                 </Carousel>
             </div>
         )

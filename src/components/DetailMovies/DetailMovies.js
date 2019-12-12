@@ -208,7 +208,9 @@ class DetailMovies extends Component {
                         </p>
                     </div>
                     <PeopleCarousel People={this.props.details} />
-                    <Trailers trailers={this.props.trailers} />
+                    {this.props.trailers && this.props.trailers.length > 2 ? <Trailers trailers={this.props.trailers}/> : (<div className="item-details-main-reviews-container">
+                        <p className="item-details-main-reviews-container__error">No Trailers found :(</p>
+                    </div>)}
                     <div className="item-details-main-reviews">
                         <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Popular Reviews</h2>
                         {/* check null de duyet reviews */}
