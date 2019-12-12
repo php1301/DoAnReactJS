@@ -97,7 +97,7 @@ class DetailMovies extends Component {
                     className="item-details-header-info"
                     style={{
                         background:
-                            `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original/${details.poster_path}) center top no-repeat rgb(255, 255, 255)`
+                            `linear-gradient(0deg, rgb(0, 0, 0) 5%, rgba(0, 0, 0, 0.45) 92%) center center no-repeat, url(https://image.tmdb.org/t/p/original/${details.backdrop_path}) center top no-repeat rgb(255, 255, 255)`
                     }}
                 >
                     <div className="item-details-header-info-nav">

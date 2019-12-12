@@ -31,12 +31,12 @@ class HomeHeader extends Component {
                                 background: `linear-gradient(
                 rgba(0, 0, 0, 0.6),
                 rgba(0, 0, 0, 0.6)
-              ) center center no-repeat, #fff url(https://image.tmdb.org/t/p/w1280/${item.poster_path}) center top no-repeat`, backgroundSize: 'cover, cover'
+              ) center center no-repeat, #fff url('https://image.tmdb.org/t/p/w1280/${item.backdrop_path}') center top no-repeat`, backgroundSize: 'cover, cover'
                             }}>
                             </div>
                             <img
                                 className="d-block w-100"
-                                src={`https://image.tmdb.org/t/p/w1280/${item.poster_path}`}
+                                src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`}
                                 alt="First slide"
                                 style={{
                                     width: "1519px",
