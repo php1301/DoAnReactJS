@@ -7,10 +7,13 @@ import Trailers from '../Trailers/Trailers';
 import * as action from "../../actions/movieActions/getDetails"
 import * as action2 from "../../actions/movieActions/getReviews";
 import * as action3 from "../../actions/movieActions/getTrailers";
+import * as action4 from "../../actions/ticketActions/getSeats"
 import { connect } from 'react-redux'
 import StarRating from '../StarRating/StarRating';
 import TicketModal from './TicketModal';
 import "../DetailMovies/Ticket.scss"
+import Schedule from '../Schedule/Schedule';
+import ScheduleDetails from '../ScheduleDetails.js/ScheduleDetails';
 class DetailMovies extends Component {
     constructor(props) {
         super(props);
@@ -81,6 +84,7 @@ class DetailMovies extends Component {
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
+        this.props.onSaveSeats(id)
         console.log(this.props.details)
     }
     render() {
@@ -224,6 +228,12 @@ class DetailMovies extends Component {
                         }
 
                     </div>
+                    <div className="item-details-main-reviews">
+                        <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Showing</h2>
+                        <div class="row">
+                            <ScheduleDetails itemDetails={this.props.details} />
+                        </div>
+                    </div>
                 </main>
             </div >
         )
@@ -239,6 +249,8 @@ const mapStateToProps = state => {
         session: state.getSession,
         logInStatus: state.toggleLogInStatus.status,
 
+        seats: state.getSeats.result.danhSachGhe
+
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -251,6 +263,9 @@ const mapDispatchToProps = dispatch => {
         },
         onSaveTrailers: id => {
             dispatch(action3.getTrailersAPI(id))
+        },
+        onSaveSeats: (id) => {
+            dispatch(action4.getSeatsAPI(id))
         }
     }
 }

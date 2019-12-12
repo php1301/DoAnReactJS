@@ -1,68 +1,203 @@
-import React, { Component } from 'react'
+import React, { useState, Component } from 'react'
 import TicketItem from '../TicketItem/TicketItem'
 import TicketBoxHeader from '../PaymentHeader/PayementHeader'
 import "../TicketBox/TicketBox.scss"
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as action from "../../actions/ticketActions/getSeats"
-class TicketBox extends Component {
-    componentDidMount() {
-        let idticket = this.props.match.params.idticket
-        this.props.onSaveSeats(idticket)
-    }
-    render() {
-        console.log(this.props.seats)
+export default function TicketBox(props) {
+    const [show, setShow] = useState(false);
 
-        return (
-            <div>
-                <div className="st_bt_top_header_wrapper float_left">
-                    <div className="container container_seat">
-                        <div className="row">
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div className="st_bt_top_back_btn st_bt_top_back_btn_seatl float_left">	<Link to={`/details/movie/${this.props.match.params.id}`}><i className="fas fa-long-arrow-alt-left" /> &nbsp;Back</Link>
-                                </div>
-                                <div className="cc_ps_quantily_info cc_ps_quantily_info_tecket">
-                                    <p>Select Ticket</p>
-                                    <div className="select_number">
-                                        <button onclick="changeQty(1); return false;" className="increase"><i className="fa fa-plus" />
-                                        </button>
-                                        <input type="text" name="quantity" defaultValue={1} size={2} id="input-quantity" className="form-control" />
-                                        <button onclick="changeQty(0); return false;" className="decrease"><i className="fa fa-minus" />
-                                        </button>
-                                    </div>
-                                    <input type="hidden" name="product_id" />
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div className="st_bt_top_center_heading st_bt_top_center_heading_seat_book_page float_left">
-                                    <h3>Aquaman - English - (2:47)</h3>
-                                    <h4>Today, 19 Dec, 10:00 PM</h4>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                                <div className="st_bt_top_close_btn st_bt_top_close_btn2 float_left">	<Link to={`/details/movie/${this.props.match.params.id}`}><i className="fa fa-times" /></Link>
-                                </div>
-                                <div className="st_seatlay_btn float_left">	<Link to={`/ticket/${this.props.match.params.id}/payment`}>Proceed to Pay</Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    return (
+        <div id="omb-lightbox-content-wrapper" style={{ padding: 0, width: 1200, height: 'auto' }}><div className="modal omb-lightbox-header"><h4 className="title">Reserve your ticket</h4><a href="#" id="omb-lightbox-close"><i className="fa fa-times" /></a></div><div id="omb-lightbox-content"><div className="hall_wrapper"><div className="col-left"><img src="http://demo.aa-team.com/tf/omb/wp-content/uploads/2016/01/fqe8JxDNO8B8QfOGTdjh6sPCdSC.jpg" alt="The Hateful Eight" className="trailer-poster" /><h6>The Hateful Eight</h6><span className="type"><a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">Drama</a>, <a href="http://demo.aa-team.com/tf/omb/genre/mystery/" rel="tag">Mystery</a>, <a href="http://demo.aa-team.com/tf/omb/genre/thriller/" rel="tag">Thriller</a>, <a href="http://demo.aa-team.com/tf/omb/genre/western/" rel="tag">Western</a></span><span className="event-date"><p>December 17, 2019</p><p>11:30 am</p></span><span className="running-time"><i className="mi-icon mi-icon-clock" /> 168 min</span></div><div className="col-right"><div id="theatre_hall_map-1333" data-map="[{&quot;name&quot;:&quot;A&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;B&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,&quot;3#taken&quot;,&quot;4#taken&quot;,&quot;5#taken&quot;,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;C&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;d&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;e&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,&quot;5#taken&quot;,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,&quot;10#taken&quot;,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;f&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,&quot;11#taken&quot;,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;g&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;h&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]}]" className="omb-theatre">
+            <div className="omb-screen">
+                <div className="omb-scren-shadow">
                 </div>
-                <TicketItem idticket={this.props.match.params.idticket} />
             </div>
-        )
-    }
+            <div className="omb-theatre-map"><ul className="omb-hall">
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>B</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>B</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>C</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>C</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>D</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>D</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>E</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>E</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>F</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>F</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>G</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-taken" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>G</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>H</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>1</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>2</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>3</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>4</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>5</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>6</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>7</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>8</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>9</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>10</li>
+                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>H</li>
+                    </ul>
+                </li>
+            </ul></div>
+            <ul className="omb-theatre-legend">
+                <li className="omb-available">Available seat</li>
+                <li className="omb-taken">Reserved seat</li>
+                <li className="omb-reserved">Your seat</li>
+            </ul>
+            <hr />
+            <div className="omb-theatre-seats-selection">
+                <button className="btn btn-default omb-primary pull-right" id="reserve-seats" type="button" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Make Reservation</button><a href="#" id="booking-back" className="btn btn-default omb-primary pull-right" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Back</a><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
+                <span id="reservation-info">Tickets 0</span>
+            </div>
+        </div>
+        </div></div></div></div>
+
+    )
 }
-const mapStateToProps = (state) => {
-    return {
-        seats: state.getSeats.result.danhSachGhe
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSaveSeats: (id) => {
-            dispatch(action.getSeatsAPI(id))
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(TicketBox)

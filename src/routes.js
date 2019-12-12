@@ -38,7 +38,7 @@ const routesHome = [
         component: SearchResults,
     },
     {
-        path: "/ticket/:id/:idticket",
+        path: "/ticket/:id/",
         exact: true,
         component: TicketBox
     },

@@ -7,7 +7,6 @@ const getTimesAPI = (id) => {
             method: "GET"
         })
             .then(result => {
-                console.log(result)
                 dispatch(getTimes(result.data))
             })
     }

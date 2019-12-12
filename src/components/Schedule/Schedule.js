@@ -33,6 +33,26 @@ class Schedule extends Component {
         )
     })
   }
+  renderDetailsSchedule = () => {
+    return this.props.itemDetails && this.props.itemDetails.map((item, index) => {
+      return (
+        <div>
+          <h5><a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" rel="bookmark">{item.original_title}</a></h5>
+          <ul className="omb-movie-stats">
+            <li className="omb-movie-rating mi-icon mi-icon-users5">{item.overview}</li>
+            <li className="omb-movie-type mi-icon mi-icon-glasses-3d">5D</li>
+            <li className="omb-movie-duration mi-icon mi-icon-clock">124 min</li>
+          </ul>
+          <div className="omb-movie-synopsis">
+            <strong>synopsis</strong>
+            {item.moTa}</div>
+          <a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" className="btn btn-default omb-primary">More details</a>
+          <div className="omb-note">Note: click on the desired hour from your favourite cinema / theater to book the movie!</div>
+        </div>
+      )
+    }
+    )
+  }
   renderSchedule = () => {
     return this.props.item && this.props.item.map((item, index) => {
       if (index <= 5)
@@ -86,7 +106,7 @@ class Schedule extends Component {
   render() {
     console.log(this.props.times)
     return (
-      <section className="omb-movies-schedule-page">
+      <section className="omb-movies-schedule-page" >
         <div className="content-wrapper container" className="wow fadeIn" data-wow-duration="3s">
           <div className="col-md-12 omb-no-sidebar">
             <div id="omb-movies-schedule" className="row">
