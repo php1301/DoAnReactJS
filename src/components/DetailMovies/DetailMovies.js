@@ -14,6 +14,7 @@ import TicketModal from './TicketModal';
 import "../DetailMovies/Ticket.scss"
 import Schedule from '../Schedule/Schedule';
 import ScheduleDetails from '../ScheduleDetails.js/ScheduleDetails';
+import Hotline from '../Hotline/Hotline';
 class DetailMovies extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,7 @@ class DetailMovies extends Component {
             toggle: true
         }
     }
+
     setRating = rating => {
 
         rating = Math.round(rating / 2);
@@ -84,7 +86,7 @@ class DetailMovies extends Component {
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
-        this.props.onSaveSeats(id)
+        this.props.onSaveSeats(16016)
         console.log(this.props.details)
     }
     render() {
@@ -208,7 +210,7 @@ class DetailMovies extends Component {
                         </p>
                     </div>
                     <PeopleCarousel People={this.props.details} />
-                    {this.props.trailers && this.props.trailers.length > 2 ? <Trailers trailers={this.props.trailers}/> : (<div className="item-details-main-reviews-container">
+                    {this.props.trailers && this.props.trailers.length > 2 ? <Trailers trailers={this.props.trailers} /> : (<div className="item-details-main-reviews-container">
                         <p className="item-details-main-reviews-container__error">No Trailers found :(</p>
                     </div>)}
                     <div className="item-details-main-reviews">
@@ -233,11 +235,13 @@ class DetailMovies extends Component {
                     <div className="item-details-main-reviews">
                         <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Showing</h2>
                         <div class="row">
-                            <ScheduleDetails itemDetails={this.props.details} />
+                            <ScheduleDetails seats={this.props.seats} itemDetails={this.props.details} />
                         </div>
                     </div>
                 </main>
+                <Hotline />
             </div >
+
         )
     }
 }

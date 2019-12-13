@@ -1,5 +1,5 @@
-<a href ="#"><button className={`theme-btn fadeInLeft ${this.props.navStatus ? 'ticket-none': ''}`} data-toggle="modal" data-target="#modalTicket" href="#"><i className="icofont icofont-ticket"></i>Tickets</button></a>
-              <TicketModal/>
+<a href="#"><button className={`theme-btn fadeInLeft ${this.props.navStatus ? 'ticket-none' : ''}`} data-toggle="modal" data-target="#modalTicket" href="#"><i className="icofont icofont-ticket"></i>Tickets</button></a>
+    <TicketModal />
               import React, { Component } from 'react'
 import "../DetailMovies/DetailMovies.scss";
 import { NavLink } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Trailers from '../Trailers/Trailers';
 import * as action from "../../actions/movieActions/getDetails"
 import { connect } from 'react-redux'
 import { timingSafeEqual } from 'crypto';
-import {Fragment} from 'react'
+import { Fragment } from 'react'
 class DetailMovies extends Component {
     componentDidMount() {
         this.props.onSaveDetails()
@@ -258,3 +258,64 @@ const mapDispatchToProps = dispatch => {
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DetailMovies)
+return this.props.seats && this.props.seats.map((item, index) => {
+    count++;
+    index++;
+    // if (index === 1){
+    //     return (
+    //         ReactHtmlParser(html2)
+    //     )
+    // }
+    if (index % 11 !== 0) {
+        return (
+
+            <Seats daDat={this.state.daDat} item={count} />
+        )
+    }
+    count = count - 11;
+    // else {
+    //     return (
+    //         <Fragment>
+    //             <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+    //             <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+    //             <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+    //         </Fragment>
+    //     )
+    // }
+
+})
+let count = 0
+let html = `<li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li> 
+        </ul>
+        </li>`
+let html2 = `<li>
+        <ul>
+            <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+            <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+            <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />`
+let count = 0;
+const arr = [1, 2, 3]
+// return <div>{ReactHtmlParser(html2 + html)}</div>
+arr.map((item) => {
+    return (
+        <li>
+            <ul>
+                <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+                <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                {this.props.seats && this.props.seats.map((index) => {
+                    count++;
+                    if (index < 11)
+                        return <Seats daDat={this.state.daDat} item={count} />
+                }
+
+                )}
+                <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
+            </ul>
+        </li>
+    )
+})

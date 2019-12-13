@@ -16,7 +16,7 @@ export default function Example(props) {
 
 
             <Modal show={show} onHide={handleClose} animation={false}>
-                <TicketBox />
+                <TicketBox seats={props.seats} />
             </Modal>
         </>
     );

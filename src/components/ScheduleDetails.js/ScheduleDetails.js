@@ -42,7 +42,7 @@ class ScheduleDetails extends Component {
             if (index <= 5)
                 return (
                     // <li><a href="#exampleModal" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{this.formatTime(item.ngayChieuGioChieu)}</a></li>
-                    <Example items={this.formatTime(item.ngayChieuGioChieu)} /> 
+                    <Example seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                 )
         })
     }

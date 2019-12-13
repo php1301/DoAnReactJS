@@ -19,6 +19,7 @@
     "react": "^16.10.2",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.10.2",
+    "react-html-parser": "^2.0.2",
     "react-icofont": "^1.0.13",
     "react-modal-video": "^1.2.3",
     "react-multi-carousel": "^2.2.10",

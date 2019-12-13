@@ -3,6 +3,9 @@ import "../Hotline/Hotline.scss";
 import "../Hotline/animate.min.scss";
 export default class Hotline extends Component {
 
+    componentWillReceiveProps() {
+        this.forceUpdate()
+    }
     render() {
 
         return (
