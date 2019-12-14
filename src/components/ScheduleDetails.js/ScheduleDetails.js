@@ -8,6 +8,7 @@ import '../Stuff/Stuff.scss'
 import TicketBox from '../TicketBox/TicketBox';
 import { Modal } from 'react-bootstrap';
 import Example from '../Modal/Modal';
+import Time from './Time';
 const arrDate = [1, 2, 3, 4, 5]
 class ScheduleDetails extends Component {
     componentDidMount() {
@@ -37,61 +38,76 @@ class ScheduleDetails extends Component {
         })
     }
     renderTimes = id => {
+        let today = new Date();
+        const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
+        const month = formatter.format(new Date());
+
         this.props.onSaveTimes(id)
         return this.props.times && this.props.times.length > 0 && this.props.times.map((item, index) => {
+            let date = `${month}` + ' ' + `${today.getDate() + index}` + ', ' + today.getFullYear();
+            let timeset1 = this.renderTimeset(0)
+
             if (index <= 5)
                 return (
                     // <li><a href="#exampleModal" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{this.formatTime(item.ngayChieuGioChieu)}</a></li>
-                    <Example seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Example timeset={timeset1} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                 )
         })
     }
+    renderTimeset = (num) => {
+        let date
+        let today = new Date();
+        const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
+        const month = formatter.format(new Date());
+        return date = `${month}` + ' ' + `${today.getDate() + num}` + ', ' + today.getFullYear();
+    }
     renderDetailsSchedule = () => {
         return this.props.movies && this.props.movies.map((item, index) => {
+            let timeset1 = this.renderTimeset(0)
+            let timeset2 = this.renderTimeset(1)
+            let timeset3 = this.renderTimeset(2)
             if (index === 0)
                 return (
-                    <div className="row">
-                        <div>
-                            <h5><a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" rel="bookmark">{this.props.itemDetails.original_title}</a></h5>
-                            <ul className="omb-movie-stats">
-                                <li className="omb-movie-rating mi-icon mi-icon-users5">{this.props.itemDetails.rating}</li>
-                                <li className="omb-movie-type mi-icon mi-icon-glasses-3d">5D</li>
-                                <li className="omb-movie-duration mi-icon mi-icon-clock">124 min</li>
-                            </ul>
-                            <div className="omb-movie-synopsis">
-                                <strong>synopsis</strong>
-                                {this.props.itemDetails.overview}</div>
-                            <a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" className="btn btn-default omb-primary">More details</a>
-                            <div className="omb-note">Note: click on the desired hour from your favourite cinema / theater to book the movie!</div>
-                        </div>
+                    <Fragment>
                         <div>
                             <div className="omb-cinema-schedule">
-                                Private Hall
-                <ul>
+                                {this.renderTimeset(0)}
+                                <ul>
                                     <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li>
-                                    {this.renderTimes(item.maPhim)}
+                                    <Time seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                     <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
                                 </ul>
                             </div>
-                            <div className="omb-cinema-schedule">
-                                The Magnum Hall
-                <ul>
-                                    <li className="omb-event-over">11:30 am</li>
-                                    <li className="omb-event-over">2:30 pm</li>
-                                    <li className="omb-event-over">2:30 pm</li>
-                                    <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1949}}">7:00 pm</a></li>
-                                    <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1733}}">11:30 pm</a></li>
-                                </ul>
-                            </div>
-                            <div className="omb-cinema-schedule">
-                                VIP Hall
-                <ul>
-                                    <li className="omb-event-over">2:30 pm</li>
-                                    <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1391}}">7:00 pm</a></li>
-                                    <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1409}}">11:30 pm</a></li>
-                                </ul>
-                            </div>							</div>
+                        </div>
+                    </Fragment>
+                )
+            if (index === 1)
+                return (
+                    <div>
+                        <div className="omb-cinema-schedule">
+                            {this.renderTimeset(1)}
+                            <ul>
+                                <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                <li className="omb-event-over">1:00 pm</li>
+                                <Time seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
+                            </ul>
+                        </div>
+                    </div>
+                )
+            if (index === 2)
+                return (
+                    <div>
+                        <div className="omb-cinema-schedule">
+                            {this.renderTimeset(2)}
+                            <ul>
+                                <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                <li className="omb-event-over">1:00 pm</li>
+                                <Time seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
+                            </ul>
+                        </div>
                     </div>
                 )
 
@@ -109,12 +125,28 @@ class ScheduleDetails extends Component {
                             <hr />
                             <nav className="omb-week">
                                 {this.renderNav()}
-                                {/* <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575763200" className="btn btn-default omb-secondary">December 8, 2019</a> <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575849600" className="btn btn-default omb-primary">December 9, 2019</a> <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575936000" className="btn btn-default omb-primary">December 10, 2019</a> <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1576022400" className="btn btn-default omb-primary">December 11, 2019</a> <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1576108800" className="btn btn-default omb-primary">December 12, 2019</a> <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1576195200" className="btn btn-default omb-primary">December 13, 2019</a> */}
                             </nav>
                             <div className="omb-movies-schedule-list">
                                 <div>Venue</div>
                                 <div>Schedule in theatres</div>
-                                {this.renderDetailsSchedule()}
+                                <div className="row">
+                                    <div>
+                                        <h5><a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" rel="bookmark">{this.props.itemDetails.original_title}</a></h5>
+                                        <ul className="omb-movie-stats">
+                                            <li className="omb-movie-rating mi-icon mi-icon-users5">{this.props.itemDetails.rating}</li>
+                                            <li className="omb-movie-type mi-icon mi-icon-glasses-3d">5D</li>
+                                            <li className="omb-movie-duration mi-icon mi-icon-clock">124 min</li>
+                                        </ul>
+                                        <div className="omb-movie-synopsis">
+                                            <strong>synopsis</strong>
+                                            {this.props.itemDetails.overview}</div>
+                                        <a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" className="btn btn-default omb-primary">More details</a>
+                                        <div className="omb-note">Note: click on the desired hour from your favourite cinema / theater to book the movie!</div>
+                                    </div>
+                                    <div>
+                                        {this.renderDetailsSchedule()}
+                                    </div>
+                                </div>
                             </div>
                             <div className="omb-lightbox" />
                         </div>

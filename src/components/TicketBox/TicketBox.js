@@ -13,7 +13,7 @@ export default function TicketBox(props) {
     const handleClose = () => setShow(false);
     const handleCount = (x) => { return (setCount(count + x)) }
     return (
-        <div id="omb-lightbox-content-wrapper" style={{ padding: 0, width: 1200, height: 'auto' }}><div className="modal omb-lightbox-header"><h4 className="title">Reserve your ticket</h4><a href="#" id="omb-lightbox-close"><i className="fa fa-times" /></a></div><div id="omb-lightbox-content"><div className="hall_wrapper"><div className="col-left"><img src="http://demo.aa-team.com/tf/omb/wp-content/uploads/2016/01/fqe8JxDNO8B8QfOGTdjh6sPCdSC.jpg" alt="The Hateful Eight" className="trailer-poster" /><h6>The Hateful Eight</h6><span className="type"><a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">Drama</a>, <a href="http://demo.aa-team.com/tf/omb/genre/mystery/" rel="tag">Mystery</a>, <a href="http://demo.aa-team.com/tf/omb/genre/thriller/" rel="tag">Thriller</a>, <a href="http://demo.aa-team.com/tf/omb/genre/western/" rel="tag">Western</a></span><span className="event-date"><p>December 17, 2019</p><p>11:30 am</p></span><span className="running-time"><i className="mi-icon mi-icon-clock" /> 168 min</span></div><div className="col-right"><div id="theatre_hall_map-1333" data-map="[{&quot;name&quot;:&quot;A&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;B&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,&quot;3#taken&quot;,&quot;4#taken&quot;,&quot;5#taken&quot;,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;C&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;d&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;e&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,&quot;5#taken&quot;,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,&quot;10#taken&quot;,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;f&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,&quot;11#taken&quot;,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;g&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;h&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]}]" className="omb-theatre">
+        <div id="omb-lightbox-content-wrapper" style={{ padding: 0, width: 1200, height: 'auto' }}><div className="modal omb-lightbox-header"><h4 className="title">Reserve your ticket</h4><a href="#" id="omb-lightbox-close"><i className="fa fa-times" /></a></div><div id="omb-lightbox-content"><div className="hall_wrapper"><div className="col-left"><img src={` http://image.tmdb.org/t/p/w185///${props.itemDetails.poster_path}`} alt="The Hateful Eight" className="trailer-poster" /><h6 className="title">{props.itemDetails.title}</h6><span className="type"><a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">Drama</a>, <a href="http://demo.aa-team.com/tf/omb/genre/mystery/" rel="tag">Mystery</a>, <a href="http://demo.aa-team.com/tf/omb/genre/thriller/" rel="tag">Thriller</a>, <a href="http://demo.aa-team.com/tf/omb/genre/western/" rel="tag">Western</a></span><span className="event-date"><p>{props.timeset}</p><p>{props.items}</p></span><span className="running-time"><i className="mi-icon mi-icon-clock" /> {props.itemDetails.runtime} min</span></div><div className="col-right"><div id="theatre_hall_map-1333" data-map="[{&quot;name&quot;:&quot;A&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;B&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,&quot;3#taken&quot;,&quot;4#taken&quot;,&quot;5#taken&quot;,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;C&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;d&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;e&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,&quot;5#taken&quot;,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,&quot;10#taken&quot;,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;f&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,&quot;11#taken&quot;,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;g&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,&quot;6#taken&quot;,&quot;7#taken&quot;,&quot;8#taken&quot;,&quot;9#taken&quot;,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]},{&quot;name&quot;:&quot;h&quot;,&quot;spaces&quot;:[&quot;empty-space&quot;,&quot;empty-space&quot;,1,2,3,4,5,6,7,8,9,10,11,&quot;empty-space&quot;,&quot;empty-space&quot;]}]" className="omb-theatre">
             <div className="omb-screen">
                 <div className="omb-scren-shadow">
                 </div>
@@ -24,7 +24,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"A"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>A</li>
@@ -35,7 +35,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>B</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"B"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>B</li>
@@ -46,7 +46,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>C</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"C"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>C</li>
@@ -57,7 +57,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>D</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"D"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>D</li>
@@ -68,7 +68,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>E</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"E"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>E</li>
@@ -79,7 +79,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>F</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"F"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>F</li>
@@ -90,8 +90,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>G</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
-                        <li className="omb-available" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>11</li>
+                        <SeatItems alpha={"G"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>G</li>
@@ -102,7 +101,7 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>H</li>
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
-                        <SeatItems handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <SeatItems alpha={"H"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>H</li>
@@ -116,7 +115,7 @@ export default function TicketBox(props) {
             </ul>
             <hr />
             <div className="omb-theatre-seats-selection">
-                <button className="btn btn-default omb-primary pull-right" id="reserve-seats" type="button" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Make Reservation</button><a href="#" id="booking-back" className="btn btn-default omb-primary pull-right" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Back</a><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
+            <Link to={`/details/movie/${props.itemDetails.id}/payment`}><button className="btn btn-default omb-primary pull-right" id="reserve-seats" type="button" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Make Reservation</button></Link><a href="#" id="booking-back" className="btn btn-default omb-primary pull-right" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Back</a><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
                 <span id="reservation-info">Ticket {count} </span>
             </div>
         </div>

@@ -43,7 +43,7 @@ const routesHome = [
         component: TicketBox
     },
     {
-        path: "/ticket/:id/:idticket/payment",
+        path: "/details/movie/:id/payment",
         exact: true,
         component: PaymentHeader
     }

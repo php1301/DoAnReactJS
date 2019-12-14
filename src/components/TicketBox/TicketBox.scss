@@ -56,6 +56,7 @@ a:focus {
   color: #707070;
   text-decoration: none;
   outline: none;
+  cursor: pointer;
 }
 h1,
 h2,
@@ -10257,3 +10258,12 @@ i:before {
   transition: all 0.5s;
 }
 /*---------------- st LogIn End --------------*/
+.title {
+  color: black;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Yantramanav", sans-serif;
+  letter-spacing: 0.01rem;
+  text-transform: uppercase;
+}

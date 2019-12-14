@@ -12,11 +12,11 @@ export default function Example(props) {
 
     return (
         <>
-            <li><a onClick={handleShow} href="#exampleModal" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{props.items}</a></li>
+            <li><a onClick={handleShow} className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{props.items}</a></li>
 
 
             <Modal show={show} onHide={handleClose} animation={false}>
-                <TicketBox seats={props.seats} />
+                <TicketBox timeset={props.timeset} items={props.items} date={props.date} itemDetails={props.itemDetails} seats={props.seats} />
             </Modal>
         </>
     );
