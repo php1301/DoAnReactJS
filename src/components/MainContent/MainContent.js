@@ -9,10 +9,12 @@ import * as action2 from "../../actions/movieActions/getUpcoming";
 import * as action3 from "../../actions/movieActions/getPopular";
 import * as action4 from "../../actions/movieActions/getNowPlaying";
 import * as action5 from "../../actions/movieActions/getTopRated";
+import * as action6 from "../../actions/ticketActions/getMovies";
 import Carousel from '../Carousel/Carousel';
 import Title from '../Title/Title';
 import News from '../News/News';
 import Stuff from '../Stuff/Stuff';
+import CarouselBooking from '../Carousel/CarouselBooking';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1255 },
@@ -56,6 +58,7 @@ const HrLine = () => (
 // )
 class MainContent extends Component {
     componentDidMount() {
+        this.props.onSaveMovies()
         this.props.onSaveNowPlaying()
         this.props.onSavePopular()
         this.props.onSaveUpcoming()
@@ -69,13 +72,13 @@ class MainContent extends Component {
             <div className="main-content-container">
                 {this.props.renderItem === true ? (
                     <Fragment>
-                        <Title title={"Upcoming"} />
-                        <Carousel items={this.props.upcoming} />
+                        <Title title={"Now Playing"} />
+                        <CarouselBooking items={this.props.movies} />
                         <HrLine />
                         <Title title={"Popular"} />
                         <Carousel items={this.props.popular} />
                         <HrLine />
-                        <Title title={"Now Playing"} />
+                        <Title title={"Upcoming"} />
                         <Carousel items={this.props.nowPlaying} />
                         <HrLine />
                         <Title title={"Top rated"} />
@@ -95,6 +98,7 @@ class MainContent extends Component {
 }
 const mapStateToProps = state => {
     return {
+        movies: state.getMovies.result,
         nowPlaying: state.getNowPlaying.result.results,
         popular: state.getPopular.result.results,
         upcoming: state.getUpcoming.result.results,
@@ -115,6 +119,9 @@ const mapDispatchToProps = dispatch => {
         onSaveTopRated: () => {
             dispatch(action5.getTopRated())
         },
+        onSaveMovies: () => {
+            dispatch(action6.getMoviesAPI())
+        }
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(MainContent)

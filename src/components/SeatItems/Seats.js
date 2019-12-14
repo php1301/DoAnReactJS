@@ -14,6 +14,7 @@ import React, { useState, Fragment } from 'react'
 
 export default function Seats(props) {
     const [on, setOn] = useState(props.daDat)
+    
     const handleOn = () => { if (on === false) { return (setOn(!on), props.handleCount(1)) } else { return (setOn(!on), props.handleCount(-1)) } }
     return (
         <Fragment>

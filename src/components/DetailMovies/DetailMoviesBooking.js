@@ -8,6 +8,7 @@ import * as action from "../../actions/movieActions/getDetails"
 import * as action2 from "../../actions/movieActions/getReviews";
 import * as action3 from "../../actions/movieActions/getTrailers";
 import * as action4 from "../../actions/ticketActions/getSeats"
+import * as action5 from "../../actions/ticketActions/getTimes";
 import { connect } from 'react-redux'
 import StarRating from '../StarRating/StarRating';
 import TicketModal from './TicketModal';
@@ -15,7 +16,7 @@ import "../DetailMovies/Ticket.scss"
 import Schedule from '../Schedule/Schedule';
 import ScheduleDetails from '../ScheduleDetails.js/ScheduleDetails';
 import Hotline from '../Hotline/Hotline';
-class DetailMovies extends Component {
+class DetailMoviesBooking extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,6 +80,9 @@ class DetailMovies extends Component {
             }, 3000);
         }
     }
+    handleSeats = (id) => {
+        this.props.onSaveSeats(id)
+    }
     componentDidMount() {
         console.log('detail props', this.props)
         let id = this.props.match.params.id
@@ -86,14 +90,16 @@ class DetailMovies extends Component {
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
-        this.props.onSaveSeats(id)
+        this.props.onSaveTimes(id)
+        this.handleSeats(16016)
         //time.malichieu
         console.log(this.props.details)
     }
     render() {
+        console.log(this.props.times)
+        console.log('detail props', this.props)
         let { details } = this.props
         let { reviews } = this.props
-        console.log(reviews.results)
         return (
             <div className="item-details" id="item-details-top">
                 <header
@@ -236,7 +242,7 @@ class DetailMovies extends Component {
                     <div className="item-details-main-reviews">
                         <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Showing</h2>
                         <div class="row">
-                            <ScheduleDetails seats={this.props.seats} itemDetails={this.props.details} />
+                            <ScheduleDetails times={this.props.times} handleSeats={this.handleSeats} seats={this.props.seats} itemDetails={this.props.details} />
                         </div>
                     </div>
                 </main>
@@ -256,7 +262,9 @@ const mapStateToProps = state => {
         session: state.getSession,
         logInStatus: state.toggleLogInStatus.status,
 
-        seats: state.getSeats.result.danhSachGhe
+        seats: state.getSeats.result.danhSachGhe,
+        times: state.getTimes.result.lichChieu,
+
 
     }
 }
@@ -273,7 +281,10 @@ const mapDispatchToProps = dispatch => {
         },
         onSaveSeats: (id) => {
             dispatch(action4.getSeatsAPI(id))
+        },
+        onSaveTimes: (id) => {
+            dispatch(action5.getTimesAPI(id))
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(DetailMovies)
+export default connect(mapStateToProps, mapDispatchToProps)(DetailMoviesBooking)

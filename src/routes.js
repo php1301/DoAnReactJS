@@ -6,6 +6,7 @@ import Discover from "./components/Discover/Discover.js";
 import SearchResults from "./components/SearchResult/SearchResult.js";
 import TicketBox from "./components/TicketBox/TicketBox.js";
 import PaymentHeader from "./components/PaymentHeader/PayementHeader.js";
+import DetailMoviesBooking from "./components/DetailMovies/DetailMoviesBooking.js";
 const routesHome = [
     {
         path: "/",
@@ -26,6 +27,11 @@ const routesHome = [
         path: "/details/movie/:id",
         exact: true,
         component: DetailMovies
+    },
+    {
+        path: "/details/moviebooking/:id/",
+        exact: true,
+        component: DetailMoviesBooking
     },
     {
         path: "/discover",

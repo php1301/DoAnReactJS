@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
-import * as action from "../../actions/ticketActions/getTimes";
 import * as action2 from "../../actions/ticketActions/getMovies";
 import '../Stuff/css/style.min.css'
 import '../Stuff/css/responsive.min.css'
@@ -11,6 +10,7 @@ import Example from '../Modal/Modal';
 const arrDate = [1, 2, 3, 4, 5]
 class ScheduleDetails extends Component {
     componentDidMount() {
+        console.log(this.props)
         this.props.onSaveMovies()
     }
     formatTime = dateToday => {
@@ -36,13 +36,13 @@ class ScheduleDetails extends Component {
                 )
         })
     }
-    renderTimes = id => {
-        this.props.onSaveTimes(id)
+    renderTimes = () => {
         return this.props.times && this.props.times.length > 0 && this.props.times.map((item, index) => {
+            console.log(this.props.handleSeats.bind(this, item.maLichChieu))
             if (index <= 5)
                 return (
                     // <li><a href="#exampleModal" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{this.formatTime(item.ngayChieuGioChieu)}</a></li>
-                    <Example seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Example onSaveSeats={this.props.onSaveSeats} maLichChieu={item.maLichChieu} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                 )
         })
     }
@@ -99,6 +99,7 @@ class ScheduleDetails extends Component {
         })
     }
     render() {
+        console.log(this.props.times)
         { this.formatTime() }
         return (
             <section className="omb-movies-schedule-page" >
@@ -126,15 +127,12 @@ class ScheduleDetails extends Component {
 }
 const mapStateToProps = state => {
     return {
-        times: state.getTimes.result.lichChieu,
         movies: state.getMovies.result
     }
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onSaveTimes: (id) => {
-            dispatch(action.getTimesAPI(id))
-        },
+
         onSaveMovies: () => {
             dispatch(action2.getMoviesAPI())
         }
