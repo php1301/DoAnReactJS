@@ -10,6 +10,7 @@ import getDetails from "../reducers/movieReducer/getDetails";
 import getReviews from "../reducers/movieReducer/getReviews";
 import getGenres from "../reducers/movieReducer/getGenres";
 import getTrailers from "../reducers/movieReducer/getTrailers";
+import getMovieCredits from '../reducers/movieReducer/getMovieCredits';
 
 import getRequestToken from "./authenticationReducers/getRequestToken";
 import getSession from "./authenticationReducers/getSession";
@@ -31,6 +32,11 @@ import postMovieGenres from '../reducers/movieReducer/postMovieGenres';
 import getSeats from "../reducers/ticketReducers/getSeats";
 import getMovies from "../reducers/ticketReducers/getMovies";
 import getTimes from "../reducers/ticketReducers/getTimes";
+
+import getPeopleDetails from './peopleReducers/getPeopleDetails';
+import getPeopleCombinedCredits from './peopleReducers/getPeopleCombinedCredits';
+import getPeoplePopular from './peopleReducers/getPeoplePopular';
+
 const rootReducer = combineReducers({
     toggleNav,
     movieReducer,
@@ -42,6 +48,7 @@ const rootReducer = combineReducers({
     getReviews,
     getGenres,
     getTrailers,
+    getMovieCredits,
 
     getUserDetails,
     getRequestToken,
@@ -61,6 +68,10 @@ const rootReducer = combineReducers({
     searchData,
     postSearchResults,
 
+    getPeopleDetails,
+    getPeopleCombinedCredits,
+    getPeoplePopular,
+  
     getSeats,
     getMovies,
     getTimes

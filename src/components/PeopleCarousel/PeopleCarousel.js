@@ -2,13 +2,27 @@ import React, { Component } from 'react';
 import Carousel from "react-multi-carousel";
 import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import "../PeopleCarousel/PeopleCarousel.scss";
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
 export default class PeopleCarousel extends Component {
+    renderPeople = () => {
+        console.log(this.props.people)
+        return this.props.people && this.props.people.map((item, index) =>{
+            return (
+                <div className="people-container-item">
+                            <NavLink to="#">
+                                <img src={`https://image.tmdb.org/t/p/w154/${item.profile_path}`} style={{ width: "120px", height: "160px" }} />
+                                <h3 className="people-container-item__item-title">{item.name}</h3>
+                            </NavLink>
+                 </div>
+            );
+        })
+        
+    }
     render() {
         return (
             <div className="people-container">
-                <h2 className="item-details-main-summary__title wow fadeInLeft"
+                {/* <h2 className="item-details-main-summary__title wow fadeInLeft"
                     data-wow-delay=".2s"
                     data-wow-duration="1s"
                     style={{
@@ -16,7 +30,7 @@ export default class PeopleCarousel extends Component {
                         animationDuration: "1s",
                         animationDelay: "0.2s",
                         animationName: "fadeInLeft"
-                    }}>Cast</h2>
+                    }}>Cast</h2> */}
                 <Carousel
                     additionalTransfrom={0}
                     arrows
@@ -72,7 +86,8 @@ export default class PeopleCarousel extends Component {
                         animationName: "fadeInDown"
                     }}
                 >
-                    <div className="people-container-item">
+                    {this.renderPeople()}
+                    {/* <div className="people-container-item">
                         <NavLink to="/" className="people-container-item-direct">
                             <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "120px", height: "160px" }} />
                             <h3 className="people-container-item__item-title">MackenziE Davis</h3>
@@ -113,7 +128,7 @@ export default class PeopleCarousel extends Component {
                             <img src="https://image.tmdb.org/t/p/w154/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg" style={{ width: "120px", height: "160px" }} />
                             <h3 className="people-container-item__item-title">Arnold Schwarzenegger</h3>
                         </NavLink>
-                    </div>
+                    </div> */}
 
                 </Carousel>
             </div>

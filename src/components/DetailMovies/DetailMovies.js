@@ -8,6 +8,9 @@ import * as action from "../../actions/movieActions/getDetails"
 import * as action2 from "../../actions/movieActions/getReviews";
 import * as action3 from "../../actions/movieActions/getTrailers";
 import * as action4 from "../../actions/ticketActions/getSeats"
+import getMovieCredits from '../../actions/movieActions/getMovieCredits';
+import getPeopleDetails from '../../actions/peopleActions/getPeopleDetails';
+import getPeopleCombinedCredits from '../../actions/peopleActions/getPeopleCombinedCredits';
 import { connect } from 'react-redux'
 import StarRating from '../StarRating/StarRating';
 import TicketModal from './TicketModal';
@@ -83,6 +86,9 @@ class DetailMovies extends Component {
         console.log('detail props', this.props)
         let id = this.props.match.params.id
         // id == undefined 
+        this.props.getPeopleDetails(`https://api.themoviedb.org/3/person/${id}?api_key=f4718f386ee605decefebc673ce3bc9c&language=en-US`);
+        this.props.getPeopleCombinedCredits(`https://api.themoviedb.org/3/person/${id}/combined_credits?api_key=f4718f386ee605decefebc673ce3bc9c&language=en-US`);
+        this.props.getMovieCredits(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=f4718f386ee605decefebc673ce3bc9c&language=en-US`);
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
@@ -183,7 +189,7 @@ class DetailMovies extends Component {
                             >
                                 <path d="M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z" />
                             </svg>
-                            <li><Link class="theme-btn" to={this.props.logInStatus || this.props.session.failure ? `/ticket/${this.props.match.params.id}/${this.props.match.params.idticket}` : `/login`}><i class="icofont icofont-ticket"></i> Tickets</Link></li>
+                            {/* <li><Link class="theme-btn" to={this.props.logInStatus || this.props.session.failure ? `/ticket/${this.props.match.params.id}/${this.props.match.params.idticket}` : `/login`}><i class="icofont icofont-ticket"></i> Tickets</Link></li> */}
                         </div>
                     </div>
                     <div className="item-details-header-info-container-account-warning item-details-header-info-container-account-warning--hide">
@@ -209,7 +215,10 @@ class DetailMovies extends Component {
                             {details.overview}
                         </p>
                     </div>
-                    <PeopleCarousel People={this.props.details} />
+                    <div className="item-details-main-cast">
+                        <h2 className="item-details-main-cast__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Cast</h2>
+                        <PeopleCarousel  people={this.props.movieCredits.cast ? this.props.movieCredits.cast : ''} />
+                    </div>
                     {this.props.trailers && this.props.trailers.length > 2 ? <Trailers trailers={this.props.trailers} /> : (<div className="item-details-main-reviews-container">
                         <p className="item-details-main-reviews-container__error">No Trailers found :(</p>
                     </div>)}
@@ -250,10 +259,14 @@ const mapStateToProps = state => {
         details: state.getDetails.result,
         reviews: state.getReviews.result,
         trailers: state.getTrailers.result.results,
+        movieCredits: state.getMovieCredits,
 
         userDetails: state.getUserDetails,
         session: state.getSession,
         logInStatus: state.toggleLogInStatus.status,
+
+        peopleDetails: state.getPeopleDetails,
+        peopleCombinedCredits: state.getPeopleCombinedCredits,
 
         seats: state.getSeats.result.danhSachGhe
 
@@ -272,7 +285,11 @@ const mapDispatchToProps = dispatch => {
         },
         onSaveSeats: (id) => {
             dispatch(action4.getSeatsAPI(id))
-        }
+        },
+        getMovieCredits: url => dispatch(getMovieCredits(url)),
+        getPeopleDetails: url => dispatch(getPeopleDetails(url)),
+        getPeopleCombinedCredits: url => dispatch(getPeopleCombinedCredits(url)),
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DetailMovies)
