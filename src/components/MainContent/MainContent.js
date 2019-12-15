@@ -70,13 +70,13 @@ class MainContent extends Component {
                 {this.props.renderItem === true ? (
                     <Fragment>
                         <Title title={"Upcoming"} />
-                        <Carousel items={this.props.topRated} />
+                        <Carousel items={this.props.nowPlaying} />
                         <HrLine />
                         <Title title={"Popular"} />
-                        <Carousel items={this.props.popular} />
+                        <Carousel items={this.props.topRated} />
                         <HrLine />
                         <Title title={"Now Playing"} />
-                        <Carousel items={this.props.nowPlaying} />
+                        <Carousel items={this.props.popular} />
                         <HrLine />
                         <Title title={"Top rated"} />
                         <Carousel items={this.props.topRated} />

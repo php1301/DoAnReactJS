@@ -10,6 +10,9 @@ const getSeatsAPI = (id) => {
                 console.log(result)
                 dispatch(getSeats(result.data))
             })
+            .catch(err => {
+                console.log(err)
+            })
     }
 }
 const getSeats = (seats) => {

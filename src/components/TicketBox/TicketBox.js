@@ -117,7 +117,7 @@ export default function TicketBox(props) {
             </ul>
             <hr />
             <div className="omb-theatre-seats-selection">
-                <TicketBooking   viTri={props.viTri} timeset={props.timeset} items={props.items} itemDetails={props.itemDetails} tenrap={props.tenrap} /><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
+                <TicketBooking   count={count} viTri={props.viTri} timeset={props.timeset} items={props.items} itemDetails={props.itemDetails} tenrap={props.tenrap} /><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
                 {/* <Link to={`/details/movie/${props.itemDetails.id}/payment`}><button className="btn btn-default omb-primary pull-right" id="reserve-seats" type="button" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Make Reservation</button></Link><a href="#" id="booking-back" className="btn btn-default omb-primary pull-right" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Back</a><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a> */}
                 <span id="reservation-info">{count === 1 || count === 0 ? count + " Ticket" : count + " Tickets"} </span>
             </div>

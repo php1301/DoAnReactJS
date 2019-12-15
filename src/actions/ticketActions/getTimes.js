@@ -9,6 +9,9 @@ const getTimesAPI = (id) => {
             .then(result => {
                 dispatch(getTimes(result.data))
             })
+            .catch(err => {
+                console.log(err)
+            })
     }
 }
 const getTimes = (times) => {

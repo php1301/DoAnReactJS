@@ -9484,14 +9484,32 @@ i:before {
   float: left;
   margin-right: 30px;
 }
-.st_cherity_btn li:first-child a {
-  width: 122px;
+.special2 {
+  width: 196px;
   height: 36px;
   line-height: 36px;
   text-align: center;
   float: left;
   font-size: 14px;
-  background: #333545;
+  background: #ff4444;
+  color: #ffffff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.special1 {
+  width: 196px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  float: left;
+  font-size: 14px;
+  background: darkgrey;
   color: #ffffff;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -9520,16 +9538,16 @@ i:before {
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
-.st_cherity_btn li:last-child a {
+
+.st_cherity_btn li:nth-child(3) a,  {
   width: 196px;
   height: 36px;
   line-height: 36px;
   text-align: center;
   float: left;
-  background: #dbdbdb;
   font-size: 14px;
-  font-weight: 800;
-  color: rgba(0, 0, 0, 0.12);
+  background: #333545;
+  color: #ffffff;
   letter-spacing: 1px;
   text-transform: uppercase;
   border-radius: 4px;
@@ -9539,6 +9557,25 @@ i:before {
   -moz-transition: all 0.5s;
   transition: all 0.5s;
 }
+// .st_cherity_btn li:first-child a {
+//   width: 196px;
+//   height: 36px;
+//   line-height: 36px;
+//   text-align: center;
+//   float: left;
+//   background: #dbdbdb;
+//   font-size: 14px;
+//   font-weight: 800;
+//   color: rgba(0, 0, 0, 0.12);
+//   letter-spacing: 1px;
+//   text-transform: uppercase;
+//   border-radius: 4px;
+//   -webkit-transition: all 0.5s;
+//   -o-transition: all 0.5s;
+//   -ms-transition: all 0.5s;
+//   -moz-transition: all 0.5s;
+//   transition: all 0.5s;
+// }
 .st_cherity_btn li:last-child a:hover {
   background: #333545;
   color: #fff;
@@ -9557,7 +9594,7 @@ i:before {
   padding-bottom: 30px;
 }
 .st_cherity_btn li:first-child a:hover,
-.st_cherity_btn li:nth-child(2) a:hover {
+.st_cherity_btn li:nth-child(2) a:hover,.st_cherity_btn li:nth-child(3) a:hover {
   background: #ff4444;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -10266,4 +10303,10 @@ i:before {
   font-family: "Yantramanav", sans-serif;
   letter-spacing: 0.01rem;
   text-transform: uppercase;
+}
+a:not([href]){
+  color: white;
+}
+a:not([href]):not([tabindex]){
+  color: white;
 }

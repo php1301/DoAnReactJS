@@ -38,7 +38,7 @@ export default class MainFooter extends Component {
                 <section className="main-footer-middle">
                     <div className="row wow fadeInLeft" data-wow-delay="0.5s" data-wow-duration="1.2s">
                         <div className="col-sm-4 col-xs-12 hideOnMobile">
-                            <p className="title">{svg.globe} Partner</p>
+                            <p className="title-1">{svg.globe} Partner</p>
                             <div className="row col-sm-12 col-xs-12 linePartner">
                                 <a target="_blank" href="http://bhdstar.vn" title="BHD">
                                     <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png" />
