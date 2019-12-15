@@ -84,7 +84,8 @@
 + Nhận ra api bên Cybersoft không GET được về khi deploy -> do HTTP (Cybersoft) và HTTPS (Firebase)
 + Hiểu thêm 1 chút về CTDL
 + Handle các logic về tính tiền
-+ Feature mã giảm giá - phim 3D
+#### Kĩ thuật lấy nhanh giá trị input ref={el => this.codeValue=el}
++ Feature mã giảm giá - phim 3D -> Làm cứng feature mã giảm giá nhưng nếu có api thì sẽ duyệt mảng và so với value lấy được từ kĩ thuật trên và trả về true false
 + Live update giá tiền
 + Thêm notification tương ứng cho việc nhập
 + Push thành công obj muốn push lên Firebase với các list keys cần thiết
