@@ -11,20 +11,46 @@ class Time extends Component {
         return date.getHours() + ':' + date.getMinutes()
 
     }
+    
     renderTimes = id => {
         let today = new Date();
         const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
         const month = formatter.format(new Date());
-
         this.props.onSaveTimes(id)
         return this.props.times && this.props.times.length > 0 && this.props.times.map((item, index) => {
             let date = `${month}` + ' ' + `${today.getDate() + index}` + ', ' + today.getFullYear();
             let timeset1 = this.props.timeset
-
-            if (index <= 5)
+            
+            if ( this.props.rap1 - index > 0)
                 return (
-                    <Example timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Fragment>
+                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    </Fragment>
                 )
+            if ( this.props.rap2 - index > 0)
+                return (
+                    <Fragment>
+                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    </Fragment>
+                )
+            if ( this.props.rap3 - index > 0)
+                return (
+                    <Fragment>
+                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    </Fragment>
+                )
+            // if (index <= 6)
+            //     return (
+            //         <Fragment>
+            //         <Example rap={rap2}timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+            //         </Fragment>
+            //     )
+            // if (index <= 10)
+            //     return (
+            //         <Fragment>
+            //         <Example rap={rap3}timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+            //         </Fragment>
+            //     )
         })
     }
     render() {

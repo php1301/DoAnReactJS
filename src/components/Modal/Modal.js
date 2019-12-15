@@ -8,7 +8,7 @@ export default function Example(props) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const [viTri, setViTri]= useState([])
 
     return (
         <>
@@ -16,7 +16,7 @@ export default function Example(props) {
 
 
             <Modal show={show} onHide={handleClose} animation={false}>
-                <TicketBox timeset={props.timeset} items={props.items} date={props.date} itemDetails={props.itemDetails} seats={props.seats} />
+                <TicketBox viTri = {viTri} tenrap={props.tenrap} timeset={props.timeset} items={props.items} date={props.date} itemDetails={props.itemDetails} seats={props.seats} />
             </Modal>
         </>
     );

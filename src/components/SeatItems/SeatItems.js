@@ -10,7 +10,7 @@ export default class SeatItems extends Component {
             count++;
             if (index < 11) {
                 return (
-                    <Seats alpha={this.props.alpha} handleCount={this.props.handleCount} daDat={this.props.daDat} item={count} />
+                    <Seats  handleVe={this.props.handleVe} viTri = {this.props.viTri}  alpha={this.props.alpha} handleCount={this.props.handleCount} daDat={this.props.daDat} item={count} />
                 )
             }
         })

@@ -19,24 +19,24 @@ class ScheduleDetails extends Component {
         return date.getHours() + ':' + date.getMinutes()
 
     }
-    renderNav = () => {
+    // renderNav = () => {
 
-        var today = new Date();
-        const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
-        const month = formatter.format(new Date());
+    //     var today = new Date();
+    //     const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
+    //     const month = formatter.format(new Date());
 
-        return arrDate && arrDate.map((item, index) => {
-            var date = `${month}` + ' ' + `${today.getDate() + index}` + ', ' + today.getFullYear();
-            if (index === 0)
-                return (
-                    <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575763200" className="btn btn-default omb-secondary">{date}</a>
-                )
-            else
-                return (
-                    <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575763200" className="btn btn-default omb-primary">{date}</a>
-                )
-        })
-    }
+    //     return arrDate && arrDate.map((item, index) => {
+    //         var date = `${month}` + ' ' + `${today.getDate() + index}` + ', ' + today.getFullYear();
+    //         if (index === 0)
+    //             return (
+    //                 <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575763200" className="btn btn-default omb-secondary">{date}</a>
+    //             )
+    //         else
+    //             return (
+    //                 <a href="http://demo.aa-team.com/tf/omb/schedule/?date=1575763200" className="btn btn-default omb-primary">{date}</a>
+    //             )
+    //     })
+    // }
     renderTimes = id => {
         let today = new Date();
         const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
@@ -59,24 +59,57 @@ class ScheduleDetails extends Component {
         let today = new Date();
         const formatter = new Intl.DateTimeFormat('en', { month: 'long' });
         const month = formatter.format(new Date());
-        return date = `${month}` + ' ' + `${today.getDate() + num}` + ', ' + today.getFullYear();
+        date = `${month}` + ' ' + `${today.getDate() + num}` + ', ' + today.getFullYear();
+        return date
+    }
+    renderRap = (id) => {
+        if (id === "CGV") {
+            return 4
+        }
+        if (id === "BHD Star Cineplex") {
+            return 5
+        }
+        if (id === "Cinestar") {
+            return 3
+        }
     }
     renderDetailsSchedule = () => {
         return this.props.movies && this.props.movies.map((item, index) => {
             let timeset1 = this.renderTimeset(0)
             let timeset2 = this.renderTimeset(1)
             let timeset3 = this.renderTimeset(2)
+            let rap1 = this.renderRap("CGV")
+            let rap2 = this.renderRap("BHD Star Cineplex")
+            let rap3 = this.renderRap("Cinestar")
+            let tenrap1 = "CGV"
+            let tenrap2 = "BHD Star Cineplex"
+            let tenrap3 = "Cinestar"
             if (index === 0)
                 return (
                     <Fragment>
-                        <div>
+                        <div classname="wrapper">
                             <div className="omb-cinema-schedule">
-                                {this.renderTimeset(0)}
+                                <h2>{this.renderTimeset(0)}</h2>
                                 <ul>
-                                    <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
-                                    <li className="omb-event-over">1:00 pm</li>
-                                    <Time seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
-                                    <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                    <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                                </ul>
+                                <ul>
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>
+                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                    <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                                </ul>
+                                <ul>
+                                    {/* <h3>{tenrap3}<img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img></h3> */}
+                                    <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>
+                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                    <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                 </ul>
                             </div>
                         </div>
@@ -84,28 +117,52 @@ class ScheduleDetails extends Component {
                 )
             if (index === 1)
                 return (
-                    <div>
+                    <div classname="wrapper">
                         <div className="omb-cinema-schedule">
-                            {this.renderTimeset(1)}
+                            <h2>{this.renderTimeset(1)}</h2>
                             <ul>
-                                <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
-                                <li className="omb-event-over">1:00 pm</li>
-                                <Time seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
-                                <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                            </ul>
+                            <ul>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                            </ul>
+                            <ul>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                         </div>
                     </div>
                 )
             if (index === 2)
                 return (
-                    <div>
+                    <div classname="wrapper">
                         <div className="omb-cinema-schedule">
-                            {this.renderTimeset(2)}
+                            <h2>{this.renderTimeset(2)}</h2>
                             <ul>
-                                <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
-                                <li className="omb-event-over">1:00 pm</li>
-                                <Time seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
-                                <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                            </ul>
+                            <ul>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
+                            </ul>
+                            <ul>
+                                <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
+                                    <li className="omb-event-over">1:00 pm</li> */}
+                                <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                         </div>
                     </div>
@@ -121,11 +178,11 @@ class ScheduleDetails extends Component {
                 <div className="content-wrapper container" className="wow fadeIn" data-wow-duration="3s">
                     <div className="col-md-12 omb-no-sidebar">
                         <div id="omb-movies-schedule" className="row">
-                            <h1 className="omb-title">Schedule</h1>
+                            {/* <h1 className="omb-title">Schedule</h1> */}
                             <hr />
-                            <nav className="omb-week">
+                            {/* <nav className="omb-week">
                                 {this.renderNav()}
-                            </nav>
+                            </nav> */}
                             <div className="omb-movies-schedule-list">
                                 <div>Venue</div>
                                 <div>Schedule in theatres</div>
@@ -140,7 +197,7 @@ class ScheduleDetails extends Component {
                                         <div className="omb-movie-synopsis">
                                             <strong>synopsis</strong>
                                             {this.props.itemDetails.overview}</div>
-                                        <a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" className="btn btn-default omb-primary">More details</a>
+                                        {/* <a href="http://demo.aa-team.com/tf/omb/movies/southpaw/" className="btn btn-default omb-primary">More details</a> */}
                                         <div className="omb-note">Note: click on the desired hour from your favourite cinema / theater to book the movie!</div>
                                     </div>
                                     <div>
@@ -148,7 +205,6 @@ class ScheduleDetails extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="omb-lightbox" />
                         </div>
                     </div>
                 </div>

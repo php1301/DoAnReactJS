@@ -4245,7 +4245,6 @@ header .omb-widget.omb_genres ul li a {
   display: table-row;
 }
 .omb-movies-schedule-page .omb-movies-schedule-list > div.row > div {
-  font-size: 1rem;
   display: table-cell;
   border-left: solid 0.0625rem #ddd;
   border-bottom: solid 0.0625rem #ddd;
@@ -5957,10 +5956,22 @@ figcaption {
   font-weight: 700;
   color: white;
 }
+.omb-cinema-schedule {
+  border: 1px solid wheat;
+  margin: 10px;
+  padding: 15px;
+}
 h5 a {
   color: white;
 }
 .stuff-container {
   margin-left: -95px;
+}
+.iconConnect {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  background-color: wheat;
 }
 /*** Compile time: 1.1447229385376 */

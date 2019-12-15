@@ -9,13 +9,32 @@ class ItemController extends Component {
             renderItem: this.props.renderItem
         }
     }
+    componentDidMount() {
+        document.querySelector('.button1').onmousemove = (e) => {
 
+            const x = e.pageX - e.target.offsetLeft
+            const y = e.pageY - e.target.offsetTop
+        
+            e.target.style.setProperty('--x', `${ x }px`)
+            e.target.style.setProperty('--y', `${ y }px`)
+            
+        }
+        document.querySelector('.button2').onmousemove = (e) => {
+
+            const x = e.pageX - e.target.offsetLeft
+            const y = e.pageY - e.target.offsetTop
+        
+            e.target.style.setProperty('--x', `${ x }px`)
+            e.target.style.setProperty('--y', `${ y }px`)
+            
+        }
+    }
     tab1 = () => {
         this.setState(prevState => ({
             renderItem: true
 
         }), () => this.props.handleRender(this.state.renderItem))
-        
+
     }
     tab2 = () => {
         this.setState(prevState => ({
@@ -23,12 +42,6 @@ class ItemController extends Component {
 
         }), () => this.props.handleRender(this.state.renderItem))
     }
-    // tab2 = () => {
-    //     this.setState(prevState => ({
-    //         renderItem: !prevState.renderItem
-
-    //     }, console.log(!prevState.renderItem)));
-    // }
     render() {
         return (
             <div className="item-controller-content">
@@ -36,7 +49,7 @@ class ItemController extends Component {
                     onClick={() => {
                         this.tab1();
                     }}
-                    className="item-controller-content__switch wow fadeInDown"
+                    className=" wow fadeInDown button1 "
                     data-wow-delay=".5s"
                     data-wow-duration="1s"
                     style={{
@@ -49,7 +62,7 @@ class ItemController extends Component {
                     onClick={() => {
                         this.tab2();
                     }}
-                    className="item-controller-content__switch wow fadeInDown"
+                    className=" wow fadeInDown button2 "
                     data-wow-delay=".5s"
                     data-wow-duration="1s"
                     style={{

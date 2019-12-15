@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .home-container {
   background: $primary-color;
@@ -15,10 +15,12 @@
     &__switch {
       background: none;
       border: none;
-      background-image: linear-gradient(90deg, rgba(255,86,132,.4) 0%, rgba(83,50,201,.4) 68%),linear-gradient(90deg, rgba(255,86,132,.4) 0%, rgba(83,50,201,.4) 68%);
+      background-image: linear-gradient(90deg, rgba(255, 86, 132, 0.4) 0%, rgba(83, 50, 201, 0.4) 68%),
+        linear-gradient(90deg, rgba(255, 86, 132, 0.4) 0%, rgba(83, 50, 201, 0.4) 68%);
+      // background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(50%) var(50%), #00C9A7, #845EC2) border-box;
       border-image-slice: 1;
-      border-left: 3px solid rgba(255,86,132,.4);
-      border-right: 3px solid rgba(83,50,201,.4);
+      border-left: 3px solid rgba(255, 86, 132, 0.4);
+      border-right: 3px solid rgba(83, 50, 201, 0.4);
       border-radius: 10px;
       background-position: 0 0, 0 100%;
       background-repeat: no-repeat;
@@ -38,12 +40,11 @@
 
 @media only screen and (min-width: 500px) {
   .home-container {
-
     .item-controller-content {
       padding-top: 4rem;
     }
 
-    .main-content-container{
+    .main-content-container {
       padding: 2rem;
     }
   }
@@ -51,7 +52,6 @@
 
 @media only screen and (min-width: 900px) {
   .home-container {
-
     .item-controller-content {
       margin: 2rem auto 1rem;
       max-width: 77%;
@@ -63,4 +63,22 @@
       max-width: 80%;
     }
   }
+}
+.button1,
+.button2 {
+  --x: 50%;
+  --y: 50%;
+  text-transform: uppercase;
+  position: relative;
+  appearance: none;
+  padding: 0em 2em;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border-radius: 100px;
+
+  // The magic
+  border: 2px solid transparent;
+  background: linear-gradient(#000, #000) padding-box,
+    radial-gradient(farthest-corner at var(--x) var(--y), #00c9a7, #845ec2) border-box;
 }

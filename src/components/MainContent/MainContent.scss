@@ -1,7 +1,6 @@
 @import "../../styles/animations";
 @import "../../styles/variables";
 .main-content-container {
-
   button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--left {
     position: absolute;
     top: 30%;
@@ -9,7 +8,7 @@
     outline: none;
     background: no-repeat;
   }
-  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+  button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
     position: absolute;
     top: 30%;
     right: 0%;
@@ -79,40 +78,37 @@
     }
   }
   margin-left: 290px;
-  margin-top: 160px;
+  margin-top: 130px;
   @media only screen and (min-width: 500px) {
-    margin-left: 135px;
+    margin-left: 100px;
   }
   @media only screen and (max-width: 1255px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
-      
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 10%;
     }
   }
   @media only screen and (max-width: 1120px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
-      
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 5%;
     }
   }
   @media only screen and (max-width: 877px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
-      
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 2%;
     }
   }
   @media only screen and (max-width: 704px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 20%;
     }
   }
   @media only screen and (max-width: 620px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 15%;
     }
   }
   @media only screen and (max-width: 550px) {
-    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right{
+    button.react-multiple-carousel__arrow.react-multiple-carousel__arrow--right {
       right: 5%;
     }
   }

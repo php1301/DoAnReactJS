@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import PaymentHeader from '../PaymentHeader/PayementHeader'
 
 export default class Payment extends Component {
-    
+    shouldComponentUpdate(){
+        console.log(this.props)
+    }
     render() {
+        console.log(this.props)
         return (
             <div>
                 <div className="st_dtts_wrapper float_left">
@@ -15,13 +18,21 @@ export default class Payment extends Component {
                                         <div className="col-md-12">
                                             <div className="st_dtts_ineer_box float_left">
                                                 <ul>
-                                                    <li><span className="dtts1">Date</span>  <span className="dtts2">19-Dec-2018</span>
+                                                    <li><span className="dtts1">Book: </span>  <span className="dtts2">{this.props.history.location.state.itemDetails.original_title}</span></li>
+                                                    <li><span className="dtts1">Date</span>  <span className="dtts2">{this.props.history.location.state.timeset}</span>
                                                     </li>
-                                                    <li><span className="dtts1">Time</span>  <span className="dtts2">10:00PM</span>
+                                                    <li><span className="dtts1">Time</span>  <span className="dtts2">{this.props.history.location.state.items}</span>
                                                     </li>
-                                                    <li><span className="dtts1">Theater</span>  <span className="dtts2">Ariesplex SL Cinemas</span>
+                                                    <li><span className="dtts1">Theater</span>  <span className="dtts2">{this.props.history.location.state.tenrap}</span>
                                                     </li>
-                                                    <li><span className="dtts1">Seat</span>  <span className="dtts2">PLATINUM - PB7, PB8 (2 Tickets) </span>
+                                                    <li><span className="dtts1">Seat</span>  <span className="dtts2">{this.props.history.location.state.tenrap} - {this.props.history.location.state.viTri.map((item, index)=>{
+                                                        while(index < this.props.history.location.state.viTri.length - 1){
+                                                        
+                                                        return (item + ",")
+                                                        }
+                                                        if(index = this.props.history.location.state.viTri.length)
+                                                            return(item)
+                                                    })}</span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -29,7 +40,7 @@ export default class Payment extends Component {
                                         <div className="col-md-12">
                                             <div className="st_cherity_section float_left">
                                                 <div className="st_cherity_img float_left">
-                                                    <img src="images/content/cc1.jpg" alt="img" />
+                                                    <img src={`https://image.tmdb.org/t/p/w780//${this.props.history.location.state.itemDetails.backdrop_path}`} alt="img" />
                                                 </div>
                                                 <div className="st_cherity_img_cont float_left">
                                                     <div className="box">
