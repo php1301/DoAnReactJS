@@ -16,7 +16,7 @@ import StarRating from '../StarRating/StarRating';
 import TicketModal from './TicketModal';
 import "../DetailMovies/Ticket.scss"
 import Schedule from '../Schedule/Schedule';
-import ScheduleDetails from '../ScheduleDetails.js/ScheduleDetails';
+import ScheduleDetails from '../ScheduleDetails/ScheduleDetails';
 import Hotline from '../Hotline/Hotline';
 class DetailMovies extends Component {
     constructor(props) {

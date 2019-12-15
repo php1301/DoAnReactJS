@@ -15,6 +15,7 @@ export default class Payment extends Component {
             giaVe: 75000,
             phanGiam: 0,
             disabled: false,
+            daDung: false,
             special: false,
             sum: 0
         }
@@ -54,7 +55,7 @@ export default class Payment extends Component {
         });
     }
     handleCheck = () => {
-        if (this.codeValue.value === "NOEL"){
+        if (this.codeValue.value === "NOEL" && this.state.daDung === false){
             store.addNotification({
                 title: "Success",
                 message: "Code applied Successfully",
@@ -70,10 +71,27 @@ export default class Payment extends Component {
               })
             this.setState((prevState) =>({
                 phanGiam: 20000,
-                disabled: true                
+                disabled: true,
+                daDung: true                
             }),console.log(this.state.phanGiam))
         }
-        else{
+        if (this.state.daDung === true){
+            store.addNotification({
+                title: "Code was used",
+                message: "Code was used before",
+                type: "default",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                  duration: 5000,
+                  onScreen: false
+                }
+              })
+            }
+        if(this.codeValue.value !== "NOEL")
+        {
             store.addNotification({
                 title: "Fail to apply Code",
                 message: "Wrong Code :( ",
