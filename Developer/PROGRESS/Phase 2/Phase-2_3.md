@@ -89,6 +89,8 @@
 + Live update giá tiền
 + Thêm notification tương ứng cho việc nhập
 + Push thành công obj muốn push lên Firebase với các list keys cần thiết
+
+![Imgur Image](https://i.imgur.com/thOooOX.png)
 ### 16/12/2019
 + Refractor code phase 2-3
 + Bắt đầu research về việc auth tương ứng cho Firebase
