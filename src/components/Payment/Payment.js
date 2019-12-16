@@ -9,6 +9,7 @@ import { store } from 'react-notifications-component';
 import CreditCard from './CreditCard'
 import Map from "../Modal/Map"
 class Payment extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -23,6 +24,7 @@ class Payment extends Component {
             type: "Ticket Type",
             pay: false,
             credit: false,
+            promise: false,
             method: ""
         }
     }
@@ -123,7 +125,14 @@ class Payment extends Component {
     handleMethod = (event) => {
         if (event.target.value === "promise") {
             this.setState({
-                method: event.target.value
+                method: event.target.value,
+                promise: true
+            })
+        }
+        else {
+            this.setState({
+                method: event.target.value,
+                promise: false
             })
         }
         if (event.target.value === "form") {
@@ -138,12 +147,6 @@ class Payment extends Component {
                 credit: false
             })
         }
-    }
-    goBack = () => {
-        this.props.history.goBack();
-        this.setState({
-            viTri: []
-        }, console.log(this.state.viTri))
     }
     render() {
         let phanGiam = this.state.phanGiam !== 0 ? -this.state.phanGiam * this.props.history.location.state.viTri.length : 0
@@ -241,7 +244,7 @@ class Payment extends Component {
                                                 <ul>
                                                     <li><Map tenrap={this.props.history.location.state.tenrap} special={this.state.special} />
                                                     </li>
-                                                    <li><Link to={`/detail/movies/${this.props.history.location.state.itemDetails.id}`} ><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
+                                                    <li><Link onClick={() => this.props.history.push(`/details/movie/${this.props.history.location.state.itemDetails.id}`)} ><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
                                                     </li>
                                                     <li><button className={this.state.pay ? "special3" : "special2"} disabled={this.state.special === false} onClick={this.handleThem}>Proceed to Pay </button>
                                                     </li>
@@ -254,6 +257,7 @@ class Payment extends Component {
                                                 <div onChange={this.handleMethod.bind(this)} >
                                                     <input type="radio" id="c3023" name="cb2" value="promise" />
                                                     <label htmlFor="c3023"><span>Promise You will pay </span></label>
+                                                    <button disabled={this.state.promise ? false : true} className={this.state.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>PAY</button>
                                                 </div>
                                                 <div onChange={this.handleMethod.bind(this)} >
                                                     <input type="radio" id="c3024" name="cb2" value="form" />
