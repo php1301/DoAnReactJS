@@ -9491,7 +9491,7 @@ i:before {
   text-align: center;
   float: left;
   font-size: 14px;
-  background: #ff4444;
+  background: #333545;
   color: #ffffff;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -9539,7 +9539,7 @@ i:before {
   transition: all 0.5s;
 }
 
-.st_cherity_btn li:nth-child(3) a,  {
+.st_cherity_btn li:nth-child(1) a {
   width: 196px;
   height: 36px;
   line-height: 36px;
@@ -9594,7 +9594,8 @@ i:before {
   padding-bottom: 30px;
 }
 .st_cherity_btn li:first-child a:hover,
-.st_cherity_btn li:nth-child(2) a:hover,.st_cherity_btn li:nth-child(3) a:hover {
+.st_cherity_btn li:nth-child(2) a:hover,
+.st_cherity_btn li:nth-child(3) a:hover {
   background: #ff4444;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -10304,9 +10305,63 @@ i:before {
   letter-spacing: 0.01rem;
   text-transform: uppercase;
 }
-a:not([href]){
+a:not([href]) {
   color: white;
 }
-a:not([href]):not([tabindex]){
+a:not([href]):not([tabindex]) {
   color: white;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #333545;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+  background: darkgrey;
 }

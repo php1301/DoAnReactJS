@@ -11,7 +11,7 @@ export default class PeopleCarousel extends Component {
             return (
                 <div className="people-container-item">
                             <NavLink to="#">
-                                <img src={`https://image.tmdb.org/t/p/w154/${item.profile_path}`} style={{ width: "120px", height: "160px" }} />
+                                <img src={`https://image.tmdb.org/t/p/w154/${item.profile_path === null ? "bOlYWhVuOiU6azC4Bw6zlXZ5QTC.jpg" : item.profile_path}`} style={{ width: "120px", height: "160px" }} />
                                 <h3 className="people-container-item__item-title">{item.name}</h3>
                             </NavLink>
                  </div>
