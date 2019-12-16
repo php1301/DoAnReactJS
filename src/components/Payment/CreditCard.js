@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Cards from 'react-credit-cards';
 import "react-credit-cards/lib/styles.scss"
+import '../Payment/CreditCard.scss'
 import {
   formatCreditCardNumber,
   formatCVC,
@@ -125,7 +126,7 @@ export default class CreditCard extends Component {
             </div>
             <input type="hidden" name="issuer" value={issuer} />
             <div className="form-actions">
-              <button className="btn btn-primary btn-block">PAY</button>
+              <button className="btn btn-primary btn-block btn-pay">PAY</button>
             </div>
           </form>
           {formData && (

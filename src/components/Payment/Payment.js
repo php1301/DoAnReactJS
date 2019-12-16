@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import PaymentHeader from '../PaymentHeader/PayementHeader'
 import firestore from "../../firestore"
 import firebase from 'firebase'
@@ -7,8 +7,8 @@ import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
 import CreditCard from './CreditCard'
-
-export default class Payment extends Component {
+import Map from "../Modal/Map"
+class Payment extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,7 +19,11 @@ export default class Payment extends Component {
             daDung: false,
             special: false,
             sum: 0,
-            choose: 0
+            choose: 0,
+            type: "Ticket Type",
+            pay: false,
+            credit: false,
+            method: ""
         }
     }
 
@@ -39,22 +43,23 @@ export default class Payment extends Component {
         this.state.giaoDich.push(objGiaoDich)
         this.setState({
             giaoDich: this.state.giaoDich,
-            sum: { sum }
+            sum: { sum },
+            pay: true
         }, console.log(this.state.giaoDich))
         console.log(this.state.giaoDich)
 
-        const db = firebase.firestore();
-        db.settings({
-            timestampsInSnapshots: true
-        });
-        const userRef = db.collection("payment").add({
-            tenPhim: this.props.history.location.state.itemDetails.title,
-            ngayChieu: this.props.history.location.state.timeset,
-            gioChieu: this.props.history.location.state.items,
-            tenRap: this.props.history.location.state.tenrap,
-            listGhe: this.props.history.location.state.viTri,
-            sum: { sum }
-        });
+        // const db = firebase.firestore();
+        // db.settings({
+        //     timestampsInSnapshots: true
+        // });
+        // const userRef = db.collection("payment").add({
+        //     tenPhim: this.props.history.location.state.itemDetails.title,
+        //     ngayChieu: this.props.history.location.state.timeset,
+        //     gioChieu: this.props.history.location.state.items,
+        //     tenRap: this.props.history.location.state.tenrap,
+        //     listGhe: this.props.history.location.state.viTri,
+        //     sum: { sum }
+        // });
     }
     handleCheck = () => {
         if (this.codeValue.value === "NOEL" && this.state.daDung === false) {
@@ -108,11 +113,37 @@ export default class Payment extends Component {
             })
         }
     }
-    handle3D = (event) => {
+    handleType = (event) => {
         this.setState({
             special: true,
-            choose: event.target.value
+            choose: event.target.value,
+            type: event.target.pattern
         })
+    }
+    handleMethod = (event) => {
+        if (event.target.value === "promise") {
+            this.setState({
+                method: event.target.value
+            })
+        }
+        if (event.target.value === "form") {
+            this.setState({
+                method: event.target.value,
+                credit: true
+            })
+        }
+        else {
+            this.setState({
+                method: event.target.value,
+                credit: false
+            })
+        }
+    }
+    goBack = () => {
+        this.props.history.goBack();
+        this.setState({
+            viTri: []
+        }, console.log(this.state.viTri))
     }
     render() {
         let phanGiam = this.state.phanGiam !== 0 ? -this.state.phanGiam * this.props.history.location.state.viTri.length : 0
@@ -160,7 +191,7 @@ export default class Payment extends Component {
                                                 <div className="st_cherity_img_cont float_left">
                                                     <div className="box">
                                                         <p className="cc_pc_color1">
-                                                            <input style={{ color: "black", width: "100%" }} type="textarea" id="c201" name="cb" placeholder="Have Promo Code? Enter here" disabled={this.state.disabled} ref={el => this.codeValue = el} />
+                                                            <input style={{ color: "black", width: "100%" }} type="textarea" id="c201" name="maGiamGia" placeholder="Have Promo Code? Enter here" disabled={this.state.disabled} ref={el => this.codeValue = el} />
                                                             <div className="st_cherity_btn float_left">
                                                                 <a></a>
                                                                 <li><a onClick={this.handleCheck}><i className="flaticon-tickets" /> &nbsp;Check</a></li>
@@ -169,30 +200,29 @@ export default class Payment extends Component {
                                                             <div className="st_cherity_btn float_left">
                                                                 <h3>SELECT TICKET TYPE</h3>
                                                             </div>
-                                                            <div onChange={this.handle3D.bind(this)}>
-                                                                <input type="radio" id="c202" name="cb" value="30000" />
-                                                                <label htmlFor="c202"><span>3DX VANILLA - {this.props.history.location.state.tenrap} - </span> 30000 Per Ticket .</label>
+                                                            <div onChange={this.handleType.bind(this)}>
+                                                                <input type="radio" id="c202" name="loaiVe" value="30000" pattern="3DX - VANILLA" />
+                                                                <label htmlFor="c202"><span>3DX - VANILLA - {this.props.history.location.state.tenrap} - </span> 30000 Per Ticket .</label>
                                                             </div>
-                                                            <div onChange={this.handle3D.bind(this)}>
-                                                                <input type="radio" id="c2033" name="cb" value=" 40000" />
+                                                            <div onChange={this.handleType.bind(this)}>
+                                                                <input type="radio" id="c2033" name="loaiVe" value=" 40000" pattern="3DX - MAX" />
                                                                 <label htmlFor="c2033"><span>3DX - MAX - {this.props.history.location.state.tenrap} - </span> 40000 Per Ticket .</label>
                                                             </div>
-                                                            <div onChange={this.handle3D.bind(this)}>
-                                                                <input type="radio" id="c203" name="cb" value="50000" />
+                                                            <div onChange={this.handleType.bind(this)}>
+                                                                <input type="radio" id="c203" name="loaiVe" value="50000" pattern="4DX - MAX" />
                                                                 <label htmlFor="c203"><span>4DX - MAX - {this.props.history.location.state.tenrap} - </span> 50000 Per Ticket .</label>
                                                             </div>
-                                                            <div className="st_cherity_btn float_left">
+                                                            {/* <div className="st_cherity_btn float_left">
                                                                 <h3 >SELECT PAYMENT METHOD</h3>
                                                             </div>
                                                             <div >
                                                                 <input type="radio" id="c2023" name="cb" value="" />
                                                                 <label htmlFor="c2023"><span>3DX VANILLA - {this.props.history.location.state.tenrap} - </span> 30000 Per Ticket .</label>
-                                                            </div>
+                                                            </div> */}
                                                             {/* <div >
                                                                 <input type="radio" id="c2043" name="cb" value="" />
                                                                 <label htmlFor="c2043"><span>3DX - MAX - {this.props.history.location.state.tenrap} - </span> 40000 Per Ticket .</label>
                                                             </div> */}
-                                                            <CreditCard />
                                                             {/* <div>
                                                                 <input type="checkbox" id="c201 c202" name="cb" />
                                                                 <label htmlFor="c202"><span>3DX MAX - {this.props.history.location.state.tenrap} - </span> 40000 VNĐ Per Ticket .</label>
@@ -207,16 +237,30 @@ export default class Payment extends Component {
                                         </div>
                                         <div className="col-md-12">
                                             <div className="st_cherity_btn float_left">
-                                                <h3>SELECT TICKET TYPE</h3>
+                                                <h3 className="navigation">NAVIGATION</h3>
                                                 <ul>
-                                                    <li><a className={this.state.special === false ? " special1" : "special2"} ><i className="flaticon-tickets" />3D</a>
+                                                    <li><Map tenrap={this.props.history.location.state.tenrap} special={this.state.special} />
                                                     </li>
-                                                    <li><Link to={"/"}><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
+                                                    <li><Link to={`/detail/movies/${this.props.history.location.state.itemDetails.id}`} ><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
                                                     </li>
-                                                    <li><button class="special2" disabled={this.state.special === false} onClick={this.handleThem}>Proceed to Pay </button>
+                                                    <li><button className={this.state.pay ? "special3" : "special2"} disabled={this.state.special === false} onClick={this.handleThem}>Proceed to Pay </button>
                                                     </li>
                                                 </ul>
                                             </div>
+                                            {this.state.pay === true ? (<div className="st_dtts_ineer_box float_left">
+                                                <div className="st_cherity_btn float_left">
+                                                    <h3 >SELECT PAYMENT METHOD</h3>
+                                                </div>
+                                                <div onChange={this.handleMethod.bind(this)} >
+                                                    <input type="radio" id="c3023" name="cb2" value="promise" />
+                                                    <label htmlFor="c3023"><span>Promise You will pay </span></label>
+                                                </div>
+                                                <div onChange={this.handleMethod.bind(this)} >
+                                                    <input type="radio" id="c3024" name="cb2" value="form" />
+                                                    <label htmlFor="c3024"><span>Or enter your credit card below </span></label>
+                                                </div>
+                                                {this.state.credit === true ? <CreditCard /> : ""}
+                                            </div>) : " "}
                                         </div>
                                     </div>
                                 </div>
@@ -245,7 +289,7 @@ export default class Payment extends Component {
                                                 </ul>
                                                 <p>Discount Code <span> <bold>-</bold> {this.state.phanGiam * this.props.history.location.state.viTri.length + " VNĐ"} </span>
                                                 </p>
-                                                <p>3D <span>{this.state.choose * this.props.history.location.state.viTri.length + " VNĐ"}</span>
+                                                <p>{this.state.type} <span>{this.state.choose * this.props.history.location.state.viTri.length + " VNĐ"}</span>
                                                 </p>
                                             </div>
                                             <div className="st_dtts_sb_h2 float_left">
@@ -264,3 +308,4 @@ export default class Payment extends Component {
         )
     }
 }
+export default withRouter(Payment)
