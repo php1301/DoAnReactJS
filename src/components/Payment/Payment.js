@@ -250,21 +250,19 @@ class Payment extends Component {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            {this.state.pay === true ? (<div className="st_dtts_ineer_box float_left">
-                                                <div className="st_cherity_btn float_left">
-                                                    <h3 >SELECT PAYMENT METHOD</h3>
-                                                </div>
-                                                <div onChange={this.handleMethod.bind(this)} >
-                                                    <input type="radio" id="c3023" name="cb2" value="promise" />
-                                                    <label htmlFor="c3023"><span>Promise You will pay </span></label>
-                                                    <button disabled={this.state.promise ? false : true} className={this.state.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>PAY</button>
-                                                </div>
-                                                <div onChange={this.handleMethod.bind(this)} >
-                                                    <input type="radio" id="c3024" name="cb2" value="form" />
-                                                    <label htmlFor="c3024"><span>Or enter your credit card below </span></label>
-                                                </div>
-                                                {this.state.credit === true ? <CreditCard /> : ""}
-                                            </div>) : " "}
+                                            {this.state.pay === true ? <CreditCard 
+                                            tenPhim = {this.props.history.location.state.itemDetails.title}
+                                            ngayChieu = {this.props.history.location.state.timeset}
+                                            gioChieu = {this.props.history.location.state.items}
+                                            listGhe = {this.props.history.location.state.viTri}
+                                            tenrap = {this.props.history.location.state.tenrap} 
+                                            method={this.props.method} handleMethod={this.handleMethod}
+                                            type = {this.state.type}
+                                            sum = {sum}
+                                            promise={this.state.promise} 
+                                            pay={this.props.pay} 
+                                            credit={this.state.credit} /> : ""}
+
                                         </div>
                                     </div>
                                 </div>
