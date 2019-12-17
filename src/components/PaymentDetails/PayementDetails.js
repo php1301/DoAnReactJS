@@ -1,24 +1,32 @@
 import React, { Component } from 'react'
 import '../TicketBox/TicketBox.scss'
 import firestore from "../../firestore"
-import firebase from 'firebase'
+import * as firebase from 'firebase'
 const db = firebase.firestore();
+// data
 var docRef = db.collection("payment").doc("PBKBDfjp018bL0HHb1Xp");
-
 docRef.get().then(function(doc) {
-if (doc.exists) {
-    console.log("Document data:", doc.data());
-} else {
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-}
-}).catch(function(error) {
-console.log("Error getting document:", error);
-});
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+    }).catch(function(error) {
+    console.log("Error getting document:", error);
+    });
+// doc id
+db.collection('payment').get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(doc.id)
+    })
+})
+
+
 export default class PayementDetails extends Component {
     render() {
         return (
-            
+
             <div className="st_bcc_main_main_wrapper float_left">
                 <div className="st_bcc_main_wrapper">
                     <div className="container">
@@ -51,12 +59,12 @@ export default class PayementDetails extends Component {
                                                 </div>
                                             </div>
                                             <div className="st_bcc_tecket_bottom_inner_right">
-                                                <h3>{this.props.history.location.state.count > 1 ? this.props.history.location.state.count + " TICKETS": this.props.history.location.state.count + " TICKET"} <br />
-                                                    <span>{this.props.history.location.state.tenrap} - {this.props.history.location.state.listGhe.map((item,index) =>{
-                                                       if(this.props.history.location.state.listGhe.length - 1 > index)
-                                                       return item + ", "
-                                                       else
-                                                       return item
+                                                <h3>{this.props.history.location.state.count > 1 ? this.props.history.location.state.count + " TICKETS" : this.props.history.location.state.count + " TICKET"} <br />
+                                                    <span>{this.props.history.location.state.tenrap} - {this.props.history.location.state.listGhe.map((item, index) => {
+                                                        if (this.props.history.location.state.listGhe.length - 1 > index)
+                                                            return item + ", "
+                                                        else
+                                                            return item
                                                     })}</span></h3>
                                             </div>
                                         </div>
