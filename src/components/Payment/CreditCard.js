@@ -4,6 +4,7 @@ import "react-credit-cards/lib/styles.scss"
 import '../Payment/CreditCard.scss'
 import firestore from "../../firestore"
 import firebase from 'firebase'
+import { Link } from 'react-router-dom'
 import {
   formatCreditCardNumber,
   formatCVC,
@@ -51,14 +52,14 @@ export default class CreditCard extends Component {
         acc[d.name] = d.value;
         return acc;
       }, {});
-      return formData;
-      
+    return formData;
+
   }
   handleSubmit = async (e) => {
     e.preventDefault();
     const { issuer } = this.state;
     const formData = await this.reduceData(e);
-    
+
     this.setState({ formData: formData });
     const db = firebase.firestore();
     db.settings({
@@ -112,7 +113,15 @@ export default class CreditCard extends Component {
           <div onChange={this.props.handleMethod.bind(this)} >
             <input type="radio" id="c3023" name="cb2" value="promise" />
             <label htmlFor="c3023"><span>Promise You will pay </span></label>
-            <button onClick={this.handleSubmit2} disabled={this.props.promise ? false : true} className={this.props.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>YEEZZY</button>
+            <Link to={{ pathname: `/details/movie/${this.props.itemDetails.id}/payment/paymentdetails`, 
+      state: {itemDetails: this.props.itemDetails, count: this.props.count, tenPhim: this.props.tenPhim,
+      ngayChieu: this.props.ngayChieu,
+      gioChieu: this.props.gioChieu,
+      tenrap: this.props.tenrap,
+      listGhe: this.props.listGhe,
+      type: this.props.type,
+      sum: this.props.sum,} }}><button onClick={this.handleSubmit2} disabled={this.props.promise ? false : true} className={this.props.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>YEEZY</button></Link>
+
           </div>
           <div onChange={this.props.handleMethod.bind(this)} >
             <input type="radio" id="c3024" name="cb2" value="form" />
@@ -184,7 +193,14 @@ export default class CreditCard extends Component {
                   </div>
                   <input type="hidden" name="issuer" value={issuer} />
                   <div className="form-actions">
-                    <button className="btn btn-primary btn-block btn-pay">PAY</button>
+                    <Link to={{ pathname: `/details/movie/${this.props.itemDetails.id}/payment/paymentdetails`, 
+      state: {itemDetails: this.props.itemDetails, count: this.props.count, tenPhim: this.props.tenPhim,
+      ngayChieu: this.props.ngayChieu,
+      gioChieu: this.props.gioChieu,
+      tenrap: this.props.tenrap,
+      listGhe: this.props.listGhe,
+      type: this.props.type,
+      sum: this.props.sum,} }}><button className="btn btn-primary btn-block btn-pay">PAY</button></Link>
                   </div>
                 </form>
                 {formData && (

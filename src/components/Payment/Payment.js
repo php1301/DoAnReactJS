@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import PaymentHeader from '../PaymentHeader/PayementHeader'
+import PaymentHeader from '../PaymentDetails/PayementDetails'
 import firestore from "../../firestore"
 import firebase from 'firebase'
 import ReactNotification from 'react-notifications-component'
@@ -250,19 +250,20 @@ class Payment extends Component {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            {this.state.pay === true ? <CreditCard 
-                                            tenPhim = {this.props.history.location.state.itemDetails.title}
-                                            ngayChieu = {this.props.history.location.state.timeset}
-                                            gioChieu = {this.props.history.location.state.items}
-                                            listGhe = {this.props.history.location.state.viTri}
-                                            tenrap = {this.props.history.location.state.tenrap} 
-                                            method={this.props.method} handleMethod={this.handleMethod}
-                                            type = {this.state.type}
-                                            sum = {sum}
-                                            promise={this.state.promise} 
-                                            pay={this.props.pay} 
-                                            credit={this.state.credit} /> : ""}
-
+                                            {this.state.pay === true ? <CreditCard
+                                                itemDetails={this.props.history.location.state.itemDetails}
+                                                tenPhim={this.props.history.location.state.itemDetails.title}
+                                                ngayChieu={this.props.history.location.state.timeset}
+                                                gioChieu={this.props.history.location.state.items}
+                                                listGhe={this.props.history.location.state.viTri}
+                                                tenrap={this.props.history.location.state.tenrap}
+                                                method={this.props.method} handleMethod={this.handleMethod}
+                                                type={this.state.type}
+                                                sum={sum}
+                                                promise={this.state.promise}
+                                                pay={this.props.pay}
+                                                credit={this.state.credit} 
+                                                count={this.props.history.location.state.count}/> : ""}
                                         </div>
                                     </div>
                                 </div>

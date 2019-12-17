@@ -1,6 +1,4 @@
 import React, { useState, Component, Fragment } from 'react'
-import TicketItem from '../TicketItem/TicketItem'
-import TicketBoxHeader from '../PaymentHeader/PayementHeader'
 import "../TicketBox/TicketBox.scss"
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
