@@ -21,8 +21,8 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           {showItem(routesHome)}
-          {/* {!props.logInStatus || props.session.failure ? <Redirect from='/profile' to="/login" /> : <Redirect from='/profile' to='/profile/approved' />}
-          {!props.logInStatus || props.session.failure ? <Redirect from='/profile/approved' to="/login" /> : <Redirect from='/login' to='/profile/approved' />} */}
+          {!props.logInStatus  ? <Redirect from='/profile' to="/login" /> : <Redirect from='/profile' to='/profile/approved' />}
+          {!props.logInStatus  ? <Redirect from='/profile/approved' to="/login" /> : <Redirect from='/login' to='/profile/approved' />}
         </Switch>
       </BrowserRouter>
       {/* <Home/> */}

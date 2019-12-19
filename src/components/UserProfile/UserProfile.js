@@ -12,13 +12,15 @@ import getSession from '../../actions/authenticationActions/getSession';
 import deleteSession from '../../actions/authenticationActions/deleteSession';
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
 import getUserDetails from '../../actions/authenticationActions/getUserDetails';
-import * as firebase from 'firebase'
+import firebase from 'firebase'
 import firebaseConfig from "../../firestore"
 class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogin: false
+            isLogin: this.props.logInStatus,
+            photo: null,
+            displayName: null
         }
     }
 
@@ -50,13 +52,13 @@ class UserProfile extends Component {
             .then(this.authHandler);
     };
 
-    authHandler = async authData => {
-        const user = authData.user;
+    authHandler =  authData => {
+        const user =  authData.user;
         this.setState({
             isLogin: true,
-            // email: user.email,
-            // displayName: user.displayName
-        });
+            photo: user.photoURL,
+            displayName: user.displayName
+        }, console.log(user));
     };
 
     logout = async () => {
@@ -75,10 +77,10 @@ class UserProfile extends Component {
                         <aside className="user-profile-container-aside">
                             <nav className="user-profile-container-aside-nav">
                                 <div className="user-profile-container-aside-nav-profile wow swing" data-wow-delay=".5s" data-wow-duration="5s">
-                                    <img className="user-profile-container-aside-nav-profile-image" src="http://filmcloud.xyz/static/media/profile-avatar.995ca3cc.jpeg" alt="user" />
+                                    <img className="user-profile-container-aside-nav-profile-image" src={this.state.photo} alt="user" />
                                     <div className="user-profile-container-aside-nav-profile-info">
                                         <h2 className="user-profile-container-aside-nav-profile-info__user-name">Welcome</h2>
-                                        <p className="user-profile-container-aside-nav-profile-info__user-type">Somebody</p>
+                                        <p className="user-profile-container-aside-nav-profile-info__user-type">{this.state.displayName}</p>
                                     </div>
                                 </div>
 
