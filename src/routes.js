@@ -49,7 +49,7 @@ const routesHome = [
         component: Payment
     },
     {
-        path: "/details/movie/:id/payment/paymentdetails",
+        path: "/details/movie/:id/payment/:idbooking",
         exact: true,
         component: PayementDetails
     },

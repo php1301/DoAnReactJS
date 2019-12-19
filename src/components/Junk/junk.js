@@ -722,3 +722,162 @@ document.querySelector('.creditcard').classList.add('flipped');
 });
 };
 }
+#fps {
+    margin-top: 5px;
+    margin-left: 35px;
+  }
+  .trans3d {
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform-style: preserve-3d;
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform-style: preserve-3d;
+    -ms-transform: translate3d(0, 0, 0);
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0);
+  
+    /*-webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility:hidden;
+      backface-visibility:hidden;*/
+  }
+  
+  #contentContainer {
+    background-image: url("//i.ytimg.com/vi/UOH_mAE8LT0/maxresdefault.jpg") center / cover no-repeat fixed;
+    position: absolute;
+    margin-left: -500px;
+    margin-top: -500px;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    height: 1000px;
+  }
+  
+  #carouselContainer {
+    position: absolute;
+    margin-left: -500px;
+    margin-top: -500px;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    height: 1000px;
+  }
+  
+  .carouselItem {
+    width: 320px;
+    height: 130px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -160px;
+    margin-top: -90px;
+    visibility: hidden;
+  }
+  
+  .carouselItemInner {
+    width: 320px;
+    height: 130px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 10px solid rgba(255, 255, 255, 0.5);
+    color: aqua;
+    font-size: 72px;
+    left: 50%;
+    top: 50%;
+    margin-left: -160px;
+    margin-top: -90px;
+    text-align: center;
+    padding-top: 50px;
+  }
+  .testing {
+    background: url("//i.ytimg.com/vi/UOH_mAE8LT0/maxresdefault.jpg") center / cover no-repeat fixed;
+    font-family: Helvetica;
+    text-shadow: -1px -1px 4px rgb(0, 0, 0);
+    overflow-x: hidden;
+  }
+  
+  #config {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(to right top, transparent 50%, rgb(92, 100, 114) 50%);
+  }
+  
+  #stage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    perspective: 500px;
+  }
+  
+  #carosel {
+    /*The 42vw is from initial load of iframe html (does it update as it should)*/
+    --radius: 42vw;
+    width: calc(var(--radius) * 2);
+    height: calc(var(--radius) * 1.25);
+    transform: translateZ(calc(var(--radius) * -1));
+    transform-style: preserve-3d;
+  }
+  /*
+    #carosel:after {
+      content: '';
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      background: rgba(0, 0, 0, .6);
+      border-radius: 50%;
+      transform: rotateX(90deg);
+    }
+    */
+  /*Remov Visibility by turning TweenMax into CSS code*/
+  .screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 25%;
+    height: 25%;
+    border: 5px inset rgb(29, 203, 84);
+    box-shadow: 0 0 15px 3px rgb(110, 72, 221);
+    transform-origin: 50% 50% calc(var(--radius) * -1);
+    /* The -50%,-50% below is always correct. The var(--radius) not always*/
+    transform: translate3d(-50%, -50%, var(--radius));
+    transform-style: preserve-3d;
+    visibility: hidden;
+  }
+  
+  .screen:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    transform: rotateX(180deg);
+    transform-origin: top;
+    backface-visibility: hidden;
+  }
+  /*Remov Visibility by making animateIn a CSS animation*/
+  .promo {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    color: aqua;
+    font-size: 72px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    visibility: visible;
+    -webkit-box-reflect: below 10px -webkit-linear-gradient(bottom, rgb(0, 0, 0) 0%, transparent 40%);
+  }
+  
+  iframe {
+    pointer-events: none;
+    width: 100%;
+    height: 200%;
+    transform: scale(1.1, 1.17);
+  }
+  

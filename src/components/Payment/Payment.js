@@ -251,6 +251,7 @@ class Payment extends Component {
                                                 </ul>
                                             </div>
                                             {this.state.pay === true ? <CreditCard
+                                                history={this.props}
                                                 itemDetails={this.props.history.location.state.itemDetails}
                                                 tenPhim={this.props.history.location.state.itemDetails.title}
                                                 ngayChieu={this.props.history.location.state.timeset}
