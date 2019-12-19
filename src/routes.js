@@ -16,10 +16,10 @@ const routesHome = [
     {
         path: "/login",
         exact: true,
-        component: UserLogin
+        component: UserProfile
     },
     {
-        path: "/profile/:status",
+        path: "/profile/",
         exact: true,
         component: UserProfile
     },

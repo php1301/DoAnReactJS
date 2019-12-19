@@ -1,4 +1,6 @@
 import firebase from 'firebase';
+// import Rebase from "re-b";
+
 const firebaseConfig = {
     apiKey: "AIzaSyD0hXSssv9RFepQoe5JAxYwII6D2kpNBUA",
     authDomain: "moviebooking-3f5d9.firebaseapp.com",
@@ -10,4 +12,6 @@ const firebaseConfig = {
     measurementId: "G-3Z3YX1L7Q1"
 };
 firebase.initializeApp(firebaseConfig);
+// const base = Rebase.createClass(firebase.database());
+
 export default firebase;

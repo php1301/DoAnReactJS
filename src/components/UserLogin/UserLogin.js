@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
 import '../UserLogin/UserLogin.scss';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
 import getRequestToken from '../../actions/authenticationActions/getRequestToken';
 class UserLogin extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
   componentDidMount() {
     this.props.getRequestToken("https://api.themoviedb.org/3/authentication/token/new?api_key=f4718f386ee605decefebc673ce3bc9c");
   }
-
+  login = data => {
+    this.props.authenticate(data)
+  }
   render() {
     return (
       <div className="user-log-in">
@@ -23,8 +30,10 @@ class UserLogin extends Component {
           </header>
 
           <div className="user-log-in-container-content">
-            <a href={`https://www.themoviedb.org/authenticate/${this.props.requestToken.request_token}?redirect_to=http://localhost:3000/profile/approved`}>
-              <button className="user-log-in-container-content__button" onClick={this.handleLogIn} >Log In</button>
+            <a href="#">
+              {/* <a href={`https://www.themoviedb.org/authenticate/${this.props.requestToken.request_token}?redirect_to=http://localhost:3000/profile/approved`}> */}
+              {/* <button className="user-log-in-container-content__button" onClick={this.handleLogIn} >Log In</button> */}
+              <button onClick={() => { this.props.authenticate("Facebook") }} className="user-log-in-container-content__button"  >Log In</button>
             </a>
           </div>
 

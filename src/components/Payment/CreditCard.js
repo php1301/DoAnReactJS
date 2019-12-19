@@ -4,18 +4,16 @@ import "react-credit-cards/lib/styles.scss"
 import '../Payment/CreditCard.scss'
 import firestore from "../../firestore"
 import firebase from 'firebase'
-import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import {
   formatCreditCardNumber,
   formatCVC,
   formatExpirationDate,
   formatFormData,
 } from './util';
-
-export default class CreditCard extends Component {
+class CreditCard extends Component {
   constructor(props) {
     super(props);
-    this.callSetState = this.callSetState.bind(this);
     this.state = {
       number: '',
       name: '',
@@ -24,18 +22,11 @@ export default class CreditCard extends Component {
       issuer: '',
       focused: '',
       formData: null,
-      id: null
     };
+
   }
 
-  componentDidUpdate() {
-    this.handleSubmit2()
-  }
-  callSetState = (data) => {
-    this.setState({
-      id: data,
-    })
-  }
+
   handleCallback = ({ issuer }, isValid) => {
     if (isValid) {
       this.setState({ issuer });
@@ -47,6 +38,7 @@ export default class CreditCard extends Component {
       focused: target.name,
     });
   };
+
   handleInputChange = ({ target }) => {
     if (target.name === 'number') {
       target.value = formatCreditCardNumber(target.value);
@@ -68,37 +60,48 @@ export default class CreditCard extends Component {
     return formData;
 
   }
-  reduceID = async () => {
-    const db = firebase.firestore();
+  handlePostFirebase = async (data) => {
+    const db = await firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    const id = db.collection("payment").doc().id
-    console.log(id)
-    return id
+    const userRef = db.collection("payment").add({
+      data
+    })
+      .then(docRef => {
+        this.props.history.push({
+          pathname: `/details/movie/${this.props.itemDetails.id}/payment/${docRef.id}`,
+          state: {
+            itemDetails: this.props.itemDetails, count: this.props.count, tenPhim: this.props.tenPhim,
+            ngayChieu: this.props.ngayChieu,
+            gioChieu: this.props.gioChieu,
+            tenrap: this.props.tenrap,
+            listGhe: this.props.listGhe,
+            type: this.props.type,
+            sum: this.props.sum,
+            id: docRef.id.slice(1, 10)
+          }
+        })
+      });
   }
   handleSubmit = async (e) => {
     e.preventDefault();
     const { issuer } = this.state;
     const formData = await this.reduceData(e);
-
     this.setState({ formData: formData });
-    const db = firebase.firestore();
-    db.settings({
-      timestampsInSnapshots: true
-    });
-    const userRef = db.collection("payment").add({
+    const dataToAdd = {
       tenPhim: this.props.tenPhim,
       ngayChieu: this.props.ngayChieu,
       gioChieu: this.props.gioChieu,
-      tenap: this.props.tenrap,
+      tenrap: this.props.tenrap,
       listGhe: this.props.listGhe,
       type: this.props.type,
       sum: this.props.sum,
       formData: this.state.formData
-    });
+    }
+    this.handlePostFirebase(dataToAdd)
   };
-  handleSubmit2 = async () => {
+  handleSubmit2 = () => {
     const objViTri = {
       cvc: "Promise",
       expiry: "Promise",
@@ -106,13 +109,7 @@ export default class CreditCard extends Component {
       number: "Promise",
       issuer: "Promise",
     }
-    const db = firebase.firestore();
-    const id = await this.reduceID()
-    // this.setState({ formData: objViTri, id}, console.log(" State id" + this.state.id));
-    db.settings({
-      timestampsInSnapshots: true
-    });
-    const userRef = db.collection("payment").add({
+    const dataToAdd = {
       tenPhim: this.props.tenPhim,
       ngayChieu: this.props.ngayChieu,
       gioChieu: this.props.gioChieu,
@@ -121,17 +118,15 @@ export default class CreditCard extends Component {
       type: this.props.type,
       sum: this.props.sum,
       formData: objViTri
-    })
-      .then(docRef => {
-        this.callSetState(docRef.id)
-        console.log("Document written with ID: ", docRef.id, this.state.id);
-      });
-    console.log(this.state.id)
+    }
+    this.handlePostFirebase(dataToAdd)
+    this.setState({ formData: objViTri });
+
   };
 
   render() {
     const { name, number, expiry, cvc, focused, issuer, formData } = this.state;
-    console.log(this.props)
+
     return (
       <Fragment>
         {<div className="st_dtts_ineer_box float_left">
@@ -141,21 +136,7 @@ export default class CreditCard extends Component {
           <div onChange={this.props.handleMethod.bind(this)} >
             <input type="radio" id="c3023" name="cb2" value="promise" />
             <label htmlFor="c3023"><span>Promise You will pay </span></label>
-            <Link onClick={() => { this.props.history.history.push(`/details/movie/${this.props.itemDetails.id}/payment/${this.state.id}`) }} to={{
-              // pathname: `/details/movie/${this.props.itemDetails.id}/payment/${this.state.id}`,
-              state: {
-                id: this.state.id,
-                itemDetails: this.props.itemDetails, count: this.props.count, tenPhim: this.props.tenPhim,
-                ngayChieu: this.props.ngayChieu,
-                gioChieu: this.props.gioChieu,
-                tenrap: this.props.tenrap,
-                listGhe: this.props.listGhe,
-                type: this.props.type,
-                sum: this.props.sum,
-              }
-            }}><button onClick={this.handleSubmit2} disabled={this.props.promise ? false : true} className={this.props.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>YEEZY</button></Link>
-            {/* <button onClick={this.handleSubmit2} disabled={this.props.promise ? false : true} className={this.props.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>YEEZY</button> */}
-            {/* {this.renderButton} */}
+            <button onClick={this.handleSubmit2} disabled={this.props.promise ? false : true} className={this.props.promise ? "btn btn-primary btn-block btn-pay" : "btn-pay-none"}>YEEZZY</button>
           </div>
           <div onChange={this.props.handleMethod.bind(this)} >
             <input type="radio" id="c3024" name="cb2" value="form" />
@@ -227,19 +208,7 @@ export default class CreditCard extends Component {
                   </div>
                   <input type="hidden" name="issuer" value={issuer} />
                   <div className="form-actions">
-                    <Link to={{
-                      pathname: `/details/movie/${this.props.itemDetails.id}/payment/${this.state.id}`,
-                      state: {
-                        itemDetails: this.props.itemDetails, count: this.props.count, tenPhim: this.props.tenPhim,
-                        ngayChieu: this.props.ngayChieu,
-                        gioChieu: this.props.gioChieu,
-                        tenrap: this.props.tenrap,
-                        listGhe: this.props.listGhe,
-                        type: this.props.type,
-                        sum: this.props.sum,
-                        id: this.state.id
-                      }
-                    }}><button className="btn btn-primary btn-block btn-pay">PAY</button></Link>
+                    <button className="btn btn-primary btn-block btn-pay">PAY</button>
                   </div>
                 </form>
                 {formData && (
@@ -259,3 +228,4 @@ export default class CreditCard extends Component {
     );
   }
 }
+export default withRouter(CreditCard)
