@@ -53,6 +53,7 @@ export default class Favorite extends Component {
             id: this.props.details.id,
             tenPhim: this.props.details.title,
             ngayChieu: this.props.details.release_date,
+            photo: this.props.details.backdrop_path,
             bio: this.props.details.overview,
             doDai: this.props.details.runtime,
             genres: this.props.genres,

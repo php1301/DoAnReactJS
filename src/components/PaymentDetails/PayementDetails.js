@@ -28,7 +28,6 @@ export default class PayementDetails extends Component {
     render() {
         return (
             <Fragment>
-                {/* <Carousel2 /> */}
                 <div className="st_bcc_main_main_wrapper float_left">
                     <div className="st_bcc_main_wrapper">
                         <div className="container">
@@ -52,9 +51,9 @@ export default class PayementDetails extends Component {
                                                     <div className="st_bcc_teckt_bot_inner_img_cont">
                                                         <h4>{this.props.history.location.state.itemDetails.title}</h4>
                                                         <h5>Malayalam, 2D</h5>
-                                                        <h3>Mon, 31 Dec | 09.30PM</h3>
+                                                        <h3>{this.props.history.location.state.ngayChieu} | {this.props.history.location.state.gioChieu}</h3>
                                                         <h6>Carnival: Artech Central Mall,<br />
-                                                            Trivandrum Audi-5</h6>
+                                                            {this.props.history.location.state.tenrap}</h6>
                                                     </div>
                                                     <div className="st_purchase_img">
                                                         <img src="http://www.webstrot.com/html/moviepro/html/images/content/pur2.png" alt="img" />
@@ -80,7 +79,7 @@ export default class PayementDetails extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="st_bcc_ticket_boxes_bottom_wrapper float_left">
+                                    {/* <div className="st_bcc_ticket_boxes_bottom_wrapper float_left">
                                         <p>You can access your ticket from your Profile. We will send you
               <br />an e-Mail/SMS Confirmation with in 15 Minutes.</p>
                                         <ul>
@@ -89,7 +88,7 @@ export default class PayementDetails extends Component {
                                             <li><a href="#">Locate Friend</a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

@@ -285,7 +285,7 @@
         &-container {
           // user-profile-container-main-container-item
           &-item {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             grid-row-gap: 1rem;
             margin: 0 auto;
             padding: 2rem;
@@ -320,10 +320,83 @@
             grid-row-gap: 2rem;
             margin: 0 auto;
             padding: 2rem;
-            width: 70%;
+            width: 100%;
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .container1 {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1050px) {
+  .container1 {
+    padding-left: 10px;
+    max-width: 960px;
+  }
+}
+@media (min-width: 768px) {
+  .container1 {
+    max-width: 720px;
+  }
+}
+@media (min-width: 576px) {
+  .container1 {
+    padding-left: 0px;
+    width: 500px;
+    height: 500px;
+  }
+}
+.container1 {
+  width: 400px;
+  padding-right: 15px;
+  // padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container1 {
+    width: 500px;
+  }
+}
+@media (min-width: 768px) {
+  .container1 {
+    width: 600px;
+  }
+}
+@media (min-width: 1128px) {
+  .container1 {
+    width: 700px;
+  }
+}
+@media (min-width: 1300px) {
+  .container1 {
+    width: 800px;
+  }
+}
+.carousel-profile-caption {
+  .carousel-profile-h3 {
+    position: absolute;
+    top: 20%;
+    left: 4%;
+    color: white;
+  }
+  .carousel-profile-p {
+    position: absolute;
+    top: 37%;
+    left: 4%;
+    color: whitesmoke;
+    font-size: 22px;
+  }
+  .carousel-profile-category {
+    position: absolute;
+    font-size: 14px;
+    top: 66%;
+    left: 4%;
+    color: rgba(255, 255, 255, 0.9);
   }
 }

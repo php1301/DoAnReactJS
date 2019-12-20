@@ -61,7 +61,7 @@ class CreditCard extends Component {
 
   }
   handlePostFirebase = async (data) => {
-    let uid =localStorage.getItem('uid')
+    let uid = localStorage.getItem('uid')
     const db = await firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
@@ -98,7 +98,8 @@ class CreditCard extends Component {
       listGhe: this.props.listGhe,
       type: this.props.type,
       sum: this.props.sum,
-      formData: this.state.formData
+      formData: this.state.formData,
+      photo: this.props.itemDetails.poster_path
     }
     this.handlePostFirebase(dataToAdd)
   };
@@ -118,7 +119,8 @@ class CreditCard extends Component {
       listGhe: this.props.listGhe,
       type: this.props.type,
       sum: this.props.sum,
-      formData: objViTri
+      formData: objViTri,
+      photo: this.props.itemDetails.poster_path
     }
     this.handlePostFirebase(dataToAdd)
     this.setState({ formData: objViTri });

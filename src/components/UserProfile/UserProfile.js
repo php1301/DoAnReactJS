@@ -3,17 +3,16 @@ import MainNav from '../MainNav/MainNav'
 import Loader from '../Loader/Loader'
 import "../UserProfile/UserProfile.scss";
 import "../UserLogin/UserLogin.scss";
-import UserLogin from "../UserLogin/UserLogin";
+import UserItem from '../UserProfile/UserItem'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom';
-
-
-import getSession from '../../actions/authenticationActions/getSession';
-import deleteSession from '../../actions/authenticationActions/deleteSession';
+import Carousel from "react-multi-carousel";
+import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
 import getUserDetails from '../../actions/authenticationActions/getUserDetails';
 import firebase from 'firebase'
 import firebaseConfig from "../../firestore"
+import Tickets from './Tickets';
 class UserProfile extends Component {
 
 
@@ -115,11 +114,7 @@ class UserProfile extends Component {
         </h3>
                                     <hr className="user-profile-container-main-container-header__separator" />
                                 </header>
-                                <div className="user-profile-container-main-container-item">
-                                    <h3 className="user-profile-container-main-container-item-warning">
-                                        No favorite movies found
-        </h3>
-                                </div>
+                                <UserItem />
                             </div>
                             <div className="user-profile-container-main-container">
                                 <header className="user-profile-container-main-container-header">
@@ -132,58 +127,13 @@ class UserProfile extends Component {
                                             animationName: "fadeIn"
                                         }}
                                     >
-                                        TV Shows
+                                        Transactions
         </h3>
                                     <hr className="user-profile-container-main-container-header__separator" />
                                 </header>
-                                <div className="user-profile-container-main-container-item">
-                                    <h3 className="user-profile-container-main-container-item-warning">
-                                        No favorite tv shows found
-        </h3>
-                                </div>
+                                <Tickets />
                             </div>
-                            <div className="user-profile-container-main-container">
-                                <header className="user-profile-container-main-container-header">
-                                    <h3
-                                        className="user-profile-container-main-container-header__title wow fadeIn"
-                                        data-wow-duration="3s"
-                                        style={{
-                                            visibility: "visible",
-                                            animationDuration: "3s",
-                                            animationName: "fadeIn"
-                                        }}
-                                    >
-                                        Movies Rated
-        </h3>
-                                    <hr className="user-profile-container-main-container-header__separator" />
-                                </header>
-                                <div className="user-profile-container-main-container-item">
-                                    <h3 className="user-profile-container-main-container-item-warning">
-                                        No rated movies found
-        </h3>
-                                </div>
-                            </div>
-                            <div className="user-profile-container-main-container">
-                                <header className="user-profile-container-main-container-header">
-                                    <h3
-                                        className="user-profile-container-main-container-header__title wow fadeIn"
-                                        data-wow-duration="3s"
-                                        style={{
-                                            visibility: "visible",
-                                            animationDuration: "3s",
-                                            animationName: "fadeIn"
-                                        }}
-                                    >
-                                        TV Shows Rated
-        </h3>
-                                    <hr className="user-profile-container-main-container-header__separator" />
-                                </header>
-                                <div className="user-profile-container-main-container-item">
-                                    <h3 className="user-profile-container-main-container-item-warning">
-                                        No rated tv shows found
-        </h3>
-                                </div>
-                            </div>
+
                         </div>
                     </main>
                 </div>
@@ -193,15 +143,11 @@ class UserProfile extends Component {
     }
 }
 const mapStateToProps = state => ({
-    session: state.getSession,
-    requestToken: state.getRequestToken,
     logInStatus: state.toggleLogInStatus.status,
     userDetails: state.getUserDetails,
 });
 
 const mapDispatchToProps = dispatch => ({
-    getSession: (url, token) => dispatch(getSession(url, token)),
-    deleteSession: (url, sessionId) => dispatch(deleteSession(url, sessionId)),
     toggleLogInStatus: status => dispatch(toggleLogInStatus(status)),
     getUserDetails: url => dispatch(getUserDetails(url)),
 });
