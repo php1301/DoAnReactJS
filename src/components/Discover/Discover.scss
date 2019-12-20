@@ -103,7 +103,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
-
+    padding-top: 350px;
     // discover-item
     &-item {
       opacity: .9;
@@ -220,6 +220,7 @@
       grid-gap: 2rem;
       grid-template-columns: repeat(3, 1fr);
       padding: 2rem;
+      padding-top: 350px;
 
       &-item {
 

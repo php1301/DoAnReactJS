@@ -13,9 +13,7 @@ import getPeopleDetails from '../../actions/peopleActions/getPeopleDetails';
 import getPeopleCombinedCredits from '../../actions/peopleActions/getPeopleCombinedCredits';
 import { connect } from 'react-redux'
 import StarRating from '../StarRating/StarRating';
-import TicketModal from './TicketModal';
 import "../DetailMovies/Ticket.scss"
-import Schedule from '../Schedule/Schedule';
 import ScheduleDetails from '../ScheduleDetails/ScheduleDetails';
 import Hotline from '../Hotline/Hotline';
 import Loader from '../Loader/Loader'

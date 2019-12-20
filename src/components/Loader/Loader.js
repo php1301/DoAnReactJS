@@ -5,12 +5,12 @@ class Loader extends Component {
 
   // Sets the opacity to 0 100ms after component mounted and removes loader from DOM 2 seconds after
   componentDidMount() {
-    setTimeout(() => {
+    setTimeout(async () => {
 
       document.querySelector('.loader-container').style.transition = 'opacity 5s';
       document.querySelector('.loader-container').style.opacity = '0';
 
-      setTimeout(() => {
+      setTimeout(async () => {
         document.querySelector('.loader-container').remove();
       }, 2000);
 
@@ -18,7 +18,7 @@ class Loader extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="loader-container">
         <div className="loader">
           <div className="inner one"></div>

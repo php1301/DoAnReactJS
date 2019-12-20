@@ -7,21 +7,25 @@ import SearchResults from "./components/SearchResult/SearchResult.js";
 import TicketBox from "./components/TicketBox/TicketBox.js";
 import Payment from "./components/Payment/Payment.js";
 import PayementDetails from "./components/PaymentDetails/PayementDetails.js";
+import PageNotFound from "./components/PageNotFound/PageNotFound.js";
 const routesHome = [
     {
         path: "/",
         exact: true,
-        component: Home
+        component: Home,
+        data: { requiresLogin: false }
     },
     {
         path: "/login",
         exact: true,
-        component: UserLogin
+        component: UserLogin,
+        data: { requiresLogin: false }
     },
     {
-        path: "/profile/:status",
+        path: "/profile",
         exact: true,
-        component: UserProfile
+        component: UserProfile,
+        data: { requiresLogin: true }
     },
     {
         path: "/details/movie/:id",
@@ -46,12 +50,25 @@ const routesHome = [
     {
         path: "/details/movie/:id/payment",
         exact: true,
-        component: Payment
+        component: Payment,
+        data: { requiresLogin: true }
     },
     {
         path: "/details/movie/:id/payment/:idbooking",
         exact: true,
-        component: PayementDetails
+        component: PayementDetails,
+        data: { requiresLogin: true }
+    },
+    {
+        path: "/details/movie/:id/payment/:idbooking",
+        exact: true,
+        component: PayementDetails,
+        data: { requiresLogin: true }
+    },
+    {
+        path: "/404",
+        exact: true,
+        component: PageNotFound
     },
 ]
 export { routesHome }

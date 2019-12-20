@@ -15,47 +15,25 @@ import firebaseConfig from "../../firestore"
 import Tickets from './Tickets';
 class UserProfile extends Component {
 
-
-    componentDidMount() {
-        if (this.props.match.params.status === 'approve' && !this.props.logInStatus) {
-            this.props.toggleLogInStatus({ status: 'APPROVE' });
+    static getDerivedStateFromProps(props, state) {
+        if (props.logInStatus === false) {
+            props.history.push('/login')
         }
     }
-    authenticate = provider => {
-        console.log(provider);
-        const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-        firebaseConfig
-            .auth()
-            .signInWithPopup(authProvider)
-            .then(this.authHandler);
-    };
-
-    authHandler = authData => {
-        const user = authData.user;
-        this.setState({
-            isLogin: true,
-            photo: user.photoURL,
-            displayName: user.displayName
-        }, console.log(user));
-    };
+    
 
     logout = async () => {
         await firebase.auth().signOut();
         this.props.history.push('/')
         this.props.toggleLogInStatus({ status: false });
         localStorage.clear();
-
     };
     render() {
         let displayName = localStorage.getItem('displayName')
         let photo = localStorage.getItem('photo')
         let uid = localStorage.getItem('uid')
-        // if (!this.state.isLogin)
-        //     return <UserLogin authenticate={this.authenticate} authHandler={this.authHandler} logout={this.logout} />
-        // else
         return (
-
-            <div className="user-profile">
+            < div className="user-profile" >
                 <MainNav />
                 <div className="user-profile-container">
                     <aside className="user-profile-container-aside">
@@ -137,7 +115,7 @@ class UserProfile extends Component {
                         </div>
                     </main>
                 </div>
-                <Loader />
+                {this.props.logInStatus === false ? "" : <Loader />}
             </div >
         )
     }

@@ -1,0 +1,43 @@
+.user-log-in-side-image__title1 {
+  color: #fff;
+  font: bold 52px "Alegreya Sans", sans-serif;
+  //   margin: 37vh auto 0;
+  text-align: center;
+  text-shadow: 1px 1px #eb4e7a, 2px 2px #eb4e7a, 3px 3px #eb4e7a;
+  transition: all 0.12s ease-out;
+  width: 12%;
+  text-transform: uppercase;
+  margin-left: 700px;
+  height: 724px;
+}
+.user-log-in-side-image__title1:hover {
+  left: 0px;
+  position: relative;
+  text-shadow: 1px 1px #eb4e7a, 2px 2px #eb4e7a, 3px 3px #eb4e7a, 4px 4px #eb4e7a, 5px 5px #eb4e7a, 6px 6px #eb4e7a;
+  top: 0px;
+}
+@media (max-width: 900px) {
+  .user-log-in-side-image {
+    display: block;
+  }
+}
+@media (max-width: 1150px) {
+  .user-log-in-side-image__title1 {
+    margin-left: 500px;
+  }
+}
+@media (max-width: 900px) {
+  .user-log-in-side-image__title1 {
+    margin-left: 400px;
+  }
+}
+@media (max-width: 750px) {
+  .user-log-in-side-image__title1 {
+    margin-left: 250px;
+  }
+}
+@media (max-width: 550px) {
+  .user-log-in-side-image__title1 {
+    margin-left: 170px;
+  }
+}

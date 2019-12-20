@@ -3,7 +3,7 @@ import Home from '../Home/Home';
 import UserLogin from '../UserLogin/UserLogin';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import UserProfile from '../UserProfile/UserProfile';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import { routesHome } from "../../routes";
 import { connect } from 'react-redux';
 function App(props) {
@@ -11,7 +11,7 @@ function App(props) {
     if (routes && routes.length > 0) {
       return routes.map((item, index) => {
         return (
-          <Route key={index} exact={item.exact} path={item.path} component={item.component} />
+          <Route key={index} exact={item.exact} path={item.path} component={item.component} login={item.data} />
         )
       })
     }
@@ -21,22 +21,21 @@ function App(props) {
       <BrowserRouter>
         <Switch>
           {showItem(routesHome)}
-          {props.logInStatus ==="APPROVE"  ? <Redirect from='/login' to="/profile/approve" from="/profile" to="/profile/approve"/> : <Redirect from='/profile' to='/login' />}
-          {props.logInStatus ===false ? <Redirect from='/profile' to="/login" /> : <Redirect from='/login' to="/profile/approve" />}
+          <Redirect from="*" to="/404"/>
         </Switch>
       </BrowserRouter>
-      {/* <Home/> */}
-      {/* <UserLogin/> */}
-      {/* <UserProfile/> */}
+        {/* <Home/> */}
+        {/* <UserLogin/> */}
+        {/* <UserProfile/> */}
     </div>
-  );
-}
-
+      );
+    }
+    
 const mapStateToProps = state => ({
-  logInStatus: state.toggleLogInStatus.status,
-  session: state.getSession
-});
-
-
-
-export default connect(mapStateToProps, null)(App);
+        logInStatus: state.toggleLogInStatus.status,
+      session: state.getSession
+    });
+    
+    
+    
+    export default connect(mapStateToProps, null)(App);

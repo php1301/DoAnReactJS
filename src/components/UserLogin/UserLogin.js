@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import '../UserLogin/UserLogin.scss';
 import { connect, Provider } from 'react-redux';
 import { Link } from 'react-router-dom';
-import getSession from '../../actions/authenticationActions/getSession';
-import deleteSession from '../../actions/authenticationActions/deleteSession';
-import getUserDetails from '../../actions/authenticationActions/getUserDetails';
+
 import firebase from 'firebase'
 import firebaseConfig from "../../firestore"
 
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
-import getRequestToken from '../../actions/authenticationActions/getRequestToken';
 class UserLogin extends Component {
   constructor(props) {
     super(props);
@@ -26,9 +23,7 @@ class UserLogin extends Component {
       }
     });
   }
-  // componentDidMount() {
-  //   this.props.getRequestToken("https://api.themoviedb.org/3/authentication/token/new?api_key=f4718f386ee605decefebc673ce3bc9c");
-  // }
+
   authenticate = provider => {
     console.log(provider);
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
@@ -38,21 +33,18 @@ class UserLogin extends Component {
       .then(this.authHandler);
   };
 
-  authHandler = authData => {
-    let number = 123
-    const user = authData.user;
-    if (user !== null) {
+  authHandler = async authData => {
+    const user = await authData.user;
       localStorage.setItem('displayName', user.displayName)
       localStorage.setItem('photo', user.photoURL)
       localStorage.setItem('uid', user.uid)
-    }
     this.setState({
       isLogin: true,
-      // photo: user.photoURL,
-      // displayName: user.displayName
+
     });
     if (this.state.isLogin === true) {
-      this.props.history.push({ pathname: '/profile/approve', state: { isLogin: this.state.isLogin, photo: this.state.photo, displayName: this.state.displayName } })
+      this.props.toggleLogInStatus({ status: 'APPROVE' })
+      this.props.history.push({ pathname: '/profile', state: { isLogin: this.state.isLogin, photo: this.state.photo, displayName: this.state.displayName } })
     }
   };
 
@@ -71,8 +63,7 @@ class UserLogin extends Component {
 
           <div className="user-log-in-container-content">
             <a href="#">
-              {/* <a href={`https://www.themoviedb.org/authenticate/${this.props.requestToken.request_token}?redirect_to=http://localhost:3000/profile/approved`}> */}
-              {/* <button className="user-log-in-container-content__button" onClick={this.handleLogIn} >Log In</button> */}
+              
               <button onClick={() => { this.authenticate("Facebook") }} className="user-log-in-container-content__button"  >Log In</button>
             </a>
           </div>
@@ -90,11 +81,9 @@ class UserLogin extends Component {
   }
 }
 const mapStateToProps = state => ({
-  requestToken: state.getRequestToken
 });
 
 const mapDispatchToProps = dispatch => ({
-  getRequestToken: url => dispatch(getRequestToken(url)),
   toggleLogInStatus: status => dispatch(toggleLogInStatus(status)),
 });
 

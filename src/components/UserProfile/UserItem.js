@@ -4,6 +4,7 @@ import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import $ from 'jquery'
 import firebase from 'firebase'
 import firebaseConfig from "../../firestore"
+import { Link } from 'react-router-dom';
 
 export default class UserItem extends Component {
    constructor(props) {
@@ -30,7 +31,7 @@ export default class UserItem extends Component {
          }
          else
             return (
-               <div>
+               <Link to={`/details/movie/${item.id}`}>
                   <div className="carousel-overlay" style={{
                      background: `linear-gradient(
                 rgba(0, 0, 0, 0.6),
@@ -49,8 +50,8 @@ export default class UserItem extends Component {
                      }}
                   />
                   <div class="carousel-profile-caption"><p class="carousel-profile-category">{item.bio}</p>
-                     <h3 class="carousel-profile-h3">{item.tenPhim}</h3><p class="carousel-profile-p">5.8 | Action</p></div>
-               </div>
+                     <h3 class="carousel-profile-h3">{item.tenPhim}</h3><p class="carousel-profile-p">{item.doDai}| {item.genres} | Release: {item.ngayChieu}</p></div>
+               </Link>
             )
       })
 
@@ -59,12 +60,14 @@ export default class UserItem extends Component {
       let uid = localStorage.getItem('uid')
       let arrToPush = []
       const db = firebase.firestore();
-      await db.collection("user").doc(uid).collection("favorite").get()
-         .then((snapshot) => {
-            snapshot.docs.forEach((doc) => {
-               arrToPush.push(doc.data())
+      if (uid !== null) {
+         await db.collection("user").doc(uid).collection("favorite").get()
+            .then((snapshot) => {
+               snapshot.docs.forEach((doc) => {
+                  arrToPush.push(doc.data())
+               });
             });
-         });
+      }
       console.log(arrToPush)
       return arrToPush
       // this.setState({

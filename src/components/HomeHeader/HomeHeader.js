@@ -15,7 +15,7 @@ class HomeHeader extends Component {
         this.props.onSaveCarousel()
         this.props.postMovieGenres("https://api.themoviedb.org/3/genre/movie/list?api_key=f4718f386ee605decefebc673ce3bc9c&language=en-US")
     }
-    
+
     handleGetGenre = genreId => {
         let mainGenre;
         if (this.props.movieGenres.genres) {
@@ -53,7 +53,7 @@ class HomeHeader extends Component {
                         </a>
                         <Carousel.Caption>
                             <p class="carousel-category">LATEST</p>
-                            <h3 className="carousel-h3">{item.original_title}</h3>
+                            <h3 className="carousel-h3">{item.title}</h3>
                             <p className="carousel-p">{item.vote_average} | {this.handleGetGenre(item.genre_ids)}</p>
                         </Carousel.Caption>
                     </Carousel.Item >
@@ -66,7 +66,7 @@ class HomeHeader extends Component {
         return (
             <Carousel touch={true}>
                 {this.renderItem()}
-                
+
             </Carousel>
             // <div id="contentContainer" class="trans3d">
             //     <section id="carouselContainer" class="trans3d">

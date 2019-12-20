@@ -105,12 +105,13 @@ export default class Tickets extends Component {
         let uid = localStorage.getItem('uid')
         let arrToPush = []
         const db = firebase.firestore();
-        await db.collection("user").doc(uid).collection("payment").get()
-            .then((snapshot) => {
-                snapshot.docs.forEach((doc) => {
-                    arrToPush.push(doc)
+        if (uid != null)
+            await db.collection("user").doc(uid).collection("payment").get()
+                .then((snapshot) => {
+                    snapshot.docs.forEach((doc) => {
+                        arrToPush.push(doc)
+                    });
                 });
-            });
         console.log(arrToPush)
         return arrToPush
         // this.setState({
