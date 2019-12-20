@@ -7,7 +7,6 @@ const getNowPlaying = () => {
             method: "GET"
         })
             .then(result => {
-                console.log(result);
                 
                 dispatch(saveNowPlaying(result.data))
             })

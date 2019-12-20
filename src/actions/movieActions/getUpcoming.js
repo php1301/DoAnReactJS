@@ -7,8 +7,7 @@ const getUpcoming = () => {
             method: "GET"
         })
             .then(result => {
-                console.log(result);
-                
+               
                 dispatch(saveUpcoming(result.data))
             })
     }
