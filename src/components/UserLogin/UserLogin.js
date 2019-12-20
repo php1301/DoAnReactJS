@@ -35,14 +35,21 @@ class UserLogin extends Component {
 
   authHandler = async authData => {
     const user = await authData.user;
-      localStorage.setItem('displayName', user.displayName)
-      localStorage.setItem('photo', user.photoURL)
-      localStorage.setItem('uid', user.uid)
+    localStorage.setItem('displayName', user.displayName)
+    localStorage.setItem('photo', user.photoURL)
+    localStorage.setItem('uid', user.uid)
     this.setState({
       isLogin: true,
 
     });
     if (this.state.isLogin === true) {
+      const db = await firebase.firestore();
+      db.settings({
+        timestampsInSnapshots: true
+      });
+      db.collection("user").doc(user.uid).set(
+        {}
+      )
       this.props.toggleLogInStatus({ status: 'APPROVE' })
       this.props.history.push({ pathname: '/profile', state: { isLogin: this.state.isLogin, photo: this.state.photo, displayName: this.state.displayName } })
     }
@@ -63,7 +70,7 @@ class UserLogin extends Component {
 
           <div className="user-log-in-container-content">
             <a href="#">
-              
+
               <button onClick={() => { this.authenticate("Facebook") }} className="user-log-in-container-content__button"  >Log In</button>
             </a>
           </div>
