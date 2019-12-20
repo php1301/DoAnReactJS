@@ -16,8 +16,8 @@ export default class MainFooter extends Component {
                             <a className="wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="1.2s" to="/">Home</a>
                             <a className="wow fadeInLeft" data-wow-delay=".9s" data-wow-duration="1.2s" to="/log-in">Profile</a>
                             <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" to="/discover">Discover</a>
-                            <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" to="/discover">FAQ</a>
-                            <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" to="/discover">Privacy</a>
+                            <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" href="https://www.termsfeed.com/terms-conditions/03b187ec0a7e3e1daf949a9c83615051" to="/discover">FAQ</a>
+                            <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" href="https://www.termsfeed.com/privacy-policy/19ee9e5044a2da9d21da854d0de4f914" to="">Privacy</a>
                             <a className="wow fadeInLeft" data-wow-delay="1.1s" data-wow-duration="1.2s" to="/discover">Brand</a>
                         </nav>
                     </header>
