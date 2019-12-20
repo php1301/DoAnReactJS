@@ -6,7 +6,6 @@ const getUpcoming = (state = initState, action) => {
 
     switch (action.type) {
         case GET_UPCOMING:
-            console.log('check', action)
             state.result = action.upcoming
             return { ...state }
         default:

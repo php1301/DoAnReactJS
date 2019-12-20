@@ -91,7 +91,6 @@ class MainNav extends Component {
 
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     navStatus: state.toggleNav.navStatus // cham den state cua toggleNav da duoc export tu reducer togglenav tren rootreducer
   }

@@ -7,7 +7,6 @@ const getPopular = () => {
             method: "GET"
         })
             .then(result => {
-                console.log(result);
                 
                 dispatch(savePopular(result.data))
             })

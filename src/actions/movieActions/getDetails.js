@@ -7,7 +7,6 @@ const getDetailsAPI = movie_id=> {
             method: "GET"
         })
         .then(result => {
-            console.log(result)
             dispatch(getDetails(result.data))
         })
     }

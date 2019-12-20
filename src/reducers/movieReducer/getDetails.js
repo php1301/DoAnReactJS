@@ -6,7 +6,6 @@ const getDetails = (state = initState, action) => {
     switch (action.type) {
         case GET_DETAILS:
             state.result = action.details
-            console.log(action.details)
             return { ...state }
         default:
             return { ...state }

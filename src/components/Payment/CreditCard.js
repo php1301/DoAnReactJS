@@ -61,11 +61,12 @@ class CreditCard extends Component {
 
   }
   handlePostFirebase = async (data) => {
+    let uid =localStorage.getItem('uid')
     const db = await firebase.firestore();
     db.settings({
       timestampsInSnapshots: true
     });
-    const userRef = db.collection("payment").add({
+    const userRef = db.collection("user").doc(uid).collection("payment").add({
       data
     })
       .then(docRef => {

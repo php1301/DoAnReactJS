@@ -7,7 +7,6 @@ const getSeatsAPI = (id) => {
             method: "GET"
         })
             .then(result => {
-                console.log(result)
                 dispatch(getSeats(result.data))
             })
             .catch(err => {

@@ -6,7 +6,6 @@ const getReviews = (state = initState, action) => {
     switch (action.type) {
         case GET_REVIEWS:
             state.result = action.reviews
-             console.log(action.reviews)
             return { ...state }
         default:
             return {...state}

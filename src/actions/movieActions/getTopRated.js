@@ -7,7 +7,6 @@ const getTopRated = () => {
             method: "GET"
         })
             .then(result => {
-                console.log(result);
                 
                 dispatch(saveTopRated(result.data))
             })

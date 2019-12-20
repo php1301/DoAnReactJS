@@ -7,7 +7,6 @@ const getGenresAPI = () => {
             method: "GET"
         })
         .then(result => {
-            console.log(result)
             dispatch(getGenres(result.data))
         })
     }

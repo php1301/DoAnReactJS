@@ -6,7 +6,6 @@ const getPopular = (state = initState, action) => {
 
     switch (action.type) {
         case GET_POPULAR:
-            console.log('check', action)
             state.result = action.popular
             return { ...state }
         default:

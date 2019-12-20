@@ -19,6 +19,7 @@ import Schedule from '../Schedule/Schedule';
 import ScheduleDetails from '../ScheduleDetails/ScheduleDetails';
 import Hotline from '../Hotline/Hotline';
 import Loader from '../Loader/Loader'
+import Favorite from './Favorite';
 class DetailMovies extends Component {
     constructor(props) {
         super(props);
@@ -41,50 +42,9 @@ class DetailMovies extends Component {
         // const strArr = str.split(' ');
         return str.split(' ').length < 50 ? str : str.split(".").splice(0, 5).join("...")  // dua chuoi thanh mang
     }
-    handleShareButton = () => {
-        // let toggle = {...this.state.toggle}
-        // this.setState = ({
-        //     toggle: false
-        // })
-        // document.querySelector('.item-details-header-info-share-buttons').classList.toggle('.item-details-header-info-share-buttons__hide')
-        document.querySelector('.item-details-header-info-share-buttons').classList.toggle('item-details-header-info-share-buttons__hide');
-    }
-    // Handles logic for favorite items
-    handleFavoriteItem = (event, accountId, apiKey, sessionId, itemType, itemId) => {
-
-        // Checks if the user is logged in and posts favorite data
-        if (this.props.logInStatus === 'APPROVED') {
-            fetch(`https://api.themoviedb.org/3/account/${accountId}/favorite?api_key=${apiKey}&session_id=${sessionId}`, {
-                method: 'POST',
-                body: JSON.stringify({
-                    "media_type": itemType,
-                    "media_id": itemId,
-                    "favorite": !event.target.closest('.item-details-header-info-container-content__favorite').classList.value.includes('--active')
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .catch(error => console.log(error))
-
-            event.target.closest('.item-details-header-info-container-content__favorite').classList.toggle('item-details-header-info-container-content__favorite--active');
-
-            // Displays a warning popup if user is not approved
-        } else if (this.props.logInStatus === 'GUEST') {
-            document.querySelector('.item-details-header-info-container-account-warning').classList.remove('item-details-header-info-container-account-warning--hide');
-            setTimeout(() => {
-                document.querySelector('.item-details-header-info-container-account-warning').classList.add('item-details-header-info-container-account-warning--hide');
-            }, 3000);
-        } else {
-            document.querySelector('.item-details-header-info-container-account-warning').classList.remove('item-details-header-info-container-account-warning--hide');
-            setTimeout(() => {
-                document.querySelector('.item-details-header-info-container-account-warning').classList.add('item-details-header-info-container-account-warning--hide');
-            }, 3000);
-        }
-    }
+  
+   
     componentDidMount() {
-        console.log('detail props', this.props)
         let id = this.props.match.params.id
         // id == undefined 
         this.props.getPeopleDetails(`https://api.themoviedb.org/3/person/${id}?api_key=f4718f386ee605decefebc673ce3bc9c&language=en-US`);
@@ -94,12 +54,11 @@ class DetailMovies extends Component {
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
         this.props.onSaveSeats(16016)
-        console.log(this.props.details)
     }
     render() {
         let { details } = this.props
         let { reviews } = this.props
-        console.log(reviews.results)
+        let genres = details.genres ? `${details.genres[0] ? details.genres[0].name : ''}` + `${details.genres[1] ? ' | ' + details.genres[1].name : ''}` : ''
         return (
             <div>
                 <Loader />
@@ -174,24 +133,10 @@ class DetailMovies extends Component {
                                     {details.status} | {details.original_language}
                                 </p>
                                 <p className="item-details-header-info-container-content__genre">
-                                    {details.genres ? `${details.genres[0] ? details.genres[0].name : ''}` + `${details.genres[1] ? ' | ' + details.genres[1].name : ''}` : ''}
+                                    {/* {details.genres ? `${details.genres[0] ? details.genres[0].name : ''}` + `${details.genres[1] ? ' | ' + details.genres[1].name : ''}` : ''} */}
+                                    {genres}
                                 </p>
-                                <svg
-                                    onClick={(e) => { this.handleFavoriteItem(e, this.props.userDetails.id, this.props.apiKey, this.props.session.session_id, 'movie', this.props.movieDetails.id) }}
-                                    className="item-details-header-info-container-content__favorite wow pulse"
-                                    data-wow-delay=".5s"
-                                    data-wow-duration="2s"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 512 512"
-                                    style={{
-                                        visibility: "visible",
-                                        animationDuration: "2s",
-                                        animationDelay: "0.5s",
-                                        animationName: "pulse"
-                                    }}
-                                >
-                                    <path d="M256 448l-30.164-27.211C118.718 322.442 48 258.61 48 179.095 48 114.221 97.918 64 162.4 64c36.399 0 70.717 16.742 93.6 43.947C278.882 80.742 313.199 64 349.6 64 414.082 64 464 114.221 464 179.095c0 79.516-70.719 143.348-177.836 241.694L256 448z" />
-                                </svg>
+                                <Favorite details={details} genres={genres} logInStatus={this.props.logInStatus} />
                                 {/* <li><Link class="theme-btn" to={this.props.logInStatus || this.props.session.failure ? `/ticket/${this.props.match.params.id}/${this.props.match.params.idticket}` : `/login`}><i class="icofont icofont-ticket"></i> Tickets</Link></li> */}
                             </div>
                         </div>
