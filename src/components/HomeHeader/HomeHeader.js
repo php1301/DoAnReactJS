@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import '../HomeHeader/HomeHeader.scss';
 import { connect } from 'react-redux'
 import * as action from "../../actions/movieActions/getNowPlaying"
 import postMovieGenres from '../../actions/movieActions/postMovieGenres';
-import TweenMax from 'gsap/all'
-import Expo from 'gsap/all'
-import $ from 'jquery'
-import Quint from 'gsap/all'
 import '../PaymentDetails/Carousel.scss'
 class HomeHeader extends Component {
 
@@ -30,33 +26,46 @@ class HomeHeader extends Component {
     }
     renderItem = () => {
         return this.props.carousel && this.props.carousel.map((item, index) => {
-            if (index > 3 && index < 7) {
+            if (index >= 0 && index < 3) {
                 return (
-                    <Carousel.Item >
-                        <a>
-                            <div className="carousel-overlay" style={{
-                                background: `linear-gradient(
-                rgba(0, 0, 0, 0.6),
-                rgba(0, 0, 0, 0.6)
-              ) center center no-repeat, #fff url('https://image.tmdb.org/t/p/w1280/${item.backdrop_path}') center top no-repeat`, backgroundSize: 'cover, cover'
-                            }}>
-                            </div>
+                    <li className={`num${index} img slide`}><img src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`} style={{ width: '100%', height: '86%' }} /></li>
+                )
+            }
+        })
+    }
+    renderThumb = () => {
+        return this.props.carousel && this.props.carousel.map((item, index) => {
+            if (index >= 0 && index < 3) {
+                return (
+                    <label className={`num${index}`} htmlFor="cs_slide1_0">
+                        <span className="cs_point" />
+                        <span className="cs_thumb">
                             <img
-                                className="d-block w-100"
-                                src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`}
-                                alt="First slide"
-                                style={{
-                                    width: "1519px",
-                                    height: "700px"
-                                }}
+                                src={`https://image.tmdb.org/t/p/w92/${item.poster_path}`}
+                                alt="Scooter"
+                                title="Scooter"
                             />
-                        </a>
-                        <Carousel.Caption>
-                            <p class="carousel-category">LATEST</p>
-                            <h3 className="carousel-h3">{item.title}</h3>
-                            <p className="carousel-p">{item.vote_average} | {this.handleGetGenre(item.genre_ids)}</p>
-                        </Carousel.Caption>
-                    </Carousel.Item >
+                        </span>
+                    </label>
+                )
+            }
+        })
+    }
+    renderDes = () => {
+        return this.props.carousel && this.props.carousel.map((item, index) => {
+            if (index >= 0 && index < 3) {
+                return (
+                    <label className={`num${index}`}>
+                        <span className="cs_title">
+                            <span className="cs_wrapper">{item.title}</span>
+                        </span>
+                        <br />
+                        <span className="cs_descr">
+                            <span className="cs_wrapper">RATING: {item.vote_average}</span>
+                            <div className="cs_wrapper">BUDGET: {item.popularity}</div>
+                            <div className="cs_wrapper">{this.handleGetGenre(item.genre_ids)}</div>
+                        </span>
+                    </label>
                 )
             }
         })
@@ -64,26 +73,118 @@ class HomeHeader extends Component {
     render() {
         // let {carousel} = this.props
         return (
-            <Carousel touch={true}>
-                {this.renderItem()}
+            <Fragment>
+                {/* <Carousel touch={true}> */}
+                <section id="rt-showcase-surround">
+                    <div id="rt-showcase" className="slider-container rt-overlay-dark">
+                        <div className="rt-container slider-container">
+                            <div className="rt-grid-12 rt-alpha rt-omega">
+                                <div className="csslider1 autoplay ">
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_slide1_0"
+                                        type="radio"
+                                        className="cs_anchor slide"
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_slide1_1"
+                                        type="radio"
+                                        className="cs_anchor slide"
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_slide1_2"
+                                        type="radio"
+                                        className="cs_anchor slide"
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_play1"
+                                        type="radio"
+                                        className="cs_anchor"
+                                        defaultChecked
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_pause1_0"
+                                        type="radio"
+                                        className="cs_anchor pause"
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_pause1_1"
+                                        type="radio"
+                                        className="cs_anchor pause"
+                                    />
+                                    <input
+                                        name="cs_anchor1"
+                                        id="cs_pause1_2"
+                                        type="radio"
+                                        className="cs_anchor pause"
+                                    />
+                                    <ul>
+                                        <li className="cs_skeleton">
+                                            <img src="http://cssslider.com/sliders/demo-28/data1/images/scooter593155_1280.jpg" style={{ width: '100%' }} />
+                                        </li>
+                                        {this.renderItem()}
+                                    </ul>
+                                    <div className="cs_description">
+                                        {this.renderDes()}
+                                    </div>
+                                    <div className="cs_arrowprev">
+                                        <label className="num0" htmlFor="cs_slide1_0">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                        <label className="num1" htmlFor="cs_slide1_1">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                        <label className="num2" htmlFor="cs_slide1_2">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div className="cs_arrownext">
+                                        <label className="num0" htmlFor="cs_slide1_0">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                        <label className="num1" htmlFor="cs_slide1_1">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                        <label className="num2" htmlFor="cs_slide1_2">
+                                            <span>
+                                                <i />
+                                                <b />
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div className="cs_bullets">
+                                        {this.renderThumb()}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="clear" />
+                        </div>
+                    </div>
+                </section>
 
-            </Carousel>
-            // <div id="contentContainer" class="trans3d">
-            //     <section id="carouselContainer" class="trans3d">
-            //         <figure id="item1" class="carouselItem trans3d"><div class="carouselItemInner trans3d">1</div></figure>
-            //         <figure id="item2" class="carouselItem trans3d"><div class="carouselItemInner trans3d">2</div></figure>
-            //         <figure id="item3" class="carouselItem trans3d"><div class="carouselItemInner trans3d">3</div></figure>
-            //         <figure id="item4" class="carouselItem trans3d"><div class="carouselItemInner trans3d">4</div></figure>
-            //         <figure id="item5" class="carouselItem trans3d"><div class="carouselItemInner trans3d">5</div></figure>
-            //         <figure id="item6" class="carouselItem trans3d"><div class="carouselItemInner trans3d">6</div></figure>
-            //         <figure id="item7" class="carouselItem trans3d"><div class="carouselItemInner trans3d">7</div></figure>
-            //         <figure id="item8" class="carouselItem trans3d"><div class="carouselItemInner trans3d">8</div></figure>
-            //         <figure id="item9" class="carouselItem trans3d"><div class="carouselItemInner trans3d">9</div></figure>
-            //         <figure id="item10" class="carouselItem trans3d"><div class="carouselItemInner trans3d">10</div></figure>
-            //         <figure id="item11" class="carouselItem trans3d"><div class="carouselItemInner trans3d">11</div></figure>
-            //         <figure id="item12" class="carouselItem trans3d"><div class="carouselItemInner trans3d">12</div></figure>
-            //     </section>
-            // </div>
+
+
+            </Fragment>
         )
     }
 }

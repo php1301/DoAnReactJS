@@ -8,6 +8,8 @@ import TicketBox from "./components/TicketBox/TicketBox.js";
 import Payment from "./components/Payment/Payment.js";
 import PayementDetails from "./components/PaymentDetails/PayementDetails.js";
 import PageNotFound from "./components/PageNotFound/PageNotFound.js";
+import TicketItem from "./components/TicketItem/TicketItem.js";
+import SliderComponent from "./components/TicketItem/TicketItem.js";
 const routesHome = [
     {
         path: "/",
@@ -64,6 +66,11 @@ const routesHome = [
         exact: true,
         component: PayementDetails,
         data: { requiresLogin: true }
+    },
+    {
+        path: "/test",
+        exact: true,
+        component: SliderComponent,
     },
     {
         path: "/404",

@@ -8,6 +8,7 @@ import MainContent from '../MainContent/MainContent';
 import MainFooter from '../MainFooter/MainFooter';
 import Hotline from '../Hotline/Hotline';
 import News from '../News/News';
+import TicketItem from "../TicketItem/TicketItem"
 
 export default class Home extends Component {
     constructor(props) {
@@ -28,8 +29,9 @@ export default class Home extends Component {
                 <Loader />
                 <div className="home-container">
                     <MainNav />
+                    {/* <TicketItem /> */}
                     <HomeHeader />
-                    <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender}/>
+                    <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender} />
                     <MainContent renderItem={this.state.renderItem} />
                     <MainFooter />
                     <Hotline />

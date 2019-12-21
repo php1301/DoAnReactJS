@@ -6,6 +6,7 @@
     "@descomplica/react-credit-card": "^1.0.4",
     "@material-ui/core": "^4.7.1",
     "@material-ui/icons": "^4.5.1",
+    "antd": "^3.26.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
     "dateformat": "^3.0.3",
@@ -21,6 +22,7 @@
     "material-auto-rotating-carousel": "^3.0.2",
     "mobile-detect": "^1.4.4",
     "node-sass": "^4.12.0",
+    "oboe": "^2.1.5",
     "payform": "^1.4.0",
     "payment": "^2.3.0",
     "react": "^16.10.2",
@@ -29,6 +31,8 @@
     "react-dom": "^16.10.2",
     "react-html-parser": "^2.0.2",
     "react-icofont": "^1.0.13",
+    "react-image": "^2.2.2",
+    "react-lazyload": "^2.6.5",
     "react-modal-video": "^1.2.3",
     "react-multi-carousel": "^2.2.10",
     "react-notifications-component": "^2.2.4",
@@ -41,7 +45,8 @@
     "react-swipeable-views": "^0.13.3",
     "react-tabs": "^3.0.0",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "start": "react-scripts start",

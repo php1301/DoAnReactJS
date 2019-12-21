@@ -1,336 +1,209 @@
 import React, { Component } from 'react'
+import LazyLoad from 'react-lazyload'
+// import SliderContent from './SliderContent'
+import Slider from 'react-slick'
+import Movies from '../Movies/Movies';
 import "../TicketItem/TicketItem.scss"
-import SeatItems from '../SeatItems/SeatItems'
-export default class TicketItem extends Component {
-    render() {
-        return (
-            <div className="st_seatlayout_main_wrapper float_left">
-                <div className="container container_seat">
-                    <div className="st_seat_lay_heading float_left">
-                        <h3>Ariesplex SL Cinemas</h3>
-                    </div>
-                    <div className="st_seat_full_container">
-                        <div className="st_seat_lay_economy_wrapper float_left">
-                            <div className="screen">
-                                <img src="http://www.webstrot.com/html/moviepro/html/images/content/screen.png" />
-                            </div>
-                            <div className="st_seat_lay_economy_heading float_left">
-                                <h3>Economy</h3>
-                            </div>
-                            <SeatItems id={this.props.idticket} />
-                        </div>
-                        <div className="st_seat_lay_economy_wrapper st_seat_lay_economy_wrapperexicutive float_left">
-                            <div className="st_seat_lay_economy_heading float_left">
-                                <h3>Executive + 3d glasss - rs 190.00</h3>
-                            </div>
-                            <div className="st_seat_lay_row float_left">
-                                <ul>
-                                    <li className="st_seat_heading_row">C</li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c24" name="cb" />
-                                        <label htmlFor="c24" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c25" name="cb" placeholder={1} />
-                                        <label htmlFor="c25" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c26" name="cb" />
-                                        <label htmlFor="c26" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c27" name="cb" />
-                                        <label htmlFor="c27" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c28" name="cb" />
-                                        <label htmlFor="c28" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c29" name="cb" />
-                                        <label htmlFor="c29" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c30" name="cb" placeholder={1} />
-                                        <label htmlFor="c30" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c31" name="cb" />
-                                        <label htmlFor="c31" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c32" name="cb" />
-                                        <label htmlFor="c32" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c33" name="cb" />
-                                        <label htmlFor="c33" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c34" name="cb" />
-                                        <label htmlFor="c34" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c35" name="cb" />
-                                        <label htmlFor="c35" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c36" name="cb" />
-                                        <label htmlFor="c36" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c37" name="cb" />
-                                        <label htmlFor="c37" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c38" name="cb" />
-                                        <label htmlFor="c38" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c39" name="cb" />
-                                        <label htmlFor="c39" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c40" name="cb" />
-                                        <label htmlFor="c40" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c41" name="cb" />
-                                        <label htmlFor="c41" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c42" name="cb" />
-                                        <label htmlFor="c42" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c43" name="cb" placeholder={1} />
-                                        <label htmlFor="c43" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c44" name="cb" />
-                                        <label htmlFor="c44" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c45" name="cb" />
-                                        <label htmlFor="c45" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c46" name="cb" />
-                                        <label htmlFor="c46" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="st_seat_lay_row float_left">
-                                <ul>
-                                    <li className="st_seat_heading_row">B</li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c47" name="cb" />
-                                        <label htmlFor="c47" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c48" name="cb" placeholder={1} />
-                                        <label htmlFor="c48" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c49" name="cb" />
-                                        <label htmlFor="c49" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c50" name="cb" />
-                                        <label htmlFor="c50" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c51" name="cb" />
-                                        <label htmlFor="c51" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c52" name="cb" />
-                                        <label htmlFor="c52" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c53" name="cb" placeholder={1} />
-                                        <label htmlFor="c53" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c54" name="cb" />
-                                        <label htmlFor="c54" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c55" name="cb" />
-                                        <label htmlFor="c55" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c56" name="cb" />
-                                        <label htmlFor="c56" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c57" name="cb" />
-                                        <label htmlFor="c57" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c58" name="cb" />
-                                        <label htmlFor="c58" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c59" name="cb" />
-                                        <label htmlFor="c59" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c60" name="cb" />
-                                        <label htmlFor="c60" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c61" name="cb" />
-                                        <label htmlFor="c61" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c62" name="cb" />
-                                        <label htmlFor="c62" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c63" name="cb" />
-                                        <label htmlFor="c63" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c64" name="cb" />
-                                        <label htmlFor="c64" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c65" name="cb" />
-                                        <label htmlFor="c65" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c66" name="cb" placeholder={1} />
-                                        <label htmlFor="c66" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c67" name="cb" />
-                                        <label htmlFor="c67" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c68" name="cb" />
-                                        <label htmlFor="c68" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c69" name="cb" />
-                                        <label htmlFor="c69" />
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="st_seat_lay_row float_left">
-                                <ul>
-                                    <li className="st_seat_heading_row">A</li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c70" name="cb" />
-                                        <label htmlFor="c70" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c71" name="cb" placeholder={1} />
-                                        <label htmlFor="c71" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c72" name="cb" />
-                                        <label htmlFor="c72" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c73" name="cb" />
-                                        <label htmlFor="c73" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c74" name="cb" />
-                                        <label htmlFor="c74" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c75" name="cb" />
-                                        <label htmlFor="c75" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c76" name="cb" placeholder={1} />
-                                        <label htmlFor="c76" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c77" name="cb" />
-                                        <label htmlFor="c77" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c78" name="cb" />
-                                        <label htmlFor="c78" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c79" name="cb" />
-                                        <label htmlFor="c79" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c80" name="cb" />
-                                        <label htmlFor="c80" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c81" name="cb" />
-                                        <label htmlFor="c81" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c82" name="cb" />
-                                        <label htmlFor="c82" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c83" name="cb" />
-                                        <label htmlFor="c83" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c84" name="cb" />
-                                        <label htmlFor="c84" />
-                                    </li>
-                                    <li className="seat_disable">
-                                        <input type="checkbox" id="c85" name="cb" />
-                                        <label htmlFor="c85" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c86" name="cb" />
-                                        <label htmlFor="c86" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c87" name="cb" />
-                                        <label htmlFor="c87" />
-                                    </li>
-                                </ul>
-                                <ul className="st_eco_second_row">
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c88" name="cb" />
-                                        <label htmlFor="c88" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c89" name="cb" placeholder={1} />
-                                        <label htmlFor="c89" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c90" name="cb" />
-                                        <label htmlFor="c90" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c91" name="cb" />
-                                        <label htmlFor="c91" />
-                                    </li>
-                                    <li>	<span>Pay Rs.790.00</span>
-                                        <input type="checkbox" id="c92" name="cb" />
-                                        <label htmlFor="c92" />
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        )
-    }
+class SliderCarousel extends Component {
+ 
+  render() {
+    return (
+      <section id="rt-showcase-surround">
+        <div id="rt-showcase" className="slider-container rt-overlay-dark">
+          <div className="rt-container slider-container">
+            <div className="rt-grid-12 rt-alpha rt-omega">
+              <link
+                rel="stylesheet"
+                // href="http://cssslider.com/sliders/demo-28/engine1/style.css"
+              />
+              {/*[if IE]><link rel="stylesheet" href="http://cssslider.com/sliders/demo-28/engine1/ie.css"><![endif]*/}
+              {/*[if lte IE 9]><![endif]*/}
+              <div className="csslider1 autoplay ">
+                <input
+                  name="cs_anchor1"
+                  id="cs_slide1_0"
+                  type="radio"
+                  className="cs_anchor slide"
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_slide1_1"
+                  type="radio"
+                  className="cs_anchor slide"
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_slide1_2"
+                  type="radio"
+                  className="cs_anchor slide"
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_play1"
+                  type="radio"
+                  className="cs_anchor"
+                  defaultChecked
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_pause1_0"
+                  type="radio"
+                  className="cs_anchor pause"
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_pause1_1"
+                  type="radio"
+                  className="cs_anchor pause"
+                />
+                <input
+                  name="cs_anchor1"
+                  id="cs_pause1_2"
+                  type="radio"
+                  className="cs_anchor pause"
+                />
+                <ul>
+                  <li className="cs_skeleton">
+                    <img
+                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter593155_1280.jpg"
+                      style={{ width: "100%" }}
+                    />
+                  </li>
+                  <li className="num0 img slide">
+                    <img
+                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter593155_1280.jpg"
+                      alt="Carousel jQuery"
+                      title="Scooter"
+                    />
+                  </li>
+                  <li className="num1 img slide">
+                    <img
+                      src="http://cssslider.com/sliders/demo-28/data1/images/vespa498247_1280.jpg"
+                      alt="Responsive Carousel jQuery"
+                      title="Scooter"
+                    />
+                  </li>
+                  <li className="num2 img slide">
+                    <img
+                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter404111_1280.jpg"
+                      alt="Carousel HTML jQuery"
+                      title="Scooter"
+                    />
+                  </li>
+                </ul>
+                <div className="cs_description">
+                  <label className="num0">
+                    <span className="cs_title">
+                      <span className="cs_wrapper">Scooter</span>
+                    </span>
+                    <br />
+                    <span className="cs_descr">
+                      <span className="cs_wrapper">Vintage</span>
+                    </span>
+                  </label>
+                  <label className="num1">
+                    <span className="cs_title">
+                      <span className="cs_wrapper">Scooter</span>
+                    </span>
+                    <br />
+                    <span className="cs_descr">
+                      <span className="cs_wrapper">Vespa</span>
+                    </span>
+                  </label>
+                  <label className="num2">
+                    <span className="cs_title">
+                      <span className="cs_wrapper">Scooter</span>
+                    </span>
+                    <br />
+                    <span className="cs_descr">
+                      <span className="cs_wrapper">Street</span>
+                      <div className="cs_wrapper">Street</div>
+                      <div className="cs_wrapper">Street</div>
+                    </span>
+                  </label>
+                </div>
+                <div className="cs_arrowprev">
+                  <label className="num0" htmlFor="cs_slide1_0">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                  <label className="num1" htmlFor="cs_slide1_1">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                  <label className="num2" htmlFor="cs_slide1_2">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                </div>
+                <div className="cs_arrownext">
+                  <label className="num0" htmlFor="cs_slide1_0">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                  <label className="num1" htmlFor="cs_slide1_1">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                  <label className="num2" htmlFor="cs_slide1_2">
+                    <span>
+                      <i />
+                      <b />
+                    </span>
+                  </label>
+                </div>
+                <div className="cs_bullets">
+                  <label className="num0" htmlFor="cs_slide1_0">
+                    <span className="cs_point" />
+                    <span className="cs_thumb">
+                      <img
+                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/scooter593155_1280.jpg"
+                        alt="Scooter"
+                        title="Scooter"
+                      />
+                    </span>
+                  </label>
+                  <label className="num1" htmlFor="cs_slide1_1">
+                    <span className="cs_point" />
+                    <span className="cs_thumb">
+                      <img
+                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/vespa498247_1280.jpg"
+                        alt="Scooter"
+                        title="Scooter"
+                      />
+                    </span>
+                  </label>
+                  <label className="num2" htmlFor="cs_slide1_2">
+                    <span className="cs_point" />
+                    <span className="cs_thumb">
+                      <img
+                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/scooter404111_1280.jpg"
+                        alt="Scooter"
+                        title="Scooter"
+                      />
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div className="clear" />
+          </div>
+        </div>
+      </section>
+
+    )
+  }
 }
+
+export default SliderCarousel

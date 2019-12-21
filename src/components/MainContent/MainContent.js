@@ -13,6 +13,7 @@ import Carousel from '../Carousel/Carousel';
 import Title from '../Title/Title';
 import News from '../News/News';
 import Stuff from '../Stuff/Stuff';
+import TicketItem from "../TicketItem/TicketItem"
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1255 },
@@ -69,16 +70,17 @@ class MainContent extends Component {
             <div className="main-content-container">
                 {this.props.renderItem === true ? (
                     <Fragment>
-                        <Title title={"Upcoming"} />
+                        <Title data={"Upcoming"} className="glitch" title={"Upcoming"} />
                         <Carousel items={this.props.nowPlaying} />
+                        {/* <TicketItem/> */}
                         <HrLine />
-                        <Title title={"Popular"} />
+                        <Title data={"Popular"} title={"Popular"} />
                         <Carousel items={this.props.topRated} />
                         <HrLine />
-                        <Title title={"Now Playing"} />
+                        <Title data={"Now Playing"} title={"Now Playing"} />
                         <Carousel items={this.props.popular} />
                         <HrLine />
-                        <Title title={"Top rated"} />
+                        <Title data={"Top rated" } title={"Top rated"} />
                         <Carousel items={this.props.topRated} />
                         <HrLine />
                         <News items={this.props.popular} boxItems={this.props.nowPlaying} />
