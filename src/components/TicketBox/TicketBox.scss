@@ -27,6 +27,7 @@
 /*--------------
 1.Theme default CSS
 --------------------------*/
+@import "../../styles/variables";
 body,
 html {
   font-family: "Lato", sans-serif;
@@ -1972,7 +1973,7 @@ body.active #mobile-nav {
 }
 .prs_upcom_movie_img_btn_wrapper li:first-child a:hover {
   background: transparent;
-  border: 1px solid #ff4444;
+  border: 1px solid #b446ff;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -1985,7 +1986,7 @@ body.active #mobile-nav {
   height: 50px;
   text-align: center;
   line-height: 50px;
-  border: 1px solid #ff4444;
+  border: 1px solid #b446ff;
   margin-right: -900px;
   background: transparent;
   color: #ffffff;
@@ -2000,8 +2001,12 @@ body.active #mobile-nav {
   transition: all 0.5s;
 }
 .prs_upcom_movie_img_btn_wrapper li:last-child a:hover {
-  background: #ff4444;
-  border: 1px solid #ff4444;
+  background: linear-gradient(
+    to right,
+    #00dbde,
+    #fc00ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid #b446ff;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -2056,6 +2061,7 @@ body.active #mobile-nav {
 .prs_upcom_movie_content_box {
   float: left;
   width: 100%;
+  height: 205px;
   background: #ffffff;
   padding: 20px;
   -webkit-border-bottom-right-radius: 10px;
@@ -2112,7 +2118,7 @@ body.active #mobile-nav {
   margin-right: -200px;
 }
 .prs_upcom_movie_content_box i {
-  color: #ff4444;
+  color: #b446ff;
 }
 .prs_upcom_movie_content_box_inner {
   float: left;
@@ -2133,7 +2139,7 @@ body.active #mobile-nav {
   text-align: center;
   float: left;
   border: 1px solid #eeeeee;
-  color: #ff4444;
+  color: #b446ff;
   -webkit-border-top-right-radius: 5px;
   -moz-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
@@ -2153,8 +2159,12 @@ body.active #mobile-nav {
   transition: all 0.5s;
 }
 .prs_upcom_movie_content_box_inner_icon li a:hover {
-  background: #ff4444;
-  border: 1px solid #ff4444;
+  background: linear-gradient(
+    to right,
+    #fc00ff,
+    #00dbde
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid #b446ff;
   color: #ffffff;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -2258,7 +2268,7 @@ body.active #mobile-nav {
 }
 .prs_webseri_video_sec_icon_wrapper {
   position: absolute;
-  left: 0;
+  left: 30%;
   right: 0;
   margin: 0px auto;
   top: 38%;
@@ -2283,7 +2293,7 @@ body.active #mobile-nav {
   height: 90px;
   line-height: 90px;
   text-align: center;
-  background: #ff4444;
+  background: linear-gradient(to right, #fc00ff, #00dbde);
   color: #ffffff;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -8779,8 +8789,8 @@ i:before {
   height: 50px;
   text-align: center;
   line-height: 50px;
-  background: #ff4444;
-  border: 1px solid #ff4444;
+  background: transparent;
+  border: 1px solid #b446ff;
   color: #ffffff;
   margin-left: -900px;
   font-size: 12px;
@@ -8796,8 +8806,12 @@ i:before {
   transition: all 0.5s;
 }
 .prs_upcom_movie_img_btn_wrapper li:first-child a:hover {
-  background: transparent;
-  border: 1px solid #ff4444;
+  background: linear-gradient(
+    to right,
+    #fc00ff,
+    #00dbde
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid #b446ff;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -8810,7 +8824,7 @@ i:before {
   height: 50px;
   text-align: center;
   line-height: 50px;
-  border: 1px solid #ff4444;
+  border: 1px solid #b446ff;
   margin-right: -900px;
   background: transparent;
   color: #ffffff;
@@ -8828,8 +8842,12 @@ i:before {
   transition: all 0.5s;
 }
 .prs_upcom_movie_img_btn_wrapper li:last-child a:hover {
-  background: #ff4444;
-  border: 1px solid #ff4444;
+  background: linear-gradient(
+    to right,
+    #fc00ff,
+    #00dbde
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: 1px solid #b446ff;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
@@ -10366,10 +10384,69 @@ a.disabled {
   cursor: default;
   background: darkgrey;
 }
-.special3{
+.special3 {
   display: none;
 }
-.navigation{
+.navigation {
   font-size: 30px;
   font-weight: 800;
+}
+.album-slider-item {
+  width: 257px;
+}
+@media only screen and (min-width: 502px) {
+  .prs_webseri_video_sec_icon_wrapper {
+    display: none;
+  }
+}
+@media only screen and (max-width: 501px) {
+  .prs_upcom_movie_img_btn_wrapper {
+    display: none;
+  }
+  .prs_webseri_video_sec_icon_wrapper {
+    left: 52%;
+  }
+  .album-slider__item {
+    width: 360px;
+    padding-left: 130px;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .album-slider__item {
+    width: 300px;
+    // margin-left: 70px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .album-slider__item {
+    width: 250px;
+    padding-left: 70px;
+  }
+  .prs_webseri_video_sec_icon_wrapper {
+    left: 42%;
+  }
+}
+@media only screen and (max-width: 410px) {
+  .album-slider__item {
+    width: 225px;
+    padding-left: 45px;
+  }
+  .prs_webseri_video_sec_icon_wrapper {
+    left: 34%;
+  }
+}
+@media only screen and (max-width: 390px) {
+  .album-slider__item {
+    width: 200px;
+    // margin-left: 70px;
+  }
+}
+@media only screen and (max-width: 376px) {
+  .album-slider__item {
+    width: 200px;
+    padding-left: 30px;
+  }
+}
+.play-svg{
+  margin-bottom: 20px;
 }

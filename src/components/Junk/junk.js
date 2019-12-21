@@ -880,4 +880,192 @@ document.querySelector('.creditcard').classList.add('flipped');
     height: 200%;
     transform: scale(1.1, 1.17);
   }
-  
+  <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative' }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src="http://www.webstrot.com/html/moviepro/html/images/content/up5.jpg" alt="movie_img" />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li><a href="#">View Trailer</a>
+                    </li>
+                    <li><a href="#">View Details</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h2><a href="#">Busting Car</a></h2>
+                  <p>Drama , Acation</p>	<i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star-o" />
+                  <i className="fa fa-star-o" />
+                </div>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i className="flaticon-cart-of-ecommerce" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </li>
+        {/* <div class="prs_ln_left_img_wrapper">
+						<div class="prs_in_left_img_overlay"></div>
+						<div class="prs_webseri_video_sec_icon_wrapper ">
+							<ul>
+								<li><a class="test-popup-link button" rel="external" href="https://www.youtube.com/embed/ryzOXAO0Ss0" title="title"><i class="flaticon-play-button"></i></a>
+								</li>
+							</ul>
+						</div>
+						<div class="prs_prs_webseri_video_sec_icon_cont_wrapper">
+							<p>28 Feb 2018</p>
+							<h2>The News of theater</h2>
+							<ul>
+								<li><i class="fa fa-thumbs-up"></i>&nbsp;&nbsp;<a href="#">120 Like</a>
+								</li>
+								<li><i class="fa fa-comments-o"></i>&nbsp;&nbsp;<a href="#">52 Comments</a>
+								</li>
+							</ul>
+						</div>
+					</div> */}
+        <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative' }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src="http://www.webstrot.com/html/moviepro/html/images/content/up5.jpg" alt="movie_img" />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li><a href="#">View Trailer</a>
+                    </li>
+                    <li><a href="#">View Details</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h2><a href="#">Busting Car</a></h2>
+                  <p>Drama , Acation</p>	<i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star-o" />
+                  <i className="fa fa-star-o" />
+                </div>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i className="flaticon-cart-of-ecommerce" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </li>
+        <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative' }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src="http://www.webstrot.com/html/moviepro/html/images/content/up5.jpg" alt="movie_img" />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li><a href="#">View Trailer</a>
+                    </li>
+                    <li><a href="#">View Details</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h2><a href="#">Busting Car</a></h2>
+                  <p>Drama , Acation</p>	<i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star-o" />
+                  <i className="fa fa-star-o" />
+                </div>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i className="flaticon-cart-of-ecommerce" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </li>
+        <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative' }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src="http://www.webstrot.com/html/moviepro/html/images/content/up5.jpg" alt="movie_img" />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li><a href="#">View Trailer</a>
+                    </li>
+                    <li><a href="#">View Details</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h2><a href="#">Busting Car</a></h2>
+                  <p>Drama , Acation</p>	<i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star-o" />
+                  <i className="fa fa-star-o" />
+                </div>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i className="flaticon-cart-of-ecommerce" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </li>
+        <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative' }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src="http://www.webstrot.com/html/moviepro/html/images/content/up5.jpg" alt="movie_img" />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li><a href="#">View Trailer</a>
+                    </li>
+                    <li><a href="#">View Details</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h2><a href="#">Busting Car</a></h2>
+                  <p>Drama , Acation</p>	<i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star" />
+                  <i className="fa fa-star-o" />
+                  <i className="fa fa-star-o" />
+                </div>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i className="flaticon-cart-of-ecommerce" /></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </li>

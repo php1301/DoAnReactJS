@@ -1,209 +1,171 @@
-import React, { Component } from 'react'
-import LazyLoad from 'react-lazyload'
-// import SliderContent from './SliderContent'
-import Slider from 'react-slick'
-import Movies from '../Movies/Movies';
-import "../TicketItem/TicketItem.scss"
+import React, { Component, Fragment } from 'react'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import "../../../node_modules/react-multi-carousel/lib/styles.css";
+import { NavLink, Link } from 'react-router-dom';
+import * as action from "../../actions/movieActions/getGenres"
 
-class SliderCarousel extends Component {
- 
-  render() {
-    return (
-      <section id="rt-showcase-surround">
-        <div id="rt-showcase" className="slider-container rt-overlay-dark">
-          <div className="rt-container slider-container">
-            <div className="rt-grid-12 rt-alpha rt-omega">
-              <link
-                rel="stylesheet"
-                // href="http://cssslider.com/sliders/demo-28/engine1/style.css"
-              />
-              {/*[if IE]><link rel="stylesheet" href="http://cssslider.com/sliders/demo-28/engine1/ie.css"><![endif]*/}
-              {/*[if lte IE 9]><![endif]*/}
-              <div className="csslider1 autoplay ">
-                <input
-                  name="cs_anchor1"
-                  id="cs_slide1_0"
-                  type="radio"
-                  className="cs_anchor slide"
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_slide1_1"
-                  type="radio"
-                  className="cs_anchor slide"
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_slide1_2"
-                  type="radio"
-                  className="cs_anchor slide"
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_play1"
-                  type="radio"
-                  className="cs_anchor"
-                  defaultChecked
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_pause1_0"
-                  type="radio"
-                  className="cs_anchor pause"
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_pause1_1"
-                  type="radio"
-                  className="cs_anchor pause"
-                />
-                <input
-                  name="cs_anchor1"
-                  id="cs_pause1_2"
-                  type="radio"
-                  className="cs_anchor pause"
-                />
-                <ul>
-                  <li className="cs_skeleton">
-                    <img
-                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter593155_1280.jpg"
-                      style={{ width: "100%" }}
-                    />
-                  </li>
-                  <li className="num0 img slide">
-                    <img
-                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter593155_1280.jpg"
-                      alt="Carousel jQuery"
-                      title="Scooter"
-                    />
-                  </li>
-                  <li className="num1 img slide">
-                    <img
-                      src="http://cssslider.com/sliders/demo-28/data1/images/vespa498247_1280.jpg"
-                      alt="Responsive Carousel jQuery"
-                      title="Scooter"
-                    />
-                  </li>
-                  <li className="num2 img slide">
-                    <img
-                      src="http://cssslider.com/sliders/demo-28/data1/images/scooter404111_1280.jpg"
-                      alt="Carousel HTML jQuery"
-                      title="Scooter"
-                    />
-                  </li>
-                </ul>
-                <div className="cs_description">
-                  <label className="num0">
-                    <span className="cs_title">
-                      <span className="cs_wrapper">Scooter</span>
-                    </span>
-                    <br />
-                    <span className="cs_descr">
-                      <span className="cs_wrapper">Vintage</span>
-                    </span>
-                  </label>
-                  <label className="num1">
-                    <span className="cs_title">
-                      <span className="cs_wrapper">Scooter</span>
-                    </span>
-                    <br />
-                    <span className="cs_descr">
-                      <span className="cs_wrapper">Vespa</span>
-                    </span>
-                  </label>
-                  <label className="num2">
-                    <span className="cs_title">
-                      <span className="cs_wrapper">Scooter</span>
-                    </span>
-                    <br />
-                    <span className="cs_descr">
-                      <span className="cs_wrapper">Street</span>
-                      <div className="cs_wrapper">Street</div>
-                      <div className="cs_wrapper">Street</div>
-                    </span>
-                  </label>
+import * as action4 from "../../actions/movieActions/getNowPlaying";
+import ViewTrailer from "../TicketItem/ViewTrailer"
+import ButtonTrailer from "../TicketItem/ButtonTrailer"
+import { connect } from 'react-redux'
+
+const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
+class TicketItem extends Component {
+  componentDidMount() {
+    this.props.onSaveGenres()
+    this.props.onSaveNowPlaying()
+  }
+  renderItem = () => {
+
+    return this.props.nowPlaying && this.props.nowPlaying.map((item, index) => {
+      return (
+        <li className="album-slider__item" style={{ float: 'left', listStyle: 'none', position: 'relative', marginRight: "17px" }}>
+          <figure className="album">
+            <div className="prs_upcom_movie_box_wrapper">
+              <div className="prs_upcom_movie_img_box">
+                <img src={` http://image.tmdb.org/t/p/w185//${item.poster_path}`} style={{ height: "303px" }} />
+                <div className="prs_upcom_movie_img_overlay" />
+                <div className="prs_upcom_movie_img_btn_wrapper">
+                  <ul>
+                    <li>
+                      <ViewTrailer tenphim={item.title} id={item.id} />
+                    </li>
+                    <li><Link to={`/details/movie/${item.id}`}>View Details</Link>
+                    </li>
+                  </ul>
                 </div>
-                <div className="cs_arrowprev">
-                  <label className="num0" htmlFor="cs_slide1_0">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
-                  <label className="num1" htmlFor="cs_slide1_1">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
-                  <label className="num2" htmlFor="cs_slide1_2">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
+              </div>
+              <div className="prs_upcom_movie_content_box">
+                <div className="prs_upcom_movie_content_box_inner">
+                  <h3 style={{ color: "black" }} className="main-content-container-item__item-title">{item.title}</h3>
+                  <p style={{ color: "white" }} className="main-content-container-item__rating">{star} {item.vote_average} </p>
+                  <p style={{ color: "black" }}>{this.handleGenres(item.genre_ids.map((item2, index) => { if (index < 2) return item2 }))}</p>
+                  <p style={{ color: "black" }}>{item.release_date}</p>
+                  <p style={{ color: "black" }}>{item.popularity}<i className="fa fa-star" /></p>
                 </div>
-                <div className="cs_arrownext">
-                  <label className="num0" htmlFor="cs_slide1_0">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
-                  <label className="num1" htmlFor="cs_slide1_1">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
-                  <label className="num2" htmlFor="cs_slide1_2">
-                    <span>
-                      <i />
-                      <b />
-                    </span>
-                  </label>
-                </div>
-                <div className="cs_bullets">
-                  <label className="num0" htmlFor="cs_slide1_0">
-                    <span className="cs_point" />
-                    <span className="cs_thumb">
-                      <img
-                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/scooter593155_1280.jpg"
-                        alt="Scooter"
-                        title="Scooter"
-                      />
-                    </span>
-                  </label>
-                  <label className="num1" htmlFor="cs_slide1_1">
-                    <span className="cs_point" />
-                    <span className="cs_thumb">
-                      <img
-                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/vespa498247_1280.jpg"
-                        alt="Scooter"
-                        title="Scooter"
-                      />
-                    </span>
-                  </label>
-                  <label className="num2" htmlFor="cs_slide1_2">
-                    <span className="cs_point" />
-                    <span className="cs_thumb">
-                      <img
-                        src="http://cssslider.com/sliders/demo-28/data1/tooltips/scooter404111_1280.jpg"
-                        alt="Scooter"
-                        title="Scooter"
-                      />
-                    </span>
-                  </label>
+                <div className="prs_upcom_movie_content_box_inner_icon">
+                  <ul>
+                    <li><a href="movie_booking.html"><i class="icofont icofont-ticket"></i></a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div className="clear" />
-          </div>
-        </div>
-      </section>
+            <div class="prs_webseri_video_sec_icon_wrapper "><ul><li><ButtonTrailer tenphim={item.title} id={item.id} /></li></ul></div>
+          </figure>
+        </li>
+      )
+    })
+  }
+  handleGenres = ids => {
+    // Ids nhận vào là 1 mảng có nhiều id
+    let genres = { ...this.props.genres }
+    let arrGenres = Object.values(genres);
+    let arrOutput = [];
+    ids.map((id) => {
+      let found = arrGenres.filter(x => x.id === id)
+      found.forEach(element => {
+        arrOutput.push(element)
+      });
+    })
 
+    return arrOutput.map((category, i, index) => {
+      return (
+        <div key={i}>
+          {category.name}
+        </div>
+      )
+    })
+
+  }
+  render() {
+    // {this.props.renderItem === true
+    return (
+      <Fragment>
+        {this.props.renderItem === true ? (
+          <Carousel
+            data-wow-duration="3s"
+            additionalTransfrom={0}
+            arrows
+            autoPlay
+            autoPlaySpeed={1000}
+            // customTransition="all 1s linear"
+            centerMode={true}
+            className="wow fadeIn"
+            containerClass="container-with-dots"
+            dotListClass=""
+            draggable
+            focusOnSelect={false}
+            infinite
+            itemClass=""
+            keyBoardControl
+            minimumTouchDrag={80}
+            renderButtonGroupOutside={false}
+            renderDotsOutside={false}
+            responsive={{
+              desktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1024
+                },
+                items: 6,
+                partialVisibilityGutter: 80,
+              },
+              mobile: {
+                breakpoint: {
+                  max: 802,
+                  min: 502
+                },
+                items: 2,
+                partialVisibilityGutter: 30
+              },
+              supermobile: {
+                breakpoint: {
+                  max: 502,
+                  min: 0
+                },
+                items: 1,
+                partialVisibilityGutter: 30
+              },
+              tablet: {
+                breakpoint: {
+                  max: 1024,
+                  min: 802
+                },
+                items: 3,
+                partialVisibilityGutter: 30
+              }
+            }}
+            showDots={false}
+            sliderClass=""
+            slidesToSlide={2}
+            swipeable
+          >
+
+            {this.renderItem()}
+
+          </Carousel>
+        ) : ""}
+      </Fragment>
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+    genres: state.getGenres.result.genres,
+    nowPlaying: state.getNowPlaying.result.results,
 
-export default SliderCarousel
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    onSaveGenres: () => {
+      dispatch(action.getGenresAPI())
+    },
+    onSaveNowPlaying: () => {
+      dispatch(action4.getNowPlaying())
+    },
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TicketItem)

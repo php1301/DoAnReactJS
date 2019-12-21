@@ -660,7 +660,7 @@ _:-ms-input-placeholder, :root .csslider1 > .cs_arrownext > label span:before {
   padding: 2px 12px;
   visibility: hidden;
 
-  margin: 5px 10px;
+  margin: -12px 10px;
   opacity: 0;
 
   background-color: #1A2223;
@@ -987,6 +987,7 @@ only screen and (                max-resolution: 192dpi) and (max-width: 480px),
 only screen and (                max-resolution: 2dppx)  and (max-width: 480px) { 
   .csslider1 > .cs_description,
   .csslider1 > .cs_bullets {
-    display: none;
+    // display: none;
+    text-transform: uppercase;
   }
 }

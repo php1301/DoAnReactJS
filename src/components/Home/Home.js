@@ -9,6 +9,8 @@ import MainFooter from '../MainFooter/MainFooter';
 import Hotline from '../Hotline/Hotline';
 import News from '../News/News';
 import TicketItem from "../TicketItem/TicketItem"
+import Gallery from '../Gallery/Gallery';
+import GalleryItem from '../Gallery/GalleryItem';
 
 export default class Home extends Component {
     constructor(props) {
@@ -29,10 +31,12 @@ export default class Home extends Component {
                 <Loader />
                 <div className="home-container">
                     <MainNav />
-                    {/* <TicketItem /> */}
                     <HomeHeader />
                     <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender} />
+                    <TicketItem renderItem={this.state.renderItem} />
                     <MainContent renderItem={this.state.renderItem} />
+                    <Gallery />
+                    <GalleryItem />
                     <MainFooter />
                     <Hotline />
                 </div>

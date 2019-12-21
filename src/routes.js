@@ -10,6 +10,7 @@ import PayementDetails from "./components/PaymentDetails/PayementDetails.js";
 import PageNotFound from "./components/PageNotFound/PageNotFound.js";
 import TicketItem from "./components/TicketItem/TicketItem.js";
 import SliderComponent from "./components/TicketItem/TicketItem.js";
+import Gallery from "./components/Gallery/Gallery.js";
 const routesHome = [
     {
         path: "/",
@@ -70,7 +71,7 @@ const routesHome = [
     {
         path: "/test",
         exact: true,
-        component: SliderComponent,
+        component: Gallery,
     },
     {
         path: "/404",

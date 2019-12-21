@@ -14,23 +14,7 @@ import Title from '../Title/Title';
 import News from '../News/News';
 import Stuff from '../Stuff/Stuff';
 import TicketItem from "../TicketItem/TicketItem"
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1255 },
-        items: 3,
-        slidesToSlide: 3, // optional, default to 1.
-    },
-    tablet: {
-        breakpoint: { max: 1255, min: 705 },
-        items: 2,
-        slidesToSlide: 2, // optional, default to 1.
-    },
-    mobile: {
-        breakpoint: { max: 705, min: 0 },
-        items: 1,
-        slidesToSlide: 1, // optional, default to 1.
-    },
-};
+
 const HrLine = () => (
 
     <hr style={{
@@ -72,7 +56,7 @@ class MainContent extends Component {
                     <Fragment>
                         <Title data={"Upcoming"} className="glitch" title={"Upcoming"} />
                         <Carousel items={this.props.nowPlaying} />
-                        {/* <TicketItem/> */}
+                        {/* <TicketItem items={this.props.nowPlaying}/> */}
                         <HrLine />
                         <Title data={"Popular"} title={"Popular"} />
                         <Carousel items={this.props.topRated} />

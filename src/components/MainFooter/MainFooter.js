@@ -32,7 +32,7 @@ export default class MainFooter extends Component {
                         <p> {svg.phone} 985-551-3866</p>
                     </div>
 
-                    <p className="main-footer-top-copyright">Copyright &copy;2019<br /> Coded and designed by  <a href="https://www.facebook.com/dioxittdn.phucprobb" target="_blank" rel="noopener noreferrer"> {svg.hacker}  Phúc Hoàng Phạm</a></p>
+                    <p className="main-footer-top-copyright">Copyright &copy;2019<br /> Coded and designed by  <a className="glitch glitch1" data-text="Phúc Hoàng Phạm"href="https://www.facebook.com/dioxittdn.phucprobb" target="_blank" rel="noopener noreferrer"> {svg.hacker}  Phúc Hoàng Phạm</a></p>
 
                 </section>
                 <section className="main-footer-middle">

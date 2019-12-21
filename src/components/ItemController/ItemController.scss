@@ -82,3 +82,29 @@
   background: linear-gradient(#000, #000) padding-box,
     radial-gradient(farthest-corner at var(--x) var(--y), #00c9a7, #845ec2) border-box;
 }
+@media only screen and (max-width: 500px) {
+  .button1,
+  .button2 {
+    background: none;
+    border: none;
+    background-image: linear-gradient(90deg, rgba(255, 86, 132, 0.4) 0%, rgba(83, 50, 201, 0.4) 68%),
+      linear-gradient(90deg, rgba(255, 86, 132, 0.4) 0%, rgba(83, 50, 201, 0.4) 68%);
+    // background: linear-gradient(#000, #000) padding-box, radial-gradient(farthest-corner at var(50%) var(50%), #00C9A7, #845EC2) border-box;
+    border-image-slice: 1;
+    border-left: 3px solid rgba(255, 86, 132, 0.4);
+    border-right: 3px solid rgba(83, 50, 201, 0.4);
+    border-radius: 10px;
+    background-position: 0 0, 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    color: $primary-font-color;
+    cursor: pointer;
+    display: block;
+    font-family: $tertiary-font;
+    font-weight: bold;
+    letter-spacing: 0.4rem;
+    outline: none;
+    padding: 0.2rem;
+    text-transform: uppercase;
+  }
+}

@@ -113,6 +113,14 @@
     }
   }
 }
+@media only screen and (max-width: 500px) {
+  .main-content-container {
+    margin-left: 100px;
+  }
+  .main-content-container-item {
+    margin-right: 0;
+  }
+}
 .glitch {
   position: relative;
   color: white;
@@ -357,3 +365,4 @@
     transform: skew(1deg);
   }
 }
+
