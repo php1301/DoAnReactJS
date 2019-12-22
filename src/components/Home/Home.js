@@ -11,6 +11,9 @@ import News from '../News/News';
 import TicketItem from "../TicketItem/TicketItem"
 import Gallery from '../Gallery/Gallery';
 import GalleryItem from '../Gallery/GalleryItem';
+import GalleryContainer from '../Gallery/GalleryContainer';
+import TicketContainer from '../TicketItem/TicketContainer';
+import Title from '../Title/Title';
 
 export default class Home extends Component {
     constructor(props) {
@@ -33,10 +36,10 @@ export default class Home extends Component {
                     <MainNav />
                     <HomeHeader />
                     <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender} />
-                    <TicketItem renderItem={this.state.renderItem} />
+                    {/* <TicketItem renderItem={this.state.renderItem} /> */}
+                    <TicketContainer renderItem={this.state.renderItem} />
                     <MainContent renderItem={this.state.renderItem} />
-                    <Gallery />
-                    <GalleryItem />
+                    <GalleryContainer renderItem={this.state.renderItem} />
                     <MainFooter />
                     <Hotline />
                 </div>

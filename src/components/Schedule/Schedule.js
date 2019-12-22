@@ -23,13 +23,18 @@ class Schedule extends Component {
         )
     })
   }
+  formatTime = dateToday => {
+    let date = new Date(`${dateToday}`);
+    return date.getHours() + ':' + date.getMinutes()
+
+  }
   renderTimes = id => {
+
     this.props.onSaveTimes(id)
-    console.log(this.props.times)
     return this.props.times && this.props.times.length > 0 && this.props.times.map((item, index) => {
       if (index <= 5)
         return (
-          <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{item.ngayChieuGioChieu}</a></li>
+          <li><a href="http://demo.aa-team.com/tf/omb/my-account/?ref=http%3A%2F%2Fdemo.aa-team.com%2Ftf%2Fomb%2Fschedule%2F" className="theatre_booking" data-lightbox="{&quot;type&quot;:&quot;ajax&quot;,&quot;action&quot;:&quot;omb_pt_event_ajax_requests&quot;,&quot;sub_action&quot;:&quot;get_hall&quot;,&quot;params&quot;:{&quot;show_movie&quot;:true,&quot;event_id&quot;:1472}}">{this.formatTime(item.ngayChieuGioChieu)}</a></li>
         )
     })
   }

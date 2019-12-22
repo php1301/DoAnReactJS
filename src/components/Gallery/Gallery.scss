@@ -1,12 +1,22 @@
 .gallery {
   position: relative;
 }
+.gallery-hide {
+  display: none;
+}
 canvas {
   position: absolute;
 }
-
+.hide {
+  display: none;
+}
+@media only screen and (max-width: 500px) {
+  .canvasGallery {
+    display: none;
+  }
+}
 nav.link-list {
-  position: absolute;
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   top: 570px;
@@ -31,8 +41,8 @@ nav.link-list a.is-active {
 }
 
 nav.btns {
-  position: absolute;
-  top: 45%;
+  position: relative;
+  top: 318%;
   width: 100%;
 }
 nav.btns button {
@@ -94,7 +104,11 @@ nav.btns button.show-next {
   right: 8%;
   bottom: -380px;
 }
-
+@media only screen and (max-width: 500px) {
+  .gallery {
+    display: none;
+  }
+}
 //   footer {
 //     position: absolute;
 //     bottom: 10px;
@@ -202,7 +216,7 @@ nav.btns button.show-next {
   max-width: 45%;
 }
 blockquote p {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
 }
 blockquote span {

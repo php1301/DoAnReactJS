@@ -7,6 +7,16 @@ import * as action4 from "../../actions/movieActions/getNowPlaying";
 import ViewTrailer from "../TicketItem/ViewTrailer"
 import ButtonTrailer from "../TicketItem/ButtonTrailer"
 import { connect } from 'react-redux'
+const HrLine = () => (
+
+    <hr style={{
+        backgroundImage: "radial-gradient(circle, rgba(210, 208, 208, 0.190914) 0%, rgba(210, 208, 208, 0) 90%)",
+        border: "none",
+        height: "2px"
+    }}
+    />
+)
+
 class Gallery extends Component {
     constructor(props) {
         super(props);
@@ -16,36 +26,18 @@ class Gallery extends Component {
     }
     componentDidMount() {
         this.props.onSaveNowPlaying()
-        this.props.onSaveUpcomingg()
+        this.props.onSaveUpcoming()
     }
-    // renderItems = () => {
-    //     return this.props.upcoming && this.props.upcoming.map((item, index) => {
-    //         if (index < 3)
-    //             console.log("work")
-    //         return (
-
-    //             <li data-color="#002AFF">
-    //                     <div className="content" style={{ backgroundImage: `url(http://image.tmdb.org/t/p/w1280//${item.backdrop_path}) ` }}>
-    //                     <blockquote>
-    //                         <p>Blue jeans White shirt Walked into the room You know you made my eyes burn</p>
-    //                         <span>Blue Jeans - Lana Del Rey</span>
-    //                     </blockquote>
-    //                 </div>
-    //             </li>
-    //         )
-    //     })
-
-    // }
     renderItems = () => {
         return this.props.upcoming && this.props.upcoming.map((item, index) => {
-            if (index > 3 && index < 11) {
+            if (index => 5 && index <= 9 ) {
                 { this.something() }
                 return (
-                    <li data-color="#002AFF">
+                    <li data-color="#002A2F">
                         <div className="content" style={{ backgroundImage: `url( http://image.tmdb.org/t/p/w1280//${item.poster_path})` }}>
                             <blockquote>
-                                <p>Will you still love me When I'm no longer young and beautiful Will you still love me</p>
-                                <span>Young And Beautiful - Lana Del Rey</span>
+                                <p>{item.overview.slice(0, 20)}</p>
+                                <span>{item.vote_average}</span>
                             </blockquote>
                         </div>
                     </li>
@@ -184,13 +176,14 @@ class Gallery extends Component {
         }, timeTrans);
 
     };
-    componentDidMount() {
 
-    }
     render() {
         console.log(this.state.img)
         return (
-            <div>
+
+            <div className={this.props.style === true ? " wow fadeIn" : "gallery-hide"} data-wow-duration="3s" >
+                <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"REVIEWS"} class="main-content-container__title glitch ">REVIEWS</h2>
+                <HrLine />
                 <section className="cd-slider">
                     <ul>
                         <li data-color="#002AFF">
@@ -201,7 +194,8 @@ class Gallery extends Component {
                                 </blockquote>
                             </div>
                         </li>
-                        <li data-color="#002AFF">
+                        {this.renderItems()}
+                        <li data-color="#white">
                             <div className="content" style={{ backgroundImage: 'url(https://i.imgur.com/i7VlkGV.png?2)' }}>
                                 <blockquote>
                                     <p>Will you still love me When I'm no longer young and beautiful Will you still love me</p>
@@ -209,7 +203,6 @@ class Gallery extends Component {
                                 </blockquote>
                             </div>
                         </li>
-                        {this.renderItems()}
 
                     </ul>
                     <nav>
@@ -217,6 +210,7 @@ class Gallery extends Component {
                         <div className="gallery-arrow gallery-arrow-2"><a className="next" href="#" /></div>
                     </nav>
                 </section>
+                <HrLine />
             </div>
 
         )

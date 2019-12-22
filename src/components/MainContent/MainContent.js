@@ -52,7 +52,7 @@ class MainContent extends Component {
     render() {
         return (
             <div className="main-content-container">
-                {this.props.renderItem === true ? (
+                {this.props.renderItem === false ? (
                     <Fragment>
                         <Title data={"Upcoming"} className="glitch" title={"Upcoming"} />
                         <Carousel items={this.props.nowPlaying} />
@@ -64,15 +64,16 @@ class MainContent extends Component {
                         <Title data={"Now Playing"} title={"Now Playing"} />
                         <Carousel items={this.props.popular} />
                         <HrLine />
-                        <Title data={"Top rated" } title={"Top rated"} />
+                        <Title data={"Top rated"} title={"Top rated"} />
                         <Carousel items={this.props.topRated} />
                         <HrLine />
                         <News items={this.props.popular} boxItems={this.props.nowPlaying} />
                         <HrLine />
-                    </Fragment>) : (
                         <div className="wow fadeIn" data-wow-duration="3s">
                             <Stuff />
                         </div>
+                    </Fragment>) : (
+                        ""
                     )
                 }
             </div>

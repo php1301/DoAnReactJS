@@ -9,6 +9,15 @@ import * as action4 from "../../actions/movieActions/getNowPlaying";
 import ViewTrailer from "../TicketItem/ViewTrailer"
 import ButtonTrailer from "../TicketItem/ButtonTrailer"
 import { connect } from 'react-redux'
+const HrLine = () => (
+
+  <hr style={{
+    backgroundImage: "radial-gradient(circle, rgba(210, 208, 208, 0.190914) 0%, rgba(210, 208, 208, 0) 90%)",
+    border: "none",
+    height: "2px"
+  }}
+  />
+)
 
 const star = <svg class="swiper-slide-rating__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></svg>
 class TicketItem extends Component {
@@ -84,68 +93,71 @@ class TicketItem extends Component {
     return (
       <Fragment>
         {this.props.renderItem === true ? (
-          <Carousel
-            data-wow-duration="3s"
-            additionalTransfrom={0}
-            arrows
-            autoPlay
-            autoPlaySpeed={1000}
-            // customTransition="all 1s linear"
-            centerMode={true}
-            className="wow fadeIn"
-            containerClass="container-with-dots"
-            dotListClass=""
-            draggable
-            focusOnSelect={false}
-            infinite
-            itemClass=""
-            keyBoardControl
-            minimumTouchDrag={80}
-            renderButtonGroupOutside={false}
-            renderDotsOutside={false}
-            responsive={{
-              desktop: {
-                breakpoint: {
-                  max: 3000,
-                  min: 1024
+          <Fragment>
+            <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"SPECIAL FEATURING"} class="main-content-container__title glitch ">{"SPECIAL FEATURING"}</h2>
+            <HrLine />
+            <Carousel
+              additionalTransfrom={0}
+              arrows
+              autoPlay
+              autoPlaySpeed={3500}
+              // customTransition="all 1s linear"
+              centerMode={true}
+              className="wow fadeIn"
+              containerClass="container-with-dots"
+              dotListClass=""
+              draggable
+              focusOnSelect={false}
+              infinite
+              itemClass=""
+              keyBoardControl
+              minimumTouchDrag={80}
+              renderButtonGroupOutside={false}
+              renderDotsOutside={false}
+              responsive={{
+                desktop: {
+                  breakpoint: {
+                    max: 3000,
+                    min: 1024
+                  },
+                  items: 6,
+                  partialVisibilityGutter: 80,
                 },
-                items: 6,
-                partialVisibilityGutter: 80,
-              },
-              mobile: {
-                breakpoint: {
-                  max: 802,
-                  min: 502
+                mobile: {
+                  breakpoint: {
+                    max: 802,
+                    min: 502
+                  },
+                  items: 2,
+                  partialVisibilityGutter: 30
                 },
-                items: 2,
-                partialVisibilityGutter: 30
-              },
-              supermobile: {
-                breakpoint: {
-                  max: 502,
-                  min: 0
+                supermobile: {
+                  breakpoint: {
+                    max: 502,
+                    min: 0
+                  },
+                  items: 1,
+                  partialVisibilityGutter: 30
                 },
-                items: 1,
-                partialVisibilityGutter: 30
-              },
-              tablet: {
-                breakpoint: {
-                  max: 1024,
-                  min: 802
-                },
-                items: 3,
-                partialVisibilityGutter: 30
-              }
-            }}
-            showDots={false}
-            sliderClass=""
-            slidesToSlide={2}
-            swipeable
-          >
+                tablet: {
+                  breakpoint: {
+                    max: 1024,
+                    min: 802
+                  },
+                  items: 3,
+                  partialVisibilityGutter: 30
+                }
+              }}
+              showDots={false}
+              sliderClass=""
+              slidesToSlide={2}
+              swipeable
+            >
 
-            {this.renderItem()}
-
-          </Carousel>
+              {this.renderItem()}
+            </Carousel>
+            <HrLine />
+          </Fragment>
         ) : ""}
       </Fragment>
     )
