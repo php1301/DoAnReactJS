@@ -1,0 +1,98 @@
+.toggleButton{
+    text-align: center;
+}
+input.switch {
+    font-size: 10px;
+    position: relative;
+    display: inline-block;
+    appearance: none;
+    width: 9em;
+    height: 4.6em;
+    line-height: 4.6em;
+    border-radius: 2.3em;
+    margin: 0;
+    padding: 0;
+    box-shadow: inset 0 0 0 0.2em #eee;
+    outline: 1px solid transparent !important;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    transition: box-shadow .3s ease-in-out, padding .25s ease-in-out;
+    transition-delay: .1s, 0s;
+    /* Animations if supported */
+  }
+  input.switch:checked {
+    transition-delay: 0s, 0s;
+    box-shadow: inset 0 0 0 2.62857em #b611cc !important;
+    background: linear-gradient(to right, #fc00ff, #00dbde); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding-left: 4.4em;
+  }
+  input.switch.hit {
+    animation: slide-off .35s ease both;
+  }
+  input.switch.hit:checked {
+    animation: slide-on  .35s ease both .05s;
+  }
+  input.switch::before, input.switch::after {
+    content: "";
+  }
+  input.switch::after {
+    /* Increases hit area */
+    position: absolute;
+    top: -1.4em;
+    left: -1.4em;
+    bottom: -1.4em;
+    right: -1.4em;
+  }
+  input.switch::before {
+    display: inline-block;
+    height: 4.2em;
+    width: 4.2em;
+    margin: 0.2em 0 0 0.2em;
+    background-color: #fff;
+    border-radius: 2.1em;
+    box-shadow: 0 0.2em 0.4em 0 rgba(0, 0, 0, 0.2), 0 0 0.1em 0.1em rgba(0, 0, 0, 0.1);
+    transition: all .1s ease .1s;
+  }
+  input.switch:active::before {
+    transition: all .1s ease .05s;
+  }
+  input.switch.touch:hover::before {
+    transition: all .0s ease .00s;
+  }
+  input.switch:active::before, input.switch.touch:hover::before {
+    width: 5em;
+  }
+  input.switch:active:checked::before, input.switch.touch:hover:checked::before {
+    margin-left: -0.6em;
+  }
+  
+  @keyframes slide-on {
+    0% {
+      padding-left: 0em;
+    }
+    60% {
+      padding-left: 4.8em;
+    }
+    100% {
+      padding-left: 4.4em;
+    }
+  }
+  @keyframes slide-off {
+    0% {
+      padding-left: 4.4em;
+      text-indent: 0;
+    }
+    60% {
+      padding-left: 0em;
+      text-indent: -0.4em;
+    }
+    100% {
+      padding-left: 0em;
+      text-indent: 0;
+    }
+  }
+  

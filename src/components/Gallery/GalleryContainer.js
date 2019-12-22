@@ -6,8 +6,8 @@ export default class GalleryContainer extends Component {
     render() {
         return (
             <Fragment>
-                {this.props.renderItem === true ? (
-                    <div>
+                {this.props.renderItem === true && this.props.renderGallery === true ? (
+                    <div className="wow fadeIn" data-wow-duration="3s">
                         <Gallery style={true} />
                         <GalleryItem style={true} />
                     </div>
