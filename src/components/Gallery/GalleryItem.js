@@ -41,17 +41,6 @@ class Gallery extends Component {
             }
         })
     }
-    // renderItems = () => {
-    //     let arrImg = []
-    //     let img
-    //     this.props.upcoming && this.props.upcoming.map((item, index) => {
-    //         if (index === 2) {
-    //             this.state.img.push(`${item.backdrop_path}`)
-    //         }
-    //     })
-    //     console.log(arrImg)
-    //     return arrImg
-    // }
     something = () => {
 
         'use strict';
@@ -732,11 +721,11 @@ class Gallery extends Component {
                         <ul>
                             {/* {this.renderItems()} */}
                             {/* {this.something()} */}
-                            <li><a href data-order={0} data-imagesrc="http://image.tmdb.org/t/p/w1280///zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg" /></li>
-                            <li><a href data-order={1} data-imagesrc="http://image.tmdb.org/t/p/w1280///xJWPZIYOEFIjZpBL7SVBGnzRYXp.jpg" /></li>
-                            <li><a href data-order={2} data-imagesrc="http://image.tmdb.org/t/p/w1280///bga3i5jcejBekr2FCGJga1fYCh.jpg" /></li>
-                            <li><a href data-order={3} data-imagesrc="https://image.tmdb.org/t/p/w1280//dCB7d4l0mfpsISZvr6aPE2z5QF6.jpg" /></li>
-                            <li><a href data-order={4} data-imagesrc="https://image.tmdb.org/t/p/w1280//5BwqwxMEjeFtdknRV792Svo0K1v.jpg" /></li>
+                            <li><Link to data-order={0} data-imagesrc="http://image.tmdb.org/t/p/w1280///zTxHf9iIOCqRbxvl8W5QYKrsMLq.jpg" /></li>
+                            <li><Link to data-order={1} data-imagesrc="http://image.tmdb.org/t/p/w1280///xJWPZIYOEFIjZpBL7SVBGnzRYXp.jpg" /></li>
+                            <li><Link to data-order={2} data-imagesrc="http://image.tmdb.org/t/p/w1280///bga3i5jcejBekr2FCGJga1fYCh.jpg" /></li>
+                            <li><Link to data-order={3} data-imagesrc="https://image.tmdb.org/t/p/w1280//dCB7d4l0mfpsISZvr6aPE2z5QF6.jpg" /></li>
+                            <li><Link to data-order={4} data-imagesrc="https://image.tmdb.org/t/p/w1280//5BwqwxMEjeFtdknRV792Svo0K1v.jpg" /></li>
                         </ul>
                     </nav>
                     <nav className="btns">

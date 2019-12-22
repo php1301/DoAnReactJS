@@ -11,6 +11,7 @@ import News from '../News/News';
 import TicketItem from "../TicketItem/TicketItem"
 import Gallery from '../Gallery/Gallery';
 import GalleryItem from '../Gallery/GalleryItem';
+import CardGallery from '../CardGallery/CardGallery';
 import GalleryContainer from '../Gallery/GalleryContainer';
 import TicketContainer from '../TicketItem/TicketContainer';
 import Title from '../Title/Title';
@@ -38,6 +39,7 @@ export default class Home extends Component {
                     <ItemController renderItem={this.state.renderItem} handleRender={this.handleRender} />
                     {/* <TicketItem renderItem={this.state.renderItem} /> */}
                     <TicketContainer renderItem={this.state.renderItem} />
+                    <CardGallery renderItem = {this.state.renderItem}/>
                     <MainContent renderItem={this.state.renderItem} />
                     <GalleryContainer renderItem={this.state.renderItem} />
                     <MainFooter />

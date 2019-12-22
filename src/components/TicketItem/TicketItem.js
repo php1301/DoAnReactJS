@@ -128,7 +128,7 @@ class TicketItem extends Component {
                     max: 802,
                     min: 502
                   },
-                  items: 2,
+                  items: 1,
                   partialVisibilityGutter: 30
                 },
                 supermobile: {

@@ -34,12 +34,14 @@ class Gallery extends Component {
                 { this.something() }
                 return (
                     <li data-color="#002A2F">
+                        <Link to ={`/details/movie/${item.id}`}>
                         <div className="content" style={{ backgroundImage: `url( http://image.tmdb.org/t/p/w1280//${item.poster_path})` }}>
                             <blockquote>
                                 <p>{item.overview.slice(0, 20)}</p>
                                 <span>{item.vote_average}</span>
                             </blockquote>
                         </div>
+                        </Link>
                     </li>
                 )
             }
