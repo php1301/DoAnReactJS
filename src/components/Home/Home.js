@@ -63,7 +63,7 @@ export default class Home extends Component {
                     <CardSlider renderItem={this.state.renderItem} />
                     <Toggle renderGallery={this.state.renderGallery} handleGallery={this.handleGallery} />
                     <BoxAbout renderGallery={this.state.renderGallery} />
-                    <HrLine/>
+                    {/* <HrLine/> */}
                     {/* <GalleryContainer renderGallery={this.state.renderGallery} renderItem={this.state.renderItem} /> */}
                     <MainFooter />
                     <Hotline />
