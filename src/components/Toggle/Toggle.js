@@ -32,8 +32,8 @@ export default class Toggle extends Component {
     render() {
         return (
             <Fragment>
-                <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"Curious what is this...?"} class="main-content-container__title glitch " >{"Curious what is this...?"}</h2>
             <div className="toggleButton">
+                <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "1052px" }} data-text={"Curious what is this...?"} class="main-content-container__title glitch " >{"Curious what is this...?"}</h2>
                 <input onClick={() => this.toggle()} type="checkbox" class="switch" id="switch-1" />
             </div>
             </Fragment>

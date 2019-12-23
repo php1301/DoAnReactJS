@@ -27,7 +27,7 @@ class CardSlider extends Component {
             minSlides: 1,
             autoDirection: 'next',
             mode: 'vertical',
-            maxSlides: 10,
+            maxSlides: 15,
             slideWidth: 257,
             slideMargin: 17,
             ticker: true,
@@ -41,7 +41,7 @@ class CardSlider extends Component {
             minSlides: 1,
             mode: 'vertical',
             autoDirection: 'prev',
-            maxSlides: 10,
+            maxSlides: 15,
             slideWidth: 257,
             slideMargin: 17,
             ticker: true,
@@ -56,9 +56,55 @@ class CardSlider extends Component {
     }
     renderItem = () => {
         return this.props.nowPlaying && this.props.nowPlaying.map((item, index) => {
-            if (index >= 0 && index < 9 && index !== 5) {
+            if (index >= 8 && index < 14) {
                 return (
                     <li className="album-slider__item prs1_vp_hover_overlay" style={{ float: 'none', listStyle: 'none', position: 'relative', width: 175, marginBottom: 17 }}>
+                        <figure className="album">
+                            <div className="prs1_vp_img_overlay">
+                                <img src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`} alt="vp_img" />
+                                <Link to={`/details/movie/${item.id}`} className="venobox info vbox-item" data-title="PORTFOLIO TITTLE" data-gall="gall12">
+                                    <i className="fa fa-search" />
+                                </Link>
+                            </div>
+                        </figure>
+                    </li>
+                )
+            }
+            if (index >= 0 && index <= 6) {
+                return (
+                    <li className="album-slider__item prs1_vp_hover_overlay" style={{ float: 'none', listStyle: 'none', position: 'relative', width: 175, marginBottom: 17 }}>
+                        <figure className="album">
+                            <div className="prs1_vp_img_overlay">
+                                <img src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`} alt="vp_img" />
+                                <Link to={`/details/movie/${item.id}`} className="venobox info vbox-item" data-title="PORTFOLIO TITTLE" data-gall="gall12">
+                                    <i className="fa fa-search" />
+                                </Link>
+                            </div>
+                        </figure>
+                    </li>
+                )
+            }
+        })
+    }
+    renderItem2 = () => {
+        return this.props.nowPlaying && this.props.nowPlaying.map((item, index) => {
+            if (index >= 0 && index <=6) {
+                return (
+                    <li className="album-slider__item prs1_vp_hover_overlay bx-clone" style={{ float: 'none', listStyle: 'none', position: 'relative', width: 175, marginBottom: 17 }}>
+                        <figure className="album">
+                            <div className="prs1_vp_img_overlay">
+                                <img src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`} alt="vp_img" />
+                                <Link to={`/details/movie/${item.id}`} className="venobox info vbox-item" data-title="PORTFOLIO TITTLE" data-gall="gall12">
+                                    <i className="fa fa-search" />
+                                </Link>
+                            </div>
+                        </figure>
+                    </li>
+                )
+            }
+            if (index >= 8 && index <=14) {
+                return (
+                    <li className="album-slider__item prs1_vp_hover_overlay bx-clone" style={{ float: 'none', listStyle: 'none', position: 'relative', width: 175, marginBottom: 17 }}>
                         <figure className="album">
                             <div className="prs1_vp_img_overlay">
                                 <img src={`https://image.tmdb.org/t/p/w1280/${item.backdrop_path}`} alt="vp_img" />
@@ -108,7 +154,7 @@ class CardSlider extends Component {
                 <div className="owl-stage-outer">
                     <div className="owl-stage" style={{ transform: 'translate3d(-3216px, 0px, 0px)', transition: 'all 1.2s ease 0s', width: 5628 }}>
                         {this.props.nowPlaying.map((item, index) => {
-                            if (index >= 1 && index < 16 && index !== 5) {
+                            if (index >= 1 && index < 16 && index !== 7) {
                                 return (
                                     <div className="owl-item" style={{ width: 784, marginRight: 20 }}><div className="item">
                                         <div className="prs1_vp_center_slider_img_wrapper">
@@ -166,7 +212,7 @@ class CardSlider extends Component {
                                         <div className="wrap-album-slider">
                                             <div className="bx-wrapper" style={{ maxWidth: 257 }}><div className="bx-viewport" style={{ width: '100%', overflow: 'hidden', position: 'relative', height: 175 }}>
                                                 <ul className="prs1_vp_right_slider" style={{ width: 'auto', position: 'relative', top: '-267.341px' }}>
-                                                    {this.renderItem()}
+                                                    {this.renderItem2()}
                                                     <li className="album-slider__item prs1_vp_hover_overlay bx-clone" style={{ float: 'none', listStyle: 'none', position: 'relative', width: 175, marginBottom: 17 }}>
                                                         <figure className="album">
                                                             <div className="prs1_vp_img_overlay">

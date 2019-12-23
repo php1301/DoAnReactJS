@@ -55,7 +55,7 @@ class TicketItem extends Component {
                 </div>
                 <div className="prs_upcom_movie_content_box_inner_icon">
                   <ul>
-                    <li><a href="movie_booking.html"><i class="icofont icofont-ticket"></i></a>
+                    <li><Link to={`/details/movie/${item.id}`}><i class="icofont icofont-ticket"></i></Link>
                     </li>
                   </ul>
                 </div>
