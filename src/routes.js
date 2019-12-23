@@ -11,6 +11,7 @@ import PageNotFound from "./components/PageNotFound/PageNotFound.js";
 import TicketItem from "./components/TicketItem/TicketItem.js";
 import SliderComponent from "./components/TicketItem/TicketItem.js";
 import CardGallery from "./components/CardGallery/CardGallery.js";
+import CardSlider from "./components/CardSlider/CardSlider.js";
 const routesHome = [
     {
         path: "/",
@@ -71,7 +72,7 @@ const routesHome = [
     {
         path: "/test",
         exact: true,
-        component: CardGallery,
+        component: CardSlider,
     },
     {
         path: "/404",

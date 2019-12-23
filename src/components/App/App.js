@@ -19,7 +19,7 @@ function App(props) {
   }
   return (
     <div className="App">
-      {/* <FPSStats left={-12}/> */}
+      {/* <FPSStats/> */}
       <BrowserRouter>
         <Switch>
           {showItem(routesHome)}

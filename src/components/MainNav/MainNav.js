@@ -20,6 +20,8 @@ class MainNav extends Component {
   }
   
   render() {
+    let uid = localStorage.getItem('uid')
+    console.log(uid)
     // const {navStatus}=this.props;
     // console.log(navStatus)
     const searchIcon = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M337.509 305.372h-17.501l-6.571-5.486c20.791-25.232 33.922-57.054 33.922-93.257C347.358 127.632 283.896 64 205.135 64 127.452 64 64 127.632 64 206.629s63.452 142.628 142.225 142.628c35.011 0 67.831-13.167 92.991-34.008l6.561 5.487v17.551L415.18 448 448 415.086 337.509 305.372zm-131.284 0c-54.702 0-98.463-43.887-98.463-98.743 0-54.858 43.761-98.742 98.463-98.742 54.7 0 98.462 43.884 98.462 98.742 0 54.856-43.762 98.743-98.462 98.743z" /></svg>;
@@ -69,7 +71,7 @@ class MainNav extends Component {
               </svg>
             </button>
           </Link>
-          <Link to={this.props.logInStatus === false ? `/login` : `profile`}>
+          <Link to={localStorage.getItem('uid') === null ? '/login' : '/profile'}>
             <button className="main-nav-bottom-section__button fadeInLeft">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="M256 48C141.6 48 48 141.6 48 256s93.6 208 208 208 208-93.6 208-208S370.4 48 256 48zm0 62.4c34.3 0 62.4 28.1 62.4 62.4s-28.1 62.4-62.4 62.4-62.4-28.1-62.4-62.4 28.1-62.4 62.4-62.4zm0 300.4c-52 0-97.8-27-124.8-66.6 1-41.6 83.2-64.5 124.8-64.5s123.8 22.9 124.8 64.5c-27 39.5-72.8 66.6-124.8 66.6z" />
@@ -94,7 +96,6 @@ class MainNav extends Component {
 const mapStateToProps = state => {
   return {
     navStatus: state.toggleNav.navStatus,// cham den state cua toggleNav da duoc export tu reducer togglenav tren rootreducer
-    logInStatus: state.toggleLogInStatus.status
   }
 } // sinh ra props nav status
 

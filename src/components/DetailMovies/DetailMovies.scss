@@ -109,7 +109,7 @@
           position: absolute;
           right: 1rem;
           top: 5rem;
-          width: 30px;
+          width: 60px;
 
           // item-details-header-info-container-content__favorite--active
           &--active {
@@ -400,7 +400,7 @@
           font-size: 1.1rem;
 
           &__favorite {
-            width: 40px;
+            width: 100px;
           }
         }
       }
@@ -422,5 +422,21 @@
         margin-top: 390px;
       }
     }
+  }
+}
+.item-details-header-info-container-content__favorite__ok {
+  border-radius: 50%;
+  cursor: pointer;
+  fill: rgb(219, 42, 210);
+  height: auto;
+  padding: 10px;
+  position: absolute;
+  right: 1rem;
+  top: 5rem;
+  width: 60px;
+}
+@media only screen and (min-width: 900px) {
+  .item-details-header-info-container-content__favorite__ok {
+    width: 100px;
   }
 }

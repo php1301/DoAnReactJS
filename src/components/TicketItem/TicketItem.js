@@ -95,14 +95,15 @@ class TicketItem extends Component {
         {this.props.renderItem === true ? (
           <Fragment>
             <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"SPECIAL FEATURING"} class="main-content-container__title glitch ">{"SPECIAL FEATURING"}</h2>
+            <p style = {{textAlign:"center", fontSize: "8px"}}>Just click showing nearby and click movies again if you dont see carousel</p>
             <HrLine />
             <Carousel
               additionalTransfrom={0}
               arrows
               autoPlay
-              autoPlaySpeed={3500}
-              // customTransition="all 1s linear"
-              centerMode={true}
+              // autoPlaySpeed={3500}
+              customTransition="all 1s linear"
+              centerMode={false}
               className="wow fadeIn"
               containerClass="container-with-dots"
               dotListClass=""

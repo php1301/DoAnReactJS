@@ -24,19 +24,19 @@ class Time extends Component {
             if ( this.props.rap1 - index > 0)
                 return (
                     <Fragment>
-                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Example pass={this.props.pass}tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                     </Fragment>
                 )
             if ( this.props.rap2 - index > 0)
                 return (
                     <Fragment>
-                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Example pass={this.props.pass} tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                     </Fragment>
                 )
             if ( this.props.rap3 - index > 0)
                 return (
                     <Fragment>
-                    <Example tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
+                    <Example pass={this.props.pass} tenrap={this.props.tenrap} timeset={this.props.timeset} date={date} itemDetails={this.props.itemDetails} seats={this.props.seats} items={this.formatTime(item.ngayChieuGioChieu)} />
                     </Fragment>
                 )
             // if (index <= 6)

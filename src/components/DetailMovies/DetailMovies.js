@@ -40,8 +40,8 @@ class DetailMovies extends Component {
         // const strArr = str.split(' ');
         return str.split(' ').length < 50 ? str : str.split(".").splice(0, 5).join("...")  // dua chuoi thanh mang
     }
-  
-   
+
+
     componentDidMount() {
         let id = this.props.match.params.id
         // id == undefined 
@@ -69,7 +69,7 @@ class DetailMovies extends Component {
                         }}
                     >
                         <div className="item-details-header-info-nav">
-                            <NavLink to="/">
+                            <NavLink to="" onClick={() => this.props.history.push('/')}>
                                 <svg
                                     className="item-details-header-info-nav__icon wow fadeInLeft"
                                     data-wow-delay=".2s"
@@ -130,16 +130,19 @@ class DetailMovies extends Component {
                                 <p className="item-details-header-info-container-content__detail">
                                     {details.status} | {details.original_language}
                                 </p>
+                                <p className="item-details-header-info-container-content__detail">
+                                    {details.release_date}
+                                </p>
                                 <p className="item-details-header-info-container-content__genre">
                                     {/* {details.genres ? `${details.genres[0] ? details.genres[0].name : ''}` + `${details.genres[1] ? ' | ' + details.genres[1].name : ''}` : ''} */}
                                     {genres}
                                 </p>
-                                <Favorite details={details} genres={genres} logInStatus={this.props.logInStatus} />
+                                <Favorite pass={this.props} details={details} genres={genres} logInStatus={this.props.logInStatus} />
                                 {/* <li><Link class="theme-btn" to={this.props.logInStatus || this.props.session.failure ? `/ticket/${this.props.match.params.id}/${this.props.match.params.idticket}` : `/login`}><i class="icofont icofont-ticket"></i> Tickets</Link></li> */}
                             </div>
                         </div>
                         <div className="item-details-header-info-container-account-warning item-details-header-info-container-account-warning--hide">
-                            <p>Use a TDMB account to use this feature</p>
+                            <p>Use a Facebook account to use this feature</p>
                         </div>
                     </header>
                     <main className="item-details-main">
@@ -190,7 +193,7 @@ class DetailMovies extends Component {
                         <div className="item-details-main-reviews">
                             <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Showing</h2>
                             <div class="row">
-                                <ScheduleDetails seats={this.props.seats} itemDetails={this.props.details} />
+                                <ScheduleDetails pass={this.props} seats={this.props.seats} itemDetails={this.props.details} />
                             </div>
                         </div>
                     </main>

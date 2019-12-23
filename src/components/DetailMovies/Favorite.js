@@ -3,17 +3,37 @@ import firestore from "../../firestore"
 import firebase from 'firebase'
 import ReactNotification from 'react-notifications-component'
 import { store } from 'react-notifications-component';
-
 export default class Favorite extends Component {
     constructor(props) {
         super(props);
         this.state = {
             added: false,
-            id: null
+            id: null,
+            heart: false
         }
     }
-    componentDidMount() {
-        // this.handleRender()
+    componentWillMount() {
+        if (localStorage.getItem('uid') !== null) {
+            let uid = localStorage.getItem('uid')
+            const db = firebase.firestore();
+            db.collection("user").doc(uid).collection("favorite").get().then((querySnapshot) => {
+                let index = querySnapshot.docs.findIndex((item) => { return item.id === `${this.props.details.id}` })
+                console.log(index)
+                if (index !== -1) {
+                    this.setState({
+                        heart: true
+                    })
+                }
+                if (index === -1) {
+                    this.setState({
+                        heart: false
+                    })
+                }
+            }
+            )
+        }
+        
+
     }
     handleDeleteFirebase = async () => {
         let uid = localStorage.getItem('uid')
@@ -49,63 +69,7 @@ export default class Favorite extends Component {
         });
     }
     handleFavorite = async () => {
-        const dataToAdd = {
-            id: this.props.details.id,
-            tenPhim: this.props.details.title,
-            ngayChieu: this.props.details.release_date,
-            photo: this.props.details.backdrop_path,
-            bio: this.props.details.overview,
-            doDai: this.props.details.runtime,
-            genres: this.props.genres,
-
-        }
-        let uid = localStorage.getItem('uid')
-        const db = await firebase.firestore();
-        db.collection("user").doc(uid).collection("favorite").get().then((querySnapshot) => {
-            let index = querySnapshot.docs.findIndex((item) => { return item.id === `${this.props.details.id}` })
-            querySnapshot.forEach((doc) => {
-
-            });
-            if (this.props.logInStatus !== false && index === -1) {
-                this.handlePostFirebase(dataToAdd)
-                this.setState({
-                    added: true
-                })
-                store.addNotification({
-                    title: "Success",
-                    message: "Added to Favorite category",
-                    type: "success",
-                    insert: "top",
-                    container: "top-right",
-                    animationIn: ["animated", "fadeIn"],
-                    animationOut: ["animated", "fadeOut"],
-                    dismiss: {
-                        duration: 5000,
-                        onScreen: false
-                    }
-                })
-            }
-            if (this.props.logInStatus !== false && index !== -1) {
-                this.setState({
-                    added: false,
-                })
-                this.handleDeleteFirebase()
-                store.addNotification({
-                    title: "Removed from Favorite",
-                    message: "Removed successfully from favorite ",
-                    type: "danger",
-                    insert: "top",
-                    container: "top-right",
-                    animationIn: ["animated", "fadeIn"],
-                    animationOut: ["animated", "fadeOut"],
-                    dismiss: {
-                        duration: 5000,
-                        onScreen: false
-                    }
-                })
-            }
-        });
-        if (this.props.logInStatus === false) {
+        if (localStorage.getItem('uid') === null) {
             document.querySelector('.item-details-header-info-container-account-warning').classList.remove('item-details-header-info-container-account-warning--hide');
             setTimeout(() => {
                 document.querySelector('.item-details-header-info-container-account-warning').classList.add('item-details-header-info-container-account-warning--hide');
@@ -124,14 +88,78 @@ export default class Favorite extends Component {
                 }
             })
         }
+        const dataToAdd = {
+            id: this.props.details.id,
+            tenPhim: this.props.details.title,
+            ngayChieu: this.props.details.release_date,
+            photo: this.props.details.backdrop_path,
+            bio: this.props.details.overview,
+            doDai: this.props.details.runtime,
+            genres: this.props.genres,
+
+        }
+
+        if (localStorage.getItem('uid') !== null) {
+            let uid = localStorage.getItem('uid')
+            const db = await firebase.firestore();
+            db.collection("user").doc(uid).collection("favorite").get().then((querySnapshot) => {
+                let index = querySnapshot.docs.findIndex((item) => { return item.id === `${this.props.details.id}` })
+                querySnapshot.forEach((doc) => {
+
+                });
+                if ( index === -1) {
+                    this.handlePostFirebase(dataToAdd)
+                    this.setState({
+                        added: true,
+                        heart: true
+                    })
+                    store.addNotification({
+                        title: "Success",
+                        message: "Added to Favorite category",
+                        type: "success",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animated", "fadeIn"],
+                        animationOut: ["animated", "fadeOut"],
+                        dismiss: {
+                            duration: 5000,
+                            onScreen: false
+                        }
+                    })
+                }
+                if (index !== -1) {
+                    this.setState({
+                        added: false,
+                        heart: false
+                    })
+                    this.handleDeleteFirebase()
+                    store.addNotification({
+                        title: "Removed from Favorite",
+                        message: "Removed successfully from favorite ",
+                        type: "danger",
+                        insert: "top",
+                        container: "top-right",
+                        animationIn: ["animated", "fadeIn"],
+                        animationOut: ["animated", "fadeOut"],
+                        dismiss: {
+                            duration: 5000,
+                            onScreen: false
+                        }
+                    })
+                }
+            });
+
+        }
     }
     render() {
+
         return (
             <Fragment>
                 <ReactNotification />
                 <svg onClick={this.handleFavorite}
 
-                    className="item-details-header-info-container-content__favorite wow pulse"
+                    className={this.state.heart === false ? "item-details-header-info-container-content__favorite wow pulse" : "item-details-header-info-container-content__favorite__ok wow pulse"}
+                    // className={status}
                     data-wow-delay=".5s"
                     data-wow-duration="2s"
                     xmlns="http://www.w3.org/2000/svg"

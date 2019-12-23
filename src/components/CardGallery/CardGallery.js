@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import '../CardGallery/CardGallery.scss'
 import $ from "jquery"
 import * as action2 from "../../actions/movieActions/getUpcoming";
@@ -68,7 +68,6 @@ class CardGallery extends Component {
         })
     }
     renderItem = () => {
-        let count = 0;
         return this.props.nowPlaying && this.props.nowPlaying.map((item, index) => {
             if (index >= 0 && index < 4) {
                 return (
@@ -79,55 +78,57 @@ class CardGallery extends Component {
     }
     render() {
         return (
-
-            <section id="rt1-showcase-surround">
-                <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"HOT MOVIES"} class="main-content-container__title glitch ">HOT MOVIES</h2>
-                <HrLine />
-                <div id="rt1-showcase" className="slider1-container rt1-overlay-dark">
-                    <div className="rt1-container slider1-container">
-                        <div className="rt1-grid-12 rt1-alpha rt1-omega">
-                            <div className="cs1slider1 autoplay ">
-                                <input name="cs1_anchor1" id="cs1_slide1_0" type="radio" className="cs1_anchor slide" />
-                                <input name="cs1_anchor1" id="cs1_slide1_1" type="radio" className="cs1_anchor slide" />
-                                <input name="cs1_anchor1" id="cs1_slide1_2" type="radio" className="cs1_anchor slide" />
-                                <input name="cs1_anchor1" id="cs1_slide1_3" type="radio" className="cs1_anchor slide" />
-                                <input name="cs1_anchor1" id="cs1_play1" type="radio" className="cs1_anchor" defaultChecked />
-                                <input name="cs1_anchor1" id="cs1_pause1_0" type="radio" className="cs1_anchor pause" />
-                                <input name="cs1_anchor1" id="cs1_pause1_1" type="radio" className="cs1_anchor pause" />
-                                <input name="cs1_anchor1" id="cs1_pause1_2" type="radio" className="cs1_anchor pause" />
-                                <input name="cs1_anchor1" id="cs1_pause1_3" type="radio" className="cs1_anchor pause" />
-                                <ul>
-                                    <li className="cs1_skeleton">
-                                        <img src="https://cssslider.com/sliders/demo-27/data1/images/polaroid594200_1280.jpg" style={{ width: '100%' }} alt="Wordpress range touch carousel online header" />
-                                    </li>
-                                    {this.renderItem()}
-                                </ul>
-                                <div className="cs1_description">
-                                    {this.renderDes()}
+            <Fragment>
+                {this.props.renderItem === true ? (
+                    <section id="rt1-showcase-surround">
+                        <h2 style={{ textAlign: "center", marginLeft: "20px", marginTop: "30px" }} data-text={"HOLLYWOOD NEWS"} class="main-content-container__title glitch ">HOLLYWOOD NEWS</h2>
+                        <HrLine />
+                        <div id="rt1-showcase" className="slider1-container rt1-overlay-dark">
+                            <div className="rt1-container slider1-container">
+                                <div className="rt1-grid-12 rt1-alpha rt1-omega">
+                                    <div className="cs1slider1 autoplay ">
+                                        <input name="cs1_anchor1" id="cs1_slide1_0" type="radio" className="cs1_anchor slide" />
+                                        <input name="cs1_anchor1" id="cs1_slide1_1" type="radio" className="cs1_anchor slide" />
+                                        <input name="cs1_anchor1" id="cs1_slide1_2" type="radio" className="cs1_anchor slide" />
+                                        <input name="cs1_anchor1" id="cs1_slide1_3" type="radio" className="cs1_anchor slide" />
+                                        <input name="cs1_anchor1" id="cs1_play1" type="radio" className="cs1_anchor" defaultChecked />
+                                        <input name="cs1_anchor1" id="cs1_pause1_0" type="radio" className="cs1_anchor pause" />
+                                        <input name="cs1_anchor1" id="cs1_pause1_1" type="radio" className="cs1_anchor pause" />
+                                        <input name="cs1_anchor1" id="cs1_pause1_2" type="radio" className="cs1_anchor pause" />
+                                        <input name="cs1_anchor1" id="cs1_pause1_3" type="radio" className="cs1_anchor pause" />
+                                        <ul>
+                                            <li className="cs1_skeleton">
+                                                <img src="https://cssslider.com/sliders/demo-27/data1/images/polaroid594200_1280.jpg" style={{ width: '100%' }} alt="Wordpress range touch carousel online header" />
+                                            </li>
+                                            {this.renderItem()}
+                                        </ul>
+                                        <div className="cs1_description">
+                                            {this.renderDes()}
+                                        </div>
+                                        <div className="cs1_arrowprev">
+                                            <label className="num0" htmlFor="cs1_slide1_0"><span><i /><b /></span></label>
+                                            <label className="num1" htmlFor="cs1_slide1_1"><span><i /><b /></span></label>
+                                            <label className="num2" htmlFor="cs1_slide1_2"><span><i /><b /></span></label>
+                                            <label className="num3" htmlFor="cs1_slide1_3"><span><i /><b /></span></label>
+                                        </div>
+                                        <div className="cs1_arrownext">
+                                            <label className="num0" htmlFor="cs1_slide1_0"><span><i /><b /></span></label>
+                                            <label className="num1" htmlFor="cs1_slide1_1"><span><i /><b /></span></label>
+                                            <label className="num2" htmlFor="cs1_slide1_2"><span><i /><b /></span></label>
+                                            <label className="num3" htmlFor="cs1_slide1_3"><span><i /><b /></span></label>
+                                        </div>
+                                        <div className="cs1_bullets">
+                                            {this.renderThumb()}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="cs1_arrowprev">
-                                    <label className="num0" htmlFor="cs1_slide1_0"><span><i /><b /></span></label>
-                                    <label className="num1" htmlFor="cs1_slide1_1"><span><i /><b /></span></label>
-                                    <label className="num2" htmlFor="cs1_slide1_2"><span><i /><b /></span></label>
-                                    <label className="num3" htmlFor="cs1_slide1_3"><span><i /><b /></span></label>
-                                </div>
-                                <div className="cs1_arrownext">
-                                    <label className="num0" htmlFor="cs1_slide1_0"><span><i /><b /></span></label>
-                                    <label className="num1" htmlFor="cs1_slide1_1"><span><i /><b /></span></label>
-                                    <label className="num2" htmlFor="cs1_slide1_2"><span><i /><b /></span></label>
-                                    <label className="num3" htmlFor="cs1_slide1_3"><span><i /><b /></span></label>
-                                </div>
-                                <div className="cs1_bullets">
-                                    {this.renderThumb()}
-                                </div>
+                                <div className="clear" />
                             </div>
                         </div>
-                        <div className="clear" />
-                    </div>
-                </div>
-                <HrLine />
-            </section>
-
+                        <HrLine />
+                    </section>
+                ) : ""}
+            </Fragment>
 
         )
     }

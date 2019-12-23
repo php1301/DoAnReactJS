@@ -13,7 +13,7 @@ export default function TicketBox(props) {
     const handleCount = (x) => { return (setCount(count + x)) }
     const handleVe = (mang) => { return (props.viTri.map(item => { return (item), console.log(item) })) }
     return (
-        <div id="omb-lightbox-content-wrapper" style={{ padding: 0, width: 1200, height: 'auto' }}><div className="modal omb-lightbox-header"><h4 className="title">Reserve your ticket</h4><a href="#" id="omb-lightbox-close"><i className="fa fa-times" /></a></div><div id="omb-lightbox-content"><div className="hall_wrapper"><div className="col-left"><img src={` http://image.tmdb.org/t/p/w185///${props.itemDetails.poster_path}`} alt="The Hateful Eight" className="trailer-poster" /><h6 className="title">{props.itemDetails.title}</h6><span className="type"><a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">{props.tenrap}</a>,
+        <div show={show} id="omb-lightbox-content-wrapper" style={{ padding: 0, width: 1200, height: 'auto' }}><div className="modal omb-lightbox-header"><h4 className="title">Reserve your ticket</h4><a href="#" id="omb-lightbox-close"><i className="fa fa-times" /></a></div><div id="omb-lightbox-content"><div className="hall_wrapper"><div className="col-left"><img src={` http://image.tmdb.org/t/p/w185///${props.itemDetails.poster_path}`} alt="The Hateful Eight" className="trailer-poster" /><h6 className="title">{props.itemDetails.title}</h6><span className="type"><a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">{props.tenrap}</a>,
         {props.itemDetails.genres.map((item, index) => {
             if (index + 1 < props.itemDetails.genres.length)
                 return <a rel="tag">{item.name + ", "}</a>
@@ -120,7 +120,8 @@ export default function TicketBox(props) {
             </ul>
             <hr />
             <div className="omb-theatre-seats-selection">
-                <TicketBooking count={count} viTri={props.viTri} timeset={props.timeset} items={props.items} itemDetails={props.itemDetails} tenrap={props.tenrap} /><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
+                <TicketBooking count={count} viTri={props.viTri} timeset={props.timeset} items={props.items} itemDetails={props.itemDetails} tenrap={props.tenrap} />
+                <a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a>
                 {/* <Link to={`/details/movie/${props.itemDetails.id}/payment`}><button className="btn btn-default omb-primary pull-right" id="reserve-seats" type="button" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Make Reservation</button></Link><a href="#" id="booking-back" className="btn btn-default omb-primary pull-right" data-info="{&quot;user_id&quot;:1368,&quot;movie_id&quot;:&quot;688&quot;,&quot;movie_title&quot;:&quot;The Hateful Eight&quot;,&quot;date&quot;:&quot;1576582200&quot;}">Back</a><a href="" id="booking-close" onClick={handleClose} className="btn btn-default omb-primary pull-right omb-lightbox-close">Close</a> */}
                 <span id="reservation-info">{count === 1 || count === 0 ? count + " Ticket" : count + " Tickets"} </span>
             </div>

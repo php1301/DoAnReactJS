@@ -9,6 +9,7 @@
     "antd": "^3.26.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
+    "bxslider": "^4.2.14",
     "dateformat": "^3.0.3",
     "firebase": "^7.6.0",
     "font-awesome": "^4.7.0",
@@ -44,11 +45,14 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "react-slick": "^0.25.2",
+    "react-snow-effect": "^1.2.0",
+    "react-snowflakes": "^1.0.0",
     "react-swipeable-views": "^0.13.3",
     "react-tabs": "^3.0.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "venobox": "^1.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

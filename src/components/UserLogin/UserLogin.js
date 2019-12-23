@@ -35,9 +35,11 @@ class UserLogin extends Component {
 
   authHandler = async authData => {
     const user = await authData.user;
-    localStorage.setItem('displayName', user.displayName)
-    localStorage.setItem('photo', user.photoURL)
-    localStorage.setItem('uid', user.uid)
+    if (user !== null) {
+      localStorage.setItem('displayName', user.displayName)
+      localStorage.setItem('photo', user.photoURL)
+      localStorage.setItem('uid', user.uid)
+    }
     this.setState({
       isLogin: true,
 

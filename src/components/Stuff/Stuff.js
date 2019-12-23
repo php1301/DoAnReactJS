@@ -16,6 +16,7 @@ class Stuff extends Component {
         console.log(this.props.movies)
         return (
             <div className="stuff-container">
+                <p style ={{textAlign: "center", fontSize: "10px"}}>This field is still on developing - Because I don't have enough api data</p>
                 <div className="row omb-latest">
                     <div className="col-xs-12 col-sm-6">
                         <h5>Latest News

@@ -93,14 +93,14 @@ class ScheduleDetails extends Component {
                                 <ul>
                                     <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                    {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                    <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    <Time pass={this.props.pass}rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                 </ul>
                                 <ul>
                                     <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                    <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    <Time pass={this.props.pass}rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                 </ul>
                                 <ul>
@@ -108,7 +108,7 @@ class ScheduleDetails extends Component {
                                     <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                    <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                    <Time pass={this.props.pass}rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                 </ul>
                             </div>
@@ -123,19 +123,19 @@ class ScheduleDetails extends Component {
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset2} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                         </div>
@@ -149,19 +149,19 @@ class ScheduleDetails extends Component {
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/bhd.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                             <ul>
                                 <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>                                {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 am</li>
                                     <li className="omb-event-over">1:00 pm</li> */}
-                                <Time rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
+                                <Time pass={this.props.pass}rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset3} id={item.maPhim} itemDetails={this.props.itemDetails} />
                                 {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                             </ul>
                         </div>
