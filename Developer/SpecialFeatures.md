@@ -3,12 +3,13 @@
 + Responsive bắt mắt
 + Thuật toán Search Bar đột phá
 + Chia folders SASS và sử dụng SASS
-+ Thiết kế tận dụng material-ui
++ Thiết kế cố gắng tận dụng material-ui
 + Validation
-+ Sử dụng API với data chất lượng - độc - lạ từ IMDB
++ Firebase Firestore
++ Sử dụng API với data chất lượng - độc - lạ từ TMDB
 + API chạy được và trả về nhiều states
 + Chi tiết đặt vé - thông tin phòng vé được thiết kế bắt mắt
-+ Tích hợp API Facebook dễ dàng đăng nhập và thanh toán MOMO
++ Tích hợp API Facebook dễ dàng đăng nhập
 + Update thường xuyên
 + Cải tiến và tối ưu hết mức để tăng SEO
 + Live support
