@@ -4,6 +4,8 @@
 + Facebook API Comments
 + Facebook API Likes
 + Redux
++ Hooks
++ Firebase Firestore
 + React - Redux
 + OMDB
 + The Movies Database
