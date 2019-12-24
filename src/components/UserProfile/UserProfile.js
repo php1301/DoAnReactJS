@@ -16,11 +16,7 @@ import Tickets from './Tickets';
 import UserLogin from "../UserLogin/UserLogin"
 class UserProfile extends Component {
 
-    // static getDerivedStateFromProps(props, state) {
-    //     if (props.logInStatus === false) {
-    //         props.history.push('/login')
-    //     }
-    // }
+
 
 
     logout = async () => {

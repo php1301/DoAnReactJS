@@ -70,10 +70,6 @@ export default class UserItem extends Component {
       }
       console.log(arrToPush)
       return arrToPush
-      // this.setState({
-      //    data: arrToPush
-      // }, console.log(this.state.data))
-      // this.renderItem()
    }
    renderState = async () => {
       const arrToPush = await this.firebaseRender()

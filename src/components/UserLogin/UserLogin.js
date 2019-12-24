@@ -16,6 +16,15 @@ class UserLogin extends Component {
       displayName: null
     }
   }
+  
+
+  authenticate = provider => {
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    firebaseConfig
+      .auth()
+      .signInWithPopup(authProvider)
+      .then(this.authHandler);
+  };
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -23,17 +32,7 @@ class UserLogin extends Component {
       }
     });
   }
-
-  authenticate = provider => {
-    console.log(provider);
-    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-    firebaseConfig
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(this.authHandler);
-  };
-
-  authHandler = async authData => {
+  authHandler = async authData => {                                                              
     const user = await authData.user;
     if (user !== null) {
       localStorage.setItem('displayName', user.displayName)
