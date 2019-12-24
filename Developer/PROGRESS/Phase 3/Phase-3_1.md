@@ -70,5 +70,6 @@ Concept cơ bản UserProfile:
 #### findIndex dựa theo id đó và id của trang đang coi -> thành công -> handle Thêm/Xóa
 + Add các notifications cho các hành động tương úng
 + Data structure hình thành theo ý muốn
++ Pull request và merge vô master
 + Vẫn còn bugs ở vài chỗ handle Login status nhưng đã có hướng fix bằng uid
 + Move to phase 3-2
