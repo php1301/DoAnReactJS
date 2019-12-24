@@ -25,6 +25,8 @@
 + Redirect khi guard routing
 #### Việc đặt tên document id rất quan trọng -> thuận lợi cho việc handle các chức năng
 + Thiêt kế lại Gallery -> Mượt hơn
++ Thêm hiệu ứng snow
++ Thêm FPSstats(đã hidden)
 + Login ổn, tự biết redirect trang, fix các bugs
 + Add được -> biết map ra các component bằng .get().then(querySelector)
 #### Map lấy data Firebase
