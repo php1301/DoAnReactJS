@@ -1,4 +1,4 @@
-#Phase 3-2
+# Phase 3-2
 ### 22/12/2019
 + Đập đi xây lại UI cho tabs Movies
 + Thiết kế Carousel từ react-multi-carousel
