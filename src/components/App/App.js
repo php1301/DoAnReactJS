@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import { routesHome } from "../../routes";
 import { connect } from 'react-redux';
 import FPSStats from "react-fps-stats";
+import img from '../App/up-arrow-button.png'
+import ScrollToTop from 'react-scroll-up'
 function App(props) {
   const showItem = (routes) => {
     if (routes && routes.length > 0) {
@@ -20,6 +22,11 @@ function App(props) {
   return (
     <div className="App">
       {/* <FPSStats/> */}
+      <ScrollToTop style={{bottom: "144px", right: "38px"}} showUnder={160}>
+        <span >
+              <i style={{color: "white"}} class="fa fa-chevron-up" aria-hidden="true"></i>
+        </span>
+      </ScrollToTop>
       <BrowserRouter>
         <Switch>
           {showItem(routesHome)}
