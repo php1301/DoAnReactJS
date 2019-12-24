@@ -1,6 +1,7 @@
 # Phase 3-2
 ### 22/12/2019
 + Đập đi xây lại UI cho tabs Movies
++ Bỏ các console.log, refractor code 1 số chỗ, bỏ các comment code
 + Thiết kế Carousel từ react-multi-carousel
 + Fix UI HomeHeader thành công
 + Gặp bugs khá khó chịu aria-labelled=true tất cả
