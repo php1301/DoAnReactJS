@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import { routesHome } from "../../routes";
 import { connect } from 'react-redux';
 import FPSStats from "react-fps-stats";
-import img from '../App/up-arrow-button.png'
 import ScrollToTop from 'react-scroll-up'
 function App(props) {
   const showItem = (routes) => {
