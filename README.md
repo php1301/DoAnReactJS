@@ -52,6 +52,7 @@ ___
 + Chia folders SASS và sử dụng SASS
 + Thiết kế cố gắng tận dụng material-ui
 + Validation
++ Có demo test bằng Jest/Enzyme và react/tesing
 + Firebase Firestore
 + Sử dụng API với data chất lượng - độc - lạ từ TMDB
 + API chạy được và trả về nhiều states
