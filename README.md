@@ -3,6 +3,7 @@
 ___
 
 ---
++ [Wiki](https://gitlab.com/php1301/DoAnReactJS/-/wikis/Project-Wiki-about)
 + [About](https://github.com/php1301/DoAnReactJS/blob/master/Developer/About.md)
 + [Tài liệu - Extensions](https://github.com/php1301/DoAnReactJS/blob/master/Developer/docs.md)
 + [Hỗ trợ - Social Media](https://www.facebook.com/dioxittdn.phucprobb)
@@ -11,6 +12,10 @@ ___
 + [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/Developer/Packages.md)
 + [Từ Tác Giả](https://github.com/php1301/DoAnReactJS/edit/master/Developer/Info.md)
 ---
+***
+## [Wiki - GitLab](https://gitlab.com/php1301/DoAnReactJS/-/wikis/Project-Wiki-about)
+[Wiki - GitLab Page](https://gitlab.com/php1301/DoAnReactJS/-/wikis/Project-Wiki-about)
+***
 ## [About](https://github.com/php1301/DoAnReactJS/blob/master/Developer/About.md)
 
 Đồ án ReactJS là một trong 2 đồ án lớn tốt nghiệp khóa học FE28 Cybersoft đối với dự án ReactJS. Nó là đồ án về việc Đặt vé xem phim. Nó cung cấp các chức năng và giao diện **cơ bản** của một một dự án thông thường như:
