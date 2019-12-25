@@ -2,4 +2,5 @@
 + [ReactJS.org](https://reactjs.org/)
 + [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 + [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
++ [Firebase](https://firebase.google.com/docs)
 + (Đang phát triển)
