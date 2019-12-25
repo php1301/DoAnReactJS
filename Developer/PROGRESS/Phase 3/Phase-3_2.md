@@ -52,6 +52,8 @@
 + Fix bugs tương đối thành công chạy ổn -> render màu trái tim theo đúng logic - chưa logout -> đã add / chưa add
 ### 24/12/2019
 + Check lại performance
++ Tập tành test thử class của nút favorite tồn tại đúng không bằng react-testing/jest/enzyme, dùng shallow tránh ảnh hưởng lifecycle componenWillMount -> đúng như expect()
++ ![Imgur](https://i.imgur.com/ZPWcnga.png)
 + Thêm button scroll to top
 + Hoàn thành và cập nhật lại readme.md
 
