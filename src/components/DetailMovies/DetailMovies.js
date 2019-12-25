@@ -51,7 +51,7 @@ class DetailMovies extends Component {
         this.props.onSaveDetails(id)
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
-        this.props.onSaveSeats(16016)
+        this.props.onSaveSeats(16016) // do xài 2 nguồn api nên không sync được id để truyền id vô lấy mã lịch chiếu được, nên cho đại 1 mã lịch chiếu -> đã nhận ra sự bất cập này và rút exp
     }
     render() {
         let { details } = this.props
