@@ -109,7 +109,6 @@ class Schedule extends Component {
     })
   }
   render() {
-    console.log(this.props.times)
     return (
       <section className="omb-movies-schedule-page" >
         <div className="content-wrapper container" className="wow fadeIn" data-wow-duration="3s">
