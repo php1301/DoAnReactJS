@@ -110,6 +110,7 @@ class Schedule extends Component {
   }
   render() {
     return (
+      
       <section className="omb-movies-schedule-page" >
         <div className="content-wrapper container" className="wow fadeIn" data-wow-duration="3s">
           <div className="col-md-12 omb-no-sidebar">
