@@ -12,7 +12,6 @@ ___
 + [Log - Quá trình làm ](https://github.com/php1301/DoAnReactJS/tree/master/Developer/PROGRESS)
 + [Thư Viện - Packages - API](https://github.com/php1301/DoAnReactJS/blob/master/Developer/Packages.md)
 + [Từ Tác Giả](https://github.com/php1301/DoAnReactJS/edit/master/Developer/Info.md)
-Take me to [pookie](#pookie)
 
 
 ### <a name="pookie">This is the Heading</a>
