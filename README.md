@@ -14,7 +14,6 @@ ___
 + [Từ Tác Giả](https://github.com/php1301/DoAnReactJS/edit/master/Developer/Info.md)
 
 
-### <a name="pookie">This is the Heading</a>
 
 ---
 ***
