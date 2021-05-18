@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../UserLogin/UserLogin.scss';
 import { connect, Provider } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import FormAuth from '../FormAuth/FormAuth'
 import firebase from 'firebase'
 import firebaseConfig from "../../firestore"
 
@@ -18,7 +18,7 @@ class UserLogin extends Component {
   }
   
 
-  authenticate = provider => {
+  authenticate = (provider) => {
     const authProvider = new firebase.auth[`${provider}AuthProvider`]();
     firebaseConfig
       .auth()
@@ -67,16 +67,17 @@ class UserLogin extends Component {
             <img className="user-log-in-container-header__logo" src="http://www.demo.gloriathemes.com/wp/themovie/wp-content/themes/themovie/assets/img/logo-alternative.png" alt="logo" />
             <h1 className="user-log-in-container-header__title">Log In</h1>
             <h2 className="user-log-in-container-header__name">Film Cloud</h2>
+            {/* <p className="user-log-in-container-content__warning">Log In now to have access to limited features</p> */}
           </header>
 
           <div className="user-log-in-container-content">
-            <a href="#">
+            {/* <a href="#">
 
               <button onClick={() => { this.authenticate("Facebook") }} className="user-log-in-container-content__button"  >Log In</button>
-            </a>
+            </a> */}
+            <FormAuth/>
           </div>
 
-          <p className="user-log-in-container-content__warning">Log In now to have access to limited features</p>
 
         </div>
 
