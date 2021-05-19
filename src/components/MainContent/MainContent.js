@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component, Fragment } from 'react';
 import "../MainContent/MainContent.scss"
 // import Upcoming from '../Upcoming/Upcoming';
@@ -5,6 +6,7 @@ import "../MainContent/MainContent.scss"
 // import NowPlaying from '../NowPlaying/NowPlaying';
 // import TopRated from '../TopRated/TopRated';
 import { connect } from 'react-redux';
+import * as action from "../../actions/movieActions/getPhim";
 import * as action2 from "../../actions/movieActions/getUpcoming";
 import * as action3 from "../../actions/movieActions/getPopular";
 import * as action4 from "../../actions/movieActions/getNowPlaying";
@@ -41,19 +43,20 @@ const HrLine = () => (
 // )
 class MainContent extends Component {
     componentDidMount() {
+        this.props.onSavePhim()
         this.props.onSaveNowPlaying()
         this.props.onSavePopular()
         this.props.onSaveUpcoming()
         this.props.onSaveTopRated()
     }
-    renderItem = () => {
-
-    }
     render() {
+        console.log(this.props.phim)
         return (
             <div className="main-content-container">
                 {this.props.renderItem === false ? (
                     <Fragment>
+                        <Title data={"Demo Project"} className="glitch" title={"Demo Project"} />
+                        <Carousel items={this.props.phim} project={true} />
                         <Title data={"Upcoming"} className="glitch" title={"Upcoming"} />
                         <Carousel items={this.props.nowPlaying} />
                         {/* <TicketItem items={this.props.nowPlaying}/> */}
@@ -82,6 +85,7 @@ class MainContent extends Component {
 }
 const mapStateToProps = state => {
     return {
+        phim: state.getPhim.result, // data ko co results : []
         nowPlaying: state.getNowPlaying.result.results,
         popular: state.getPopular.result.results,
         upcoming: state.getUpcoming.result.results,
@@ -90,6 +94,9 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
+        onSavePhim: () => {
+            dispatch(action.getPhim())
+        },
         onSaveUpcoming: () => {
             dispatch(action2.getUpcoming())
         },

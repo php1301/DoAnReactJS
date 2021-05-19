@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import userReducer from "../reducers/userReducers";
 import toggleNav from "../reducers/toggleNav";
 import movieReducer from "../reducers/movieReducer/movieReducer";
+import getPhim from "../reducers/movieReducer/getPhim";
 import getUpcoming from "../reducers/movieReducer/getUpcoming";
 import getPopular from "../reducers/movieReducer/getPopular";
 import getNowPlaying from "../reducers/movieReducer/getNowPlaying";
@@ -40,6 +41,7 @@ import getPeoplePopular from './peopleReducers/getPeoplePopular';
 const rootReducer = combineReducers({
     toggleNav,
     movieReducer,
+    getPhim,
     getUpcoming,
     getPopular,
     getNowPlaying,

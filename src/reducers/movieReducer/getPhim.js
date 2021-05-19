@@ -1,16 +1,16 @@
-import { GET_UPCOMING } from "../../actions/types";
+import { GET_PHIM } from "../../actions/types";
 const initState = {
     result: []
 }
-const getUpcoming = (state = initState, action) => {
+const getPhim = (state = initState, action) => {
 
     switch (action.type) {
-        case GET_UPCOMING:
-            state.result = action.upcoming
+        case GET_PHIM:
+            state.result = action.phim
             // return {...state, action.upcoming}
             return { ...state }
         default:
             return { ...state }
     }
 }
-export default getUpcoming
+export default getPhim
