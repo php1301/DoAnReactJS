@@ -1,6 +1,7 @@
 import React, { useState, setShow } from 'react'
 import { Modal } from 'react-bootstrap'
 import "../Modal/Modal.scss"
+import cookie from 'js-cookie'
 import TicketBox from '../TicketBox/TicketBox';
 export default function Example(props) {
     const [show, setShow] = useState(false);
@@ -9,7 +10,7 @@ export default function Example(props) {
     const handleShow = () => setShow(true);
     const [viTri, setViTri] = useState([])
     const handleClick = () => {
-        if (localStorage.getItem('uid') !== null) {
+        if (cookie.get('id') !== null) {
             handleShow()
         }
         else

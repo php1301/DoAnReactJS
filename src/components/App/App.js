@@ -8,6 +8,7 @@ import { routesHome } from "../../routes";
 import { connect } from 'react-redux';
 import FPSStats from "react-fps-stats";
 import ScrollToTop from 'react-scroll-up'
+import 'react-toastify/dist/ReactToastify.css';
 function App(props) {
   const showItem = (routes) => {
     if (routes && routes.length > 0) {

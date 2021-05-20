@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import React,{useState} from 'react';
+import { useHistory } from "react-router-dom";
+import {toast} from 'react-toastify'
+import cookie from 'js-cookie'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,11 +12,11 @@ import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { Toast } from 'bootstrap';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,18 +40,74 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn({setChangeForm}) {
+  let history = useHistory();
   const classes = useStyles();
   const initialState = {
     error: null,
     person: {
-        firstName: "",
-        lastName: "",
         email:"",
         password:"",
     }
 };
-const [input, setInput] = useState(initialState)
-console.log(input)
+  const [input, setInput] = useState(initialState)
+const handleClick = async () =>{
+  const request = {
+    email: input.person.email,
+    password: input.person.password,
+  }
+  try{
+    const data = await fetch("http://localhost:3001/login",{
+      method:"POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(request)
+    })
+    if(data.status===200){
+    const user = await data.json();
+    cookie.set('username', user.username)
+      cookie.set('avatar', user.avatar)
+      cookie.set('id', user.id)
+      cookie.set('token',  user.token)
+    toast.success("Đăng nhập thành công bạn sẽ được chuyển hướng",{
+      position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+    })
+    setTimeout(() => {
+      history.push({ pathname: '/profile'})
+    }, 4000);
+  }
+  else{
+    throw Error
+  }
+}
+  catch(e){
+    toast.error("Có lỗi đăng nhập",{
+      position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+    })
+  }
+}
+const handleChange = (event)=> {
+  const { name, value } = event.target;
+      // setInput((state) => state.person[event.target.name] = event.target.value);
+      setInput((prev)=>({ ...prev, person:{
+              ...prev.person,
+              [name]: value
+      }}));
+
+}
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -70,6 +129,8 @@ console.log(input)
             name="email"
             autoComplete="email"
             autoFocus
+            value={input.person.email}
+            onChange={(e)=>{handleChange(e)}}
           />
           <TextField
             variant="outlined"
@@ -81,16 +142,20 @@ console.log(input)
             type="password"
             id="password"
             autoComplete="current-password"
+            value={input.person.password}
+            onChange={(e)=>{handleChange(e)}}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
+            onChange={(e)=>{handleChange(e)}}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            onClick={handleClick}
             className={classes.submit}
           >
             Sign In

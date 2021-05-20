@@ -5,13 +5,13 @@ import "../UserProfile/UserProfile.scss";
 import "../UserLogin/UserLogin.scss";
 import UserItem from '../UserProfile/UserItem'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom';
-import Carousel from "react-multi-carousel";
+// import { Link, Redirect } from 'react-router-dom';
+// import Carousel from "react-multi-carousel";
+import cookie from 'js-cookie'
 import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
 import getUserDetails from '../../actions/authenticationActions/getUserDetails';
-import firebase from 'firebase'
-import firebaseConfig from "../../firestore"
+// import firebaseConfig from "../../firestore"
 import Tickets from './Tickets';
 import UserLogin from "../UserLogin/UserLogin"
 class UserProfile extends Component {
@@ -20,16 +20,22 @@ class UserProfile extends Component {
 
 
     logout = async () => {
-        await firebase.auth().signOut();
+        const removeArr = ["token", "id", "username", "avatar"]
+        removeArr.map(i=>{
+            cookie.remove(i)
+        })
         this.props.history.push('/')
         this.props.toggleLogInStatus({ status: false });
-        localStorage.clear();
     };
     render() {
-        if (localStorage.getItem('uid') !== null) {
-            let displayName = localStorage.getItem('displayName')
-            let photo = localStorage.getItem('photo')
-            let uid = localStorage.getItem('uid')
+        // if (localStorage.getItem('uid') !== null) {
+        //     let displayName = localStorage.getItem('displayName')
+        //     let photo = localStorage.getItem('photo')
+        //     let uid = localStorage.getItem('uid')
+        if (cookie.get('id') !== null) {
+            let displayName = cookie.get('username')
+            let photo = cookie.get('avatar')
+            let uid = cookie.get('id')
             return (
                 < div className="user-profile" >
                     <MainNav />

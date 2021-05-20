@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
+import {toast} from 'react-toastify'
+import cookie from 'js-cookie'
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -36,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp({setChangeForm}) {
+  let history = useHistory();
     const initialState = {
       error: null,
       person: {
@@ -43,12 +47,63 @@ export default function SignUp({setChangeForm}) {
           lastName: "",
           email:"",
           password:"",
+          soDT: "",
+          username:"",
       }
   };
     const [input, setInput] = useState(initialState)
   const classes = useStyles();
-const handleClick = () =>{
-    console.log(input)
+const handleClick = async () =>{
+  const request = {
+    hoTen: input.person.firstName + " " + input.person.lastName,
+    username: input.person.username,
+    soDT: input.person.soDT,
+    email: input.person.email,
+    password: input.person.password,
+  }
+  try{
+    const data = await fetch("http://localhost:3001/signup",{
+      method:"POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(request)
+    })
+    if(data.status===200){
+    const user = await data.json();
+    cookie.set('username', user.username)
+      cookie.set('avatar', user.avatar)
+      cookie.set('id', user.id)
+      cookie.set('token',  user.token)
+    toast.success("Đăng ký thành công bạn sẽ được chuyển hướng",{
+      position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+    })
+    setTimeout(() => {
+      history.push({ pathname: '/profile'})
+    }, 4000);
+  }
+  else{
+    throw Error
+  }
+}
+  catch(e){
+    toast.error("Có lỗi đăng ký",{
+      position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+    })
+  }
 }
 const handleChange = (event)=> {
     const { name, value } = event.target;
@@ -97,6 +152,30 @@ const handleChange = (event)=> {
                 name="lastName"
                 autoComplete="lname"
                 value={input.person.lastName}
+                onChange={(e)=>{handleChange(e)}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="username"
+                label="Username"
+                name="username"
+                value={input.person.username}
+                onChange={(e)=>{handleChange(e)}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="soDT"
+                label="Số điện thoại"
+                name="soDT"
+                value={input.person.soDT}
                 onChange={(e)=>{handleChange(e)}}
               />
             </Grid>

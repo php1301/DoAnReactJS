@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {ToastContainer} from 'react-toastify'
+import cookie from 'js-cookie'
 import '../UserLogin/UserLogin.scss';
 import { connect, Provider } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -11,48 +13,54 @@ class UserLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLogin: this.props.logInStatus,
+      isLogin: !!cookie.get('token'),
       photo: null,
       displayName: null
     }
   }
   
 
-  authenticate = (provider) => {
-    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
-    firebaseConfig
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(this.authHandler);
-  };
+  // authenticate = (provider) => {
+  //   const authProvider = new firebase.auth[`${provider}AuthProvider`]();
+  //   firebaseConfig
+  //     .auth()
+  //     .signInWithPopup(authProvider)
+  //     .then(this.authHandler);
+  // };
   componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.authHandler(user)
-      }
-    });
+    // firebase.auth().onAuthStateChanged(user => {
+    //   if (user) {
+    //     this.authHandler(user)
+    //   }
+    // });
+    this.authHandler()
   }
-  authHandler = async authData => {                                                              
-    const user = await authData.user;
-    if (user !== null) {
-      localStorage.setItem('displayName', user.displayName)
-      localStorage.setItem('photo', user.photoURL)
-      localStorage.setItem('uid', user.uid)
+  // authHandler = async authData => {                                                              
+  authHandler = async () => {                                                              
+    let displayName = cookie.get('username')
+    let photo = cookie.get('avatar')
+    let uid = cookie.get('id')
+    if (displayName !== null && photo !==null && uid !==null) {
+      // localStorage.setItem('displayName', user.username)
+      // localStorage.setItem('photo', user.avatar)
+      // localStorage.setItem('uid', user.taiKhoan)
+      console.log(this.props.loginStatus)
+      this.setState((prev)=>({
+        isLogin: !prev.isLogin,
+  
+      }));
     }
-    this.setState({
-      isLogin: true,
-
-    });
-    if (this.state.isLogin === true) {
-      const db = await firebase.firestore();
-      db.settings({
-        timestampsInSnapshots: true
-      });
-      db.collection("user").doc(user.uid).set(
-        {}
-      )
+    console.log(this.state.isLogin)
+    if (this.state.isLogin) {
+      // const db = await firebase.firestore();
+      // db.settings({
+      //   timestampsInSnapshots: true
+      // });
+      // db.collection("user").doc(user.uid).set(
+      //   {}
+      // )
       this.props.toggleLogInStatus({ status: 'APPROVE' })
-      this.props.history.push({ pathname: '/profile', state: { isLogin: this.state.isLogin, photo: this.state.photo, displayName: this.state.displayName } })
+      this.props.history.push({ pathname: '/profile', state: { isLogin: this.state.isLogin, photo, displayName } })
     }
   };
 
@@ -60,8 +68,8 @@ class UserLogin extends Component {
   render() {
     return (
       <div className="user-log-in">
-
         <div className="user-log-in-container">
+              <ToastContainer/>
 
           <header className="user-log-in-container-header">
             <img className="user-log-in-container-header__logo" src="http://www.demo.gloriathemes.com/wp/themovie/wp-content/themes/themovie/assets/img/logo-alternative.png" alt="logo" />

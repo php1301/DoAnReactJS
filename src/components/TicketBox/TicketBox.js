@@ -112,6 +112,28 @@ export default function TicketBox(props) {
                         <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>H</li>
                     </ul>
                 </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>I</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <SeatItems handleVe={handleVe} viTri={props.viTri} alpha={"H"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>I</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>J</li>
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <SeatItems handleVe={handleVe} viTri={props.viTri} alpha={"H"} handleCount={handleCount} daDat={daDat} seats={props.seats} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-slot" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }} />
+                        <li className="omb-row-name" style={{ width: '40.23529411764706px', height: '40.23529411764706px', lineHeight: '40.23529411764706px' }}>J</li>
+                    </ul>
+                </li>
             </ul></div>
             <ul className="omb-theatre-legend">
                 <li className="omb-available">Available seat</li>
