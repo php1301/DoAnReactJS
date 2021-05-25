@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import {toast} from 'react-toastify'
 import cookie from 'js-cookie'
@@ -39,7 +39,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignUp({setChangeForm}) {
-  let history = useHistory();
+  const api = cookie.get('api');  let history = useHistory();
+  let location = useLocation();
+  const redirect = location && location.search ? location.search.slice(10) : null
     const initialState = {
       error: null,
       person: {
@@ -62,7 +64,7 @@ const handleClick = async () =>{
     password: input.person.password,
   }
   try{
-    const data = await fetch("http://localhost:3001/signup",{
+    const data = await fetch(`${api || 'http://localhost:3001'}/signup`,{
       method:"POST",
       headers: {
         'Accept': 'application/json',
@@ -86,7 +88,11 @@ draggable: true,
 progress: undefined,
     })
     setTimeout(() => {
-      history.push({ pathname: '/profile'})
+      if(redirect)
+      history.push({ pathname: redirect})
+      else{
+        history.push('/login')
+      }
     }, 4000);
   }
   else{

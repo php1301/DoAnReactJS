@@ -7,7 +7,7 @@ import firebase from 'firebase'
 import ReactNotification from 'react-notifications-component'
 import 'react-notifications-component/dist/theme.css'
 import { store } from 'react-notifications-component';
-import CreditCard from './CreditCard'
+import CreditCardProject from './CreditCardProject'
 import Map from "../Modal/Map"
 import PageNotFound from '../PageNotFound/PageNotFound'
 class Payment extends Component {
@@ -16,7 +16,6 @@ class Payment extends Component {
         super(props);
         this.state = {
             giaoDich: [],
-            giaVe: 75000,
             phanGiam: 0,
             disabled: false,
             daDung: false,
@@ -32,25 +31,25 @@ class Payment extends Component {
     }
 
     handleThem = () => {
-        let phanGiam = this.state.phanGiam !== 0 ? -this.state.phanGiam * this.props.history.location.state.viTri.length : 0
-        let special = this.state.special ? this.state.choose * this.props.history.location.state.viTri.length : 0
-        let other = phanGiam + special
-        let sum = this.props.history.location.state.viTri.length * this.state.giaVe + other
-        const objGiaoDich = {
-            tenPhim: this.props.history.location.state.itemDetails.title,
-            ngayChieu: this.props.history.location.state.timeset,
-            gioChieu: this.props.history.location.state.items,
-            tenRap: this.props.history.location.state.tenrap,
-            listGhe: this.props.history.location.state.viTri,
-            sum: { sum }
-        }
-        this.state.giaoDich.push(objGiaoDich)
+        // let phanGiam = this.state.phanGiam !== 0 ? -this.state.phanGiam * this.props.history.location.state.viTri.length : 0
+        // let special = this.state.special ? this.state.choose * this.props.history.location.state.viTri.length : 0
+        // let other = phanGiam + special
+        // let sum = this.props.history.location.state.viTri.length * this.state.giaVe + other
+        // const objGiaoDich = {
+        //     tenPhim: this.props.history.location.state.itemDetails.title,
+        //     ngayChieu: this.props.history.location.state.timeset,
+        //     gioChieu: this.props.history.location.state.items,
+        //     tenRap: this.props.history.location.state.tenrap,
+        //     listGhe: this.props.history.location.state.viTri,
+        //     sum: { sum }
+        // }
+        // this.state.giaoDich.push(objGiaoDich)
         this.setState({
-            giaoDich: this.state.giaoDich,
-            sum: { sum },
+            // giaoDich: this.state.giaoDich,
+            // sum: { sum },
             pay: true
         }, console.log(this.state.giaoDich))
-        console.log(this.state.giaoDich)
+        // console.log(this.state.giaoDich)
 
         // const db = firebase.firestore();
         // db.settings({
@@ -121,7 +120,7 @@ class Payment extends Component {
         this.setState({
             special: true,
             choose: event.target.value,
-            type: event.target.pattern
+            type: event.target.pattern.split(" ")[0]
         })
     }
     handleMethod = (event) => {
@@ -152,11 +151,16 @@ class Payment extends Component {
     }
     render() {
         if (cookie.get('id') !== null) {
-            let phanGiam = this.state.phanGiam !== 0 ? -this.state.phanGiam * this.props.history.location.state.viTri.length : 0
-            let special = this.state.choose * this.props.history.location.state.viTri.length
-            let other = phanGiam + special
-            let sum = this.props.history.location.state.viTri.length * this.state.giaVe + other
-            console.log(this.props)
+            const {daDat, details, thoiLuong, gioChieu, ngayChieu, thongTinRap, giaVe, maLichChieu} = this.props.history.location.state
+            let numberOfTicket = daDat.list.length
+            let numberOfNormalTicket = daDat.list.filter(i=>i.maLoaiGhe===1).length
+            let numberOfVipTicket = numberOfTicket - numberOfNormalTicket
+            let phanGiam = this.state.phanGiam !== 0 ? this.state.phanGiam * numberOfTicket : 0
+            let special = this.state.choose * numberOfTicket
+            let other = -phanGiam + special
+            let sum = (numberOfNormalTicket * giaVe) + ((numberOfVipTicket * giaVe) /2) + other
+            let tenHeThongRap = thongTinRap.tenCumRap.split(" ")[0]
+            // console.log(this.props)
             return (
                 <Fragment>
                     <div>
@@ -170,21 +174,23 @@ class Payment extends Component {
                                                 <div className="col-md-12">
                                                     <div className="st_dtts_ineer_box float_left">
                                                         <ul>
-                                                            <li><span className="dtts1">Book: </span>  <span className="dtts2">{this.props.history.location.state.itemDetails.title}</span></li>
-                                                            <li><span className="dtts1">Date</span>  <span className="dtts2">{this.props.history.location.state.timeset}</span>
+                                                            <li><span className="dtts1">Book: </span>  <span className="dtts2">{details.tenPhim}</span></li>
+                                                            <li><span className="dtts1">Date</span>  <span className="dtts2">{ngayChieu}</span>
                                                             </li>
-                                                            <li><span className="dtts1">Time</span>  <span className="dtts2">{this.props.history.location.state.items}</span>
+                                                            <li><span className="dtts1">Time</span>  <span className="dtts2">{gioChieu}</span>
                                                             </li>
-                                                            <li><span className="dtts1">Theater</span>  <span className="dtts2">{this.props.history.location.state.tenrap}</span>
+                                                            <li><span className="dtts1">Theater</span>  <span className="dtts2">{thongTinRap.tenCumRap}</span>
                                                             </li>
-                                                            <li><span className="dtts1">Seat</span>  <span className="dtts2">{this.props.history.location.state.tenrap} - {this.props.history.location.state.viTri.map((item, index) => {
-                                                                while (index < this.props.history.location.state.viTri.length - 1) {
-
-                                                                    return (item + ",")
-                                                                }
-                                                                if (index = this.props.history.location.state.viTri.length)
-                                                                    return (item)
-                                                            })}</span>
+                                                            <li><span className="dtts1">Seat</span>  <span className="dtts2">
+                                                              {thongTinRap.tenCumRap} - {daDat.list.map((g,i)=>{
+                                                                  if(daDat.list[i+1]){
+                                                                      return `${g.viTriGhe}, `
+                                                                  }
+                                                                  else{
+                                                                  return `${g.viTriGhe}`
+                                                                  }
+                                                              })}
+                                                            </span>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -192,7 +198,7 @@ class Payment extends Component {
                                                 <div className="col-md-12">
                                                     <div className="st_cherity_section float_left">
                                                         <div className="st_cherity_img float_left">
-                                                            <img src={`https://image.tmdb.org/t/p/w780//${this.props.history.location.state.itemDetails.backdrop_path}`} alt="img" />
+                                                            <img src={`https://image.tmdb.org/t/p/w780///6zbKgwgaaCyyBXE4Sun4oWQfQmi.jpg`} alt="img" />
                                                         </div>
                                                         <div className="st_cherity_img_cont float_left">
                                                             <div className="box">
@@ -207,16 +213,16 @@ class Payment extends Component {
                                                                         <h3>SELECT TICKET TYPE</h3>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
-                                                                        <input type="radio" id="c202" name="loaiVe" value="30000" pattern="3DX - VANILLA" />
-                                                                        <label htmlFor="c202"><span>3DX - VANILLA - {this.props.history.location.state.tenrap} - </span> 30000 Per Ticket .</label>
+                                                                        <input type="radio" id="c202" name="loaiVe" value="0" pattern="T1 - 3DX - VANILLA" />
+                                                                        <label htmlFor="c202"><span>3DX - VANILLA - {tenHeThongRap} - </span>No additional charge.</label>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
-                                                                        <input type="radio" id="c2033" name="loaiVe" value=" 40000" pattern="3DX - MAX" />
-                                                                        <label htmlFor="c2033"><span>3DX - MAX - {this.props.history.location.state.tenrap} - </span> 40000 Per Ticket .</label>
+                                                                        <input type="radio" id="c2033" name="loaiVe" value=" 40000" pattern="T2 - 3DX - MAX" />
+                                                                        <label htmlFor="c2033"><span>3DX - MAX - {tenHeThongRap} - </span>Bonus 40000 Per Ticket .</label>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
-                                                                        <input type="radio" id="c203" name="loaiVe" value="50000" pattern="4DX - MAX" />
-                                                                        <label htmlFor="c203"><span>4DX - MAX - {this.props.history.location.state.tenrap} - </span> 50000 Per Ticket .</label>
+                                                                        <input type="radio" id="c203" name="loaiVe" value="50000" pattern="T3 - 4DX - MAX" />
+                                                                        <label htmlFor="c203"><span>4DX - MAX - {tenHeThongRap} - </span>Bonus 50000 Per Ticket .</label>
                                                                     </div>
                                                                 </p></div>
                                                         </div>
@@ -226,29 +232,32 @@ class Payment extends Component {
                                                     <div className="st_cherity_btn float_left">
                                                         <h3 className="navigation">NAVIGATION</h3>
                                                         <ul>
-                                                            <li><Map tenrap={this.props.history.location.state.tenrap} special={this.state.special} />
+                                                            <li><Map tenrap={"CGV"} special={this.state.special} />
                                                             </li>
-                                                            <li><Link onClick={() => this.props.history.push(`/details/movie/${this.props.history.location.state.itemDetails.id}`)} ><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
+                                                            <li><Link onClick={() => this.props.history.push(`/details/project/movie/${details.maPhim}`)} ><i className="flaticon-tickets" /> &nbsp;Box office Pickup </Link>
                                                             </li>
                                                             <li><button className={this.state.pay ? "special3" : "special2"} disabled={this.state.special === false} onClick={this.handleThem}>Proceed to Pay </button>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    {this.state.pay === true ? <CreditCard
+                                                    {this.state.pay === true ? <CreditCardProject
                                                         history={this.props}
-                                                        itemDetails={this.props.history.location.state.itemDetails}
-                                                        tenPhim={this.props.history.location.state.itemDetails.title}
-                                                        ngayChieu={this.props.history.location.state.timeset}
-                                                        gioChieu={this.props.history.location.state.items}
-                                                        listGhe={this.props.history.location.state.viTri}
-                                                        tenrap={this.props.history.location.state.tenrap}
-                                                        method={this.props.method} handleMethod={this.handleMethod}
+                                                        itemDetails={details}
+                                                        tenPhim={details.tenPhim}
+                                                        ngayChieu={ngayChieu}
+                                                        gioChieu={gioChieu}
+                                                        listGhe={daDat}
+                                                        maLichChieu={maLichChieu}
+                                                        tenrap={thongTinRap.tenCumRap}
+                                                        method={this.state.method} handleMethod={this.handleMethod}
                                                         type={this.state.type}
                                                         sum={sum}
+                                                        giaVe={giaVe}
                                                         promise={this.state.promise}
+                                                        giamGia={phanGiam}
                                                         pay={this.props.pay}
                                                         credit={this.state.credit}
-                                                        count={this.props.history.location.state.count} /> : ""}
+                                                        count={numberOfTicket} /> : ""}
                                                 </div>
                                             </div>
                                         </div>
@@ -262,28 +271,39 @@ class Payment extends Component {
                                                     </div>
                                                     <div className="st_dtts_sb_ul float_left">
                                                         <ul>
-                                                            <li>{this.props.history.location.state.tenrap} - {this.props.history.location.state.viTri.map((item, index) => {
+                                                            <li> {thongTinRap.tenCumRap} - {daDat.list.map((g,i)=>{
+                                                                  if(daDat.list[i+1]){
+                                                                      return `${g.viTriGhe}, `
+                                                                  }
+                                                                  else{
+                                                                  return `${g.viTriGhe}`
+                                                                  }
+                                                              })}
+                                                            {/* {this.props.history.location.state.viTri.map((item, index) => {
                                                                 while (index < this.props.history.location.state.viTri.length - 1) {
 
                                                                     return (item + ",")
                                                                 }
                                                                 if (index = this.props.history.location.state.viTri.length)
                                                                     return (item)
-                                                            })}
-                                                                <br />{this.props.history.location.state.count === 1 || this.props.history.location.state.count === 0 ? this.props.history.location.state.count + " Ticket" : this.props.history.location.state.count + " Tickets"} <br /> <span>{this.props.history.location.state.viTri.length * this.state.giaVe + " VNĐ"}</span>
+                                                            })} */}
+                                                                <br />{`${numberOfNormalTicket} ${numberOfNormalTicket > 1 ? "tickets" : "ticket"} - ${giaVe} each `} 
+                                                                <br /> <span>{giaVe*numberOfNormalTicket}</span>
+                                                                <br />{`${numberOfVipTicket} VIP ${numberOfVipTicket > 1 ? "tickets" : "ticket"} - ${giaVe *(50/100)} each `} 
+                                                                <br /> <span>{giaVe*(50/100)*numberOfVipTicket}</span>
                                                             </li>
                                                             <li>Other fees <span></span>
                                                             </li>
                                                         </ul>
-                                                        <p>Discount Code <span> <bold>-</bold> {this.state.phanGiam * this.props.history.location.state.viTri.length + " VNĐ"} </span>
+                                                        <p>Discount Code <span><bold>-</bold> {phanGiam} </span>
                                                         </p>
-                                                        <p>{this.state.type} <span>{this.state.choose * this.props.history.location.state.viTri.length + " VNĐ"}</span>
+                                                        <p>{this.state.type} <span>{`${numberOfTicket * this.state.choose} VNĐ`}</span>
                                                         </p>
                                                     </div>
                                                     <div className="st_dtts_sb_h2 float_left">
                                                         <h3>  Sub total <span> {other} VNĐ</span></h3>
                                                         <h4>Current City is <span>Ho Chi Minh</span></h4>
-                                                        <h5>Payable Amount <span>{sum}</span></h5>
+                                                        <h5>Payable Amount <span>{sum} VNĐ</span></h5>
                                                     </div>
                                                 </div>
                                             </div>

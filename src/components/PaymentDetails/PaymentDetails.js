@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { Component, Fragment } from 'react'
 import '../TicketBox/TicketBox.scss'
 import firestore from "../../firestore"
 import * as firebase from 'firebase'
-import Carousel2 from '../PaymentDetails/Carousel'
+import Carousel2 from './Carousel'
 const db = firebase.firestore();
 // data
 // var docRef = db.collection("payment").doc("PBKBDfjp018bL0HHb1Xp");
@@ -24,7 +25,7 @@ const db = firebase.firestore();
 // })
 
 
-export default class PayementDetails extends Component {
+export default class PaymentDetails extends Component {
     render() {
         return (
             <Fragment>

@@ -1,20 +1,22 @@
 import React, { useState, setShow } from 'react'
+import {useHistory} from 'react-router-dom'
 import { Modal } from 'react-bootstrap'
 import "../Modal/Modal.scss"
 import cookie from 'js-cookie'
 import TicketBox from '../TicketBox/TicketBox';
 export default function Example(props) {
+    let history = useHistory();
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [viTri, setViTri] = useState([])
     const handleClick = () => {
-        if (cookie.get('id') !== null) {
+        if (cookie.get('id')) {
             handleShow()
         }
         else
-            props.pass.history.push({ pathname: '/login', state: { redirect: true } })
+            history.push({ pathname: '/login'})
     }
     return (
         <>

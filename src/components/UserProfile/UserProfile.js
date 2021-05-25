@@ -12,12 +12,27 @@ import "../../../node_modules/react-multi-carousel/lib/styles.css"
 import toggleLogInStatus from '../../actions/authenticationActions/toggleLogInStatus';
 import getUserDetails from '../../actions/authenticationActions/getUserDetails';
 // import firebaseConfig from "../../firestore"
-import Tickets from './Tickets';
+import TicketsProject from './TicketsProject';
 import UserLogin from "../UserLogin/UserLogin"
+const api = cookie.get('api');   
 class UserProfile extends Component {
 
+constructor(props) {
+    super(props);
+    this.state={
+        veData:[]
+    }
+}
 
 
+async componentDidMount() {
+     const userId = cookie.get('id')
+    const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
+    const content = await data.json()
+    this.setState({
+        veData: content
+    })
+}
 
     logout = async () => {
         const removeArr = ["token", "id", "username", "avatar"]
@@ -28,6 +43,7 @@ class UserProfile extends Component {
         this.props.toggleLogInStatus({ status: false });
     };
     render() {
+        const {veData} = this.state
         // if (localStorage.getItem('uid') !== null) {
         //     let displayName = localStorage.getItem('displayName')
         //     let photo = localStorage.getItem('photo')
@@ -81,7 +97,7 @@ class UserProfile extends Component {
 
                             </div>
                             <div className="user-profile-container-main-content">
-                                <div className="user-profile-container-main-container">
+                                {/* <div className="user-profile-container-main-container">
                                     <header className="user-profile-container-main-container-header">
                                         <h3
                                             className="user-profile-container-main-container-header__title wow fadeIn"
@@ -97,7 +113,7 @@ class UserProfile extends Component {
                                         <hr className="user-profile-container-main-container-header__separator" />
                                     </header>
                                     <UserItem />
-                                </div>
+                                </div> */}
                                 <div className="user-profile-container-main-container">
                                     <header className="user-profile-container-main-container-header">
                                         <h3
@@ -113,7 +129,14 @@ class UserProfile extends Component {
         </h3>
                                         <hr className="user-profile-container-main-container-header__separator" />
                                     </header>
-                                    <Tickets />
+                                    {veData && veData.length > 0 ? veData.map(i=>{
+                                        return(
+                                    <TicketsProject maVe={i.maVe} />
+                                        )
+                                    }) 
+                                    : ( <h3 className="user-profile-container-main-container-item-warning">
+                                    No Ticket transactions found  :( </h3>)
+                                    }
                                 </div>
 
                             </div>

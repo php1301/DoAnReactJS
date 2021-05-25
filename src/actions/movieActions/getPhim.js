@@ -1,9 +1,10 @@
 import { GET_NOWPLAYING, GET_PHIM } from "../types"
 import Axios from "axios";
+import cookie from 'js-cookie'
 const getPhim = () => {
-    return dispatch => {
+    const api = cookie.get('api');    return dispatch => {
         Axios({
-            url: "http://localhost:3001/phim",
+            url: `${api || 'http://localhost:3001'}/phim`,
             method: "GET"
         })
             .then(result => {

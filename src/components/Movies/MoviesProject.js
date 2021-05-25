@@ -13,7 +13,7 @@ class Movies extends Component {
         return this.props.items && this.props.items.map((item, index) => {
             return (
                 <div className="main-content-container-item">
-                    <Link to={`/details/movie/${item.maPhim}`}><img src={item.hinhAnh} style={{ width: "127px", height: "190px" }} /> </Link>
+                    <Link to={`/details/project/movie/${item.maPhim}`}><img src={item.hinhAnh} style={{ width: "127px", height: "190px" }} /> </Link>
                     <h3 className="main-content-container-item__item-title">{item.tenPhim}</h3>
                     {/* <p className="main-content-container-item__genres">{this.handleGenres(item.genre_ids)}</p> */}
                     <p className="main-content-container-item__rating">{star} {item.danhGia.toFixed(1)} </p>
