@@ -91,7 +91,7 @@ progress: undefined,
       if(redirect)
       history.push({ pathname: redirect})
       else{
-        history.push('/login')
+        history.push('/')
       }
     }, 4000);
   }

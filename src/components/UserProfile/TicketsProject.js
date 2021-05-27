@@ -24,6 +24,7 @@ const Ticket = ({ maVe }) => {
     const [dataVe, setDataVe] = useState(null)
     const [phim, setPhim] = useState(null)
     const request = {
+        order: "maVe DESC",
         fields: {
           maVe: true,
           ngayDat: true,
