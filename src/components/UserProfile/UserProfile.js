@@ -25,14 +25,14 @@ constructor(props) {
 }
 
 
-async componentDidMount() {
-     const userId = cookie.get('id')
-    const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
-    const content = await data.json()
-    this.setState({
-        veData: content
-    })
-}
+// async componentDidMount() {
+//      const userId = cookie.get('id')
+//     const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
+//     const content = await data.json()
+//     this.setState({
+//         veData: content
+//     })
+// }
 
     logout = async () => {
         const removeArr = ["token", "id", "username", "avatar"]
@@ -48,7 +48,7 @@ async componentDidMount() {
         //     let displayName = localStorage.getItem('displayName')
         //     let photo = localStorage.getItem('photo')
         //     let uid = localStorage.getItem('uid')
-        if (cookie.get('id') !== null) {
+        if (cookie.get('id')) {
             let displayName = cookie.get('username')
             let photo = cookie.get('avatar')
             let uid = cookie.get('id')
