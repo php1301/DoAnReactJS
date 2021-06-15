@@ -25,14 +25,14 @@ constructor(props) {
 }
 
 
-// async componentDidMount() {
-//      const userId = cookie.get('id')
-//     const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
-//     const content = await data.json()
-//     this.setState({
-//         veData: content
-//     })
-// }
+async componentDidMount() {
+     const userId = cookie.get('id')
+    const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
+    const content = await data.json()
+    this.setState({
+        veData: content
+    })
+}
 
     logout = async () => {
         const removeArr = ["token", "id", "username", "avatar"]
