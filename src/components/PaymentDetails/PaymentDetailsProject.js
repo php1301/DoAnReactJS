@@ -152,7 +152,7 @@ const PaymentDetails = (props) => {
                                         <ul>
                                             <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/dioxittdn.phucprobb/">INVITE FRIENDS</a>
                                             </li>
-                                            <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/dioxittdn.phucprobb/">Locate Friend</a>
+                                            <li><a href="/">Homepage</a>
                                             </li>
                                         </ul>
                                     </div>
