@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import Avatar from '@material-ui/core/Avatar';
 import {toast} from 'react-toastify'
@@ -17,7 +17,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -40,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp({setChangeForm}) {
   const api = cookie.get('api');  let history = useHistory();
+  const dateRef = useRef(null);
   let location = useLocation();
   const redirect = location && location.search ? location.search.slice(10) : null
     const initialState = {
@@ -51,17 +51,24 @@ export default function SignUp({setChangeForm}) {
           password:"",
           soDT: "",
           username:"",
+          diaChi:"Khu phố 6 P. LInh Trung",
+          ngaySinh: new Date(),
       }
   };
     const [input, setInput] = useState(initialState)
   const classes = useStyles();
 const handleClick = async () =>{
+  const ngaySinh = new Date(dateRef.current.children[1].children[0].value)
   const request = {
     hoTen: input.person.firstName + " " + input.person.lastName,
     username: input.person.username,
     soDT: input.person.soDT,
     email: input.person.email,
     password: input.person.password,
+    diaChi: input.person.diaChi,
+    tongDiemTichLuy: 0,
+    diemTichLuy: 0,
+    ngaySinh,
   }
   try{
     const data = await fetch(`${api || 'http://localhost:3001'}/signup`,{
@@ -78,6 +85,7 @@ const handleClick = async () =>{
       cookie.set('avatar', user.avatar)
       cookie.set('id', user.id)
       cookie.set('token',  user.token)
+      cookie.set('email', user.email)
     toast.success("Đăng ký thành công bạn sẽ được chuyển hướng",{
       position: "top-right",
 autoClose: 5000,
@@ -129,7 +137,7 @@ const handleChange = (event)=> {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" color="primary">
           Sign up
         </Typography>
         <FormControl className={classes.form} noValidate>
@@ -174,6 +182,21 @@ const handleChange = (event)=> {
               />
             </Grid>
             <Grid item xs={12}>
+            <TextField
+          id="date"
+          label="Birthday"
+          type="date"
+          ref={dateRef}
+          defaultValue={input.person.ngaySinh}
+          // value={input.person.ngaySinh}
+          // onChange={(e)=>{handleChange(e)}}
+          className={classes.textField}
+          InputLabelProps={{
+          shrink: true,
+          }}
+            />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -182,6 +205,18 @@ const handleChange = (event)=> {
                 label="Số điện thoại"
                 name="soDT"
                 value={input.person.soDT}
+                onChange={(e)=>{handleChange(e)}}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="diaChi"
+                label="Địa chỉ"
+                name="diaChi"
+                value={input.person.diaChi}
                 onChange={(e)=>{handleChange(e)}}
               />
             </Grid>

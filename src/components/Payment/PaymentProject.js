@@ -26,6 +26,9 @@ class Payment extends Component {
             pay: false,
             credit: false,
             promise: false,
+            isBirthday: false,
+            points: 60,
+            pointsUsed: 0,
             method: ""
         }
     }
@@ -149,16 +152,85 @@ class Payment extends Component {
             })
         }
     }
+    handleUsePoints = (event) =>{
+        console.log(this.pointsText.value)
+        console.log(parseInt(this.pointsText.value))
+        const pointsEntered = parseInt(this.pointsText.value)
+        if(pointsEntered < 0 || isNaN(pointsEntered)) {
+            store.addNotification({
+                title: "Fail",
+                message: "Please enter points valid",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 5000,
+                    onScreen: false
+                }
+            })
+        }
+        else{
+            if(pointsEntered > this.state.points){
+                store.addNotification({
+                    title: "Fail",
+                    message: "Not enough points",
+                    type: "danger",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: false
+                    }
+                })
+            }
+            else{
+                store.addNotification({
+                    title: "Success",
+                    message: "Points applied",
+                    type: "success",
+                    insert: "top",
+                    container: "top-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 5000,
+                        onScreen: false
+                    }
+                })
+                this.setState((prev)=>({
+                    points: prev.points - pointsEntered,
+                    pointsUsed: prev.pointsUsed + pointsEntered
+                }))
+            }
+        }
+    }
+
+   async componentDidMount(){
+        const api = cookie.get('api');        
+        const userId = cookie.get('id')
+        const dataUser = await fetch(`${api || 'http://localhost:3001'}/user/${userId}/birthday-and-points`)
+        const contentUser = await dataUser.json()
+        this.setState({
+            points: contentUser.points,
+            isBirthday: contentUser.isBirthday
+        })
+    }
     render() {
-        if (cookie.get('id') !== null) {
+        if (cookie.get('id') && cookie.get('username') && cookie.get('email') ) {
+            const {points, pointsUsed, isBirthday} = this.state;
             const {daDat, details, thoiLuong, gioChieu, ngayChieu, thongTinRap, giaVe, maLichChieu} = this.props.history.location.state
             let numberOfTicket = daDat.list.length
             let numberOfNormalTicket = daDat.list.filter(i=>i.maLoaiGhe===1).length
             let numberOfVipTicket = numberOfTicket - numberOfNormalTicket
             let phanGiam = this.state.phanGiam !== 0 ? this.state.phanGiam * numberOfTicket : 0
             let special = this.state.choose * numberOfTicket
-            let other = -phanGiam + special
-            let sum = (numberOfNormalTicket * giaVe) + ((numberOfVipTicket * giaVe) /2) + other
+            let birthdayDiscount = isBirthday ? ((numberOfNormalTicket * giaVe) + ((numberOfVipTicket * giaVe) /2) + special)*10/100 : 0;
+            let other = -phanGiam + special -pointsUsed*10 - birthdayDiscount
+            let sum = (numberOfNormalTicket * giaVe) + ((numberOfVipTicket * giaVe) /2) + other > 0 ? (numberOfNormalTicket * giaVe) + ((numberOfVipTicket * giaVe) /2) + other : 0
             let tenHeThongRap = thongTinRap.tenCumRap.split(" ")[0]
             // console.log(this.props)
             return (
@@ -209,20 +281,27 @@ class Payment extends Component {
                                                                         <li><a onClick={this.handleCheck}><i className="flaticon-tickets" /> &nbsp;Check</a></li>
                                                                         <a></a>
                                                                     </div>
+                                                                    <input type="number" defaultValue={0} style={{ color: "black", width: "100%" }} type="textarea" id="c201" name="diemTichLuy" placeholder="Want to discount with Bonus Point? Enter here"  ref={el => this.pointsText = el} />
                                                                     <div className="st_cherity_btn float_left">
-                                                                        <h3>SELECT TICKET TYPE</h3>
+                                                                        <a></a>
+                                                                        <li><a onClick={this.handleUsePoints}><i className="flaticon-tickets" /> &nbsp;Evaluate</a></li>
+                                                                        <li><p style={{color:'black'}}>You will have: {points} points remain</p></li>
+                                                                        <a></a>
+                                                                    </div>
+                                                                    <div className="st_cherity_btn float_left">
+                                                                        <h3>SELECT EXTRA SERVICE</h3>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
                                                                         <input type="radio" id="c202" name="loaiVe" value="0" pattern="T1 - 3DX - VANILLA" />
-                                                                        <label htmlFor="c202"><span>3DX - VANILLA - {tenHeThongRap} - </span>No additional charge.</label>
+                                                                        <label htmlFor="c202"><span>VANILLA - NO SERVICES {tenHeThongRap} - </span>No additional charge.</label>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
                                                                         <input type="radio" id="c2033" name="loaiVe" value=" 40000" pattern="T2 - 3DX - MAX" />
-                                                                        <label htmlFor="c2033"><span>3DX - MAX - {tenHeThongRap} - </span>Bonus 40000 Per Ticket .</label>
+                                                                        <label htmlFor="c2033"><span>FREE REFILL ALL BEVERAGE {tenHeThongRap} - </span>Bonus 40000 Per Ticket .</label>
                                                                     </div>
                                                                     <div onChange={this.handleType.bind(this)}>
                                                                         <input type="radio" id="c203" name="loaiVe" value="50000" pattern="T3 - 4DX - MAX" />
-                                                                        <label htmlFor="c203"><span>4DX - MAX - {tenHeThongRap} - </span>Bonus 50000 Per Ticket .</label>
+                                                                        <label htmlFor="c203"><span>ADD CHEESE FLAVORS TO ALL POPCORN BAGS {tenHeThongRap} - </span>Bonus 50000 Per Ticket .</label>
                                                                     </div>
                                                                 </p></div>
                                                         </div>
@@ -246,6 +325,8 @@ class Payment extends Component {
                                                         tenPhim={details.tenPhim}
                                                         ngayChieu={ngayChieu}
                                                         gioChieu={gioChieu}
+                                                        pointsUsed={pointsUsed}
+                                                        isBirthday={isBirthday}
                                                         listGhe={daDat}
                                                         maLichChieu={maLichChieu}
                                                         tenrap={thongTinRap.tenCumRap}
@@ -299,12 +380,22 @@ class Payment extends Component {
                                                         </p>
                                                         <p>{this.state.type} <span>{`${numberOfTicket * this.state.choose} VNĐ`}</span>
                                                         </p>
+                                                        <p>Points applied <span>{`${pointsUsed * 10} VNĐ`}</span>
+                                                        </p>
+                                                        {isBirthday && (
+                                                             <p>Birthday 10% discount <span>{`${birthdayDiscount} VNĐ`}</span>
+                                                             </p>
+                                                            )
+                                                        }
                                                     </div>
                                                     <div className="st_dtts_sb_h2 float_left">
                                                         <h3>  Sub total <span> {other} VNĐ</span></h3>
                                                         <h4>Current City is <span>Ho Chi Minh</span></h4>
                                                         <h5>Payable Amount <span>{sum} VNĐ</span></h5>
                                                     </div>
+                                                    {isBirthday &&(<div style={{backgroundColor:'green'}} className="st_dtts_bs_heading float_left">
+                                                        <p>IT'S YOUR BIRTHDAY MONTH - 10% DISCOUNT ON TOTAL SEAT PRICE</p>
+                                                    </div>)}
                                                 </div>
                                             </div>
                                         </div>

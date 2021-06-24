@@ -38,6 +38,7 @@ const PaymentDetails = (props) => {
           loaiVe: true,
           hinhAnh: true,
           taiKhoan: true,
+          khuyenMai: true,
         },
         include: [
           {
@@ -70,12 +71,12 @@ const PaymentDetails = (props) => {
                       },
                     ],
                   },
-                },{
-                    relation: "ghedadat"
                 }
               ],
             },
-          },
+          },{
+              relation:'veDatVeGhe'
+          }
         ],
       };
       
@@ -106,6 +107,7 @@ const PaymentDetails = (props) => {
                                     <div className="st_bcc_ticket_boxes_wrapper float_left">
                                         <div className="st_bcc_tecket_top_hesder float_left">
                                             <p>Your Booking is Confirmed!</p>	<span>Booking ID {maVe} </span>
+                                            <span>{` ${dataVe.khuyenMai}`}</span>
                                         </div>
                                         <div className="st_bcc_tecket_bottom_hesder float_left">
                                             <div className="st_bcc_tecket_bottom_left_wrapper">
@@ -125,9 +127,9 @@ const PaymentDetails = (props) => {
                                                     </div>
                                                 </div>
                                                 <div className="st_bcc_tecket_bottom_inner_right">
-                                                    <h3>{dataVe.veLichChieu.ghedadat.length > 1 ? dataVe.veLichChieu.ghedadat.length  + " TICKETS" : dataVe.veLichChieu.ghedadat.length  + " TICKET"} <br />
-                                                        <span>{dataVe.veLichChieu.lichChieuRap.tenRap} - {dataVe.veLichChieu.ghedadat.map((item, index) => {
-                                                            if (dataVe.veLichChieu.ghedadat[index+1])
+                                                    <h3>{dataVe.veDatVeGhe.length > 1 ? dataVe.veDatVeGhe.length  + " TICKETS" : dataVe.veDatVeGhe.length  + " TICKET"} <br />
+                                                        <span>{dataVe.veLichChieu.lichChieuRap.tenRap} - {dataVe.veDatVeGhe.map((item, index) => {
+                                                            if (dataVe.veDatVeGhe[index+1])
                                                                 return item.tenGhe + ", "
                                                             else
                                                                 return item.tenGhe
@@ -144,16 +146,16 @@ const PaymentDetails = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* <div className="st_bcc_ticket_boxes_bottom_wrapper float_left">
+                                    <div className="st_bcc_ticket_boxes_bottom_wrapper float_left">
                                         <p>You can access your ticket from your Profile. We will send you
-              <br />an e-Mail/SMS Confirmation with in 15 Minutes.</p>
+              <br />an e-Mail/SMS Confirmation within 5 Minutes.</p>
                                         <ul>
-                                            <li><a href="#">INVITE FRIENDS</a>
+                                            <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/dioxittdn.phucprobb/">INVITE FRIENDS</a>
                                             </li>
-                                            <li><a href="#">Locate Friend</a>
+                                            <li><a target="_blank" rel="noreferrer" href="https://www.facebook.com/dioxittdn.phucprobb/">Locate Friend</a>
                                             </li>
                                         </ul>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>

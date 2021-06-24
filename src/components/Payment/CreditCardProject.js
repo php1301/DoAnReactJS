@@ -64,9 +64,16 @@ class CreditCard extends Component {
   }
   handleDatVe = async (data) => {
     const api = cookie.get('api');    try{
+        let stringViTriGhe = ''
         const gheToPush = []
-        data.listGhe.list.map(i=>{
-            gheToPush.push({maGhe: i.maGhe})
+        data.listGhe.list.map((g, i)=>{
+            gheToPush.push({maGhe: g.maGhe})
+            if(data.listGhe.list[i+1]){
+              stringViTriGhe += `${g.viTriGhe}, `
+            }
+            else{
+              stringViTriGhe += `${g.viTriGhe}`
+            }            
         })
         const request = {
             giaVe: this.props.giaVe,
@@ -75,6 +82,8 @@ class CreditCard extends Component {
             giamGia: this.props.giamGia,
             ghe: gheToPush,
             hinhAnh: data.photo,
+            diemTichLuySuDung: this.props.pointsUsed,
+            khuyenMai: this.props.giamGia > 0 ? `Mã giảm giả coupon NOEL giảm ${this.props.giamGia} - ` : '',
             maLichChieu: this.props.maLichChieu,
         }
         const datVeContent = await fetch(`${api || 'http://localhost:3001'}/dat-ve`,{
@@ -86,20 +95,48 @@ class CreditCard extends Component {
             body: JSON.stringify(request),
         })
         const datVeData = await datVeContent.json()
-        console.log(datVeData)
+        if(datVeData.message){
+          throw Error(datVeData.message)
+        }
+        const emailRequest = {
+            authorEmail: cookie.get('email'),
+            authorName: cookie.get('username'),
+            customerName: cookie.get('username'),
+            tongTien:  this.props.sum,
+            viTriGhe: stringViTriGhe,
+            linkHoaDon: `${process.env.baseReceipt || 'http://localhost:3000/details/project/movie'}/${this.props.itemDetails.maPhim}/payment/${datVeData.ve.maVe}`,
+            tenPhim: this.props.tenPhim,
+            ngayChieuGioChieu: this.props.ngayChieu + " - " + this.props.gioChieu,
+            tenRap: this.props.tenrap,
+        }
+        console.log(emailRequest)
+         await fetch(`${api || 'http://localhost:3001'}/gui-email-hoa-don`,{
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(emailRequest),
+      })        
+      if(datVeData.upgradeMessage.length > 0){
+        toast.success(datVeData.upgradeMessage)
+      }
+      setTimeout(() => {
         this.props.history.replace({
-            pathname: `/details/project/movie/${this.props.itemDetails.maPhim}/payment/${datVeData.ve.maVe}`,
-            state: {
-            maLichChieu: datVeData.maLichChieu,
-            listGhe: datVeData.ghe,
-            type: datVeData.ve.type,
-            sum: datVeData.ve.giaVe,
-            maVe: datVeData.ve.maVe
-          }
-        })
+          pathname: `/details/project/movie/${this.props.itemDetails.maPhim}/payment/${datVeData.ve.maVe}`,
+          state: {
+          maLichChieu: datVeData.maLichChieu,
+          listGhe: datVeData.ghe,
+          type: datVeData.ve.type,
+          sum: datVeData.ve.giaVe,
+          maVe: datVeData.ve.maVe
+        }
+      })
+      }, 5000);
+      
     }
     catch(e){
-        console.log(e)
+        console.log(e.message)
         toast.error('Đặt vé không thành công')
     }
    

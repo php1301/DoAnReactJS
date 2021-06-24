@@ -7,7 +7,7 @@ import "../Modal/Modal.scss"
 import cookie from 'js-cookie'
 import TicketBoxProject from '../TicketBox/TicketBoxProject';
 export default function Example(props) {
-    const {maRap, maLichChieu, details, thoiLuong, ngayChieu, gioChieu, giaVe} = props
+    const {maRap, maLichChieu, details, thoiLuong, ngayChieu, gioChieu, giaVe, genres} = props
     const api = cookie.get('api');    let history = useHistory();
     let location = useLocation()
     const [show, setShow] = useState(false);
@@ -61,7 +61,7 @@ export default function Example(props) {
             }
             catch(e){
                 console.log(e)
-                    toast.error("Có lỗi xay ra",{
+                    toast.error("Có lỗi xảy ra",{
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -97,6 +97,7 @@ export default function Example(props) {
                 thoiLuong={thoiLuong} 
                 details={details} 
                 seatData={seatData} 
+                genres={genres}
                 gheDaDat={gheDaDat}/>
             </Modal>
         </>

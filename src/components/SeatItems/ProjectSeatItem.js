@@ -5,11 +5,13 @@ import React, {useState} from 'react'
 export default function ProjectSeatItem({ maGhe, indexGhe, tenGhe, viTriGhe, daDat, setDat, maLoaiGhe }) {
     const [status, setStatus] = useState(indexGhe === -1)
     const handleClick = () =>{
+        console.log(indexGhe)
+        console.log(status)
         if(indexGhe === -1 && status){
             const data = {
                 maGhe,
                 maLoaiGhe,
-                viTriGhe: maLoaiGhe === 2 ? viTriGhe + "V" : viTriGhe,
+                viTriGhe: maLoaiGhe === 2 ? viTriGhe + 'V' : viTriGhe,
             }
         setDat((prev)=>({
             ...prev, list: [...prev.list, data]
@@ -17,7 +19,7 @@ export default function ProjectSeatItem({ maGhe, indexGhe, tenGhe, viTriGhe, daD
         setStatus(!status)
         }
         if(indexGhe === -1 && !status){
-            const arr = daDat.list.filter(d=>d.viTriGhe!==viTriGhe)
+            const arr = daDat.list.filter(d=> maLoaiGhe===1 ? d.viTriGhe!==viTriGhe : d.viTriGhe!==viTriGhe+'V')
             setDat((prev)=>({
                 ...prev, list: arr
             }))

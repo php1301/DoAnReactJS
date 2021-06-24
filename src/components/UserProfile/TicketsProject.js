@@ -24,55 +24,57 @@ const Ticket = ({ maVe }) => {
     const [dataVe, setDataVe] = useState(null)
     const [phim, setPhim] = useState(null)
     const request = {
-        order: "maVe DESC",
-        fields: {
-          maVe: true,
-          ngayDat: true,
-          giaVe: true,
-          maLichChieu: true,
-          loaiVe: true,
-          hinhAnh: true,
-          taiKhoan: true,
-        },
-        include: [
-          {
-            relation: 'veLichChieu',
-            scope: {
-              fields: {
-                maLichChieu: true,
-                ngayChieuGioChieu: true,
-                maPhim: true,
-                maRap: true,
-              },
-              include: [
-                {
-                  relation: 'lichChieuRap',
-                  scope: {
-                    fields: {
-                      maRap: true,
-                      tenRap: true,
-                      maCumRap: true,
-                    },
-                    include: [
-                      {
-                        relation: 'rap_cumRap',
-                        scope: {
-                          fields: {
-                            maCumRap: true,
-                            tenCumRap: true,
-                          },
+      order: "maVe DESC",
+      fields: {
+        maVe: true,
+        ngayDat: true,
+        giaVe: true,
+        maLichChieu: true,
+        loaiVe: true,
+        hinhAnh: true,
+        taiKhoan: true,
+        khuyenMai: true,
+      },
+      include: [
+        {
+          relation: 'veLichChieu',
+          scope: {
+            fields: {
+              maLichChieu: true,
+              ngayChieuGioChieu: true,
+              maPhim: true,
+              maRap: true,
+            },
+            include: [
+              {
+                relation: 'lichChieuRap',
+                scope: {
+                  fields: {
+                    maRap: true,
+                    tenRap: true,
+                    maCumRap: true,
+                  },
+                  include: [
+                    {
+                      relation: 'rap_cumRap',
+                      scope: {
+                        fields: {
+                          maCumRap: true,
+                          tenCumRap: true,
                         },
                       },
-                    ],
-                  },
-                },{
-                    relation: "ghedadat"
-                }
-              ],
-            },
+                    },
+                  ],
+                },
+              }
+            ],
           },
-        ],
-      };
+        },{
+            relation:'veDatVeGhe'
+        }
+      ],
+    };
+    
       
       const api = cookie.get('api');    
     useEffect(async ()=>{
@@ -100,6 +102,7 @@ const Ticket = ({ maVe }) => {
                                     <div className="st_bcc_ticket_boxes_wrapper float_left">
                                         <div className="st_bcc_tecket_top_hesder float_left">
                                             <p>Your Booking is Confirmed!</p>	<span>Booking ID {maVe} </span>
+                                            <span>{` ${dataVe.khuyenMai}`}</span>
                                         </div>
                                         <div className="st_bcc_tecket_bottom_hesder float_left">
                                             <div className="st_bcc_tecket_bottom_left_wrapper">
@@ -119,9 +122,9 @@ const Ticket = ({ maVe }) => {
                                                     </div>
                                                 </div>
                                                 <div className="st_bcc_tecket_bottom_inner_right">
-                                                    <h3>{dataVe.veLichChieu.ghedadat.length > 1 ? dataVe.veLichChieu.ghedadat.length  + " TICKETS" : dataVe.veLichChieu.ghedadat.length  + " TICKET"} <br />
-                                                        <span>{dataVe.veLichChieu.lichChieuRap.tenRap} - {dataVe.veLichChieu.ghedadat.map((item, index) => {
-                                                            if (dataVe.veLichChieu.ghedadat[index+1])
+                                                    <h3>{dataVe.veDatVeGhe.length > 1 ? dataVe.veDatVeGhe.length  + " TICKETS" : dataVe.veDatVeGhe.length  + " TICKET"} <br />
+                                                        <span>{dataVe.veLichChieu.lichChieuRap.tenRap} - {dataVe.veDatVeGhe.map((item, index) => {
+                                                            if (dataVe.veDatVeGhe[index+1])
                                                                 return item.tenGhe + ", "
                                                             else
                                                                 return item.tenGhe

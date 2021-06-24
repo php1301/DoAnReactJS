@@ -40,6 +40,7 @@ class ScheduleDetails extends Component {
         }
     }
     renderDetailsSchedule = () => {
+        console.log("run")
         const ngayChieu = [...new Set(this.props.lichChieu.map(i=>this.renderTimeset(i.ngayChieuGioChieu)))]
         const scheduleMerge = []
         ngayChieu.length > 0 && ngayChieu.map(i=>{
@@ -106,7 +107,7 @@ class ScheduleDetails extends Component {
                                     {/* <Time pass={this.props.pass} rap1={rap1} tenrap={tenrap1} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} /> */}
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                     {item.cgv.sort((a, b)=> new Date(`1/1/1999 ${a.gioChieu}:00`) - new Date(`1/1/1999 ${b.gioChieu}:00`)).map(v=>{
-                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} />
+                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} genres={this.props.genres}/>
                                 })}
                                     
                                 </ul>
@@ -117,9 +118,9 @@ class ScheduleDetails extends Component {
                                     {/* <Time pass={this.props.pass} rap2={rap2} tenrap={tenrap2} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} /> */}
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                     {item.bhd.sort((a, b)=> new Date(`1/1/1999 ${a.gioChieu}:00`) - new Date(`1/1/1999 ${b.gioChieu}:00`)).map(v=>{
-                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} />
+                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} genres={this.props.genres} />
                                     })}
-                                </ul>
+                                </ul>genres={this.props.genres}
                                 <ul>
                                     {/* <h3>{tenrap3}<img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cgv.png"></img></h3> */}
                                     <img className="iconConnect" src="https://123phim.vn/app/assets/img/icons/cinestar.png"></img>
@@ -128,7 +129,7 @@ class ScheduleDetails extends Component {
                                     {/* <Time pass={this.props.pass} rap3={rap3} tenrap={tenrap3} seats={this.props.seats} timeset={timeset1} id={item.maPhim} itemDetails={this.props.itemDetails} /> */}
                                     {/* <li className="omb-sold-out"><span>Sold Out</span>11:30 pm</li> */}
                                     {item.cinestar.sort((a, b)=> new Date(`1/1/1999 ${a.gioChieu}:00`) - new Date(`1/1/1999 ${b.gioChieu}:00`)).map(v=>{
-                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} />
+                                    return <Example giaVe={v.giaVe} ngayChieu={item.ngayChieu} thoiLuong={v.thoiLuong} details={this.props.itemDetails} maRap={v.maRap} maLichChieu={v.maLichChieu} gioChieu={v.gioChieu} genres={this.props.genres} />
                                 })}
                                 </ul>
                             </div>
@@ -169,7 +170,7 @@ class ScheduleDetails extends Component {
                                         <div className="omb-note">Note: click on the desired hour from your favourite cinema / theater to book the movie!</div>
                                     </div>
                                     <div>
-                                        {this.renderDetailsSchedule()}
+                                        {this.props.lichChieu.length > 0 ? this.renderDetailsSchedule() : (<h2>Chưa có lịch chiếu :( </h2>)}
                                     </div>
                                 </div>
                             </div>

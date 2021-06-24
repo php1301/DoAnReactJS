@@ -27,7 +27,8 @@ class DetailMovies extends Component {
         this.state = {
             toggle: true,
             details: {},
-            lichChieu: []
+            lichChieu: [],
+            theLoai: []
         }
     }
 
@@ -56,11 +57,14 @@ class DetailMovies extends Component {
         const data = await fetch(`${api || 'http://localhost:3001'}/phim/${projectId}`)
         const content = await data.json();
         // const dataLichChieu = await fetch(`http://[::1]:3001/phims/${projectId}/lich-chieus`)
-        const dataLichChieu = await fetch(`${api || 'http://localhost:3001'}/phims/30/lich-chieus`)
+        const dataLichChieu = await fetch(`${api || 'http://localhost:3001'}/phims/${projectId}/lich-chieus`)
         const contentLichChieu = await dataLichChieu.json()
+        const dataTheLoai = await fetch(`${api || 'http://localhost:3001'}/phims/${projectId}/the-loais`)
+        const contentTheLoai = await dataTheLoai.json()
         this.setState({
             details: content,
             lichChieu: contentLichChieu,
+            theLoai: contentTheLoai,
         })
     }
     async componentDidMount() {
@@ -74,14 +78,22 @@ class DetailMovies extends Component {
 
         this.props.onSaveReviews(id)
         this.props.onSaveTrailers(id)
-        this.props.onSaveSeats(16016) // do xài 2 nguồn api nên không sync được id để truyền id vô lấy mã lịch chiếu được, nên cho đại 1 mã lịch chiếu -> đã nhận ra sự bất cập này và rút exp
+        // this.props.onSaveSeats(16016) // do xài 2 nguồn api nên không sync được id để truyền id vô lấy mã lịch chiếu được, nên cho đại 1 mã lịch chiếu -> đã nhận ra sự bất cập này và rút exp
     }
     render() {
-        let { details } = this.state
+        let { details, theLoai } = this.state
         let { reviews } = this.props
+        let genres = '';
         console.log(details)
         // let genres = details.genres ? `${details.genres[0] ? details.genres[0].name : ''}` + `${details.genres[1] ? ' | ' + details.genres[1].name : ''}` : ''
-        let genres = 'ACTION | COMEDY'
+        theLoai.forEach((tl, i)=>{
+            if(theLoai[i+1]){
+                genres+=tl.tenTheLoai.toUpperCase() + ' | '
+            }
+            else{
+                genres+=tl.tenTheLoai.toUpperCase()
+            }
+        })
         return ( details.maPhim ? (<div>
                 <Loader />
                 <ToastContainer />
@@ -193,7 +205,7 @@ class DetailMovies extends Component {
                             <h2 className="item-details-main-cast__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Cast</h2>
                             <PeopleCarousel people={this.props.movieCredits.cast ? this.props.movieCredits.cast : ''} />
                         </div>
-                        {this.props.trailers && this.props.trailers.length > 2 ? <Trailers trailers={this.props.trailers} /> : (<div className="item-details-main-reviews-container">
+                        {details.trailer ? <Trailers check={2} trailers={details.trailer} /> : (<div className="item-details-main-reviews-container">
                             <p className="item-details-main-reviews-container__error">No Trailers found :(</p>
                         </div>)}
                         <div className="item-details-main-reviews">
@@ -218,7 +230,7 @@ class DetailMovies extends Component {
                         <div className="item-details-main-reviews">
                             <h2 className="item-details-main-reviews__title wow fadeInLeft" data-wow-delay=".2s" data-wow-duration="1s">Showing</h2>
                             <div class="row">
-                                <ProjectScheduleDetails lichChieu={this.state.lichChieu} pass={this.props} seats={this.props.seats} itemDetails={details} />
+                                <ProjectScheduleDetails genres={genres} lichChieu={this.state.lichChieu} pass={this.props} seats={this.props.seats} itemDetails={details} />
                             </div>
                         </div>
                     </main>

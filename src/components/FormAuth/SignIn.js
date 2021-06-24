@@ -72,6 +72,7 @@ const handleClick = async () =>{
       cookie.set('avatar', user.avatar)
       cookie.set('id', user.id)
       cookie.set('token',  user.token)
+      cookie.set('email', user.email)
     toast.success("Đăng nhập thành công bạn sẽ được chuyển hướng",{
       position: "top-right",
 autoClose: 5000,

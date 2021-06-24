@@ -20,7 +20,8 @@ class UserProfile extends Component {
 constructor(props) {
     super(props);
     this.state={
-        veData:[]
+        veData:[],
+        userData:{}
     }
 }
 
@@ -28,14 +29,32 @@ constructor(props) {
 async componentDidMount() {
      const userId = cookie.get('id')
     const data = await fetch(`${api || 'http://localhost:3001'}/users/${userId}/ves`)
-    const content = await data.json()
+    const userData = await fetch(`${api || 'http://localhost:3001'}/user/${userId}`)
+    const content = await data.json();
+    const user = await userData.json();
     this.setState({
-        veData: content
+        veData: content,
+        user
     })
 }
-
+    handleLoaiNguoiDung(maLoai){
+        switch (maLoai) {
+            case 2:
+                return 'Bình Thường'        
+            case 3:
+                return 'Thân Thiết'        
+            case 4:
+                return 'Bạc'        
+            case 5:
+                return 'Vàng'        
+            case 6:
+                return 'Kim Cương'        
+            default:
+                break;
+        }
+    }
     logout = async () => {
-        const removeArr = ["token", "id", "username", "avatar"]
+        const removeArr = ["token", "id", "username", "avatar", "email"]
         removeArr.map(i=>{
             cookie.remove(i)
         })
@@ -43,17 +62,18 @@ async componentDidMount() {
         this.props.toggleLogInStatus({ status: false });
     };
     render() {
-        const {veData} = this.state
+        const {veData, user} = this.state
+        console.log(user)
         // if (localStorage.getItem('uid') !== null) {
         //     let displayName = localStorage.getItem('displayName')
         //     let photo = localStorage.getItem('photo')
         //     let uid = localStorage.getItem('uid')
-        if (cookie.get('id')) {
+        if (cookie.get('id') && cookie.get('username') && cookie.get('email')) {
             let displayName = cookie.get('username')
             let photo = cookie.get('avatar')
             let uid = cookie.get('id')
             return (
-                < div className="user-profile" >
+                user ? (< div className="user-profile" >
                     <MainNav />
                     <div className="user-profile-container">
                         <aside className="user-profile-container-aside">
@@ -63,6 +83,8 @@ async componentDidMount() {
                                     <div className="user-profile-container-aside-nav-profile-info">
                                         <h2 className="user-profile-container-aside-nav-profile-info__user-name">Welcome</h2>
                                         <p className="user-profile-container-aside-nav-profile-info__user-type">{displayName}</p>
+                                        <p className="user-profile-container-aside-nav-profile-info__user-type">Điểm tích lũy hiện có: {user.diemTichLuy}</p>
+                                        <p className="user-profile-container-aside-nav-profile-info__user-type">Bạn là thành viên {this.handleLoaiNguoiDung(user.maLoaiNguoiDung)}</p>
                                     </div>
                                 </div>
 
@@ -143,7 +165,7 @@ async componentDidMount() {
                         </main>
                     </div>
                     {this.props.logInStatus === false ? "" : <Loader />}
-                </div >
+                </div >):(<div>Loading</div>)
             )
         }
         else {

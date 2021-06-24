@@ -8,7 +8,7 @@ import TicketBooking from './TicketBooking';
 import ProjectSeatItem from '../SeatItems/ProjectSeatItem';
 export default function TicketBox(props) {
     let history = useHistory()
-    const {seatData, gheDaDat, details, thoiLuong, gioChieu, ngayChieu, thongTinRap, giaVe, maLichChieu, loading} = props
+    const {seatData, gheDaDat, details, thoiLuong, gioChieu, ngayChieu, thongTinRap, giaVe, maLichChieu, loading, genres} = props
     const [daDat, setDat] = useState({list:[]})
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -69,6 +69,7 @@ export default function TicketBox(props) {
         <h6 className="title">{details.tenPhim}</h6>
         <span className="type">
         <a href="http://demo.aa-team.com/tf/omb/genre/drama/" rel="tag">{`${thongTinRap.tenCumRap} - ${thongTinRap.tenRap}`}</a>,
+        <a rel="tag">{genres}</a>
         {/* {props.itemDetails.genres.map((item, index) => {
             if (index + 1 < props.itemDetails.genres.length)
                 return <a rel="tag">{item.name + ", "}</a>
