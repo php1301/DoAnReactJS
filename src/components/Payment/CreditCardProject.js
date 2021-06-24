@@ -104,7 +104,7 @@ class CreditCard extends Component {
             customerName: cookie.get('username'),
             tongTien:  this.props.sum,
             viTriGhe: stringViTriGhe,
-            linkHoaDon: `${process.env.baseReceipt || 'http://localhost:3000/details/project/movie'}/${this.props.itemDetails.maPhim}/payment/${datVeData.ve.maVe}`,
+            linkHoaDon: `https://do-an-react-js.vercel.app/details/project/movie/${this.props.itemDetails.maPhim}/payment/${datVeData.ve.maVe}`,
             tenPhim: this.props.tenPhim,
             ngayChieuGioChieu: this.props.ngayChieu + " - " + this.props.gioChieu,
             tenRap: this.props.tenrap,
