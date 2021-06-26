@@ -24,8 +24,7 @@ class ScheduleDetails extends Component {
     }
 
     renderTimeset = (num) => {
-        const date = new Date(num)
-        const res = date.toISOString().substring(0, 10)
+        const res = num.substring(0, 10)
         return res
     }
     renderRap = (id) => {
