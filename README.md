@@ -1,5 +1,5 @@
 # ĐỒ ÁN REACTJS - MOVIE TICKET BOOKING WEBSITE
-
+## There is also a branch for mysql project at school
 ___
 
 ---
