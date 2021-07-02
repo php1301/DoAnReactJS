@@ -23,7 +23,10 @@ export default function Example(props) {
         if (cookie.get('id')) {
             try{
                 handleShow()
-                const dataGheCuaRap = await fetch(`${api || 'http://localhost:3001'}/lay-ghe-cua-rap/${maRap}`)
+                const requestDanhSachGhe = {
+                    order: "stt ASC",
+                }
+                const dataGheCuaRap = await fetch(`${api || 'http://localhost:3001'}/lay-ghe-cua-rap/${maRap}?filter=${JSON.stringify(requestDanhSachGhe)}`)
                 const contentGheCuaRap = await dataGheCuaRap.json()
                 setSeatData(contentGheCuaRap);
                 const requestGheDaDat = {
