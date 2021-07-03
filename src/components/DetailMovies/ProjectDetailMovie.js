@@ -57,7 +57,14 @@ class DetailMovies extends Component {
         const data = await fetch(`${api || 'http://localhost:3001'}/phim/${projectId}`)
         const content = await data.json();
         // const dataLichChieu = await fetch(`http://[::1]:3001/phims/${projectId}/lich-chieus`)
-        const dataLichChieu = await fetch(`${api || 'http://localhost:3001'}/phims/${projectId}/lich-chieus`)
+        const filterLichChieu = {
+            where: {
+                ngayChieuGioChieu: {
+                    gt: Date()
+                }
+            }
+        }
+        const dataLichChieu = await fetch(`${api || 'http://localhost:3001'}/phims/${projectId}/lich-chieus?filter=${JSON.stringify(filterLichChieu)}`)
         const contentLichChieu = await dataLichChieu.json()
         const dataTheLoai = await fetch(`${api || 'http://localhost:3001'}/phims/${projectId}/the-loais`)
         const contentTheLoai = await dataTheLoai.json()
