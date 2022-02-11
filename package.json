@@ -22,7 +22,7 @@
     "magnific-popup": "^1.1.0",
     "material-auto-rotating-carousel": "^3.0.2",
     "mobile-detect": "^1.4.4",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "oboe": "^2.1.5",
     "payform": "^1.4.0",
     "payment": "^2.3.0",
