@@ -32,7 +32,7 @@
     "react-dom": "^16.10.2",
     "react-fps-stats": "^0.1.2",
     "react-html-parser": "^2.0.2",
-    "react-icofont": "^1.0.13",
+    "react-icofont": "^1.0.19",
     "react-image": "^2.2.2",
     "react-lazyload": "^2.6.5",
     "react-magnific-popup": "^1.0.1",
